@@ -1,0 +1,202 @@
+/* Scrollbar - currently hidden */
+::-webkit-scrollbar {
+  width: 2px;
+  display: none;
+}
+::-webkit-scrollbar-track { background-color: #fafafa; }
+::-webkit-scrollbar-thumb { background-color: #000; }
+
+/* force a scrollbar on Linux and Windows to prevent jumping when changing tabs */
+html.os-linux,
+html.os-win32 {
+	overflow-y: scroll !important;
+}
+
+/* Make the navbar the windows's draggable region */
+#react-root ._onabe._kjy2s {
+	-webkit-app-region: drag;
+	display: block;
+	height: 100%;
+}
+
+.logged-in #react-root main._1wptv {
+  margin-left: 80px;
+}
+
+.logged-in main {
+}
+
+/* Add sidebar */
+#react-root ._onabe._kjy2s {
+  background-color: #fafafa;
+  position: fixed;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  border-right: 1px solid rgba(0,0,0,.08);
+}
+
+
+/* Hide 'Open in app' popup */
+._28zbs._nqfwp {
+  display: none;
+}
+
+/* Hide footer */
+footer._oofbn {
+  display: none;
+}
+
+/* Reset topbar and move to vertical menu on the left */
+#react-root ._hykpq>div,
+#react-root ._hykpq,
+#react-root ._bfc7q,
+#react-root ._j4mb5 {
+  height: 100%;
+  width: 100%;
+}
+#react-root ._bfc7q {
+  position: absolute;
+  border: none;
+}
+
+/* Icons list */
+#react-root ._n7q2c {
+	-webkit-app-region: drag;
+  margin-top: 80px;
+  flex-direction: column;
+}
+/* Icon Item */
+#react-root ._r1svv {
+  width: 100%;
+  height: 40px;
+  margin: 20px 0;
+}
+
+
+/* Back Button */
+.back-btn {
+  position: fixed;
+  width: 78px;
+  left: 0px;
+  top: 35px;
+  border-top: 1px solid rgba(0, 0, 0, 0.0784314);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0784314);
+  padding: 15px 0;
+}
+
+.back-btn a {
+  width: 24px;
+  height: 18px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.back-btn.inactive a { cursor: default; }
+
+.back-btn svg { fill: #000; }
+.back-btn.inactive svg { fill: rgba(0, 0, 0, 0.0784314);  }
+
+
+/**
+ * Login Screen
+ */
+
+.not-logged-in body {
+  overflow: hidden;
+}
+
+/* Hide mobile banners */
+#react-root ._okmo7,
+#react-root ._m8ogu {
+  display: none;
+}
+
+/* Sign in text */
+#react-root ._9qbcz {
+  display: none;
+}
+
+/* Hide sign in form elements */
+#react-root ._r48rb,
+#react-root ._rpioj,
+#react-root ._djahe {
+  display: none;
+}
+
+/* Hide sign-up button */
+#react-root ._3bqd5 div:last-of-type,
+#react-root ._3bqd5 ._nvyyp:last-of-type {
+  display: none;
+}
+
+/* Center login */
+#react-root ._p8ymb {
+  max-width: 350px;
+  justify-content: center;
+  margin: 0!important;
+  height: 100vh;
+}
+
+/* Hide forgot password link */
+#react-root ._j4ox0 {
+  display: none;
+}
+
+/* Logo Login */
+._du7bh {
+  margin: 0 auto 10px;
+}
+
+/* Remove margin from login box */
+#react-root ._60k3m {
+  margin-top: 0;
+}
+
+/* Facebook BTN */
+#react-root ._56wku {
+  margin: 0;
+}
+
+/* Login Button */
+#react-root ._dyp7q {
+  margin: 0;
+  /* Hide text node */
+  visibility: hidden;
+}
+
+/* Login / Go back */
+#react-root ._fcn8k {
+  visibility: visible;
+}
+#react-root ._fcn8k.goback {
+  margin: 0 auto;
+  display: block;
+  color: #dbdbdb;
+  width: 100px;
+}
+#react-root ._fcn8k:not(.goback) {
+  color: #fff;
+  background: #3897f0;
+  border-color: #3897f0;
+  line-height: 29px;
+  padding: 0 11px;
+  font-size: 14px;
+  display: block;
+  border-radius: 3px;
+  font-weight: 600;
+  max-width: 246px;
+  margin: 0 auto;
+}
+
+/* Remove border */
+#react-root ._nvyyp {
+  border: none;
+  padding: 0;
+  margin: -10px 0 0 0;
+}
+
+/* Hide facebook cookie notice */
+#header-notices {
+  display: none;
+}
