@@ -55,12 +55,12 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/Icon.png
 ## Roadmap
 
 ### v2.0
+- Upload Photo feature
 - Shortcuts
-- Dark mode
 
 ### v3.0
 - "*Instagram Stories*" support
-
+- Dark mode
 
 ## Dev
 
