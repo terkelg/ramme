@@ -60,7 +60,7 @@ function createMainWindow () {
   });
 
   win.webContents.setUserAgent(userAgent);
-  win.loadURL(`http://www.instagram.com`);
+  win.loadURL(`https://www.instagram.com`);
 
 	win.on('close', e => {
 		if (!isQuitting) {
