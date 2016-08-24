@@ -42,6 +42,11 @@ html.os-win32 {
   display: none;
 }
 
+/* Hide 'Open in app' button */
+#react-root ._nl1vc {
+  display: none;
+}
+
 /* Hide footer */
 footer._oofbn {
   display: none;
@@ -198,10 +203,5 @@ footer._oofbn {
 
 /* Hide facebook cookie notice */
 #header-notices {
-  display: none;
-}
-
-/* Hide "Open in app" button */
-#react-root ._nl1vc {
   display: none;
 }
