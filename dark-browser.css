@@ -78,6 +78,10 @@ html.dark-mode #react-root ._bgfey {
     color: #ddd;
 }
 
+html.dark-mode #react-root ._cag6k {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
 /* Main */
 
 html.dark-mode #react-root ._kul9p._rnlnu {
@@ -94,6 +98,10 @@ html.dark-mode #react-root ._nk46a span {
 
 html.dark-mode #react-root ._nk46a span a {
     color: #0096CA;
+}
+
+html.dark-mode #react-root ._jveic {
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /* Profile */
@@ -126,14 +134,22 @@ html.dark-mode #react-root ._auspy {
 
 /* Tableviews (Following, Followers) */
 
-html.dark-mode #react-root ._7z4zb {
-}
-
 html.dark-mode #react-root ._q44m8 {
     background-color: #202C3A;
     color: #ddd;
 }
 
 html.dark-mode #react-root ._cx1ua {
-    background-color: #202C3A;    
+    background-color: #202C3A;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Search */
+
+html.dark-mode #react-root ._oyz6j {
+    background-color: #202C3A;
+}
+
+html.dark-mode #react-root ._55bi1 {
+    background-color: #202C3A;
 }
