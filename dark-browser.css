@@ -2,7 +2,7 @@ html.dark-mode::-webkit-scrollbar-track { background-color: #192633; }
 html.dark-mode::-webkit-scrollbar-thumb { background-color: #fff; }
 
 /*
-    Sidebar Darkening
+    Sidebar
 */
 
 html.dark-mode #react-root ._onabe._kjy2s {
@@ -53,4 +53,87 @@ html.dark-mode #react-root ._nvyyp {
 
 html.dark-mode #react-root ._kp5f7._qy55y {
     color: white;
+}
+
+/*
+    Content
+*/
+
+
+/* Suggestions */
+
+html.dark-mode #react-root ._cag6k._4j13h {
+    background-color: #202C3A;
+}
+
+html.dark-mode #react-root ._4zhc5 {
+    color: #bbb;
+}
+
+html.dark-mode #react-root ._2uju6 {
+    color: #bbb;
+}
+
+html.dark-mode #react-root ._bgfey {
+    color: #ddd;
+}
+
+/* Main */
+
+html.dark-mode #react-root ._kul9p._rnlnu {
+    color: #bbb;
+}
+
+html.dark-mode #react-root ._tf9x3 {
+    color: #ddd;
+}
+
+html.dark-mode #react-root ._nk46a span {
+    color: #bbb;
+}
+
+html.dark-mode #react-root ._nk46a span a {
+    color: #0096CA;
+}
+
+/* Profile */
+
+html.dark-mode #react-root ._i572c {
+    color: #bbb;
+}
+
+html.dark-mode #react-root ._79dar {
+    color: #bbb;
+}
+
+html.dark-mode #react-root ._bugdy span {
+    color: #bbb;
+}
+
+html.dark-mode #react-root ._s53mj._13vpi {
+    color: #ddd;
+}
+
+html.dark-mode #react-root ._bkw5z._kjym7 {
+    color: #ddd;
+}
+
+/* Notifications (likes) */
+
+html.dark-mode #react-root ._auspy {
+        color: #bbb;
+}
+
+/* Tableviews (Following, Followers) */
+
+html.dark-mode #react-root ._7z4zb {
+}
+
+html.dark-mode #react-root ._q44m8 {
+    background-color: #202C3A;
+    color: #ddd;
+}
+
+html.dark-mode #react-root ._cx1ua {
+    background-color: #202C3A;    
 }
