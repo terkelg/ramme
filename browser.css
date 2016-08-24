@@ -200,3 +200,8 @@ footer._oofbn {
 #header-notices {
   display: none;
 }
+
+/* Hide "Open in app" button */
+#react-root ._nl1vc {
+  display: none;
+}
