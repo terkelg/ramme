@@ -1,0 +1,32 @@
+html.dark-mode::-webkit-scrollbar-track { background-color: #192633; }
+html.dark-mode::-webkit-scrollbar-thumb { background-color: #fff; }
+
+/* Add sidebar */
+html.dark-mode#react-root ._onabe._kjy2s {
+  background-color: #192633;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+
+/* Very top rectangle of icon list */
+html.dark-mode#react-root ._4kdxu {
+    background-color: #192633;
+}
+
+/* Icons list */
+html.dark-mode #react-root ._n7q2c {
+  background-color: #192633;
+}
+/* Icon Item */
+html.dark-mode #react-root ._r1svv {
+  -webkit-filter: brightness(0) invert(1);
+}
+
+/* Back Button */
+html.dark-mode .back-btn {
+  background-color: #192633;
+  border-top: 1px solid rgba(255, 255, 255, 0.0784314);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.0784314);
+}
+
+html.dark-mode .back-btn svg { fill: #fff; }
+html.dark-mode .back-btn.inactive svg { fill: rgba(255, 255, 255, 0.4);  }

@@ -169,6 +169,13 @@ if (process.platform === 'darwin') {
       {
         role: 'about'
       },
+	{
+		label: 'Toggle Dark Mode',
+		accelerator: 'Cmd+D',
+		click() {
+			sendAction('toggle-dark-mode');
+		}
+	},
       {
         type: 'separator'
       },

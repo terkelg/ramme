@@ -3,7 +3,7 @@ const Config = require('electron-config');
 
 module.exports = new Config({
   defaults: {
-    darkMode: false,
+    darkMode: true,
     zoomFactor: 1,
     lastWindowState: {
       width: 414,
