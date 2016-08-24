@@ -42,6 +42,11 @@ html.os-win32 {
   display: none;
 }
 
+/* Hide 'Open in app' button */
+._28zbs._nl1vc {
+  display: none;
+}
+
 /* Hide footer */
 footer._oofbn {
   display: none;
