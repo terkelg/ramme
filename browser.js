@@ -64,6 +64,19 @@ function init() {
   backButton();
 }
 
+function setDarkMode() {
+	document.documentElement.classList.toggle('dark-mode', config.get('darkMode'));
+    if (config.get('darkMode')) {
+        document.documentElement.style.backgroundColor = '#192633';
+    } else {
+        document.documentElement.style.backgroundColor = '#FFF';        
+    }
+}
+
+ipcRenderer.on('toggle-dark-mode', () => {
+	config.set('darkMode', !config.get('darkMode'));
+	setDarkMode();
+});
 
 document.addEventListener('DOMContentLoaded', (event) => {
   // enable OS specific styles
@@ -71,4 +84,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   elementReady(selectors.root).then(init);
   elementReady(selectors.loginButton).then(login);
+
+  setDarkMode();
+
+  // prevent flash of white on startup when in dark mode
+  // TODO: find a CSS only solution
+
+
 });
