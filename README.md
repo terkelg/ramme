@@ -57,7 +57,7 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/Icon.png
 ### v2.0
 - Shortcuts
 - Dark mode
-... More?
+
 
 ## Dev
 
