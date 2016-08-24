@@ -66,7 +66,11 @@ function init() {
 
 function setDarkMode() {
 	document.documentElement.classList.toggle('dark-mode', config.get('darkMode'));
-    console.log(document.documentElement);
+    if (config.get('darkMode')) {
+        document.documentElement.style.backgroundColor = '#192633';
+    } else {
+        document.documentElement.style.backgroundColor = '#FFF';        
+    }
 }
 
 ipcRenderer.on('toggle-dark-mode', () => {
@@ -85,8 +89,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   // prevent flash of white on startup when in dark mode
   // TODO: find a CSS only solution
-  if (config.get('darkMode')) {
-      document.documentElement.style.backgroundColor = '#192633';
-  }
+
 
 });
