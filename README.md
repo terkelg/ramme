@@ -15,7 +15,7 @@ When closing the window, the app will continue running in the background, in the
 ### Dark mode 
 You can toggle dark mode in the Ramme menu or with <kbd>Cmd</kbd> <kbd>D</kbd> / <kbd>Ctrl</kbd> <kbd>D</kbd>.
 
-![Screenshot of Ramme Dark Mode](media/screenshot-dark.png)
+<img src="media/screenshot-dark.png" width="589" />
 
 Thanks for the help [@ninjaprawn](https://github.com/ninjaprawn)
 
