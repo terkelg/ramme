@@ -12,7 +12,20 @@
 
 When closing the window, the app will continue running in the background, in the dock on macOS and the tray on Linux/Windows. Right-click the dock/tray icon and choose `Quit` to completely quit the app. On macOS, click the dock icon to show the window. On Linux, right-click the tray icon and choose `Toggle` to toggle the window. On Windows, click the tray icon to toggle the window.
 
+### Dark mode 
+You can toggle dark mode in the Ramme menu or with <kbd>Cmd</kbd> <kbd>D</kbd> / <kbd>Ctrl</kbd> <kbd>D</kbd>.
 
+![Screenshot of Ramme Dark Mode](media/screenshot-dark.png)
+
+Thanks for the help [@ninjaprawn](https://github.com/ninjaprawn)
+
+### Keyboard shortcuts
+- Go Back: <kbd>⌫</kbd>
+- Refresh: <kbd>Cmd</kbd> <kbd>R</kbd> or <kbd>Ctrl</kbd> <kbd>R</kbd>
+- Home: <kbd>Cmd</kbd> <kbd>1</kbd> or <kbd>Ctrl</kbd> <kbd>1</kbd>
+- Discover: <kbd>Cmd</kbd> <kbd>2</kbd> or <kbd>Ctrl</kbd> <kbd>2</kbd>
+- Notifications: <kbd>Cmd</kbd> <kbd>3</kbd> or <kbd>Ctrl</kbd> <kbd>3</kbd>
+- Profile: <kbd>Cmd</kbd> <kbd>4</kbd> or <kbd>Ctrl</kbd> <kbd>4</kbd>
 
 ## Install
 
@@ -54,10 +67,9 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/Icon.png
 
 ## Roadmap
 
-### v2.0
-- Shortcuts
-- Dark mode
-
+### v3
+- Pull to refresh
+- Notifications
 
 ## Dev
 
