@@ -1,3 +1,7 @@
+/**
+ * Utils
+ */
+
 /* Scrollbar - currently hidden */
 ::-webkit-scrollbar {
   width: 2px;
@@ -6,36 +10,16 @@
 ::-webkit-scrollbar-track { background-color: #fafafa; }
 ::-webkit-scrollbar-thumb { background-color: #000; }
 
+/* remove focus glow */
+* { outline: none; }
+
 /* force a scrollbar on Linux and Windows to prevent jumping when changing tabs */
 html.os-linux,
 html.os-win32 {
 	overflow-y: scroll !important;
 }
 
-/* Make the navbar the windows's draggable region */
-#react-root ._onabe._kjy2s {
-	-webkit-app-region: drag;
-	display: block;
-	height: 100%;
-}
-
-.logged-in #react-root main._1wptv {
-  margin-left: 80px;
-}
-
-.logged-in main {
-}
-
-/* Add sidebar */
-#react-root ._onabe._kjy2s {
-  background-color: #fafafa;
-  position: fixed;
-  left: 0;
-  width: 80px;
-  height: 100%;
-  border-right: 1px solid rgba(0,0,0,.08);
-}
-
+.logged-in main { }
 
 /* Hide 'Open in app' popup */
 ._28zbs._nqfwp {
@@ -50,6 +34,27 @@ html.os-win32 {
 /* Hide footer */
 footer._oofbn {
   display: none;
+}
+
+/**
+ * Sidebar
+ */
+
+/* Make room for sidebar */
+.logged-in #react-root main._1wptv {
+  margin-left: 80px;
+}
+
+/* Add sidebar */
+#react-root ._onabe._kjy2s {
+  background-color: #fafafa;
+  position: fixed;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  border-right: 1px solid rgba(0,0,0,.08);
+	-webkit-app-region: drag; /* Make the navbar the windows's draggable region */
+	display: block;
 }
 
 /* Reset topbar and move to vertical menu on the left */
@@ -78,8 +83,9 @@ footer._oofbn {
   margin: 20px 0;
 }
 
-
-/* Back Button */
+/**
+ * Back Button
+ **/
 .back-btn {
   position: fixed;
   width: 78px;
@@ -89,7 +95,6 @@ footer._oofbn {
   border-bottom: 1px solid rgba(0, 0, 0, 0.0784314);
   padding: 15px 0;
 }
-
 .back-btn a {
   width: 24px;
   height: 18px;
@@ -98,7 +103,6 @@ footer._oofbn {
   cursor: pointer;
 }
 .back-btn.inactive a { cursor: default; }
-
 .back-btn svg { fill: #000; }
 .back-btn.inactive svg { fill: rgba(0, 0, 0, 0.0784314);  }
 
@@ -148,7 +152,7 @@ footer._oofbn {
   display: none;
 }
 
-/* Logo Login */
+/* Login */
 ._du7bh {
   margin: 0 auto 10px;
 }
@@ -166,11 +170,10 @@ footer._oofbn {
 /* Login Button */
 #react-root ._dyp7q {
   margin: 0;
-  /* Hide text node */
-  visibility: hidden;
+  visibility: hidden; /* Hide text node */
 }
 
-/* Login / Go back */
+/* Login go back */
 #react-root ._fcn8k {
   visibility: visible;
 }
