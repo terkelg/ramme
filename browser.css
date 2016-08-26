@@ -76,6 +76,13 @@ footer._oofbn {
   margin-top: 80px;
   flex-direction: column;
 }
+
+/* remove margin from win and linux */
+html.os-linux #react-root ._n7q2c,
+html.os-win32 #react-root ._n7q2c {
+  margin-top: 50px;
+}
+
 /* Icon Item */
 #react-root ._r1svv {
   width: 100%;
@@ -95,6 +102,9 @@ footer._oofbn {
   border-bottom: 1px solid rgba(0, 0, 0, 0.0784314);
   padding: 15px 0;
 }
+html.os-linux .back-btn,
+html.os-win32 .back-btn { top: 0; }
+
 .back-btn a {
   width: 24px;
   height: 18px;
