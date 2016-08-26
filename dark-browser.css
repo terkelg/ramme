@@ -211,6 +211,15 @@ html.dark-mode #react-root ._8gpiy {
   border-color: #23303c;
 }
 
+/* Private profile */
+html.dark-mode #react-root ._76rrx {
+  background-color: #192633;
+  border: none;
+}
+html.dark-mode #react-root ._76rrx h2,
+html.dark-mode #react-root ._76rrx p {
+  color: #bcc0c4;
+}
 
 /**
  * Photo view
@@ -254,5 +263,42 @@ html.dark-mode #react-root ._cx1ua {
  * Edit profile page
  */
 html.dark-mode #react-root ._40h7m {
+  background-color: #192633;
+}
+
+/* label */
+html.dark-mode #react-root ._891mt {
+  color: #bcc0c4;
+}
+
+/* private label */
+html.dark-mode #react-root ._bgfey {
+  color: #788088;
+}
+
+/* inputs */
+html.dark-mode #react-root ._9pfjt,
+html.dark-mode #react-root ._g6a4a,
+html.dark-mode #react-root ._cmoxu ._qy55y {
+  background-color: #303b47;
+  border: none;
+  color: #bcc0c4;
+}
+
+/* terms */
+html.dark-mode #react-root ._lxlnj {
+  color: #bcc0c4;
+}
+
+
+/**
+ * Dialog
+ */
+html.dark-mode ._bt6iq,
+html.dark-mode ._gwvmk,
+html.dark-mode ._bt6iq,
+html.dark-mode ._4y3e3 {
+  color: #bcc0c4;
+  border-color: #23303c;
   background-color: #192633;
 }
