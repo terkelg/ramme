@@ -205,3 +205,13 @@ footer._oofbn {
 #header-notices {
   display: none;
 }
+
+/**
+ * Edit profile page
+ */
+
+/* container */
+#react-root ._40h7m {
+  border: none;
+  margin: 0;
+}
