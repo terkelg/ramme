@@ -34,20 +34,15 @@ html.dark-mode .back-btn.inactive svg { fill: rgba(255, 255, 255, 0.2);  }
  * Login
  */
 
-html.dark-mode #react-root ._p8ymb {
-  background-color: #192633;
-}
-
+/* logo */
 html.dark-mode #react-root ._du7bh {
   -webkit-filter: brightness(0) invert(1);
 }
 
-html.dark-mode #react-root ._nvyyp {
-  background-color: #192633;
-}
-
 html.dark-mode #react-root ._kp5f7._qy55y {
-  color: #fff;
+  color: #bcc0c4;
+  background-color: #303b47;
+  border-color: #303b47;
 }
 
 
@@ -186,12 +181,14 @@ html.dark-mode #react-root ._je2uz {
 }
 
 /* load more */
+html.dark-mode #react-root ._1ooyk,
 html.dark-mode #react-root ._oidfu {
   color: #3897f0;
 }
 
 /* border after profile info */
-html.dark-mode #react-root ._o2h6b {
+html.dark-mode #react-root ._o2h6b,
+html.dark-mode #react-root ._1ooyk {
   border-color: #23303c;
 }
 
