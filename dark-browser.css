@@ -1,0 +1,221 @@
+html.dark-mode::-webkit-scrollbar-track { background-color: #192633; }
+html.dark-mode::-webkit-scrollbar-thumb { background-color: #fff; }
+
+html.dark-mode #react-root {
+  color: #bcc0c4;
+}
+
+/**
+ * Sidebar
+ */
+html.dark-mode #react-root ._onabe._kjy2s {
+  background-color: #202c3a;
+  border-right: 1px solid rgba(255, 255, 255, .08);
+}
+
+html.dark-mode #react-root ._bfc7q {
+  background-color: #202c3a;
+}
+
+html.dark-mode #react-root ._r1svv {
+  -webkit-filter: brightness(0) invert(1);
+}
+
+html.dark-mode .back-btn {
+  border-top: 1px solid rgba(255, 255, 255, 0.0784314);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.0784314);
+}
+
+html.dark-mode .back-btn svg { fill: #fff; }
+html.dark-mode .back-btn.inactive svg { fill: rgba(255, 255, 255, 0.2);  }
+
+
+/**
+ * Login
+ */
+
+html.dark-mode #react-root ._p8ymb {
+  background-color: #192633;
+}
+
+html.dark-mode #react-root ._du7bh {
+  -webkit-filter: brightness(0) invert(1);
+}
+
+html.dark-mode #react-root ._nvyyp {
+  background-color: #192633;
+}
+
+html.dark-mode #react-root ._kp5f7._qy55y {
+  color: #fff;
+}
+
+
+/**
+ * General
+ */
+
+/* Main container */
+html.dark-mode #react-root main {
+  background-color: #192633;
+}
+
+/* Links */
+html.dark-mode #react-root a,
+html.dark-mode #react-root a:visited {
+  color: #5b99ba;
+}
+
+/* Username */
+html.dark-mode #react-root ._4zhc5 {
+  color: #bcc0c4;
+}
+
+/* photo container bg */
+html.dark-mode #react-root ._22yr2 {
+  background-color: #192633;
+}
+
+/* photo border, split */
+html.dark-mode #react-root ._pieko ._e0mru {
+  border-bottom: 1px solid #23303c;
+  border-top: 1px solid #23303c;
+}
+
+/* Profile thumbnail */
+html.dark-mode #react-root ._5lote {
+  background-color: #192633;
+  border: 1px solid #23303c;
+}
+
+/* photo desc */
+html.dark-mode #react-root ._lx2l2,
+html.dark-mode #react-root ._lx2l2:visited,
+html.dark-mode #react-root ._oajsw {
+  color: inherit;
+}
+
+/* split */
+html.dark-mode #react-root ._jveic {
+  border-top: 1px solid #23303c;
+}
+
+/* time-stamp */
+html.dark-mode #react-root ._ljyfo,
+html.dark-mode #react-root ._ljyfo:visited {
+  color: #788088;
+}
+
+/* location */
+html.dark-mode #react-root ._rnlnu {
+  color: #788088;
+}
+
+/* likes */
+html.dark-mode #react-root ._3sst1 {
+  color: #bcc0c4;
+}
+
+
+
+
+/**
+ * Search
+ */
+
+/* discover text */
+html.dark-mode #react-root ._bgfey {
+  color: #788088;
+}
+
+/* search field bg */
+html.dark-mode #react-root ._oyz6j {
+  background-color: #192633;
+}
+
+/* seach field */
+html.dark-mode #react-root ._9x5sw,
+html.dark-mode #react-root ._55bi1 {
+  color: #bcc0c4;
+  background-color: #303b47;
+  border-color: #303b47;
+}
+
+/* input border */
+html.dark-mode #react-root ._55bi1,
+html.dark-mode #react-root ._48qwd {
+  border-color: #303b47;
+}
+
+/* search drop-down */
+html.dark-mode #react-root ._o1o4h {
+  background-color: #192633;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .85);
+  border-color: #23303c;
+}
+html.dark-mode #react-root ._o1o4h::after {
+  border-color: transparent transparent #192633;
+}
+html.dark-mode #react-root ._pnw2j {
+  background-color: #192633;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .85);
+}
+html.dark-mode #react-root ._k2vj6 {
+  border-color: #23303c;
+}
+html.dark-mode #react-root ._k2vj6 img {
+  border-color: #23303c;
+}
+html.dark-mode #react-root ._k2vj6 span {
+  color: #bcc0c4;
+}
+
+/* border ul top */
+html.dark-mode #react-root ._769lo {
+  border-color: #23303c;
+}
+
+/**
+ * Profile
+ */
+html.dark-mode #react-root ._i572c {
+  color: #bbb;
+}
+
+html.dark-mode #react-root ._79dar {
+  color: #bbb;
+}
+
+html.dark-mode #react-root ._bugdy span {
+  color: #bbb;
+}
+
+html.dark-mode #react-root ._s53mj._13vpi {
+  color: #ddd;
+}
+
+html.dark-mode #react-root ._bkw5z._kjym7 {
+  color: #ddd;
+}
+
+
+/*
+ * Notifications (likes)
+ */
+html.dark-mode #react-root ._auspy {
+  color: #bbb;
+}
+
+
+/**
+ * Tableviews (Following, Followers)
+ */
+html.dark-mode #react-root ._q44m8 {
+  background-color: #192633;
+  color: #ddd;
+}
+
+html.dark-mode #react-root ._cx1ua {
+  background-color: #192633;
+  border-color: #23303c;
+}

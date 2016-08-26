@@ -11,9 +11,13 @@ const selectors = {
   loginButton: '#react-root ._fcn8k'
 };
 
-/**
- * Sidebar back button
- */
+
+ipcRenderer.on('toggle-dark-mode', () => {
+  config.set('darkMode', !config.get('darkMode'));
+  setDarkMode();
+});
+
+
 function backButton() {
   const body = $('body');
   const link = document.createElement('a');
@@ -38,15 +42,10 @@ function backButton() {
 }
 
 
-/**
- * Login Button
- */
 function login(elm) {
   elm.addEventListener('click', (e) => {
-    console.log(elm);
     elm.classList.toggle('goback');
     process.nextTick(() => {
-      console.log(elm.classList.contains('goback'));
       if (elm.classList.contains('goback')) {
         elm.innerText = 'Go back';
       } else {
@@ -57,11 +56,20 @@ function login(elm) {
 }
 
 
-/**
- * Init
- */
+function setDarkMode() {
+  document.documentElement.classList.toggle('dark-mode', config.get('darkMode'));
+}
+
+
 function init() {
   backButton();
+  setDarkMode();
+
+  // Prevent flash of white on startup when in dark mode
+  // TODO: Find solution to this with pure css
+  if (config.get('darkMode')) {
+    document.documentElement.style.backgroundColor = '#192633';
+  }
 }
 
 

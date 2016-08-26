@@ -32,6 +32,7 @@ if (isAlreadyRunning) {
 
 function createMainWindow () {
   const lastWindowState = config.get('lastWindowState');
+  const isDarkMode = config.get('darkMode');
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
   const maxWidthValue = 550;
   const minWidthValue = 400;
@@ -51,7 +52,8 @@ function createMainWindow () {
     fullscreenable: false,
     icon: process.platform === 'linux' && path.join(__dirname, 'static/icon.png'),
     titleBarStyle: 'hidden-inset',
-    backgroundColor: '#fff',
+	  darkTheme: isDarkMode,
+    backgroundColor: isDarkMode ? '#192633' : '#fff',
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'browser.js'),
@@ -112,6 +114,7 @@ app.on('ready', () => {
 
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, 'browser.css'), 'utf8'));
+    page.insertCSS(fs.readFileSync(path.join(__dirname, 'dark-browser.css'), 'utf8'));
     mainWindow.show();
   });
 
