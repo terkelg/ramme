@@ -135,6 +135,37 @@ const template = [
         type: 'separator'
       },
       {
+        label: 'Home',
+        accelerator: 'CmdOrCtrl+1',
+        click() {
+          sendAction('navigate-home');
+        }
+      },
+      {
+        label: 'Discover',
+        accelerator: 'CmdOrCtrl+2',
+        click() {
+          sendAction('navigate-discover');
+        }
+      },
+      {
+        label: 'Notifications',
+        accelerator: 'CmdOrCtrl+3',
+        click() {
+          sendAction('navigate-notifications');
+        }
+      },
+      {
+        label: 'Profile',
+        accelerator: 'CmdOrCtrl+4',
+        click() {
+          sendAction('navigate-profile');
+        }
+      },
+      {
+        type: 'separator'
+      },
+      {
         role: 'resetzoom'
       },
       {
@@ -167,15 +198,18 @@ if (process.platform === 'darwin') {
     label: appName,
     submenu: [
       {
-        role: 'about'
+        role: 'about',
       },
-	{
-		label: 'Toggle Dark Mode',
-		accelerator: 'Cmd+D',
-		click() {
-			sendAction('toggle-dark-mode');
-		}
-	},
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Toggle Dark Mode',
+        accelerator: 'CmdOrCtrl+D',
+        click() {
+          sendAction('toggle-dark-mode');
+        }
+      },
       {
         type: 'separator'
       },

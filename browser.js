@@ -18,6 +18,39 @@ ipcRenderer.on('toggle-dark-mode', () => {
 });
 
 
+ipcRenderer.on('navigate-home', () => {
+  const home = $('._n7q2c ._r1svv:nth-child(1) a');
+  if(home) {
+    home.click();
+  }
+});
+
+
+ipcRenderer.on('navigate-discover', () => {
+  const discover = $('._n7q2c ._r1svv:nth-child(2) a');
+  if(discover) {
+    discover.click();
+  }
+});
+
+
+ipcRenderer.on('navigate-notifications', () => {
+  const notifications = $('._n7q2c ._r1svv:nth-child(3) a');
+  if(notifications) {
+    notifications.click();
+  }
+});
+
+
+ipcRenderer.on('navigate-profile', () => {
+  const profile = $('._n7q2c ._r1svv:nth-child(4) a');
+  console.log(profile);
+  if(profile) {
+    profile.click();
+  }
+});
+
+
 function backButton() {
   const body = $('body');
   const link = document.createElement('a');
