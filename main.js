@@ -16,21 +16,21 @@ let mainWindow;
 let isQuitting = false;
 
 const isAlreadyRunning = app.makeSingleInstance(() => {
-	if (mainWindow) {
-		if (mainWindow.isMinimized()) {
-			mainWindow.restore();
-		}
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore();
+    }
 
-		mainWindow.show();
-	}
+    mainWindow.show();
+  }
 });
 
 if (isAlreadyRunning) {
-	app.quit();
+  app.quit();
 }
 
 
-function createMainWindow () {
+function createMainWindow() {
   const lastWindowState = config.get('lastWindowState');
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
   const maxWidthValue = 550;
@@ -62,17 +62,17 @@ function createMainWindow () {
   win.webContents.setUserAgent(userAgent);
   win.loadURL(`https://www.instagram.com`);
 
-	win.on('close', e => {
-		if (!isQuitting) {
-			e.preventDefault();
+  win.on('close', e => {
+    if (!isQuitting) {
+      e.preventDefault();
 
-			if (process.platform === 'darwin') {
-				app.hide();
-			} else {
-				win.hide();
-			}
-		}
-	});
+      if (process.platform === 'darwin') {
+        app.hide();
+      } else {
+        win.hide();
+      }
+    }
+  });
 
   win.on('page-title-updated', e => {
     e.preventDefault();
