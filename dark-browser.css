@@ -178,6 +178,18 @@ html.dark-mode #react-root ._769lo {
 /**
  * Profile
  */
+
+/* edit button */
+html.dark-mode #react-root ._je2uz {
+  color: #788088;
+  border-color: #303b47;
+}
+
+/* load more */
+html.dark-mode #react-root ._oidfu {
+  color: #3897f0;
+}
+
 /* border after profile info */
 html.dark-mode #react-root ._o2h6b {
   border-color: #23303c;
