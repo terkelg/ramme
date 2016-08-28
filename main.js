@@ -17,6 +17,7 @@ const BrowserWindow = electron.BrowserWindow;
 
 let mainWindow;
 let isQuitting = false;
+let tray = null;
 
 const isAlreadyRunning = app.makeSingleInstance(() => {
   if (mainWindow) {
@@ -37,12 +38,10 @@ function createMainWindow() {
   const isDarkMode = config.get('darkMode');
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
   const rammeDesktopIcon = path.join(__dirname, 'static/icon.png');
-  const rammeTrayIcon = path.join(__dirname, 'static/icon-18x18.png');
+  const rammeTrayDefaultIcon = path.join(__dirname, 'static/icon-18x18.png');
+  const rammeTrayWindowsIcon = path.join(__dirname, 'static/icon.ico');
   const maxWidthValue = 550;
   const minWidthValue = 400;
-
-  // Create toolbar
-  const tray = new Tray(rammeTrayIcon);
 
   // Create the browser window.
   const win = new BrowserWindow({
@@ -85,6 +84,14 @@ function createMainWindow() {
 
   win.on('page-title-updated', e => {
     e.preventDefault();
+    let icon = rammeTrayDefaultIcon;
+
+    if (process.platform === 'win32') {
+      icon = rammeTrayWindowsIcon;
+    }
+
+    // Create toolbar
+    tray = new Tray(icon);
 
     const trayMenu = [{
       label: 'Show / Hide',
