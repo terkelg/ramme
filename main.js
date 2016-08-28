@@ -4,6 +4,7 @@ const fs       = require('fs');
 const electron = require('electron');
 const appMenu  = require('./menu');
 const config   = require('./config');
+const {Menu, Tray} = require('electron');
 
 const app      = electron.app;
 const ipcMain  = electron.ipcMain;
@@ -14,6 +15,7 @@ const BrowserWindow = electron.BrowserWindow;
 
 let mainWindow;
 let isQuitting = false;
+let tray = null;
 
 const isAlreadyRunning = app.makeSingleInstance(() => {
 	if (mainWindow) {
@@ -121,6 +123,17 @@ app.on('ready', () => {
   page.on('new-window', (e, url) => {
     e.preventDefault();
     electron.shell.openExternal(url);
+  });
+
+  tray = new Tray('static/icon.ico')
+  const contextMenu = Menu.buildFromTemplate([
+    {label: 'Show Ramme', click: function () {mainWindow.show();}},
+    {label: 'Quit Ramme', click: function () {app.quit();}}
+  ])
+  tray.setToolTip('Ramme')
+  tray.setContextMenu(contextMenu)
+  tray.on('click', function handleClicked () {
+    mainWindow.show();
   });
 });
 
