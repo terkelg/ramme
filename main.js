@@ -7,6 +7,9 @@ const config   = require('./config');
 
 const app      = electron.app;
 const ipcMain  = electron.ipcMain;
+const shell    = electron.shell;
+const Tray     = electron.Tray;
+const Menu     = electron.Menu;
 
 require('electron-debug')();
 
@@ -16,26 +19,30 @@ let mainWindow;
 let isQuitting = false;
 
 const isAlreadyRunning = app.makeSingleInstance(() => {
-	if (mainWindow) {
-		if (mainWindow.isMinimized()) {
-			mainWindow.restore();
-		}
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore();
+    }
 
-		mainWindow.show();
-	}
+    mainWindow.show();
+  }
 });
 
 if (isAlreadyRunning) {
-	app.quit();
+  app.quit();
 }
 
-
-function createMainWindow () {
+function createMainWindow() {
   const lastWindowState = config.get('lastWindowState');
   const isDarkMode = config.get('darkMode');
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
+  const rammeDesktopIcon = path.join(__dirname, 'static/icon.png');
+  const rammeTrayIcon = path.join(__dirname, 'static/icon-18x18.png');
   const maxWidthValue = 550;
   const minWidthValue = 400;
+
+  // Create toolbar
+  const tray = new Tray(rammeTrayIcon);
 
   // Create the browser window.
   const win = new BrowserWindow({
@@ -50,9 +57,9 @@ function createMainWindow () {
     height: lastWindowState.height,
     maximizable: false,
     fullscreenable: false,
-    icon: process.platform === 'linux' && path.join(__dirname, 'static/icon.png'),
+    icon: process.platform === 'linux' && rammeDesktopIcon,
     titleBarStyle: 'hidden-inset',
-	  darkTheme: isDarkMode,
+    darkTheme: isDarkMode,
     backgroundColor: isDarkMode ? '#192633' : '#fff',
     autoHideMenuBar: true,
     webPreferences: {
@@ -64,20 +71,45 @@ function createMainWindow () {
   win.webContents.setUserAgent(userAgent);
   win.loadURL(`https://www.instagram.com`);
 
-	win.on('close', e => {
-		if (!isQuitting) {
-			e.preventDefault();
+  win.on('close', e => {
+    if (!isQuitting) {
+      e.preventDefault();
 
-			if (process.platform === 'darwin') {
-				app.hide();
-			} else {
-				win.hide();
-			}
-		}
-	});
+      if (process.platform === 'darwin') {
+        app.hide();
+      } else {
+        win.hide();
+      }
+    }
+  });
 
   win.on('page-title-updated', e => {
     e.preventDefault();
+
+    const trayMenu = [{
+      label: 'Show / Hide',
+      click() {
+        !win.isMinimized() ? win.minimize() : win.show();
+      }
+    }, {
+      label: 'GitHub',
+      click() {
+        shell.openExternal('https://github.com/terkelg/ramme');
+      }
+    }, {
+      label: 'Issue',
+      click() {
+        shell.openExternal('https://github.com/terkelg/ramme/issues');
+      }
+    }, {
+      label: 'Quit',
+      click() {
+        app.quit();
+      }
+    }];
+
+    tray.setToolTip('ramme');
+    tray.setContextMenu(Menu.buildFromTemplate(trayMenu));
   });
 
   return win;
@@ -125,11 +157,11 @@ app.on('ready', () => {
 });
 
 app.on('activate', () => {
-	mainWindow.show();
+  mainWindow.show();
 });
 
 app.on('before-quit', () => {
-	isQuitting = true;
+  isQuitting = true;
 
   config.set('lastWindowState', mainWindow.getBounds());
 });
