@@ -67,9 +67,17 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/Icon.png
 
 ## Roadmap
 
+### v2.1
+- Bugs ... Gotta Catch 'Em All!
+
 ### v3
 - Pull to refresh
 - Notifications
+- Update notifications
+
+### Under Consideration
+- Photo Upload
+- Stories Support
 
 ## Dev
 
