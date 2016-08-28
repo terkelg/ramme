@@ -117,6 +117,9 @@ function createMainWindow() {
 
     tray.setToolTip('ramme');
     tray.setContextMenu(Menu.buildFromTemplate(trayMenu));
+    tray.on('click', () => {
+      win.isVisible() ? win.hide() : win.show();
+    });
   });
 
   return win;
