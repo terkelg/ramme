@@ -4,6 +4,7 @@ const fs       = require('fs');
 const electron = require('electron');
 const appMenu  = require('./menu');
 const config   = require('./config');
+const Tray     = require('./tray');
 
 const app      = electron.app;
 const ipcMain  = electron.ipcMain;
@@ -97,6 +98,7 @@ function sendAction(action) {
 app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu);
   mainWindow = createMainWindow();
+	Tray.create(mainWindow);
 
   const page = mainWindow.webContents;
 
