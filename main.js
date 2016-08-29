@@ -4,6 +4,7 @@ const fs       = require('fs');
 const electron = require('electron');
 const appMenu  = require('./menu');
 const config   = require('./config');
+const tray     = require('./tray');
 
 const app      = electron.app;
 const ipcMain  = electron.ipcMain;
@@ -16,24 +17,24 @@ let mainWindow;
 let isQuitting = false;
 
 const isAlreadyRunning = app.makeSingleInstance(() => {
-	if (mainWindow) {
-		if (mainWindow.isMinimized()) {
-			mainWindow.restore();
-		}
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore();
+    }
 
-		mainWindow.show();
-	}
+    mainWindow.show();
+  }
 });
 
 if (isAlreadyRunning) {
-	app.quit();
+  app.quit();
 }
 
-
-function createMainWindow () {
+function createMainWindow() {
   const lastWindowState = config.get('lastWindowState');
   const isDarkMode = config.get('darkMode');
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
+  const rammeDesktopIcon = path.join(__dirname, 'static/icon.png');
   const maxWidthValue = 550;
   const minWidthValue = 400;
 
@@ -50,9 +51,9 @@ function createMainWindow () {
     height: lastWindowState.height,
     maximizable: false,
     fullscreenable: false,
-    icon: process.platform === 'linux' && path.join(__dirname, 'static/icon.png'),
+    icon: process.platform === 'linux' && rammeDesktopIcon,
     titleBarStyle: 'hidden-inset',
-	  darkTheme: isDarkMode,
+    darkTheme: isDarkMode,
     backgroundColor: isDarkMode ? '#192633' : '#fff',
     autoHideMenuBar: true,
     webPreferences: {
@@ -64,20 +65,21 @@ function createMainWindow () {
   win.webContents.setUserAgent(userAgent);
   win.loadURL(`https://www.instagram.com`);
 
-	win.on('close', e => {
-		if (!isQuitting) {
-			e.preventDefault();
+  win.on('close', e => {
+    if (!isQuitting) {
+      e.preventDefault();
 
-			if (process.platform === 'darwin') {
-				app.hide();
-			} else {
-				win.hide();
-			}
-		}
-	});
+      if (process.platform === 'darwin') {
+        app.hide();
+      } else {
+        win.hide();
+      }
+    }
+  });
 
   win.on('page-title-updated', e => {
     e.preventDefault();
+    tray.create(win);
   });
 
   return win;
@@ -92,7 +94,6 @@ function sendAction(action) {
 
   win.webContents.send(action);
 }
-
 
 app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu);
@@ -125,11 +126,11 @@ app.on('ready', () => {
 });
 
 app.on('activate', () => {
-	mainWindow.show();
+  mainWindow.show();
 });
 
 app.on('before-quit', () => {
-	isQuitting = true;
+  isQuitting = true;
 
   config.set('lastWindowState', mainWindow.getBounds());
 });
