@@ -7,8 +7,8 @@ const shell = electron.shell;
 const Tray  = electron.Tray;
 const Menu  = electron.Menu;
 
-const rammeTrayDefaultIcon = path.join(__dirname, 'static/icon-18x18.png');
-const rammeTrayWindowsIcon = path.join(__dirname, 'static/icon.ico');
+const trayIconDefault = path.join(__dirname, 'static/icon-18x18.png');
+const trayIconWindows = path.join(__dirname, 'static/icon.ico');
 let tray = null;
 
 exports.create = win => {
@@ -16,11 +16,25 @@ exports.create = win => {
     return;
   }
 
-  let icon = rammeTrayDefaultIcon;
+  let icon = trayIconDefault;
 
   if (process.platform === 'win32') {
-    icon = rammeTrayWindowsIcon;
+    icon = trayIconWindows;
   }
+
+  const toggleWin = () => {
+    if (process.platform === 'win32') {
+      if (win.isMinimized()) {
+        win.restore();
+      } else if (win.isVisible()) {
+        win.hide();
+      } else {
+        win.show();
+      }
+    } else {
+      win.isVisible() ? win.hide() : win.show();
+    }
+  };
 
   // Create toolbar
   tray = new Tray(icon);
@@ -28,7 +42,7 @@ exports.create = win => {
   const contextMenu = [{
     label: 'Toggle',
     click() {
-      !win.isMinimized() ? win.minimize() : win.show();
+      toggleWin();
     }
   },
   {
@@ -56,9 +70,9 @@ exports.create = win => {
     }
   }];
 
-  tray.setToolTip('ramme');
+  tray.setToolTip(`${app.getName()}`);
   tray.setContextMenu(Menu.buildFromTemplate(contextMenu));
-  tray.on('click', () => {
-    win.isVisible() ? win.hide() : win.show();
+  tray.on('click', function handleClicked () {
+    toggleWin();
   });
 };
