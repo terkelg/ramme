@@ -39,8 +39,7 @@ function createMainWindow() {
   const maxWidthValue = 550;
   const minWidthValue = 400;
 
-  // Create the browser window.
-  const win = new BrowserWindow({
+	const defaultConfig = {
     title: app.getName(),
     show: false,
     x: lastWindowState.x,
@@ -61,7 +60,9 @@ function createMainWindow() {
       preload: path.join(__dirname, 'browser.js'),
       nodeIntegration: false
     }
-  });
+  };
+  // Create the browser window.
+  const win = new BrowserWindow(defaultConfig);
 
   win.webContents.setUserAgent(userAgent);
   win.loadURL(`https://www.instagram.com`);
