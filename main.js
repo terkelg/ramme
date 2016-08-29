@@ -36,11 +36,18 @@ const createMainWindow = () => {
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) '
 	+ 'AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
   const rammeDesktopIcon = path.join(__dirname, 'static/icon.png');
+<<<<<<< 27bf44abd9886933ea56df48e613ddf4e408c82b
   const maxWidthValue = 637;
   const minWidthValue = 550;
   const minHeight = 726;
   const defaultConfig = {
     minHeight,
+=======
+  const maxWidthValue = 550;
+  const minWidthValue = 400;
+
+	const defaultConfig = {
+>>>>>>> add cursor style in move
     title: app.getName(),
     show: false,
     x: lastWindowState.x,
@@ -59,7 +66,11 @@ const createMainWindow = () => {
     webPreferences: {
       preload: path.join(__dirname, 'browser.js'),
       nodeIntegration: false
+<<<<<<< 27bf44abd9886933ea56df48e613ddf4e408c82b
     },
+=======
+    }
+>>>>>>> add cursor style in move
   };
   // Create the browser window.
   const win = new BrowserWindow(defaultConfig);
