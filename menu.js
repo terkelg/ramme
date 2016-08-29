@@ -205,7 +205,7 @@ if (process.platform === 'darwin') {
       },
       {
         label: 'Toggle Dark Mode',
-        accelerator: 'CmdOrCtrl+D',
+        accelerator: 'Cmd+D',
         click() {
           sendAction('toggle-dark-mode');
         }
