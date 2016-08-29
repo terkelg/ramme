@@ -11,7 +11,11 @@ const rammeTrayDefaultIcon = path.join(__dirname, 'static/icon-18x18.png');
 const rammeTrayWindowsIcon = path.join(__dirname, 'static/icon.ico');
 let tray = null;
 
-exports.create = (win) => {
+exports.create = win => {
+  if (process.platform === 'darwin' || tray) {
+    return;
+  }
+
   let icon = rammeTrayDefaultIcon;
 
   if (process.platform === 'win32') {
@@ -22,21 +26,30 @@ exports.create = (win) => {
   tray = new Tray(icon);
 
   const contextMenu = [{
-    label: 'Show / Hide',
+    label: 'Toggle',
     click() {
       !win.isMinimized() ? win.minimize() : win.show();
     }
-  }, {
+  },
+  {
+    type: 'separator'
+  },
+  {
     label: 'GitHub',
     click() {
       shell.openExternal('https://github.com/terkelg/ramme');
     }
-  }, {
+  },
+  {
     label: 'Issue',
     click() {
       shell.openExternal('https://github.com/terkelg/ramme/issues');
     }
-  }, {
+  },
+  {
+    type: 'separator'
+  },
+  {
     label: 'Quit',
     click() {
       app.quit();
