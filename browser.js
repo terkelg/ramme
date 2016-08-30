@@ -118,10 +118,10 @@ window.addEventListener('load', () => {
   document.getElementById('react-root').addEventListener('contextmenu', (e) => {
     const targetName = e.target.className;
     if (targetName === '_ovg3g') {
-      picHover(e);
+      picCover(e);
     }
     if (targetName === '_c2kdw') {
-      videoHover(e);
+      videoCover(e);
     }
   });
 });
@@ -131,7 +131,7 @@ const removeCover = (div) => {
   document.body.style.overflow = 'auto';
 };
 
-const videoHover = (e) => {
+const videoCover = (e) => {
   const target = e.target;
   const trueTarget = target.previousSibling;
   const src = trueTarget.querySelectorAll('video')[0].src;
@@ -142,13 +142,13 @@ const videoHover = (e) => {
   video.setAttribute('controls', true);
   const div = document.createElement('div');
   div.appendChild(video);
-  div.className = 'electron_pic_hover';
+  div.className = 'electron_pic_cover';
   document.body.style.overflow = 'hidden';
   video.addEventListener('click', () => removeCover(div));
   document.body.appendChild(div);
 };
 
-const picHover = (e) => {
+const picCover = (e) => {
   const trueTarget = e.target.previousSibling.previousSibling;
   const src = trueTarget.querySelectorAll('img._icyx7')[0].src;
   const img = document.createElement('img');
