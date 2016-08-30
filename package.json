@@ -20,8 +20,8 @@
     "build:linux32": "electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=ia32 --app-bundle-id=com.terkel.ramme --app-version=$npm_package_version && cd dist/Ramme-linux-ia32/ && zip -ryq9 ../Ramme-linux32-${npm_package_version}.zip *",
     "build:windows": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=ia32 --icon=static/icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/Ramme-win32-ia32 && zip -ryq9 ../Ramme-windows-${npm_package_version}.zip *",
     "build:windows64": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=x64 --icon=static/icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/Ramme-win32-x64 && zip -ryq9 ../Ramme-windows64-${npm_package_version}.zip *",
-    "lint": "eslint .",
     "test": "npm run lint",
+    "lint": "eslint ."
   },
   "keywords": [
     "Instagram",
