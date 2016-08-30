@@ -16,6 +16,7 @@ ipcRenderer.on('toggle-dark-mode', () => {
   setDarkMode();
 });
 
+
 ipcRenderer.on('navigate-home', () => {
   const home = $('._n7q2c ._r1svv:nth-child(1) a');
   if (home) {
@@ -92,6 +93,7 @@ function setDarkMode() {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'));
 }
 
+
 function init() {
   backButton();
   setDarkMode();
@@ -116,10 +118,10 @@ window.addEventListener('load', () => {
   document.getElementById('react-root').addEventListener('contextmenu', (e) => {
     const targetName = e.target.className;
     if (targetName === '_ovg3g') {
-      picCover(e);
+      picHover(e);
     }
     if (targetName === '_c2kdw') {
-      videoCover(e);
+      videoHover(e);
     }
   });
 });
@@ -129,7 +131,7 @@ const removeCover = (div) => {
   document.body.style.overflow = 'auto';
 };
 
-const videoCover = (e) => {
+const videoHover = (e) => {
   const target = e.target;
   const trueTarget = target.previousSibling;
   const src = trueTarget.querySelectorAll('video')[0].src;
@@ -140,13 +142,13 @@ const videoCover = (e) => {
   video.setAttribute('controls', true);
   const div = document.createElement('div');
   div.appendChild(video);
-  div.className = 'electron_pic_cover';
+  div.className = 'electron_pic_hover';
   document.body.style.overflow = 'hidden';
   video.addEventListener('click', () => removeCover(div));
   document.body.appendChild(div);
 };
 
-const picCover = (e) => {
+const picHover = (e) => {
   const trueTarget = e.target.previousSibling.previousSibling;
   const src = trueTarget.querySelectorAll('img._icyx7')[0].src;
   const img = document.createElement('img');
