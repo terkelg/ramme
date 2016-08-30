@@ -84,6 +84,7 @@ const createMainWindow = () => {
   return win;
 };
 
+
 // this function is never used
 // function sendAction(action) {
 //   const win = BrowserWindow.getAllWindows()[0];
@@ -92,6 +93,7 @@ const createMainWindow = () => {
 //   }
 //   win.webContents.send(action);
 // };
+
 
 app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu);
