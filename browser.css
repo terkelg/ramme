@@ -250,7 +250,7 @@ html.os-win32 .back-btn { top: 0; }
   opacity: 0.4;
 }
 
-.electron_pic_hover {
+.electron_pic_cover {
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
   width: 100%;
