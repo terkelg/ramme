@@ -44,11 +44,6 @@ exports.create = win => {
     label: 'Toggle',
     click() {
       toggleWin();
-      if (!win.isMinimized()) {
-        win.minimize();
-      } else {
-        win.show();
-      }
     }
   },
     {
