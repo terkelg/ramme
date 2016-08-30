@@ -12,9 +12,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "npm run test && npm run build:osx64",
-    "build:web": "cross-env NODE_ENV=production webpack -p",
-    "build:osx64": "./scripts/build.sh darwin x64",
+    "build:osx64": "npm run test && ./scripts/build:masos.sh",
     "lint": "eslint .",
     "test": "npm run lint"
   },
