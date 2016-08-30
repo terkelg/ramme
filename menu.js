@@ -1,14 +1,12 @@
-'use strict';
 const os = require('os');
 const path = require('path');
 const electron = require('electron');
 const version  = require('./version');
 
 const app = electron.app;
-const BrowserWindow = electron.BrowserWindow
+const BrowserWindow = electron.BrowserWindow;
 const shell = electron.shell;
 const appName = app.getName();
-
 
 function sendAction(action) {
   const win = BrowserWindow.getAllWindows()[0];
@@ -18,17 +16,6 @@ function sendAction(action) {
   }
 
   win.webContents.send(action);
-}
-
-function goBack() {
-
-    if (page.canGoBack()) {
-      const menuBackBtn = appMenu.items[1].submenu.items[0];
-      menuBackBtn.goBack();
-      page.canGoBack() ? menuBackBtn.enabled = true : menuBackBtn.enabled = false;
-    } else {
-      menuBackBtn.enabled = false;
-    }
 }
 
 const helpSubmenu = [
@@ -91,10 +78,9 @@ const template = [
         label: 'Back',
         accelerator: 'Backspace',
         enabled: false,
-        click () {
+        click() {
           const win = BrowserWindow.getAllWindows()[0];
-          if(win.webContents.canGoBack()) {
-            console.log('Back');
+          if (win.webContents.canGoBack()) {
             win.webContents.goBack();
           }
         }
@@ -137,8 +123,8 @@ const template = [
       {
         label: 'Reload',
         accelerator: 'CmdOrCtrl+R',
-        click (item, focusedWindow) {
-          if (focusedWindow) focusedWindow.reload()
+        click(item, focusedWindow) {
+          if (focusedWindow) focusedWindow.reload();
         }
       },
       {
@@ -208,7 +194,7 @@ const template = [
     role: 'help',
     submenu: helpSubmenu
   }
-]
+];
 
 if (process.platform === 'darwin') {
   template.unshift({
@@ -225,6 +211,13 @@ if (process.platform === 'darwin') {
         accelerator: 'CmdOrCtrl+D',
         click() {
           sendAction('toggle-dark-mode');
+        }
+      },
+      {
+        label: 'Refresh',
+        accelerator: 'CmdOrCtrl+R',
+        click() {
+          sendAction('refresh-page');
         }
       },
       {
@@ -253,7 +246,7 @@ if (process.platform === 'darwin') {
         role: 'quit'
       }
     ]
-  })
+  });
   // Edit menu.
   template[1].submenu.push(
     {
@@ -270,7 +263,7 @@ if (process.platform === 'darwin') {
         }
       ]
     }
-  )
+  );
   // Window menu.
   template[3].submenu = [
     {
@@ -294,12 +287,12 @@ if (process.platform === 'darwin') {
       label: 'Bring All to Front',
       role: 'front'
     }
-  ]
+  ];
 }
 
 
-//const darwinTpl = [{}];
-//const otherTpl = [{}];
+// const darwinTpl = [{}];
+// const otherTpl = [{}];
 
 // const tpl = process.platform === 'darwin' ? darwinTpl : otherTpl;
 

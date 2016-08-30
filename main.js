@@ -1,14 +1,13 @@
-'use strict';
-const path     = require('path');
-const fs       = require('fs');
+const path = require('path');
+const fs = require('fs');
 const electron = require('electron');
-const appMenu  = require('./menu');
-const config   = require('./config');
-const tray     = require('./tray');
-const version  = require('./version');
+const appMenu = require('./menu');
+const config = require('./config');
+const tray = require('./tray');
+const version = require('./version');
 
-const app      = electron.app;
-const ipcMain  = electron.ipcMain;
+const app = electron.app;
+const ipcMain = electron.ipcMain;
 
 require('electron-debug')();
 
@@ -31,20 +30,21 @@ if (isAlreadyRunning) {
   app.quit();
 }
 
-function createMainWindow() {
+const createMainWindow = () => {
   const lastWindowState = config.get('lastWindowState');
   const isDarkMode = config.get('darkMode');
-  const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
+  const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) '
+	+ 'AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
   const rammeDesktopIcon = path.join(__dirname, 'static/icon.png');
-  const maxWidthValue = 550;
-  const minWidthValue = 400;
-
-	const defaultConfig = {
+  const maxWidthValue = 637;
+  const minWidthValue = 550;
+  const minHeight = 726;
+  const defaultConfig = {
+    minHeight,
     title: app.getName(),
     show: false,
     x: lastWindowState.x,
     y: lastWindowState.y,
-    minHeight: 400,
     minWidth: minWidthValue,
     maxWidth: maxWidthValue,
     width: lastWindowState.width,
@@ -59,18 +59,16 @@ function createMainWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'browser.js'),
       nodeIntegration: false
-    }
+    },
   };
   // Create the browser window.
   const win = new BrowserWindow(defaultConfig);
 
   win.webContents.setUserAgent(userAgent);
-  win.loadURL(`https://www.instagram.com`);
-
+  win.loadURL('https://www.instagram.com');
   win.on('close', e => {
     if (!isQuitting) {
       e.preventDefault();
-
       if (process.platform === 'darwin') {
         app.hide();
       } else {
@@ -83,19 +81,17 @@ function createMainWindow() {
     e.preventDefault();
     tray.create(win);
   });
-
   return win;
-}
+};
 
-function sendAction(action) {
-  const win = BrowserWindow.getAllWindows()[0];
-
-  if (process.platform === 'darwin') {
-    win.restore();
-  }
-
-  win.webContents.send(action);
-}
+// this function is never used
+// function sendAction(action) {
+//   const win = BrowserWindow.getAllWindows()[0];
+//   if (process.platform === 'darwin') {
+//     win.restore();
+//   }
+//   win.webContents.send(action);
+// };
 
 app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu);
@@ -103,13 +99,13 @@ app.on('ready', () => {
 
   const page = mainWindow.webContents;
 
-  ipcMain.on('back', (event, arg) => {
+  ipcMain.on('back', () => {
     if (page.canGoBack()) {
       page.goBack();
     }
   });
 
-  page.on('did-navigate-in-page', (event, arg) => {
+  page.on('did-navigate-in-page', () => {
     const menuBackBtn = appMenu.items[1].submenu.items[0];
     menuBackBtn.enabled = page.canGoBack();
     page.send('set-button-state', menuBackBtn.enabled);
@@ -126,7 +122,7 @@ app.on('ready', () => {
     electron.shell.openExternal(url);
   });
 
-  setTimeout(function() {version.check()}, 8000);
+  setTimeout(() => { version.check(); }, 8000);
 });
 
 app.on('activate', () => {
