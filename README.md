@@ -1,4 +1,4 @@
-# Ramme <img src="static/icon.png" width="70">
+# Ramme(Stephen.Kingsley process) <img src="static/icon.png" width="70">
 
 > Unofficial Instagram Desktop App
 
@@ -12,7 +12,7 @@
 
 When closing the window, the app will continue running in the background, in the dock on macOS and the tray on Linux/Windows. Right-click the dock/tray icon and choose `Quit` to completely quit the app. On macOS, click the dock icon to show the window. On Linux, right-click the tray icon and choose `Toggle` to toggle the window. On Windows, click the tray icon to toggle the window.
 
-### Dark mode 
+### Dark mode
 You can toggle dark mode in the Ramme menu or with <kbd>Cmd</kbd> <kbd>D</kbd> / <kbd>Ctrl</kbd> <kbd>D</kbd>.
 
 <img src="media/screenshot-dark.png" width="589" />
@@ -26,6 +26,12 @@ Thanks for the help [@ninjaprawn](https://github.com/ninjaprawn)
 - Discover: <kbd>Cmd</kbd> <kbd>2</kbd> or <kbd>Ctrl</kbd> <kbd>2</kbd>
 - Notifications: <kbd>Cmd</kbd> <kbd>3</kbd> or <kbd>Ctrl</kbd> <kbd>3</kbd>
 - Profile: <kbd>Cmd</kbd> <kbd>4</kbd> or <kbd>Ctrl</kbd> <kbd>4</kbd>
+
+### Pic hover
+
+you can click on the right mouse button in the photo or the video and will show this
+
+<img src="media/pichover.png" width="589" />
 
 ## Install
 

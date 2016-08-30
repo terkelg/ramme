@@ -62,6 +62,10 @@ footer._oofbn {
 	display: block;
 }
 
+._onabe {
+  cursor: move;
+}
+
 /* Reset topbar and move to vertical menu on the left */
 #react-root ._hykpq>div,
 #react-root ._hykpq,
