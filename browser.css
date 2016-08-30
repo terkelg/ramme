@@ -55,6 +55,7 @@ footer._oofbn {
   border-right: 1px solid rgba(0,0,0,.08);
 	-webkit-app-region: drag; /* Make the navbar the windows's draggable region */
 	display: block;
+  cursor: move;
 }
 
 /* Reset topbar and move to vertical menu on the left */
