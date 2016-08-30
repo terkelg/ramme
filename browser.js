@@ -13,10 +13,13 @@ const selectors = {
   loginButton: '#react-root ._fcn8k'
 };
 
-
 ipcRenderer.on('toggle-dark-mode', () => {
   config.set('darkMode', !config.get('darkMode'));
   setDarkMode();
+});
+
+ipcRenderer.on('refresh-page', () => {
+  reflectPage();
 });
 
 ipcRenderer.on('navigate-home', () => {
@@ -26,7 +29,6 @@ ipcRenderer.on('navigate-home', () => {
   }
 });
 
-
 ipcRenderer.on('navigate-discover', () => {
   const discover = $('._n7q2c ._r1svv:nth-child(2) a');
   if (discover) {
@@ -34,14 +36,12 @@ ipcRenderer.on('navigate-discover', () => {
   }
 });
 
-
 ipcRenderer.on('navigate-notifications', () => {
   const notifications = $('._n7q2c ._r1svv:nth-child(3) a');
   if (notifications) {
     notifications.click();
   }
 });
-
 
 ipcRenderer.on('navigate-profile', () => {
   const profile = $('._n7q2c ._r1svv:nth-child(4) a');
@@ -94,6 +94,10 @@ function login(elm) {
 function setDarkMode() {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'));
 }
+
+const reflectPage = () => {
+  window.location.href = 'https://www.instagram.com/';
+};
 
 function init() {
   backButton();

@@ -85,7 +85,6 @@ const createMainWindow = () => {
   return win;
 };
 
-
 app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu);
   mainWindow = createMainWindow();

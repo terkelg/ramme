@@ -12,11 +12,9 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "npm run test && npm run build:macos && npm run build:linux && npm run build:windows",
-    "build:macos": "npm run test && electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=darwin --arch=x64 --icon=static/icon.icns --app-bundle-id=com.terkel.ramme --osx-sign --app-version=$npm_package_version && cd dist/Ramme-darwin-x64 && zip -ryXq9 ../Ramme-osx-${npm_package_version}.zip Ramme.app",
-    "build:linux": "npm run test && electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=x64 --app-bundle-id=com.terkel.ramme --app-version=$npm_package_version && cd dist/Ramme-linux-x64/ && zip -ryq9 ../Ramme-linux-${npm_package_version}.zip *",
-    "build:windows": "npm run test && electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=ia32 --icon=static/icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/Ramme-win32-ia32 && zip -ryq9 ../Ramme-windows-${npm_package_version}.zip *",
-    "build:osx64": "npm run test && electron-packager . stephen.k.Instagram --overwrite --out=dist --platform=darwin --arch=x64 --icon=static/icon.icns --app-version=$npm_package_version",
+    "build": "npm run test && npm run build:osx64",
+    "build:web": "cross-env NODE_ENV=production webpack -p",
+    "build:osx64": "./scripts/build.sh darwin x64",
     "lint": "eslint .",
     "test": "npm run lint"
   },
