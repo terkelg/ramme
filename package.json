@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "build:osx64": "npm run test && ./scripts/build:masos.sh",
+    "build:osx64": "npm run test && electron-packager . stephen.k.Instagram --overwrite --out=dist --platform=darwin --arch=x64 --icon=static/icon.icns --app-version=$npm_package_version",
     "lint": "eslint .",
     "test": "npm run lint"
   },
