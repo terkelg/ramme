@@ -149,6 +149,13 @@ const template = [
         }
       },
       {
+        label: 'Toggle Dark Mode',
+        accelerator: 'CmdOrCtrl+D',
+        click() {
+          sendAction('toggle-dark-mode');
+        }
+      },
+      {
         type: 'separator'
       },
       {

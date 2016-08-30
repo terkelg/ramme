@@ -3,6 +3,7 @@ const fs = require('fs');
 const electron = require('electron');
 const appMenu = require('./menu');
 const config = require('./config');
+const tray = require('./tray');
 
 const app = electron.app;
 const ipcMain = electron.ipcMain;
@@ -28,12 +29,12 @@ if (isAlreadyRunning) {
   app.quit();
 }
 
-
 const createMainWindow = () => {
   const lastWindowState = config.get('lastWindowState');
   const isDarkMode = config.get('darkMode');
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) '
 	+ 'AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
+  const rammeDesktopIcon = path.join(__dirname, 'static/icon.png');
   const maxWidthValue = 637;
   const minWidthValue = 550;
   const minHeight = 726;
@@ -49,8 +50,7 @@ const createMainWindow = () => {
     height: lastWindowState.height,
     maximizable: false,
     fullscreenable: false,
-    frame: false,
-    icon: process.platform === 'linux' && path.join(__dirname, 'static/icon.png'),
+    icon: process.platform === 'linux' && rammeDesktopIcon,
     titleBarStyle: 'hidden-inset',
     darkTheme: isDarkMode,
     backgroundColor: isDarkMode ? '#192633' : '#fff',
@@ -69,6 +69,7 @@ const createMainWindow = () => {
   win.on('close', e => {
     if (!isQuitting) {
       e.preventDefault();
+
       if (process.platform === 'darwin') {
         app.hide();
       } else {
@@ -79,10 +80,21 @@ const createMainWindow = () => {
 
   win.on('page-title-updated', e => {
     e.preventDefault();
+    tray.create(win);
   });
 
   return win;
 };
+
+// function sendAction(action) {
+//   const win = BrowserWindow.getAllWindows()[0];
+//
+//   if (process.platform === 'darwin') {
+//     win.restore();
+//   }
+//
+//   win.webContents.send(action);
+// }
 
 app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu);
