@@ -134,6 +134,11 @@ window.addEventListener('load', () => {
   });
 });
 
+const removeCover = (div) => {
+  document.body.removeChild(div);
+  document.body.style.overflow = 'auto';
+};
+
 const videoCover = (e) => {
   const target = e.target;
   const trueTarget = target.previousSibling;
@@ -147,10 +152,7 @@ const videoCover = (e) => {
   div.appendChild(video);
   div.className = 'electron_pic_cover';
   document.body.style.overflow = 'hidden';
-  video.addEventListener('click', () => {
-    document.body.removeChild(div);
-    document.body.style.overflow = 'auto';
-  });
+  video.addEventListener('click', () => removeCover(div));
   document.body.appendChild(div);
 };
 
@@ -165,9 +167,6 @@ const picCover = (e) => {
   div.appendChild(img);
   div.className = 'electron_pic_cover';
   document.body.style.overflow = 'hidden';
-  img.addEventListener('click', () => {
-    document.body.removeChild(div);
-    document.body.style.overflow = 'auto';
-  });
+  img.addEventListener('click', () => removeCover(div));
   document.body.appendChild(div);
 };
