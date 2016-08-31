@@ -214,13 +214,6 @@ if (process.platform === 'darwin') {
         }
       },
       {
-        label: 'Refresh',
-        accelerator: 'CmdOrCtrl+R',
-        click() {
-          sendAction('refresh-page');
-        }
-      },
-      {
         type: 'separator'
       },
       {
