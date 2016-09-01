@@ -5,6 +5,7 @@ const electron = require('electron');
 const appMenu  = require('./menu');
 const config   = require('./config');
 const tray     = require('./tray');
+const version  = require('./version');
 
 const app      = electron.app;
 const ipcMain  = electron.ipcMain;
@@ -123,6 +124,8 @@ app.on('ready', () => {
     e.preventDefault();
     electron.shell.openExternal(url);
   });
+
+  setTimeout(function() {version.check()}, 10000);
 });
 
 app.on('activate', () => {
