@@ -55,7 +55,7 @@ Name=Ramme
 Exec=/full/path/to/folder/Ramme
 Terminal=false
 Type=Application
-Icon=/full/path/to/folder/Ramme/resources/app/static/Icon.png
+Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 ```
 
 ### Windows
