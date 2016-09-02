@@ -30,8 +30,10 @@ exports.create = win => {
       } else {
         win.show();
       }
+    } else if (win.isVisible()) {
+      win.hide();
     } else {
-      win.isVisible() ? win.hide() : win.show();
+      win.show();
     }
   };
 

@@ -83,17 +83,6 @@ const createMainWindow = () => {
   });
 
   return win;
-}
-
-function sendAction(action) {
-  const win = BrowserWindow.getAllWindows()[0];
-
-  if (process.platform === 'darwin') {
-    win.restore();
-  }
-
-  win.webContents.send(action);
-}
 };
 
 
