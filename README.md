@@ -27,11 +27,13 @@ Thanks for the help [@ninjaprawn](https://github.com/ninjaprawn)
 - Notifications: <kbd>Cmd</kbd> <kbd>3</kbd> or <kbd>Ctrl</kbd> <kbd>3</kbd>
 - Profile: <kbd>Cmd</kbd> <kbd>4</kbd> or <kbd>Ctrl</kbd> <kbd>4</kbd>
 
-### Pic hover
+### Pic cover
 
 you can click on the right mouse button in the photo or the video and will show this
 
 <img src="media/pichover.png" width="589" />
+
+and in the cover, you also can click right mouse button to save pic or video.
 
 ## Install
 

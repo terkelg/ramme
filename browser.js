@@ -18,10 +18,6 @@ ipcRenderer.on('toggle-dark-mode', () => {
   setDarkMode();
 });
 
-ipcRenderer.on('refresh-page', () => {
-  reflectPage();
-});
-
 ipcRenderer.on('navigate-home', () => {
   const home = $('._n7q2c ._r1svv:nth-child(1) a');
   if (home) {
@@ -94,10 +90,6 @@ function login(elm) {
 function setDarkMode() {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'));
 }
-
-const reflectPage = () => {
-  window.location.href = 'https://www.instagram.com/';
-};
 
 function init() {
   backButton();
