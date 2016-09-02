@@ -176,7 +176,7 @@ const download = (url, path) => new Promise((resolve, reject) => {
         if (err) {
           reject(err);
         } else {
-          resolve('save pictures is done');
+          resolve(`save in ${path} was done`);
         }
       });
     });
