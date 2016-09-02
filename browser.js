@@ -1,4 +1,7 @@
+const https = require('https');
+const fs = require('fs');
 const electron = require('electron');
+const { dialog } = require('electron').remote;
 const config = require('./config');
 const elementReady = require('element-ready');
 
@@ -129,6 +132,61 @@ const removeCover = (div) => {
   document.body.style.overflow = 'auto';
 };
 
+const savePicOrVideo = (src, fileType) => {
+  const title = `save ${fileType}`;
+  const options = {
+    title,
+    defaultPath: __dirname,
+  };
+  const choosePath = dialog.showSaveDialog(options);
+  if (choosePath) {
+    download(src, `${choosePath}.${fileType}`)
+      .then((done, error) => {
+        let body;
+        if (done) {
+          body = done;
+        }
+        if (error) {
+          body = done;
+        }
+        const notificationOptions = {
+          title,
+          body,
+          icon: './static/icon.png'
+        };
+        const notification = new Notification(title, notificationOptions);
+        notification();
+      });
+  }
+};
+
+const concat1 = (buf1, buf2) => {
+  const tmp = new Buffer(buf1.length + buf2.length);
+  buf1.copy(tmp, 0);
+  buf2.copy(tmp, buf1.length);
+  return tmp;
+};
+
+const download = (url, path) => new Promise((resolve, reject) => {
+  https.get(url, (res) => {
+    let picData = new Buffer(0);
+    res.on('data', (chunk) => {
+      picData = concat1(picData, chunk);
+    });
+    res.on('end', () => {
+      fs.writeFile(path, picData, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve('save pictures is done');
+        }
+      });
+    });
+  }).on('error', (e) => {
+    reject(e.message);
+  });
+});
+
 const videoCover = (e) => {
   const target = e.target;
   const trueTarget = target.previousSibling;
@@ -143,6 +201,7 @@ const videoCover = (e) => {
   div.className = 'electron_pic_cover';
   document.body.style.overflow = 'hidden';
   video.addEventListener('click', () => removeCover(div));
+  video.addEventListener('contextmenu', () => savePicOrVideo(src, 'mp4'));
   document.body.appendChild(div);
 };
 
@@ -158,5 +217,6 @@ const picCover = (e) => {
   div.className = 'electron_pic_cover';
   document.body.style.overflow = 'hidden';
   img.addEventListener('click', () => removeCover(div));
+  img.addEventListener('contextmenu', () => savePicOrVideo(src, 'jpg'));
   document.body.appendChild(div);
 };
