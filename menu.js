@@ -163,6 +163,13 @@ const template = [
         }
       },
       {
+        label: 'Toggle Dark Mode',
+        accelerator: 'CmdOrCtrl+D',
+        click() {
+          sendAction('toggle-dark-mode');
+        }
+      },
+      {
         type: 'separator'
       },
       {
@@ -205,7 +212,7 @@ if (process.platform === 'darwin') {
       },
       {
         label: 'Toggle Dark Mode',
-        accelerator: 'Cmd+D',
+        accelerator: 'CmdOrCtrl+D',
         click() {
           sendAction('toggle-dark-mode');
         }
