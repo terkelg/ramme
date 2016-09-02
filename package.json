@@ -12,11 +12,14 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "npm run build:macos && npm run build:linux && npm run build:windows",
+    "build": "npm run build64 && npm run build32",
+    "build64": "npm run build:macos && npm run build:linux && npm run build:windows64",
+    "build32": "npm run build:linux32 && npm run build:windows",
     "build:macos": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=darwin --arch=x64 --icon=static/icon.icns --app-bundle-id=com.terkel.ramme --osx-sign --app-version=$npm_package_version && cd dist/Ramme-darwin-x64 && zip -ryXq9 ../Ramme-osx-${npm_package_version}.zip Ramme.app",
     "build:linux": "electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=x64 --app-bundle-id=com.terkel.ramme --app-version=$npm_package_version && cd dist/Ramme-linux-x64/ && zip -ryq9 ../Ramme-linux-${npm_package_version}.zip *",
-    "build:linux32": "electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=ia32 --app-bundle-id=com.terkel.ramme --app-version=$npm_package_version && cd dist/Ramme-linux-ia32/ && zip -ryq9 ../Ramme-linux-${npm_package_version}.zip *",
-    "build:windows": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=ia32 --icon=static/icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/Ramme-win32-ia32 && zip -ryq9 ../Ramme-windows-${npm_package_version}.zip *"
+    "build:linux32": "electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=ia32 --app-bundle-id=com.terkel.ramme --app-version=$npm_package_version && cd dist/Ramme-linux-ia32/ && zip -ryq9 ../Ramme-linux32-${npm_package_version}.zip *",
+    "build:windows": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=ia32 --icon=static/icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/Ramme-win32-ia32 && zip -ryq9 ../Ramme-windows-${npm_package_version}.zip *",
+    "build:windows64": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=x64 --icon=static/icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/Ramme-win32-x64 && zip -ryq9 ../Ramme-windows64-${npm_package_version}.zip *"
   },
   "keywords": [
     "Instagram",
