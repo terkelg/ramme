@@ -1,4 +1,4 @@
-# Ramme(Stephen.Kingsley process) <img src="static/icon.png" width="70">
+# Ramme <img src="static/icon.png" width="70">
 
 > Unofficial Instagram Desktop App
 

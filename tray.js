@@ -43,11 +43,6 @@ exports.create = win => {
   const contextMenu = [{
     label: 'Toggle',
     click() {
-      if (!win.isMinimized()) {
-        win.minimize();
-      } else {
-        win.show();
-      }
       toggleWin();
     }
   },
