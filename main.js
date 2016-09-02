@@ -125,7 +125,7 @@ app.on('ready', () => {
     electron.shell.openExternal(url);
   });
 
-  setTimeout(function() {version.check()}, 10000);
+  setTimeout(function() {version.check()}, 8000);
 });
 
 app.on('activate', () => {

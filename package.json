@@ -30,7 +30,6 @@
   "dependencies": {
     "electron-config": "^0.2.1",
     "electron-debug": "^1.0.1",
-    "element-ready": "^0.2.0",
-    "request": "^2.74.0"
+    "element-ready": "^0.2.0"
   }
 }
