@@ -110,7 +110,7 @@ app.on('ready', () => {
 
   page.on('did-navigate-in-page', (event, arg) => {
     const menuBackBtn = appMenu.items[1].submenu.items[0];
-    page.canGoBack() ? menuBackBtn.enabled = true : menuBackBtn.enabled = false;
+    menuBackBtn.enabled = page.canGoBack();
     page.send('set-button-state', menuBackBtn.enabled);
   });
 
