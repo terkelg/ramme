@@ -71,14 +71,14 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 - Bugs ... Gotta Catch 'Em All!
 
 ### v3
-- Pull to refresh
-- Photo Zoom
+- Refresh
 
 ### Under Consideration
-- Auto Update
 - Video/Photo download
 - Photo Upload
+- Photo Zoom
 - Stories Support
+- Notifications
 
 ## Dev
 
@@ -100,6 +100,9 @@ Please check out his stuff:
 
 - [Anatine](https://github.com/sindresorhus/anatine) - Pristine Twitter app
 - [Caprine](https://github.com/sindresorhus/caprine) - Caprine Facebook Messenger app
+
+## Thanks
+Thanks to all contributors who helped make Ramme better!
 
 ## License
 
