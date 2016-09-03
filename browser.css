@@ -54,6 +54,7 @@ footer._oofbn {
   height: 100%;
   border-right: 1px solid rgba(0,0,0,.08);
 	-webkit-app-region: drag; /* Make the navbar the windows's draggable region */
+	will-change: left, top;
 	display: block;
 }
 
@@ -64,6 +65,7 @@ footer._oofbn {
 #react-root ._j4mb5 {
   height: 100%;
   width: 100%;
+	-webkit-app-region: drag!important; /* Make the navbar the windows's draggable region */
 }
 #react-root ._bfc7q {
   position: absolute;
