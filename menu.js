@@ -2,6 +2,7 @@
 const os = require('os');
 const path = require('path');
 const electron = require('electron');
+const version  = require('./version');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow
@@ -31,6 +32,15 @@ function goBack() {
 }
 
 const helpSubmenu = [
+  {
+    label: 'Check for Updates...',
+    click() {
+      version.check();
+    }
+  },
+  {
+    type: 'separator'
+  },
   {
     label: `${appName} Website`,
     click() {
