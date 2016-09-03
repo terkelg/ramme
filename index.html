@@ -1,1 +1,116 @@
-Coming soon
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ramme</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <meta name="author" content="Ramme">
+    <meta name="description" content="The Unofficial Open Source Instagram Desktop App">
+    <meta name="keywords" content="Instagram, open, source, open soure, desktop, app, Mac OS, Windows, Linux, unofficial">
+
+    <!-- Include Google Analytics Here -->
+
+    <!-- Smooth Scroll -->
+    <script src="js/smooth-scroll.js"></script>
+
+  </head>
+  <body>
+    <!-- Body Content -->
+
+    <!-- Header -->
+    <div class="topSection">
+      <!-- Vertical Center -->
+      <div class="vCenter">
+        <!-- Logo -->
+        <img src="img/favicon.png"/>
+        <!-- Text -->
+        <h1>Ramme</h1>
+        <h2>The Unofficial Open Source Instagram Desktop App</h2>
+        <a data-scroll href="#contribute"><i class="fa fa-github"></i> Contribute</a>
+        <a data-scroll href="#download"><i class="fa fa-download"></i> Download</a>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div id="wrapper">
+
+      <div class="BG whiteBG">
+        <div class="bodyContent">
+          <!-- Screemshots showoff -->
+          <h3>Instagram on you Desktop</h3>
+          <div class="center">
+            <img src="img/rammeBoth.png" />
+            <img src="img/ramme.png" class="hideOnSmall" />
+            <img src="img/rammeDark.png" class="hideOnSmall" />
+          </div>
+          <!-- Description -->
+          <p>Have you ever dreamt of having Instagam on your desktop, as an app being actively developed? Well, today is your lucky day because you found Ramme! Ramme is an unofficial open-source Instagram desktop application made with <a target="_blank" href="http://electron.atom.io/">Electron</a>.</p>
+        </div>
+      </div>
+      <div class="BG greyBG">
+        <div class="bodyContent">
+          <!-- Features -->
+          <h4>Features</h4>
+          <h5>A Beautiful Instagram Experience</h5>
+          <p class="description">Instagram on your Desktop with the behavior of an app, including a couple extra features to enhance your Instagram experience.</p>
+          <h5>Background Behavior</h5>
+          <p class="description">When closing the window, the app will continue running in the background, in the dock on macOS and the tray on Linux/Windows. Right-click the dock/tray icon and choose Quit to completely quit the app. On macOS, click the dock icon to show the window. On Linux, right-click the tray icon and choose Toggle to toggle the window. On Windows, click the tray icon to toggle the window.</p>
+          <h5>Dark Mode</h5>
+          <p class="description">You can toggle dark mode in the Ramme menu or with <span>Cmd</span> <span>D</span> or <span>Ctrl</span> <span>D</span>.</p>
+          <h5>Keyboard shortcuts</h5>
+          <p class="description moreLineHeight">
+            Go Back: <span>&#9003;</span><br>
+            Refresh: <span>Cmd</span> <span>R</span> or <span>Ctrl</span> <span>R</span><br>
+            Go Back: <span>Cmd</span> <span>1</span> or <span>Ctrl</span> <span>1</span><br>
+            Discover: <span>Cmd</span> <span>2</span> or <span>Ctrl</span> <span>2</span><br>
+            Notifications: <span>Cmd</span> <span>3</span> or <span>Ctrl</span> <span>3</span><br>
+            Profile: <span>Cmd</span> <span>4</span> or <span>Ctrl</span> <span>4</span>
+          </p>
+        </div>
+      </div>
+      <div class="BG whiteBG" id="download">
+        <div class="bodyContent">
+          <!-- Download Links -->
+          <h4>Download Ramme</h4>
+          <p class="smaller noTopPadding">Downloading Ramme is very simple, just select one of the following download links that fits to your OS, unzip the file you download and BOOM, you have it, its simple as that!</p>
+          <div class="downloadButtons">
+            <a href="https://github.com/terkelg/ramme/releases/download/2.0.0/Ramme-osx-2.1.0.zip"><i class="fa fa-apple"></i> MacOS</a>
+            <a href="https://github.com/terkelg/ramme/releases/download/2.0.0/Ramme-windows-2.1.0.zip"><i class="fa fa-windows"></i> Windows</a>
+            <a href="https://github.com/terkelg/ramme/releases/download/2.0.0/Ramme-linux-2.1.0.zip"><i class="fa fa-linux"></i> Linux</a>
+          </div>
+          <p class="extra">Current Version: 2.1.0</p>
+        </div>
+      </div>
+      <div class="BG greyBG" id="contribute">
+        <div class="bodyContent">
+          <!-- Contribute -->
+          <h4>Contribute To Ramme</h4>
+          <p class="smaller noTopPadding">If you want to help develop Ramme to become the best ever Instgram desktop app, click the button below and join in on the Ramme development over at Github. We are always happy to recieve help on the Project and hope that with your guy's help it can grow even more than it already has. Thank you to all those who have already contributed, without you Ramme may not have come this far!</p>
+          <div class="contributeButton">
+            <a href="https://github.com/terkelg/ramme"><i class="fa fa-github"></i> Contribute</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>&copy; Copyright 2016 <a target="_blank" href="https://terkel.com/">Terkel Gjervig</a></p>
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+      // Init Smooth Scroll
+      smoothScroll.init({
+        speed: 1500
+      });
+    </script>
+  </body>
+</html>
