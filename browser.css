@@ -59,14 +59,17 @@ footer._oofbn {
 }
 
 /* Reset topbar and move to vertical menu on the left */
-#react-root ._hykpq>div,
-#react-root ._hykpq,
-#react-root ._bfc7q,
-#react-root ._j4mb5 {
-  height: 100%;
-  width: 100%;
-	-webkit-app-region: drag!important; /* Make the navbar the windows's draggable region */
+#react-root,
+#react-root > section,
+#react-root > section > nav {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
 }
+
+#react-root > section > main {
+  -webkit-app-region: no-drag;
+}
+
 #react-root ._bfc7q {
   position: absolute;
   border: none;
