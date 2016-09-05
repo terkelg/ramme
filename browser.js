@@ -1,7 +1,10 @@
-'use strict'
-const electron = require('electron')
-const config = require('./config')
-const elementReady = require('element-ready')
+'use strict';
+const https = require('https');
+const fs = require('fs');
+const electron = require('electron');
+const { dialog } = electron.remote;
+const config = require('./config');
+const elementReady = require('element-ready');
 
 const ipcRenderer = electron.ipcRenderer
 const $ = document.querySelector.bind(document)
@@ -118,6 +121,112 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // enable OS specific styles
   document.documentElement.classList.add(`os-${process.platform}`)
 
-  elementReady(selectors.root).then(init)
-  elementReady(selectors.loginButton).then(login)
-})
+  elementReady(selectors.root).then(init);
+  elementReady(selectors.loginButton).then(login);
+});
+
+window.addEventListener('load', () => {
+  document.getElementById('react-root').addEventListener('contextmenu', (e) => {
+    const targetName = e.target.className;
+    if (targetName === '_ovg3g') {
+      picCover(e);
+    }
+    if (targetName === '_c2kdw') {
+      videoCover(e);
+    }
+  });
+});
+
+const removeCover = (div) => {
+  document.body.removeChild(div);
+  document.body.style.overflow = 'auto';
+};
+
+const savePicOrVideo = (src, fileType) => {
+  const title = `save ${fileType}`;
+  const options = {
+    title,
+    defaultPath: __dirname,
+  };
+  const choosePath = dialog.showSaveDialog(options);
+  if (choosePath) {
+    download(src, `${choosePath}.${fileType}`)
+      .then((done, error) => {
+        let body;
+        if (done) {
+          body = done;
+        }
+        if (error) {
+          body = done;
+        }
+        const notificationOptions = {
+          title,
+          body,
+          icon: './static/icon.png'
+        };
+        const notification = new Notification(title, notificationOptions);
+        notification();
+      });
+  }
+};
+
+const concat1 = (buf1, buf2) => {
+  const tmp = new Buffer(buf1.length + buf2.length);
+  buf1.copy(tmp, 0);
+  buf2.copy(tmp, buf1.length);
+  return tmp;
+};
+
+const download = (url, path) => new Promise((resolve, reject) => {
+  https.get(url, (res) => {
+    let picData = new Buffer(0);
+    res.on('data', (chunk) => {
+      picData = concat1(picData, chunk);
+    });
+    res.on('end', () => {
+      fs.writeFile(path, picData, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(`save in ${path} was done`);
+        }
+      });
+    });
+  }).on('error', (e) => {
+    reject(e.message);
+  });
+});
+
+const videoCover = (e) => {
+  const target = e.target;
+  const trueTarget = target.previousSibling;
+  const src = trueTarget.querySelectorAll('video')[0].src;
+  const video = document.createElement('video');
+  video.src = src;
+  video.style.width = '90%';
+  video.setAttribute('autoplay', true);
+  video.setAttribute('controls', true);
+  const div = document.createElement('div');
+  div.appendChild(video);
+  div.className = 'electron_pic_cover';
+  document.body.style.overflow = 'hidden';
+  video.addEventListener('click', () => removeCover(div));
+  video.addEventListener('contextmenu', () => savePicOrVideo(src, 'mp4'));
+  document.body.appendChild(div);
+};
+
+const picCover = (e) => {
+  const trueTarget = e.target.previousSibling.previousSibling;
+  const src = trueTarget.querySelectorAll('img._icyx7')[0].src;
+  const img = document.createElement('img');
+  img.src = src;
+  img.style.width = '90%';
+  img.style.cursor = 'pointer';
+  const div = document.createElement('div');
+  div.appendChild(img);
+  div.className = 'electron_pic_cover';
+  document.body.style.overflow = 'hidden';
+  img.addEventListener('click', () => removeCover(div));
+  img.addEventListener('contextmenu', () => savePicOrVideo(src, 'jpg'));
+  document.body.appendChild(div);
+};
