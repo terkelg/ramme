@@ -23,7 +23,11 @@ const isAlreadyRunning = app.makeSingleInstance(() => {
       mainWindow.restore();
     }
 
-    mainWindow.show();
+    mainWindow.webContents.on('did-finish-load', function() {
+      setTimeout(function() {
+          mainWindow.show()
+      }, 60)
+    })
   }
 });
 
