@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    },
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "arrow-body-style": 0,
+    "func-names": 0,
+    "comma-dangle": 0,
+    "no-use-before-define": 0,
+    "no-param-reassign": 0
+  }
+}

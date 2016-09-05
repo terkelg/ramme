@@ -1,0 +1,5 @@
+**/dist/**
+**/node_modules/**
+**/run/**
+**/README.md**
+**/npm-debug.log**
