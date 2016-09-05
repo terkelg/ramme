@@ -75,14 +75,6 @@ exports.create = win => {
   tray.setToolTip(`${app.getName()}`);
   tray.setContextMenu(Menu.buildFromTemplate(contextMenu));
   tray.on('click', () => {
-<<<<<<< f3a6dae7446b377f842df0cc1195c0d9733e3f34
     toggleWin();
-=======
-    if (win.isVisible()) {
-      win.hide();
-    } else {
-      win.show();
-    }
->>>>>>> package shell
   });
 };

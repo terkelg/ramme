@@ -35,10 +35,10 @@ const createMainWindow = () => {
   const isDarkMode = config.get('darkMode');
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) '
 	+ 'AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
-  const rammeDesktopIcon = path.join(__dirname, 'static/icon.png');
   const maxWidthValue = 637;
   const minWidthValue = 550;
   const minHeight = 726;
+  const rammeDesktopIcon = path.join(__dirname, 'static/icon.png');
   const defaultConfig = {
     minHeight,
     title: app.getName(),
@@ -66,6 +66,7 @@ const createMainWindow = () => {
 
   win.webContents.setUserAgent(userAgent);
   win.loadURL('https://www.instagram.com');
+
   win.on('close', e => {
     if (!isQuitting) {
       e.preventDefault();
