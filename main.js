@@ -23,6 +23,7 @@ const isAlreadyRunning = app.makeSingleInstance(() => {
       mainWindow.restore();
     }
 
+    // Prevent flash on startup when in dark-mode
     mainWindow.webContents.on('did-finish-load', function() {
       setTimeout(function() {
           mainWindow.show()
