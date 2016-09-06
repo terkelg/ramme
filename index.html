@@ -63,15 +63,15 @@
           <h5>Background Behavior</h5>
           <p class="description">When closing the window, the app will continue running in the background, in the dock on macOS and the tray on Linux/Windows. Right-click the dock/tray icon and choose Quit to completely quit the app. On macOS, click the dock icon to show the window. On Linux, right-click the tray icon and choose Toggle to toggle the window. On Windows, click the tray icon to toggle the window.</p>
           <h5>Dark Mode</h5>
-          <p class="description">You can toggle dark mode in the Ramme menu or with <span>Cmd</span> <span>D</span> or <span>Ctrl</span> <span>D</span>.</p>
+          <p class="description">You can toggle dark mode in the Ramme menu or with <span>&#8984;</span> <span>D</span> or <span>ctrl</span> <span>D</span>.</p>
           <h5>Keyboard shortcuts</h5>
           <p class="description moreLineHeight">
             Go Back: <span>&#9003;</span><br>
-            Refresh: <span>Cmd</span> <span>R</span> or <span>Ctrl</span> <span>R</span><br>
-            Go Back: <span>Cmd</span> <span>1</span> or <span>Ctrl</span> <span>1</span><br>
-            Discover: <span>Cmd</span> <span>2</span> or <span>Ctrl</span> <span>2</span><br>
-            Notifications: <span>Cmd</span> <span>3</span> or <span>Ctrl</span> <span>3</span><br>
-            Profile: <span>Cmd</span> <span>4</span> or <span>Ctrl</span> <span>4</span>
+            Refresh: <span>&#8984;</span> <span>R</span> or <span>ctrl</span> <span>R</span><br>
+            Go Back: <span>&#8984;</span> <span>1</span> or <span>ctrl</span> <span>1</span><br>
+            Discover: <span>&#8984;</span> <span>2</span> or <span>ctrl</span> <span>2</span><br>
+            Notifications: <span>&#8984;</span> <span>3</span> or <span>ctrl</span> <span>3</span><br>
+            Profile: <span>&#8984;</span> <span>4</span> or <span>ctrl</span> <span>4</span>
           </p>
         </div>
       </div>
@@ -107,6 +107,42 @@
     </div>
 
     <script type="text/javascript">
+      var get_fresh_links = function () {
+        var update_url = 'https://api.github.com/repos/terkelg/ramme/releases/latest',
+            base_download_url = 'https://github.com/terkelg/ramme/releases/download/',
+            platforms = [ ['osx', 'apple', 'macOS'], [ 'windows', 'windows', 'Windows'], ['linux', 'linux', 'Linux'] ]
+
+        // Call Github API
+        var request = new XMLHttpRequest();
+        request.open('GET', update_url, true);
+
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            // Parse data
+            var data = JSON.parse(request.responseText)
+
+            // Clean download section
+            document.querySelector('.downloadButtons').innerHTML = ''
+
+            // Add button by platform
+            for (i = 0; i < platforms.length; i++) {
+              var a = document.createElement('a')
+              a.href = base_download_url + data.tag_name + '/Ramme-' + platforms[i][0] + '-' + data.tag_name + '.zip'
+              a.innerHTML = '<i class="fa fa-' + platforms[i][1] + '"></i> ' + platforms[i][2]
+              document.querySelector('.downloadButtons').appendChild(a)
+            }
+
+            // Update version tag
+            document.querySelector('.extra').innerText = 'Current version: ' + data.tag_name
+          }
+        }
+
+        request.send()
+      }
+
+      // Update download links
+      get_fresh_links()
+
       // Init Smooth Scroll
       smoothScroll.init({
         speed: 1500
