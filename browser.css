@@ -20,7 +20,7 @@ html {
 /* force a scrollbar on Linux and Windows to prevent jumping when changing tabs */
 html.os-linux,
 html.os-win32 {
-	overflow-y: scroll!important;
+	overflow-y: initial!important;
 }
 
 .logged-in main {}
