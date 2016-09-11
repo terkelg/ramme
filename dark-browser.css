@@ -111,8 +111,16 @@ html.dark-mode #react-root ._3sst1 {
   color: #bcc0c4;
 }
 
+/*add profile photo popup*/
+html.dark-mode #react-root ._82fo9._29u55 {
+  background-color: #202c3a;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
 
-
+/*comment input text color*/
+html.dark-mode #react-root ._7uiwk._qy55y {
+  color: #fafafa;
+}
 
 /**
  * Search
@@ -228,6 +236,29 @@ html.dark-mode #react-root ._76rrx {
 html.dark-mode #react-root ._76rrx h2,
 html.dark-mode #react-root ._76rrx p {
   color: #bcc0c4;
+}
+
+/*Suggested*/
+html.dark-mode #react-root ._3p78u._28ejm._go7te._pn9fv::before {
+  background-color: #202c3a;
+  border-left: 1px solid rgba(80,80,80,.2);
+  border-top: 1px solid rgba(80,80,80,.2);
+}
+html.dark-mode #react-root ._3p78u._28ejm._go7te._pn9fv {
+  background-color: #202c3a;
+  border-top: 1px solid rgba(80,80,80,.2);
+  border-bottom: 1px solid rgba(80,80,80,.2);
+}
+
+/*Profile card*/
+html.dark-mode #react-root ._owacc._1po6t {
+  background-color: #29384A;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+/*http://i.imgur.com/1t7aeKW.png*/
+html.dark-mode #react-root ._azlhu{
+  background-color: #192633;
 }
 
 /**
