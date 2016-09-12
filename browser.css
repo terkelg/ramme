@@ -222,6 +222,18 @@ html.os-win32 .back-btn { top: 0; }
   margin: -10px 0 0 0;
 }
 
+#react-root ._22yr2 {
+  border: 0;
+}
+
+#react-root ._djxz1 ._e0mru {
+  border: 0;
+}
+
+#react-root ._e0mru {
+  box-shadow: none;
+}
+
 /* Hide facebook cookie notice */
 #header-notices {
   display: none;
