@@ -6,6 +6,8 @@ const elementReady = require('element-ready');
 const ipcRenderer = electron.ipcRenderer;
 const $ = document.querySelector.bind(document);
 
+var post = 0;
+
 const selectors = {
   root: '#react-root ._onabe',
   loginButton: '#react-root ._fcn8k'
@@ -48,6 +50,22 @@ ipcRenderer.on('navigate-profile', () => {
   if(profile) {
     profile.click();
   }
+});
+
+ipcRenderer.on('navigate-up', () => {
+  if (post > 1 ){
+    post -= 1;
+    var title = $('#react-root > section > main > section > div > div:nth-child(1) > article:nth-child('+post+') > header');
+    var rect = title.getBoundingClientRect();
+    window.scrollBy(0,rect.top);
+  }
+});
+
+ipcRenderer.on('navigate-down', () => {
+  post += 1;
+  var title = $('#react-root > section > main > section > div > div:nth-child(1) > article:nth-child('+post+') > header');
+  var rect = title.getBoundingClientRect();
+  window.scrollBy(0,rect.top);
 });
 
 

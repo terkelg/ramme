@@ -190,6 +190,23 @@ const template = [
       },
       {
         role: 'zoomout'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Scroll a post up',
+        accelerator: 'Shift+Up',
+        click() {
+          sendAction('navigate-up');
+        }
+      },
+      {
+        label: 'Scroll a post down',
+        accelerator: 'Shift+Down',
+        click() {
+          sendAction('navigate-down');
+        }
       }
     ]
   },
