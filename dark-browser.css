@@ -69,6 +69,7 @@ html.dark-mode #react-root ._4zhc5 {
 /* photo container bg */
 html.dark-mode #react-root ._22yr2 {
   background-color: #192633;
+  border-style: none;
 }
 
 /* photo border, split */
