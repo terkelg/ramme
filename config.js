@@ -1,5 +1,5 @@
-'use strict';
-const Config = require('electron-config');
+'use strict'
+const Config = require('electron-config')
 
 module.exports = new Config({
   defaults: {
@@ -10,4 +10,4 @@ module.exports = new Config({
       height: 700
     }
   }
-});
+})

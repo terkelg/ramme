@@ -1,41 +1,30 @@
-'use strict';
-const os = require('os');
-const path = require('path');
-const electron = require('electron');
-const version  = require('./version');
+'use strict'
+const os = require('os')
+const path = require('path')
+const electron = require('electron')
+const version = require('./version')
 
-const app = electron.app;
+const app = electron.app
 const BrowserWindow = electron.BrowserWindow
-const shell = electron.shell;
-const appName = app.getName();
+const shell = electron.shell
+const appName = app.getName()
 
 
-function sendAction(action) {
-  const win = BrowserWindow.getAllWindows()[0];
+function sendAction (action) {
+  const win = BrowserWindow.getAllWindows()[0]
 
   if (process.platform === 'darwin') {
-    win.restore();
+    win.restore()
   }
 
-  win.webContents.send(action);
-}
-
-function goBack() {
-
-    if (page.canGoBack()) {
-      const menuBackBtn = appMenu.items[1].submenu.items[0];
-      menuBackBtn.goBack();
-      page.canGoBack() ? menuBackBtn.enabled = true : menuBackBtn.enabled = false;
-    } else {
-      menuBackBtn.enabled = false;
-    }
+  win.webContents.send(action)
 }
 
 const helpSubmenu = [
   {
     label: 'Check for Updates...',
-    click() {
-      version.check();
+    click () {
+      version.check()
     }
   },
   {
@@ -43,13 +32,13 @@ const helpSubmenu = [
   },
   {
     label: `${appName} Website`,
-    click() {
-      shell.openExternal('https://github.com/terkelg/ramme');
+    click () {
+      shell.openExternal('https://github.com/terkelg/ramme')
     }
   },
   {
     label: 'Report an Issue...',
-    click() {
+    click () {
       const body = `
             <!-- Please succinctly describe your issue and steps to reproduce it. -->
 
@@ -57,31 +46,29 @@ const helpSubmenu = [
 
             ${app.getName()} ${app.getVersion()}
             Electron ${process.versions.electron}
-            ${process.platform} ${process.arch} ${os.release()}`;
+            ${process.platform} ${process.arch} ${os.release()}`
 
-      shell.openExternal(`https://github.com/terkelg/ramme/issues/new?body=${encodeURIComponent(body)}`);
+      shell.openExternal(`https://github.com/terkelg/ramme/issues/new?body=${encodeURIComponent(body)}`)
     }
   }
-];
-
+]
 
 if (process.platform !== 'darwin') {
   helpSubmenu.push({
     type: 'separator'
   }, {
     role: 'about',
-    click() {
+    click () {
       electron.dialog.showMessageBox({
         title: `About ${appName}`,
         message: `${appName} ${app.getVersion()}`,
         detail: 'Created by Terkel Gjervig',
         icon: path.join(__dirname, 'static/icon.png'),
         buttons: []
-      });
+      })
     }
-  });
+  })
 }
-
 
 const template = [
   {
@@ -92,10 +79,9 @@ const template = [
         accelerator: 'Backspace',
         enabled: false,
         click () {
-          const win = BrowserWindow.getAllWindows()[0];
-          if(win.webContents.canGoBack()) {
-            console.log('Back');
-            win.webContents.goBack();
+          const win = BrowserWindow.getAllWindows()[0]
+          if (win.webContents.canGoBack()) {
+            win.webContents.goBack()
           }
         }
       },
@@ -147,36 +133,36 @@ const template = [
       {
         label: 'Home',
         accelerator: 'CmdOrCtrl+1',
-        click() {
-          sendAction('navigate-home');
+        click () {
+          sendAction('navigate-home')
         }
       },
       {
         label: 'Discover',
         accelerator: 'CmdOrCtrl+2',
-        click() {
-          sendAction('navigate-discover');
+        click () {
+          sendAction('navigate-discover')
         }
       },
       {
         label: 'Notifications',
         accelerator: 'CmdOrCtrl+3',
-        click() {
-          sendAction('navigate-notifications');
+        click () {
+          sendAction('navigate-notifications')
         }
       },
       {
         label: 'Profile',
         accelerator: 'CmdOrCtrl+4',
-        click() {
-          sendAction('navigate-profile');
+        click () {
+          sendAction('navigate-profile')
         }
       },
       {
         label: 'Toggle Dark Mode',
         accelerator: 'CmdOrCtrl+D',
-        click() {
-          sendAction('toggle-dark-mode');
+        click () {
+          sendAction('toggle-dark-mode')
         }
       },
       {
@@ -197,15 +183,15 @@ const template = [
       {
         label: 'Scroll a post up',
         accelerator: 'Shift+Up',
-        click() {
-          sendAction('navigate-up');
+        click () {
+          sendAction('navigate-up')
         }
       },
       {
         label: 'Scroll a post down',
         accelerator: 'Shift+Down',
-        click() {
-          sendAction('navigate-down');
+        click () {
+          sendAction('navigate-down')
         }
       }
     ]
@@ -232,7 +218,7 @@ if (process.platform === 'darwin') {
     label: appName,
     submenu: [
       {
-        role: 'about',
+        role: 'about'
       },
       {
         type: 'separator'
@@ -240,8 +226,8 @@ if (process.platform === 'darwin') {
       {
         label: 'Toggle Dark Mode',
         accelerator: 'CmdOrCtrl+D',
-        click() {
-          sendAction('toggle-dark-mode');
+        click () {
+          sendAction('toggle-dark-mode')
         }
       },
       {
@@ -314,10 +300,9 @@ if (process.platform === 'darwin') {
   ]
 }
 
-
-//const darwinTpl = [{}];
-//const otherTpl = [{}];
+// const darwinTpl = [{}];
+// const otherTpl = [{}];
 
 // const tpl = process.platform === 'darwin' ? darwinTpl : otherTpl;
 
-module.exports = electron.Menu.buildFromTemplate(template);
+module.exports = electron.Menu.buildFromTemplate(template)

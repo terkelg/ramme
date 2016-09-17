@@ -2,6 +2,8 @@
 
 > Unofficial Instagram Desktop App
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 <br>
 [![](media/screenshot.png)](https://github.com/terkelg/ramme/releases/latest)
 
@@ -12,7 +14,7 @@
 
 When closing the window, the app will continue running in the background, in the dock on macOS and the tray on Linux/Windows. Right-click the dock/tray icon and choose `Quit` to completely quit the app. On macOS, click the dock icon to show the window. On Linux, right-click the tray icon and choose `Toggle` to toggle the window. On Windows, click the tray icon to toggle the window.
 
-### Dark mode 
+### Dark mode
 You can toggle dark mode in the Ramme menu or with <kbd>Cmd</kbd> <kbd>D</kbd> / <kbd>Ctrl</kbd> <kbd>D</kbd>.
 
 <img src="media/screenshot-dark.png" width="589" />
