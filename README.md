@@ -2,8 +2,10 @@
 
 > Unofficial Instagram Desktop App
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Platforms](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/terkelg/ramme/releases)
+[![GitHub version](https://badge.fury.io/gh/terkelg%2Framme.svg)](https://badge.fury.io/gh/terkelg%2Framme)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+![](https://reposs.herokuapp.com/?path=terkelg/ramme)
 
 <br>
 [![](media/screenshot.png)](https://github.com/terkelg/ramme/releases/latest)
