@@ -33,6 +33,7 @@ Thanks for the help [@ninjaprawn](https://github.com/ninjaprawn)
 - Profile: <kbd>Cmd</kbd> <kbd>4</kbd> or <kbd>Ctrl</kbd> <kbd>4</kbd>
 - Scroll a post up: <kbd>Shift</kbd> <kbd>Up</kbd>
 - Scroll a post down: <kbd>Shift</kbd> <kbd>Down</kbd>
+- Toggle Dark mode: <kbd>Cmd</kbd> <kbd>D</kbd> or <kbd>Ctrl</kbd> <kbd>D</kbd>
 
 ## Install
 
