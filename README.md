@@ -107,8 +107,15 @@ Please check out his stuff:
 - [Caprine](https://github.com/sindresorhus/caprine) - Caprine Facebook Messenger app
 
 ## Thanks
-Thanks to all contributors who helped make Ramme better!
+Thanks to all contributors who helped make Ramme better! 🎉
 
 ## License
-
 MIT © [Terkel Gjervig](https://terkel.com)
+
+## End User License Agreement (EULA)
+- You will not use this repository for sending mass spam or any other malicious activity
+- We / You will not support anyone who is violating this EULA conditions
+- Repository is just for learning / personal purposes thus should not be part of any service available on the Internet that is trying to do any malicious activity (mass bulk request, spam etc.)
+
+## Legal
+This code is in no way affiliated with, authorized, maintained, sponsored or endorsed by Instagram or any of its affiliates or subsidiaries. This is an independent and unofficial. Use at your own risk.
