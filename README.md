@@ -3,6 +3,7 @@
 > Unofficial Instagram Desktop App
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Platforms](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/terkelg/ramme/releases)
 
 <br>
 [![](media/screenshot.png)](https://github.com/terkelg/ramme/releases/latest)
