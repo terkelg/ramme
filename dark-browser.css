@@ -8,6 +8,7 @@ html.dark-mode #react-root {
 /**
  * Sidebar
  */
+
 html.dark-mode #react-root ._onabe._kjy2s {
   background-color: #202c3a;
   border-right: 1px solid rgba(255, 255, 255, .08);
@@ -62,7 +63,9 @@ html.dark-mode #react-root a:visited {
 }
 
 /* Username */
-html.dark-mode #react-root ._4zhc5 {
+html.dark-mode #react-root ._4zhc5,
+html.dark-mode #react-rrot ._4zhc5:visited,
+html.dark-mode #react-root ._2uju6 {
   color: #bcc0c4;
 }
 
@@ -74,8 +77,7 @@ html.dark-mode #react-root ._22yr2 {
 
 /* photo border, split */
 html.dark-mode #react-root ._pieko ._e0mru {
-  border-bottom: 1px solid #23303c;
-  border-top: 1px solid #23303c;
+  border-color: #23303c;
 }
 
 /* Profile thumbnail */
@@ -135,6 +137,11 @@ html.dark-mode #react-root ._bgfey {
 /* search field bg */
 html.dark-mode #react-root ._oyz6j {
   background-color: #192633;
+}
+
+/* username */
+html.dark-mode #react-root ._2uju6 {
+  j
 }
 
 /* seach field */
@@ -209,6 +216,11 @@ html.dark-mode #react-root ._i572c {
 /* name */
 html.dark-mode #react-root ._79dar {
   color: #bcc0c4;
+}
+
+/* Color split for profile header */
+html.dark-mode #react-root ._bugdy {
+  border-color: #23303c;
 }
 
 /* desc */
