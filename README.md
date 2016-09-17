@@ -32,7 +32,7 @@ Thanks for the help [@ninjaprawn](https://github.com/ninjaprawn)
 - Notifications: <kbd>Cmd</kbd> <kbd>3</kbd> or <kbd>Ctrl</kbd> <kbd>3</kbd>
 - Profile: <kbd>Cmd</kbd> <kbd>4</kbd> or <kbd>Ctrl</kbd> <kbd>4</kbd>
 - Scroll a post up: <kbd>Shift</kbd> <kbd>Up</kbd>
-- Scroll a post dpwn: <kbd>Shift</kbd> <kbd>Down</kbd>
+- Scroll a post down: <kbd>Shift</kbd> <kbd>Down</kbd>
 
 ## Install
 
