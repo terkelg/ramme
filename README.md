@@ -74,13 +74,7 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 
 ## Roadmap
 
-### v2.2
-- Bugs ... Gotta Catch 'Em All!
-
-### v3
-- Refresh
-
-### Under Consideration
+### Features under Consideration
 - Video/Photo download
 - Photo Upload
 - Photo Zoom
