@@ -65,7 +65,6 @@ namespace Ramme_Installer
             Downloader.IsBackground = true;
             Downloader.Start();
 
-
         }
 
         private static void Download ()
@@ -83,8 +82,8 @@ namespace Ramme_Installer
             if (!Directory.Exists(InstallationDirectory))
                 Directory.CreateDirectory(InstallationDirectory);
 
-            Console.WriteLine(DownloadPath);
-            Console.WriteLine(GetPlatform());
+            //Console.WriteLine(DownloadPath);
+            //Console.WriteLine(GetPlatform());
 
             using (var Client = new WebClient())
             {
@@ -118,7 +117,10 @@ namespace Ramme_Installer
 
         private static string GetVersion ()
         {
-            return "2.3.0";
+            using (WebClient Client = new WebClient())
+            {
+                return Client.DownloadString("https://raw.githubusercontent.com/VoOoLoX/ramme/master/releases").Trim();
+            }
         }
 
     }

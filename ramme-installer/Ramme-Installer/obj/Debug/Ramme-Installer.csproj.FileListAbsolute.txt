@@ -9,3 +9,8 @@ C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\obj\Debug\Ramme-Install
 C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\obj\Debug\Ramme-Installer.pdb
 C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\obj\Debug\Interop.IWshRuntimeLibrary.dll
 C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\obj\Debug\Ramme-Installer.csproj.ResolveComReference.cache
+C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\bin\Debug\Ramme-Installer.exe.manifest
+C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\bin\Debug\Ramme-Installer.application
+C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\obj\Debug\Ramme-Installer.TrustInfo.xml
+C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\obj\Debug\Ramme-Installer.exe.manifest
+C:\Users\VoOoLoX\Desktop\Ramme-Installer\Ramme-Installer\obj\Debug\Ramme-Installer.application
