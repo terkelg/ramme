@@ -80,6 +80,7 @@ function createMainWindow () {
       } else {
         win.hide()
       }
+      win.webContents.send('closing')
     }
   })
 

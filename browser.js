@@ -63,6 +63,15 @@ ipcRenderer.on('navigate-down', () => {
   window.scrollBy(0, rect.top)
 })
 
+ipcRenderer.on('closing', () => {
+  const options = {
+    title: 'Ramme',
+    body: 'Ramme is still running'
+  }
+  const notification = new Notification(options.title, options) // eslint-disable-line no-undef
+  notification()
+})
+
 function backButton () {
   const body = $('body')
   const link = document.createElement('a')
