@@ -72,6 +72,7 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 
 [**Download**](https://github.com/terkelg/ramme/releases/latest) and unzip to some location.
 
+[**Installer for Windows (source)**](https://github.com/VoOoLoX/ramme-installer-windows) - [**Installer for Windows download**](https://github.com/VoOoLoX/ramme-installer-windows/releases/download/v1.2.0/Ramme.Installer.exe) by VoOoLoX
 
 ---
 
