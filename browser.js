@@ -7,6 +7,7 @@ const ipcRenderer = electron.ipcRenderer
 const $ = document.querySelector.bind(document)
 
 var post = 0
+var scrollCount = 0
 
 const selectors = {
   root: '#react-root ._onabe',
@@ -103,9 +104,26 @@ function setDarkMode () {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
 }
 
+function refresh () {
+  document.addEventListener('mousewheel', (e) => {
+    if (e.wheelDelta >= 0 && window.pageYOffset === 0) {
+      scrollCount += 1
+    } else {
+      scrollCount = 0 // Resets counter if user doesn't scroll up 3 times in a row
+    }
+
+    // If user scrolls up 3 times in a row refresh the page
+    if (scrollCount === 3) {
+      ipcRenderer.send('refresh')
+      scrollCount = 0
+    }
+  })
+}
+
 function init () {
   backButton()
   setDarkMode()
+  refresh()
 
   // Prevent flash of white on startup when in dark mode
   // TODO: Find solution to this with pure css

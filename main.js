@@ -103,6 +103,10 @@ app.on('ready', () => {
     }
   })
 
+  ipcMain.on('refresh', (event, arg) => {
+    mainWindow.reload()
+  })
+
   page.on('did-navigate-in-page', (event, arg) => {
     const menuBackBtn = appMenu.items[1].submenu.items[0]
     menuBackBtn.enabled = page.canGoBack()
