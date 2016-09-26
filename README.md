@@ -3,7 +3,7 @@
 > Unofficial Instagram Desktop App
 
 [![Platforms](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/terkelg/ramme/releases)
-[[![Github All Releases](https://img.shields.io/github/downloads/terkelg/ramme/total.svg?maxAge=2592000)](https://github.com/terkelg/ramme/releases)
+[![Github All Releases](https://img.shields.io/github/downloads/terkelg/ramme/total.svg?maxAge=2592000)](https://github.com/terkelg/ramme/releases)
 [![GitHub version](https://badge.fury.io/gh/terkelg%2Framme.svg)](https://badge.fury.io/gh/terkelg%2Framme)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![David](https://img.shields.io/david/terkelg/ramme.svg?maxAge=2592000)]()
