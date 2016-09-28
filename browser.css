@@ -248,3 +248,29 @@ html.os-win32 .back-btn { top: 0; }
   border: none;
   margin: 0;
 }
+
+.hidden {
+    display: none;
+}
+
+.refresh-arrow {
+    position: fixed;
+    top: 0;
+    left: 80px;
+    height: 8vh;
+    width: calc(100% - 80px);
+    background: rgba(20, 20, 20, 0.5);
+    text-align: center;
+    color: white;
+}
+
+.fadeIn {animation: fadeIn .5s;}
+
+.refresh-arrow h3 {font-size: 16pt;}
+.refresh-arrow h4 {font-size: 12pt;}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
