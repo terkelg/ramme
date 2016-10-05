@@ -81,7 +81,7 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 - [ ] Photo Zoom
 - [ ] Stories Support
 - [ ] Notifications
-– [ ] Auto update
+- [ ] Auto update
 
 ## Dev
 
