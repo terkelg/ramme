@@ -24,8 +24,6 @@ You can toggle dark mode in the Ramme menu or with <kbd>Cmd</kbd> <kbd>D</kbd> /
 
 <img src="media/screenshot-dark.png" width="589" />
 
-Thanks for the help [@ninjaprawn](https://github.com/ninjaprawn)
-
 ### Keyboard shortcuts
 - Go Back: <kbd>⌫</kbd>
 - Refresh: <kbd>Cmd</kbd> <kbd>R</kbd> or <kbd>Ctrl</kbd> <kbd>R</kbd>
@@ -76,14 +74,14 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 
 ---
 
-## Roadmap
-
-### Features under Consideration
-- Video/Photo download
-- Photo Upload
-- Photo Zoom
-- Stories Support
-- Notifications
+## Plans
+- [ ] Code clean up
+- [ ] Video/Photo download (In progress)
+- [ ] Photo Upload
+- [ ] Photo Zoom
+- [ ] Stories Support
+- [ ] Notifications
+– [ ] Auto update
 
 ## Dev
 
