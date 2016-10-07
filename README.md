@@ -75,13 +75,9 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 ---
 
 ## Plans
-- [ ] Code clean up
-- [ ] Video/Photo download (In progress)
-- [ ] Photo Upload
-- [ ] Photo Zoom
-- [ ] Stories Support
-- [ ] Notifications
-- [ ] Auto update
+- [ ] Rewrite of code
+- [ ] Auto Update
+- [ ] Build scripts (Travis) for easier development in the future
 
 ## Dev
 
