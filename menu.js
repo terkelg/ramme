@@ -1,5 +1,6 @@
 'use strict'
 const os = require('os')
+const fs = require('fs')
 const path = require('path')
 const electron = require('electron')
 const version = require('./version')
@@ -18,6 +19,76 @@ function sendAction (action) {
   }
 
   win.webContents.send(action)
+}
+
+function changeProfile (from, to) {
+  // Get Window objext
+  const win = BrowserWindow.getAllWindows()[0]
+
+  // Build storage paths
+  const pathBase = app.getPath('userData') + '/profile-'
+  let readFrom = pathBase + from + '.json'
+  let writeTo = pathBase + to + '.json'
+
+  // Get Session data
+  const ses = win.webContents.session
+
+  // Get Session Cookies
+  ses.cookies.get({}, (error, cookies) => {
+    if (error) throw error
+
+    // Save them to a file
+    fs.writeFile(writeTo, JSON.stringify(cookies))
+
+    // Remove each Cookie
+    cookies.forEach(function (cookie) {
+      ses.cookies.remove('https://www.instagram.com', cookie.name, (error) => {
+        if (error) console.error('Removing: ' + error)
+      })
+    })
+  })
+
+  // Check if other profile was already set
+  fs.exists(readFrom, function (exists) {
+    if (exists) {
+      // Try reading from new profile
+      fs.readFile(readFrom, 'utf8', function (error, data) {
+        if (error) throw error
+
+        // Check if any data in profile
+        if (data.length > 0) {
+          // Try parsing cookies
+          let cookies = JSON.parse(data)
+
+          // Check again to see if any cookie there
+          if (cookies.length > 0) {
+            // Set cookies for current session
+            cookies.forEach(function (cookie) {
+              // Make sure they match current domain to avoid errors
+              if (cookie.domain.match(/instagram.com/g)) {
+                // Really set them
+                ses.cookies.set({
+                  url: 'https://www.instagram.com',
+                  domain: cookie.domain,
+                  name: cookie.name,
+                  value: cookie.value,
+                  path: cookie.path,
+                  secure: cookie.secure,
+                  httpOnly: cookie.httpOnly,
+                  expirationDate: cookie.expirationDate
+                }, (error) => {
+                  if (error) console.error('Setting: ' + error)
+                })
+              }
+            })
+          }
+        }
+      })
+    }
+  })
+
+  // Go back to home
+  win.loadURL('https://www.instagram.com')
 }
 
 const helpSubmenu = [
@@ -197,6 +268,23 @@ const template = [
     ]
   },
   {
+    label: 'Profile',
+    submenu: [
+      {
+        label: 'Profile 1',
+        click () {
+          changeProfile(1, 2)
+        }
+      },
+      {
+        label: 'Profile 2',
+        click () {
+          changeProfile(2, 1)
+        }
+      }
+    ]
+  },
+  {
     role: 'window',
     submenu: [
       {
@@ -275,7 +363,7 @@ if (process.platform === 'darwin') {
     }
   )
   // Window menu.
-  template[3].submenu = [
+  template[4].submenu = [
     {
       label: 'Close',
       accelerator: 'CmdOrCtrl+W',
