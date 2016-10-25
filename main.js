@@ -83,6 +83,12 @@ function createMainWindow () {
     }
   })
 
+  win.on('app-command', (e, cmd) => {
+    if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
+      win.webContents.goBack()
+    }
+  })
+
   win.on('page-title-updated', e => {
     e.preventDefault()
     tray.create(win)
