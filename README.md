@@ -75,9 +75,7 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 ---
 
 ## Plans
-- [ ] Rewrite of code
-- [ ] Auto Update
-- [ ] Build scripts (Travis) for easier development in the future
+- Ramme v3: The next version is all about developer experience and auto-update. This project needs a rewrite before adding any new features. The plan is that v3 should be a solid base for future additions and improvements.
 
 ## Dev
 
