@@ -7,6 +7,7 @@ const ipcRenderer = electron.ipcRenderer
 const $ = document.querySelector.bind(document)
 
 var post = 0
+var scrollCount = 0
 
 const selectors = {
   root: '#react-root ._onabe',
@@ -64,24 +65,17 @@ ipcRenderer.on('navigate-down', () => {
 })
 
 function backButton () {
-  const body = $('body')
-  const link = document.createElement('a')
-  const element = document.createElement('div')
+  const button = $('.back-btn')
 
-  link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.84 17.39"><polygon points="22.84 8.22 1.82 8.22 9.37 0.67 8.7 0 0 8.7 8.7 17.39 9.37 16.72 1.82 9.17 22.84 9.17 22.84 8.22"/></svg>'
-  element.classList.add('back-btn', 'inactive')
-  element.appendChild(link)
-  body.appendChild(element)
-
-  link.addEventListener('click', event => {
+  button.addEventListener('click', event => {
     ipcRenderer.send('back')
   })
 
   ipcRenderer.on('set-button-state', (event, enabled) => {
     if (enabled) {
-      element.classList.remove('inactive')
+      button.classList.remove('inactive')
     } else {
-      element.classList.add('inactive')
+      button.classList.add('inactive')
     }
   })
 }
@@ -103,9 +97,63 @@ function setDarkMode () {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
 }
 
+function refresh () {
+  const refreshArrow = $('.refresh-arrow')
+
+  document.addEventListener('mousewheel', (e) => {
+    if (e.wheelDelta >= 0 && window.pageYOffset === 0) {
+      scrollCount += 1
+    } else {
+      scrollCount = 0 // Resets counter if user doesn't scroll up 3 times in a row
+    }
+
+    // If user scrolls up 3 times in a row refresh the page
+    if (scrollCount === 3) {
+      ipcRenderer.send('refresh')
+      scrollCount = 0
+    }
+    switch (scrollCount) {
+      case 2:
+        refreshArrow.classList.remove('hidden')
+        refreshArrow.classList.add('fadeIn')
+        break
+      case 3:
+        ipcRenderer.send('refresh')
+        scrollCount = 0
+        break
+      default:
+        refreshArrow.classList.add('hidden')
+        refreshArrow.classList.remove('fadeIn')
+    }
+  })
+}
+
+function injectHtml () {
+  const body = $('body')
+
+  const refreshArrowSymbol = document.createElement('span')
+  const refreshArrow = document.createElement('div')
+
+  const backButtonLink = document.createElement('a')
+  const backButtonDiv = document.createElement('div')
+
+  refreshArrowSymbol.innerHTML = '<h3>↑</h3></br><h4>Scroll up to refresh</h4>'
+  refreshArrow.classList.add('refresh-arrow', 'hidden')
+  refreshArrow.appendChild(refreshArrowSymbol)
+
+  backButtonLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.84 17.39"><polygon points="22.84 8.22 1.82 8.22 9.37 0.67 8.7 0 0 8.7 8.7 17.39 9.37 16.72 1.82 9.17 22.84 9.17 22.84 8.22"/></svg>'
+  backButtonDiv.classList.add('back-btn', 'inactive')
+  backButtonDiv.appendChild(backButtonLink)
+
+  body.appendChild(refreshArrow)
+  body.appendChild(backButtonDiv)
+}
+
 function init () {
-  backButton()
+  injectHtml()
   setDarkMode()
+  backButton()
+  refresh()
 
   // Prevent flash of white on startup when in dark mode
   // TODO: Find solution to this with pure css

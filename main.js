@@ -83,6 +83,12 @@ function createMainWindow () {
     }
   })
 
+  win.on('app-command', (e, cmd) => {
+    if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
+      win.webContents.goBack()
+    }
+  })
+
   win.on('page-title-updated', e => {
     e.preventDefault()
     tray.create(win)
@@ -101,6 +107,10 @@ app.on('ready', () => {
     if (page.canGoBack()) {
       page.goBack()
     }
+  })
+
+  ipcMain.on('refresh', (event, arg) => {
+    mainWindow.reload()
   })
 
   page.on('did-navigate-in-page', (event, arg) => {
