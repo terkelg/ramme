@@ -1,12 +1,7 @@
-'use strict'
-const os = require('os')
-const path = require('path')
-const electron = require('electron')
-const version = require('./version')
+import os from 'os'
+import * as path from 'path'
+import {app, BrowserWindow, Menu, shell, dialog} from 'electron'
 
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-const shell = electron.shell
 const appName = app.getName()
 
 
@@ -21,12 +16,6 @@ function sendAction (action) {
 }
 
 const helpSubmenu = [
-  {
-    label: 'Check for Updates...',
-    click () {
-      version.check()
-    }
-  },
   {
     type: 'separator'
   },
@@ -59,7 +48,7 @@ if (process.platform !== 'darwin') {
   }, {
     role: 'about',
     click () {
-      electron.dialog.showMessageBox({
+      dialog.showMessageBox({
         title: `About ${appName}`,
         message: `${appName} ${app.getVersion()}`,
         detail: 'Created by Terkel Gjervig',
@@ -305,4 +294,4 @@ if (process.platform === 'darwin') {
 
 // const tpl = process.platform === 'darwin' ? darwinTpl : otherTpl;
 
-module.exports = electron.Menu.buildFromTemplate(template)
+module.exports = Menu.buildFromTemplate(template)

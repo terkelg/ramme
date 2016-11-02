@@ -1,14 +1,8 @@
-'use strict'
-const path = require('path')
-const electron = require('electron')
+import * as path from 'path'
+import {app, shell, Tray, Menu} from 'electron'
 
-const app = electron.app
-const shell = electron.shell
-const Tray = electron.Tray
-const Menu = electron.Menu
-
-const trayIconDefault = path.join(__dirname, 'static/icon-18x18.png')
-const trayIconWindows = path.join(__dirname, 'static/icon.ico')
+const trayIconDefault = path.join(__dirname, '../static/icon-18x18.png')
+const trayIconWindows = path.join(__dirname, '../static/icon.ico')
 let tray = null
 
 exports.create = win => {

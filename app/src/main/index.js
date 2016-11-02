@@ -1,21 +1,19 @@
-'use strict'
-const path = require('path')
-const fs = require('fs')
-const electron = require('electron')
-const appMenu = require('./menu')
-const config = require('./config')
-const tray = require('./tray')
-const version = require('./version')
-
-const app = electron.app
-const ipcMain = electron.ipcMain
+import * as path from 'path'
+import * as fs from 'fs'
+import { BrowserWindow, app, Menu, ipcMain, shell} from 'electron'
+import appMenu from './menus'
+import config from './config'
+import tray from './tray'
 
 require('electron-debug')()
 
-const BrowserWindow = electron.BrowserWindow
-
 let mainWindow
 let isQuitting = false
+
+let renderer = {
+  styles: '../renderer/styles',
+  js: '../renderer/js'
+}
 
 const isAlreadyRunning = app.makeSingleInstance(() => {
   if (mainWindow) {
@@ -40,7 +38,7 @@ function createMainWindow () {
   const lastWindowState = config.get('lastWindowState')
   const isDarkMode = config.get('darkMode')
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
-  const rammeDesktopIcon = path.join(__dirname, 'static/icon.png')
+  const rammeDesktopIcon = path.join(__dirname, '../static/icon.png')
   const maxWidthValue = 550
   const minWidthValue = 400
 
@@ -63,7 +61,7 @@ function createMainWindow () {
     backgroundColor: isDarkMode ? '#192633' : '#fff',
     autoHideMenuBar: true,
     webPreferences: {
-      preload: path.join(__dirname, 'browser.js'),
+      preload: path.join(__dirname, renderer.js, 'index.js'),
       nodeIntegration: false
     }
   })
@@ -92,7 +90,7 @@ function createMainWindow () {
 }
 
 app.on('ready', () => {
-  electron.Menu.setApplicationMenu(appMenu)
+  Menu.setApplicationMenu(appMenu)
   mainWindow = createMainWindow()
 
   const page = mainWindow.webContents
@@ -110,17 +108,15 @@ app.on('ready', () => {
   })
 
   page.on('dom-ready', () => {
-    page.insertCSS(fs.readFileSync(path.join(__dirname, 'browser.css'), 'utf8'))
-    page.insertCSS(fs.readFileSync(path.join(__dirname, 'dark-browser.css'), 'utf8'))
+    page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'main.css'), 'utf8'))
+    page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark.css'), 'utf8'))
     mainWindow.show()
   })
 
   page.on('new-window', (e, url) => {
     e.preventDefault()
-    electron.shell.openExternal(url)
+    shell.openExternal(url)
   })
-
-  setTimeout(function () { version.check() }, 8000)
 })
 
 app.on('activate', () => {
