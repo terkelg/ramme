@@ -14,8 +14,8 @@ install:
   - npm install npm -g
   - npm prune
 
-test_script:
-  - npm run test
+# test_script:
+#  - npm run test
 
 build_script:
   - node --version
