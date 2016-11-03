@@ -1,19 +1,11 @@
 import { autoUpdater, ipcMain } from 'electron'
 import isDev from 'electron-is-dev'
 import ms from 'ms'
+import * as os from 'os'
 
-//import { version } from '../../package'
-const version = '1.0.0'
+import { version } from '../../package'
 
-// import {log} from '../common/logger';
-// import reporter from '../common/reporter';
-console.log('Hey')
-console.log(version)
-
-// Todo: Check OS
-const os = 'osx'
-
-const FEED_URL = `https://nuts-serve-gapvnvvtee.now.sh/update/${os}/${version}`
+const FEED_URL = `https://nuts-serve-gapvnvvtee.now.sh/update/${os.platform()}/${version}`
 
 function createInterval () {
   return setInterval(() => {
@@ -22,9 +14,9 @@ function createInterval () {
 }
 
 function init (window) {
-  console.log('init')
   if (isDev) {
-    //return
+    console.log(version)
+    return
   }
 
   autoUpdater.setFeedURL(FEED_URL)
