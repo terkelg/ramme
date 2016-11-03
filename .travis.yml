@@ -1,9 +1,11 @@
-os:
-  - osx
-  - linux
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+    - os: osx
 
 language: node_js
-sudo: false
 node_js: node
 
 install:
