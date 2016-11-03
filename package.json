@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "test": "standard",
-    "build": "echo \"custom before build (test, gukp) here\"",
+    "build": "echo \"custom before build (test, gukp) here\" && gulp",
     "prestart": "gulp",
     "start": "electron app",
     "pack": "npm run build && build --dir",

@@ -1,9 +1,11 @@
 import * as path from 'path'
 import * as fs from 'fs'
-import { BrowserWindow, app, Menu, ipcMain, shell} from 'electron'
+import { BrowserWindow, app, Menu, ipcMain, shell } from 'electron'
 import appMenu from './menus'
 import config from './config'
 import tray from './tray'
+
+import autoUpdater from './auto-updater'
 
 require('electron-debug')()
 
@@ -94,6 +96,9 @@ app.on('ready', () => {
   mainWindow = createMainWindow()
 
   const page = mainWindow.webContents
+
+  console.log('Ready')
+  autoUpdater.init(mainWindow)
 
   ipcMain.on('back', (event, arg) => {
     if (page.canGoBack()) {

@@ -1,7 +1,7 @@
 import babel from 'gulp-babel'
 import gulp from 'gulp'
 import sass from 'gulp-sass'
-//import injectSvg from 'gulp-inject-svg'
+// import injectSvg from 'gulp-inject-svg'
 
 gulp.task('build:js:main', () =>
   gulp.src('app/src/main/*.js')
@@ -17,7 +17,6 @@ gulp.task('build:scss', () =>
   gulp.src('app/src/renderer/styles/*')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('app/dist/renderer/styles')))
-
 
 gulp.task('build', ['build:js:main', 'build:scss', 'build:js:renderer'])
 
