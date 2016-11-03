@@ -5,12 +5,17 @@ language: node_js
 sudo: false
 node_js: node
 
+install:
+  - npm install
+
+before_install:
+  - npm prune
+
 script:
   - npm run dist
 
-#before_install:
-
 #after_success:
+# do test in script, and release here (todo later)
 
 notifications:
   email: true
