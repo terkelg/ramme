@@ -12,7 +12,7 @@
     "dist": "npm run build && build -wl --x64",
     "release:mac": "npm run build && build --mac --x64 --publish always",
     "release": "npm run build && build -wl --x64 --publish always",
-    "publish": "build/release.sh"
+    "publish": "scripts/release.sh"
   },
   "build": {
     "appId": "com.terkel.ramme",
