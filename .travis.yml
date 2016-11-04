@@ -1,10 +1,9 @@
 language: node_js
 node_js: 6
 
-os: osx
-
 matrix:
   include:
+    - os: osx
     - os: linux
       sudo: required
       dist: trusty
@@ -14,3 +13,4 @@ script:
 
 notifications:
   slack: ramme:44ubE4BVf3FGi8OldEKL743J
+  email: false
