@@ -20,18 +20,22 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
 
 ## Features
 - Dark Theme
+- Auto Update
 - Photo Upload (coming soon)
 - Multiple Accounts (coming soon)
 
-## Related
+## Screenshots
+
+[Screen shot strip here]
+
+## Thanks
+Thanks to all contributors who helped make Ramme better! 🎉
+
 Inspiration from the super human [Sindre Sorhus](https://github.com/sindresorhus).
 Make sure you check out his stuff:
 
 - [Anatine](https://github.com/sindresorhus/anatine) - Pristine Twitter app
 - [Caprine](https://github.com/sindresorhus/caprine) - Caprine Facebook Messenger app
-
-## Thanks
-Thanks to all contributors who helped make Ramme better! 🎉
 
 ## End User License Agreement (EULA)
 - You will not use this repository for sending mass spam or any other malicious activity.
