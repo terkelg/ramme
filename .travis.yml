@@ -1,15 +1,16 @@
 language: node_js
 node_js: 6
 
+os: osx
+
 matrix:
   include:
-    - os: osx
     - os: linux
       sudo: required
       dist: trusty
 
 script:
-  - build/release.sh
+  - scripts/release.sh
 
 notifications:
   slack: ramme:44ubE4BVf3FGi8OldEKL743J
