@@ -1,24 +1,16 @@
+language: node_js
+node_js: 6
+
+os: osx
+
 matrix:
   include:
     - os: linux
-      dist: trusty
       sudo: required
-    - os: osx
-
-language: node_js
-node_js: node
-
-install:
-  - npm install
-
-before_install:
-  - npm prune
+      dist: trusty
 
 script:
-  - npm run dist
-
-#after_success:
-# do test in script, and release here (todo later)
+  - build/release.sh
 
 notifications:
-  email: true
+  slack: ramme:44ubE4BVf3FGi8OldEKL743J

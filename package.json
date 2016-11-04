@@ -4,11 +4,15 @@
   "license": "MIT",
   "scripts": {
     "test": "standard",
-    "build": "echo \"custom before build (test, gukp) here\" && gulp",
+    "build": "npm run test && gulp build",
     "prestart": "gulp",
     "start": "electron app",
     "pack": "npm run build && build --dir --x64",
-    "dist": "npm run build && build --x64"
+    "dist:mac": "npm run build && build --mac --x64",
+    "dist": "npm run build && build -wl --x64",
+    "release:mac": "npm run build && build --mac --x64 --publish always",
+    "release": "npm run build && build -wl --x64 --publish always",
+    "publish": "build/release.sh"
   },
   "build": {
     "appId": "com.terkel.ramme",
@@ -16,10 +20,14 @@
       "category": "public.app-category.social-networking"
     },
     "linux": {
-      "target": ["AppImage"]
+      "target": [
+        "deb",
+        "AppImage"
+      ]
     }
   },
   "devDependencies": {
+    "babel-core": "^6.18.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
     "copy-webpack-plugin": "^4.0.0",
     "electron": "^1.4.5",
