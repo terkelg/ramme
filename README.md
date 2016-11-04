@@ -1,6 +1,8 @@
-# Ramme <img src="static/icon.png" width="70">
-
-> Unofficial Instagram Desktop App
+<p align="center">
+  <img src="http://github.com/terkelg/ramme/raw/v3/build/icon.png" height="100">
+  <h3 align="center">Ramme</h3>
+  <p align="center">Unofficial Instagram Desktop App</p>
+</p>
 
 [![Platforms](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/terkelg/ramme/releases)
 [![Github All Releases](https://img.shields.io/github/downloads/terkelg/ramme/total.svg?maxAge=2592000)](https://github.com/terkelg/ramme/releases)
@@ -17,7 +19,7 @@
 
 ### Background behavior
 
-When closing the window, the app will continue running in the background, in the dock on macOS and the tray on Linux/Windows. Right-click the dock/tray icon and choose `Quit` to completely quit the app. On macOS, click the dock icon to show the window. On Linux, right-click the tray icon and choose `Toggle` to toggle the window. On Windows, click the tray icon to toggle the window.
+
 
 ### Dark mode
 You can toggle dark mode in the Ramme menu or with <kbd>Cmd</kbd> <kbd>D</kbd> / <kbd>Ctrl</kbd> <kbd>D</kbd>.
