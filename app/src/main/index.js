@@ -2,17 +2,16 @@ import * as path from 'path'
 import * as fs from 'fs'
 import { BrowserWindow, app, Menu, ipcMain, shell } from 'electron'
 import appMenu from './menus'
-import config from './config'
+import { config } from './config'
 import tray from './tray'
 
-import autoUpdater from './auto-updater'
-
-require('electron-debug')()
+import { init as autoUpdater } from './auto-updater'
 
 let mainWindow
+let page
 let isQuitting = false
 
-let renderer = {
+const renderer = {
   styles: '../renderer/styles',
   js: '../renderer/js'
 }
@@ -94,11 +93,9 @@ function createMainWindow () {
 app.on('ready', () => {
   Menu.setApplicationMenu(appMenu)
   mainWindow = createMainWindow()
+  page = mainWindow.webContents
 
-  const page = mainWindow.webContents
-
-  console.log('Ready')
-  autoUpdater.init(mainWindow)
+  autoUpdater(mainWindow)
 
   ipcMain.on('back', (event, arg) => {
     if (page.canGoBack()) {
@@ -130,6 +127,5 @@ app.on('activate', () => {
 
 app.on('before-quit', () => {
   isQuitting = true
-
   config.set('lastWindowState', mainWindow.getBounds())
 })

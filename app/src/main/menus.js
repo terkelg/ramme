@@ -4,7 +4,6 @@ import {app, BrowserWindow, Menu, shell, dialog} from 'electron'
 
 const appName = app.getName()
 
-
 function sendAction (action) {
   const win = BrowserWindow.getAllWindows()[0]
 
@@ -289,9 +288,5 @@ if (process.platform === 'darwin') {
   ]
 }
 
-// const darwinTpl = [{}];
-// const otherTpl = [{}];
-
-// const tpl = process.platform === 'darwin' ? darwinTpl : otherTpl;
-
-module.exports = Menu.buildFromTemplate(template)
+const applicationMenu = Menu.buildFromTemplate(template)
+export { applicationMenu as default }

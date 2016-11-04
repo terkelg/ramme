@@ -5,7 +5,7 @@ const trayIconDefault = path.join(__dirname, '../static/icon-18x18.png')
 const trayIconWindows = path.join(__dirname, '../static/icon.ico')
 let tray = null
 
-exports.create = win => {
+const create = win => {
   if (process.platform === 'darwin' || tray) {
     return
   }
@@ -70,3 +70,5 @@ exports.create = win => {
     toggleWin()
   })
 }
+
+export { create as default }

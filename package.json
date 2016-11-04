@@ -16,12 +16,8 @@
       "category": "public.app-category.social-networking"
     },
     "linux": {
-      "target": [
-        "deb",
-        "AppImage"
-      ]
-    },
-    "files": []
+      "target": ["AppImage"]
+    }
   },
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",

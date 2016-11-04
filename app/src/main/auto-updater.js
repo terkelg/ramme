@@ -15,14 +15,13 @@ function createInterval () {
 
 function init (window) {
   if (isDev) {
-    console.log(version)
     return
   }
 
   autoUpdater.setFeedURL(FEED_URL)
 
   setTimeout(() => {
-    console.log('checking')
+    //console.log('checking')
     autoUpdater.checkForUpdates()
   }, ms('5s')) // at this point the app is fully started and ready for everything
 
@@ -31,11 +30,11 @@ function init (window) {
   autoUpdater.on('update-available', () => {
     clearInterval(intervalId)
     intervalId = undefined
-    console.log('update available, starting download')
+    //console.log('update available, starting download')
   })
 
   autoUpdater.on('update-downloaded', () => {
-    console.log('update downloaded, will notify the user')
+    //console.log('update downloaded, will notify the user')
     window.webContents.send('update-downloaded')
   })
 
@@ -48,9 +47,8 @@ function init (window) {
       intervalId = createInterval()
     }
 
-    console.log('Error fetching updates', err)
+    // console.log('Error fetching updates', err)
     // reporter.report(err)
   })
 }
-
-exports.init = init
+export { init }
