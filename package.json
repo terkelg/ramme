@@ -9,9 +9,11 @@
     "start": "electron app",
     "pack": "npm run build && build --dir --x64",
     "dist:mac": "npm run build && build --mac --x64",
-    "dist": "npm run build && build -wl --x64",
+    "dist:all": "npm run build && build -wl --x64",
+    "dist": "npm run build && build --x64",
     "release:mac": "npm run build && build --mac --x64 --publish always",
-    "release": "npm run build && build -wl --x64 --publish always",
+    "release:all": "npm run build && build -wl --x64 --publish always",
+    "release": "npm run build && build --x64 --publish always",
     "publish": "scripts/release.sh"
   },
   "build": {

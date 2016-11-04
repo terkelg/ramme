@@ -20,6 +20,6 @@ else
                        gcc-multilib \
                        g++-multilib
 
-  npm run release
+  npm run release:all
 
 fi

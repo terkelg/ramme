@@ -20,6 +20,6 @@ else
                        gcc-multilib \
                        g++-multilib
 
-  npm run dist
+  npm run dist:all
 
 fi
