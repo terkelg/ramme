@@ -2,15 +2,13 @@ import * as path from 'path'
 import * as fs from 'fs'
 import { BrowserWindow, app, Menu, ipcMain, shell } from 'electron'
 import appMenu from './menus'
-import { config } from './config'
+import config from './config'
 import tray from './tray'
-
-import { init as autoUpdater } from './auto-updater'
+import updater from './updater'
 
 let mainWindow
 let page
 let isQuitting = false
-
 const renderer = {
   styles: '../renderer/styles',
   js: '../renderer/js'
@@ -23,8 +21,8 @@ const isAlreadyRunning = app.makeSingleInstance(() => {
     }
 
     // Prevent flash on startup when in dark-mode
-    mainWindow.webContents.on('did-finish-load', function () {
-      setTimeout(function () {
+    mainWindow.webContents.on('did-finish-load', () => {
+      setTimeout(() => {
         mainWindow.show()
       }, 60)
     })
@@ -84,7 +82,7 @@ function createMainWindow () {
 
   win.on('page-title-updated', e => {
     e.preventDefault()
-    tray.create(win)
+    tray(win)
   })
 
   return win
@@ -95,7 +93,7 @@ app.on('ready', () => {
   mainWindow = createMainWindow()
   page = mainWindow.webContents
 
-  autoUpdater(mainWindow)
+  updater(mainWindow)
 
   ipcMain.on('back', (event, arg) => {
     if (page.canGoBack()) {

@@ -1,6 +1,6 @@
 import Config from 'electron-config'
 
-export const config = new Config({
+const config = new Config({
   defaults: {
     darkMode: false,
     zoomFactor: 1,
@@ -11,3 +11,4 @@ export const config = new Config({
   }
 })
 
+export { config as default }
