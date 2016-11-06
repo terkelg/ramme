@@ -1,13 +1,15 @@
 language: node_js
 node_js: 6
 
-os: osx
+cache:
+  directories:
+    - node_modules
 
-matrix:
-  include:
-    - os: linux
-      sudo: required
-      dist: trusty
+os:
+  - osx
+  - linux
+    sudo: required
+    dist: trusty
 
 script:
   - npm run dist
