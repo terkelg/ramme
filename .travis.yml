@@ -10,6 +10,7 @@ os:
   - linux
 
 script:
+  - npm run test
   - npm run dist
 
 notifications:
