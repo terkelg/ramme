@@ -30,6 +30,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-inject-svg": "^0.1.9",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "standard": "^8.5.0",
     "webpack": "^1.13.3"
