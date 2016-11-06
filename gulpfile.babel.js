@@ -24,7 +24,7 @@ gulp.task('build:scss:themes', () =>
     .pipe(sass().on('error', sass.logError))
     .pipe(rename((path) => {
       path.basename = path.dirname
-      path.dirname = ""
+      path.dirname = ''
     }))
     .pipe(gulp.dest('app/dist/renderer/styles')))
 
