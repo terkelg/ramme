@@ -14,7 +14,7 @@ gulp.task('build:js:renderer', () =>
     .pipe(gulp.dest('app/dist/renderer/js')))
 
 gulp.task('build:scss', () =>
-  gulp.src('app/src/renderer/styles/*')
+  gulp.src('app/src/renderer/styles/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('app/dist/renderer/styles')))
 

@@ -1,0 +1,46 @@
+/* Scrollbar - currently hidden */
+::-webkit-scrollbar {
+  width: 2px;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+}
+
+/* Remove focus glow */
+* {
+  outline: none;
+}
+
+html {
+  cursor: default!important;
+
+  /* Force a scrollbar on Linux and Windows to prevent jumping when changing tabs */
+  &.os-linux,
+  &.os-win32 {
+    overflow-y: initial!important;
+  }
+}
+
+/* Hide 'Open in app' popup and button */
+._28zbs {
+  &._nqfwp,
+  &._nl1vc {
+    display: none;
+  }
+}
+
+/* Hide footer */
+section > footer {
+  display: none;
+}
+
+/* Hide facebook cookie notice */
+#header-notices {
+  display: none;
+}
