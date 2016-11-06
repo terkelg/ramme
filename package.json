@@ -6,8 +6,8 @@
     "test": "standard",
     "build": "npm run test && gulp build",
     "start": "gulp && electron app",
-    "pack": "npm run build && build --dir --x64",
-    "dist": "npm run build && build --x64"
+    "pack": "npm run build && build --dir",
+    "dist": "npm run build && build"
   },
   "build": {
     "appId": "com.terkel.ramme",
