@@ -10,7 +10,7 @@ matrix:
       dist: trusty
 
 script:
-  - scripts/release.sh
+  - npm run dist
 
 notifications:
   slack: ramme:44ubE4BVf3FGi8OldEKL743J
