@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/terkelg/ramme/raw/v3/build/icon.png" height="100" />
+  <img src="https://github.com/terkelg/ramme/raw/v3/media/icon.png" height="100" />
   <h3 align="center">Ramme</h3>
   <p align="center">Unofficial Instagram Desktop App</p>
   <p align="center">
