@@ -5,11 +5,12 @@ cache:
   directories:
     - node_modules
 
-os:
-  - osx
-  - linux
-    sudo: required
-    dist: trusty
+matrix:
+  include:
+    - os: osx
+    - os: linux
+      sudo: required
+      dist: trusty
 
 script:
   - npm run dist
