@@ -9,6 +9,9 @@ os:
   - osx
   - linux
 
+before_script:
+  - npm prune
+
 script:
   - npm run test
   - npm run dist
