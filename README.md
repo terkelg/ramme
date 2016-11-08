@@ -4,14 +4,11 @@
   <p align="center">Unofficial Instagram Desktop App</p>
   <p align="center">
     <a href="https://releases.ramme.co"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg" alt="Platforms"></a>
-    <a href="https://releases.ramme.co"><img src="https://img.shields.io/github/downloads/terkelg/ramme/total.svg?maxAge=2592000" alt="Github All Releases"></a>
     <a href="https://badge.fury.io/gh/terkelg%2Framme"><img src="https://badge.fury.io/gh/terkelg%2Framme.svg" alt="GitHub version"></a>
   </p>
   <p align="center">
-    <a href="https://travis-ci.org/terkelg/ramme"><img src="https://travis-ci.org/terkelg/ramme.svg?branch=v3" alt="Build Status"></a>
-    <a href="http://standardjs.com"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="JavaScript Style Guide"></a>
-    <a href="#"><img src="https://img.shields.io/david/terkelg/ramme.svg?maxAge=2592000" alt="David"></a>
-    <a href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000" alt="License"></a>
+    <a href="https://travis-ci.org/terkelg/ramme"><img src="https://travis-ci.org/terkelg/ramme.svg?branch=v3" alt="Travis"></a>
+    <a href="#"><img src="https://img.shields.io/appveyor/ci/terkelg/ramme.svg" alt="AppVeyor"></a>
   </p>
 </p>
 
