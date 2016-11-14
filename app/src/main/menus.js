@@ -1,7 +1,7 @@
 import os from 'os'
 import * as path from 'path'
 import {app, BrowserWindow, Menu, shell, dialog} from 'electron'
-import isPlatform from './is-platform'
+import isPlatform from './../common/is-platform'
 
 const appName = app.getName()
 

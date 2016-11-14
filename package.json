@@ -5,7 +5,7 @@
   "scripts": {
     "test": "standard",
     "build": "npm run test && gulp build",
-    "start": "gulp && electron app",
+    "start": "electron app",
     "pack": "npm run build && build --dir",
     "dist": "npm run build && build"
   },
@@ -22,15 +22,13 @@
     }
   },
   "devDependencies": {
-    "babel-core": "^6.18.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
     "copy-webpack-plugin": "^4.0.0",
+    "del": "^2.2.2",
     "electron": "^1.4.5",
-    "electron-builder": "^7.15.2",
-    "gulp": "^3.9.1",
+    "electron-builder": "^8.5.3",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^6.1.2",
-    "gulp-inject-svg": "^0.1.9",
-    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "standard": "^8.5.0",
     "webpack": "^1.13.3"

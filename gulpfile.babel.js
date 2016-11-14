@@ -1,40 +1,42 @@
+import {src, dest, watch as watchSrc, parallel, series} from 'gulp'
 import babel from 'gulp-babel'
-import gulp from 'gulp'
+import del from 'del'
 import sass from 'gulp-sass'
-import rename from 'gulp-rename'
-// import injectSvg from 'gulp-inject-svg'
 
-gulp.task('build:js:main', () =>
-  gulp.src('app/src/main/*.js')
+// Directories
+const SRC_DIR = 'app/src'
+const DIST_DIR = 'app/dist'
+
+// Source files
+const JS_GLOB = `${SRC_DIR}/**/*.js`
+const CSS_GLOB = `${SRC_DIR}/**/*.scss`
+
+// Clean DIST directory
+export function clean () {
+  return del([DIST_DIR])
+}
+
+// JS Task
+export function scripts () {
+  return src(JS_GLOB, {base: SRC_DIR})
     .pipe(babel())
-    .pipe(gulp.dest('app/dist/main')))
+    .pipe(dest(DIST_DIR))
+}
 
-gulp.task('build:js:renderer', () =>
-  gulp.src('app/src/renderer/js/*.js')
-    .pipe(babel())
-    .pipe(gulp.dest('app/dist/renderer/js')))
-
-gulp.task('build:scss:main', () =>
-  gulp.src('app/src/renderer/styles/*.scss')
+export function styles () {
+  return src(CSS_GLOB, {base: SRC_DIR})
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('app/dist/renderer/styles')))
+    .pipe(dest(DIST_DIR))
+}
 
-gulp.task('build:scss:themes', () =>
-  gulp.src('app/src/renderer/styles/theme-*/main.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(rename((path) => {
-      path.basename = path.dirname
-      path.dirname = ''
-    }))
-    .pipe(gulp.dest('app/dist/renderer/styles')))
+export function watch () {
+  watchSrc(JS_GLOB, scripts)
+  watchSrc(CSS_GLOB, styles)
+}
 
-gulp.task('build', ['build:js:main', 'build:js:renderer', 'build:scss:main', 'build:scss:themes'])
+const mainTasks = parallel(scripts, styles)
+export const build = series(clean, mainTasks)
+export const dev = series(clean, mainTasks, watch)
 
-gulp.task('default', ['build'])
-
-gulp.task('watch', ['build'], () => {
-  gulp.watch('app/src/main/*.js', ['build:js:main'])
-  gulp.watch('app/src/renderer/*.js', ['build:js:renderer'])
-  gulp.watch('app/src/renderer/styles/*', ['build:scss:main'])
-  gulp.watch('app/src/renderer/styles/theme-*/main.scss', ['build:scss:themes'])
-})
+// Set default task
+export default build

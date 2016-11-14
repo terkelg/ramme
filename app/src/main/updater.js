@@ -2,7 +2,7 @@ import { autoUpdater, ipcMain } from 'electron'
 import isDev from 'electron-is-dev'
 import ms from 'ms'
 import { version } from '../../package'
-import isPlatform from './is-platform'
+import isPlatform from './../common/is-platform'
 
 const FEED_URL = `https://nuts-serve-gapvnvvtee.now.sh/update/${process.platform}/${version}`
 

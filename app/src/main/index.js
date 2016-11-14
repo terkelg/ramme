@@ -5,7 +5,7 @@ import appMenu from './menus'
 import config from './config'
 import tray from './tray'
 import updater from './updater'
-import isPlatform from './is-platform'
+import isPlatform from './../common/is-platform'
 
 let mainWindow
 // tray here?
@@ -15,7 +15,6 @@ const renderer = {
   styles: '../renderer/styles',
   js: '../renderer/js'
 }
-
 
 let shouldQuit = app.makeSingleInstance(() => {
   // Someone tried to run a second instance, we should focus our window.
@@ -106,7 +105,7 @@ app.on('ready', () => {
 
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
-    page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark.css'), 'utf8'))
+    page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark/main.css'), 'utf8'))
     mainWindow.show()
   })
 
