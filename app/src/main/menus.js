@@ -1,13 +1,14 @@
 import os from 'os'
 import * as path from 'path'
 import {app, BrowserWindow, Menu, shell, dialog} from 'electron'
+import isPlatform from './is-platform'
 
 const appName = app.getName()
 
 function sendAction (action) {
   const win = BrowserWindow.getAllWindows()[0]
 
-  if (process.platform === 'darwin') {
+  if (isPlatform('macOS')) {
     win.restore()
   }
 

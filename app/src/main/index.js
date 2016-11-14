@@ -5,31 +5,27 @@ import appMenu from './menus'
 import config from './config'
 import tray from './tray'
 import updater from './updater'
+import isPlatform from './is-platform'
 
 let mainWindow
+// tray here?
 let page
-let isQuitting = false
+
 const renderer = {
   styles: '../renderer/styles',
   js: '../renderer/js'
 }
 
-const isAlreadyRunning = app.makeSingleInstance(() => {
-  if (mainWindow) {
-    if (mainWindow.isMinimized()) {
-      mainWindow.restore()
-    }
 
-    // Prevent flash on startup when in dark-mode
-    mainWindow.webContents.on('did-finish-load', () => {
-      setTimeout(() => {
-        mainWindow.show()
-      }, 60)
-    })
+let shouldQuit = app.makeSingleInstance(() => {
+  // Someone tried to run a second instance, we should focus our window.
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) mainWindow.restore()
+    mainWindow.focus()
   }
 })
 
-if (isAlreadyRunning) {
+if (shouldQuit) {
   app.quit()
 }
 
@@ -54,7 +50,7 @@ function createMainWindow () {
     height: lastWindowState.height,
     maximizable: false,
     fullscreenable: false,
-    icon: process.platform === 'linux' && rammeDesktopIcon,
+    icon: isPlatform('linux') && rammeDesktopIcon,
     titleBarStyle: 'hidden-inset',
     darkTheme: isDarkMode,
     backgroundColor: isDarkMode ? '#192633' : '#fff',
@@ -69,10 +65,11 @@ function createMainWindow () {
   win.loadURL(`https://www.instagram.com`)
 
   win.on('close', e => {
-    if (!isQuitting) {
+    // check here if windows and quit? Way to avoid tray
+    if (!shouldQuit) {
       e.preventDefault()
 
-      if (process.platform === 'darwin') {
+      if (isPlatform('macOS')) {
         app.hide()
       } else {
         win.hide()
@@ -82,7 +79,7 @@ function createMainWindow () {
 
   win.on('page-title-updated', e => {
     e.preventDefault()
-    tray(win)
+    tray(win) // Why is this called here??
   })
 
   return win
@@ -124,6 +121,6 @@ app.on('activate', () => {
 })
 
 app.on('before-quit', () => {
-  isQuitting = true
+  shouldQuit = true
   config.set('lastWindowState', mainWindow.getBounds())
 })
