@@ -1,10 +1,12 @@
 import * as path from 'path'
 import * as fs from 'fs'
+
 import { BrowserWindow, app, Menu, ipcMain, shell } from 'electron'
 import appMenu from './menus'
 import config from './config'
 import tray from './tray'
 import updater from './updater'
+import * as analytics from './analytics'
 import isPlatform from './../common/is-platform'
 
 let mainWindow
@@ -90,6 +92,7 @@ app.on('ready', () => {
   page = mainWindow.webContents
 
   updater(mainWindow)
+  analytics.init()
 
   ipcMain.on('back', (event, arg) => {
     if (page.canGoBack()) {
