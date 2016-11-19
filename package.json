@@ -5,6 +5,7 @@
   "scripts": {
     "test": "standard",
     "build": "npm run test && gulp build",
+    "prestart": "npm run build",
     "start": "electron app",
     "pack": "npm run build && build --dir",
     "dist": "npm run build && build"
