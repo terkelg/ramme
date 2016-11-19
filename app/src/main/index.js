@@ -1,23 +1,26 @@
 import * as path from 'path'
 import * as fs from 'fs'
-
 import { BrowserWindow, app, Menu, ipcMain, shell } from 'electron'
-import appMenu from './menus'
+
+import createTray from './tray'
+// createMainWindow
+import appMenu from './menus' // TODO: createMenu()
+
 import config from './config'
-import tray from './tray'
 import updater from './updater'
 import * as analytics from './analytics'
 import isPlatform from './../common/is-platform'
-
-let mainWindow
-// tray here?
-let page
 
 const renderer = {
   styles: '../renderer/styles',
   js: '../renderer/js'
 }
 
+let mainWindow
+
+/**
+ * Singleton
+ */
 let shouldQuit = app.makeSingleInstance(() => {
   // Someone tried to run a second instance, we should focus our window.
   if (mainWindow) {
@@ -30,6 +33,47 @@ if (shouldQuit) {
   app.quit()
 }
 
+/**
+ * Kick off!
+ */
+app.on('ready', () => {
+  // Create window
+  mainWindow = createMainWindow()
+
+  // Create menus
+  Menu.setApplicationMenu(appMenu)
+  createTray(mainWindow)
+
+  // Update and analytics
+  updater(mainWindow)
+  analytics.init()
+
+  // Setup events
+  setupWebContentsEvents(mainWindow.webContents)
+})
+
+app.on('activate', () => {
+  mainWindow.show()
+})
+
+app.on('before-quit', () => {
+  shouldQuit = true
+  config.set('lastWindowState', mainWindow.getBounds())
+})
+
+/**
+ * Communicate with renderer process (web page)
+ */
+ipcMain.on('back', (e, arg) => {
+  let page = e.sender.webContents
+  if (page.canGoBack()) {
+    page.goBack()
+  }
+})
+
+ /**
+  * CreateMainWindow
+  **/
 function createMainWindow () {
   const lastWindowState = config.get('lastWindowState')
   const isDarkMode = config.get('darkMode')
@@ -62,11 +106,21 @@ function createMainWindow () {
     }
   })
 
+  // Fake user agent to get mobile version of the site
   win.webContents.setUserAgent(userAgent)
   win.loadURL(`https://www.instagram.com`)
 
+  // Create eventd
+  setupWindowEvents(win)
+
+  return win
+}
+
+/**
+ * setupWindowEvents
+ */
+function setupWindowEvents (win) {
   win.on('close', e => {
-    // check here if windows and quit? Way to avoid tray
     if (!shouldQuit) {
       e.preventDefault()
 
@@ -80,49 +134,31 @@ function createMainWindow () {
 
   win.on('page-title-updated', e => {
     e.preventDefault()
-    tray(win) // Why is this called here??
   })
-
-  return win
 }
 
-app.on('ready', () => {
-  Menu.setApplicationMenu(appMenu)
-  mainWindow = createMainWindow()
-  page = mainWindow.webContents
-
-  updater(mainWindow)
-  analytics.init()
-
-  ipcMain.on('back', (event, arg) => {
-    if (page.canGoBack()) {
-      page.goBack()
-    }
-  })
-
+ /**
+  * mainWindowEvents
+  */
+function setupWebContentsEvents (page) {
   page.on('did-navigate-in-page', (event, arg) => {
+    // Get back menu item and disable/enable it
     const menuBackBtn = appMenu.items[1].submenu.items[0]
     menuBackBtn.enabled = page.canGoBack()
+    // Notify back-button in sidebar about the state change
     page.send('set-button-state', menuBackBtn.enabled)
   })
 
+  // Inject styles when dom is ready
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark/main.css'), 'utf8'))
     mainWindow.show()
   })
 
+  // Open links in external applications
   page.on('new-window', (e, url) => {
     e.preventDefault()
     shell.openExternal(url)
   })
-})
-
-app.on('activate', () => {
-  mainWindow.show()
-})
-
-app.on('before-quit', () => {
-  shouldQuit = true
-  config.set('lastWindowState', mainWindow.getBounds())
-})
+}

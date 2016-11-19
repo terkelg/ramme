@@ -68,6 +68,7 @@ const template = [
         accelerator: 'Backspace',
         enabled: false,
         click () {
+          sendAction('go-back')
           const win = BrowserWindow.getAllWindows()[0]
           if (win.webContents.canGoBack()) {
             win.webContents.goBack()
