@@ -49,11 +49,11 @@ $ brew update && brew tap caskroom/cask && brew cask install ramme
 
 #### Manually
 
-[**Download**](https://github.com/terkelg/ramme/releases/latest), unzip, and move `Ramme.app` to the `/Applications` directory.
+[**Download**](https://arcane-forest-77480.herokuapp.com/downloadLatest?user=terkelg&repo=ramme&file=Ramme-osx-VERSION.zip), unzip, and move `Ramme.app` to the `/Applications` directory.
 
 ### Linux
 
-[**Download**](https://github.com/terkelg/ramme/releases/latest) and unzip to some location.
+[**Download**](https://arcane-forest-77480.herokuapp.com/downloadLatest?user=terkelg&repo=ramme&file=Ramme-linux-VERSION.zip) and unzip to some location.
 
 To add a shortcut to the app, create a file in `~/.local/share/applications` called `ramme.desktop` with the following contents:
 
@@ -68,7 +68,7 @@ Icon=/full/path/to/folder/Ramme/resources/app/static/icon.png
 
 ### Windows
 
-[**Download**](https://github.com/terkelg/ramme/releases/latest) and unzip to some location.
+[**Download**](https://arcane-forest-77480.herokuapp.com/downloadLatest?user=terkelg&repo=ramme&file=Ramme-windows-VERSION.zip) and unzip to some location.
 
 [**Installer for Windows (source)**](https://github.com/VoOoLoX/ramme-installer-windows) - [**Installer for Windows download**](https://github.com/VoOoLoX/ramme-installer-windows/releases/download/v1.2.0/Ramme.Installer.exe) by VoOoLoX
 
