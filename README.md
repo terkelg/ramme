@@ -28,6 +28,17 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
   <img src="https://github.com/terkelg/ramme/raw/v3/media/strip.png" />
 </p>
 
+## Keyboard shortcuts
+- Go Back: <kbd>⌫</kbd>
+- Refresh: <kbd>Cmd</kbd> <kbd>R</kbd> or <kbd>Ctrl</kbd> <kbd>R</kbd>
+- Home: <kbd>Cmd</kbd> <kbd>1</kbd> or <kbd>Ctrl</kbd> <kbd>1</kbd>
+- Discover: <kbd>Cmd</kbd> <kbd>2</kbd> or <kbd>Ctrl</kbd> <kbd>2</kbd>
+- Notifications: <kbd>Cmd</kbd> <kbd>3</kbd> or <kbd>Ctrl</kbd> <kbd>3</kbd>
+- Profile: <kbd>Cmd</kbd> <kbd>4</kbd> or <kbd>Ctrl</kbd> <kbd>4</kbd>
+- Scroll a post up: <kbd>Shift</kbd> <kbd>Up</kbd>
+- Scroll a post down: <kbd>Shift</kbd> <kbd>Down</kbd>
+- Toggle Dark mode: <kbd>Cmd</kbd> <kbd>D</kbd> or <kbd>Ctrl</kbd> <kbd>D</kbd>
+
 ## Thanks
 Thanks to all contributors who helped make Ramme better! 🎉
 
