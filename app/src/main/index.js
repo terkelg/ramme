@@ -1,22 +1,24 @@
 import * as path from 'path'
 import * as fs from 'fs'
-import { BrowserWindow, app, Menu, ipcMain, shell } from 'electron'
+import { BrowserWindow, app, Menu, ipcMain, shell, session } from 'electron'
 
 import createTray from './tray'
-// createMainWindow
-import appMenu from './menus' // TODO: createMenu()
+import appMenu from './menus'
 
 import config from './config'
 import updater from './updater'
 import * as analytics from './analytics'
 import isPlatform from './../common/is-platform'
 
+import Client from 'instagram-private-api'
+
+let mainWindow
 const renderer = {
   styles: '../renderer/styles',
   js: '../renderer/js'
 }
 
-let mainWindow
+require('electron-debug')({showDevTools: true})
 
 /**
  * Singleton
@@ -71,9 +73,9 @@ ipcMain.on('back', (e, arg) => {
   }
 })
 
- /**
-  * CreateMainWindow
-  **/
+/**
+ * CreateMainWindow
+ **/
 function createMainWindow () {
   const lastWindowState = config.get('lastWindowState')
   const isDarkMode = config.get('darkMode')
