@@ -39,6 +39,10 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
 - Scroll a post down: <kbd>Shift</kbd> <kbd>Down</kbd>
 - Toggle Dark mode: <kbd>Cmd</kbd> <kbd>D</kbd> or <kbd>Ctrl</kbd> <kbd>D</kbd>
 
+## Ramme?
+"Ramme" is the danish word for [frame](http://en.bab.la/dictionary/english-danish/frame).
+
+
 ## Thanks
 Thanks to all contributors who helped make Ramme better! 🎉
 
