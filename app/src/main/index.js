@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs'
-import { BrowserWindow, app, Menu, ipcMain, shell, session } from 'electron'
+import { BrowserWindow, app, Menu, ipcMain, shell } from 'electron'
 
 import createTray from './tray'
 import appMenu from './menus'
@@ -9,8 +9,6 @@ import config from './config'
 import updater from './updater'
 import * as analytics from './analytics'
 import isPlatform from './../common/is-platform'
-
-import Client from 'instagram-private-api'
 
 let mainWindow
 const renderer = {

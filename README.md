@@ -13,26 +13,26 @@
 </p>
 
 ## Download
-The latest version of Ramme for macOS, Linux and Windows is available [here](https://releases.ramme.co).
+The latest version of Ramme for macOS, Linux and Windows is available [here](https://github.com/terkelg/ramme/releases).
+
+**macOS 10.9+, Windows 7+ & Linux are supported.**
 
 ## Features
 - Dark Theme
 - Auto Update
-- Photo Upload (coming soon)
-- Multiple Accounts (coming soon)
+- Keyboard shortcuts
+- Background behavior
 
 ## Screenshots
-
-[Screen shot strip here]
+<p align="center">
+  <img src="https://github.com/terkelg/ramme/raw/v3/media/strip.png" />
+</p>
 
 ## Thanks
 Thanks to all contributors who helped make Ramme better! 🎉
 
-Inspiration from the super human [Sindre Sorhus](https://github.com/sindresorhus).
-Make sure you check out his stuff:
-
-- [Anatine](https://github.com/sindresorhus/anatine) - Pristine Twitter app
-- [Caprine](https://github.com/sindresorhus/caprine) - Caprine Facebook Messenger app
+## License
+MIT © [Terkel Gjervig](https://terkel.com)
 
 ## End User License Agreement (EULA)
 - You will not use this repository for sending mass spam or any other malicious activity.
