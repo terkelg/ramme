@@ -1,10 +1,10 @@
 html.dark-mode #react-root ._onabe._kjy2s {
-  background-color: #202c3a;
+  background-color: $darkLight;
   border-right: 1px solid rgba(255, 255, 255, .08);
 }
 
 html.dark-mode #react-root ._bfc7q {
-  background-color: #202c3a;
+  background-color: $darkLight;
 }
 
 html.dark-mode #react-root ._r1svv {
@@ -16,5 +16,5 @@ html.dark-mode .back-btn {
   border-bottom: 1px solid rgba(255, 255, 255, 0.0784314);
 }
 
-html.dark-mode .back-btn svg { fill: #fff; }
+html.dark-mode .back-btn svg { fill: $white; }
 html.dark-mode .back-btn.inactive svg { fill: rgba(255, 255, 255, 0.2);  }
