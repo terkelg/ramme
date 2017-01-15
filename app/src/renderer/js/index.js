@@ -1,9 +1,7 @@
-'use strict'
-const electron = require('electron')
-const config = require('./config')
-const elementReady = require('element-ready')
+import { ipcRenderer } from 'electron'
+import config from '../../main/config'
+import elementReady from 'element-ready'
 
-const ipcRenderer = electron.ipcRenderer
 const $ = document.querySelector.bind(document)
 
 var post = 0

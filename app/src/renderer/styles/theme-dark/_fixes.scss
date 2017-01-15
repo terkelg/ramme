@@ -1,0 +1,95 @@
+html.dark-mode::-webkit-scrollbar-track {
+  background-color: $dark;
+}
+
+html.dark-mode::-webkit-scrollbar-thumb {
+  background-color: $white;
+}
+
+html.dark-mode #react-root {
+  color: $bright;
+}
+
+/* Main container */
+html.dark-mode #react-root main {
+  background-color: $dark;
+}
+
+/* Links */
+html.dark-mode #react-root a,
+html.dark-mode #react-root a:visited {
+  color: $blue;
+}
+
+/* Username */
+html.dark-mode #react-root ._4zhc5,
+html.dark-mode #react-rrot ._4zhc5:visited,
+html.dark-mode #react-root ._2uju6 {
+  color: $bright;
+}
+
+/* photo container bg */
+html.dark-mode #react-root ._22yr2 {
+  background-color: $dark;
+  border-style: none;
+}
+
+/* photo border, split */
+html.dark-mode #react-root ._pieko ._e0mru {
+  border-color: $darkLight;
+}
+
+/* Profile thumbnail */
+html.dark-mode #react-root ._5lote {
+  background-color: $dark;
+  border: 1px solid $darkLight;
+}
+
+/* photo desc */
+html.dark-mode #react-root ._lx2l2,
+html.dark-mode #react-root ._lx2l2:visited,
+html.dark-mode #react-root ._oajsw {
+  color: inherit;
+}
+
+/* split */
+html.dark-mode #react-root ._jveic {
+  border-top: 1px solid $darkLight;
+}
+
+/* time-stamp */
+html.dark-mode #react-root ._ljyfo,
+html.dark-mode #react-root ._ljyfo:visited {
+  color: $gray;
+}
+
+/* location */
+html.dark-mode #react-root ._rnlnu {
+  color: $gray;
+}
+
+/* likes */
+html.dark-mode #react-root ._3sst1 {
+  color: $bright;
+}
+
+/*add profile photo popup*/
+html.dark-mode #react-root ._82fo9._29u55 {
+  background-color: $dark;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+/*comment input text color*/
+html.dark-mode #react-root ._7uiwk._qy55y {
+  color: $white;
+}
+
+/* Dialog */
+html.dark-mode ._bt6iq,
+html.dark-mode ._gwvmk,
+html.dark-mode ._bt6iq,
+html.dark-mode ._4y3e3 {
+  color: $bright;
+  border-color: $darkLight;
+  background-color: $dark;
+}

@@ -1,19 +1,14 @@
-'use strict'
-const os = require('os')
-const path = require('path')
-const electron = require('electron')
-const version = require('./version')
+import os from 'os'
+import * as path from 'path'
+import {app, BrowserWindow, Menu, shell, dialog} from 'electron'
+import isPlatform from './../common/is-platform'
 
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-const shell = electron.shell
 const appName = app.getName()
-
 
 function sendAction (action) {
   const win = BrowserWindow.getAllWindows()[0]
 
-  if (process.platform === 'darwin') {
+  if (isPlatform('macOS')) {
     win.restore()
   }
 
@@ -21,12 +16,6 @@ function sendAction (action) {
 }
 
 const helpSubmenu = [
-  {
-    label: 'Check for Updates...',
-    click () {
-      version.check()
-    }
-  },
   {
     type: 'separator'
   },
@@ -59,7 +48,7 @@ if (process.platform !== 'darwin') {
   }, {
     role: 'about',
     click () {
-      electron.dialog.showMessageBox({
+      dialog.showMessageBox({
         title: `About ${appName}`,
         message: `${appName} ${app.getVersion()}`,
         detail: 'Created by Terkel Gjervig',
@@ -79,6 +68,7 @@ const template = [
         accelerator: 'Backspace',
         enabled: false,
         click () {
+          sendAction('go-back')
           const win = BrowserWindow.getAllWindows()[0]
           if (win.webContents.canGoBack()) {
             win.webContents.goBack()
@@ -300,9 +290,5 @@ if (process.platform === 'darwin') {
   ]
 }
 
-// const darwinTpl = [{}];
-// const otherTpl = [{}];
-
-// const tpl = process.platform === 'darwin' ? darwinTpl : otherTpl;
-
-module.exports = electron.Menu.buildFromTemplate(template)
+const applicationMenu = Menu.buildFromTemplate(template)
+export { applicationMenu as default }

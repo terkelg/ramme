@@ -1,43 +1,40 @@
 {
-  "name": "Ramme",
-  "version": "2.3.0",
-  "description": "Unofficial Instagram Desktop App",
-  "license": "MIT",
-  "main": "main.js",
   "repository": "terkelg/ramme",
-  "author": {
-    "name": "Terkel Gjervig",
-    "email": "hello@terkel.com",
-    "url": "terkel.com"
-  },
+  "author": "Terkel Gjervig",
+  "license": "MIT",
   "scripts": {
-    "start": "npm test && electron .",
     "test": "standard",
-    "build": "npm test && npm run build64 && npm run build32",
-    "build64": "npm run build:macos && npm run build:linux && npm run build:windows64",
-    "build32": "npm run build:linux32 && npm run build:windows",
-    "build:macos": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=darwin --arch=x64 --icon=static/icon.icns --app-bundle-id=com.terkel.ramme --osx-sign --app-version=$npm_package_version && cd dist/Ramme-darwin-x64 && zip -ryXq9 ../Ramme-osx-${npm_package_version}.zip Ramme.app",
-    "build:linux": "electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=x64 --app-bundle-id=com.terkel.ramme --app-version=$npm_package_version && cd dist/Ramme-linux-x64/ && zip -ryq9 ../Ramme-linux-${npm_package_version}.zip *",
-    "build:linux32": "electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=ia32 --app-bundle-id=com.terkel.ramme --app-version=$npm_package_version && cd dist/Ramme-linux-ia32/ && zip -ryq9 ../Ramme-linux32-${npm_package_version}.zip *",
-    "build:windows": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=ia32 --icon=static/icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/Ramme-win32-ia32 && zip -ryq9 ../Ramme-windows-${npm_package_version}.zip *",
-    "build:windows64": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=x64 --icon=static/icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/Ramme-win32-x64 && zip -ryq9 ../Ramme-windows64-${npm_package_version}.zip *"
+    "build": "gulp build",
+    "prestart": "npm run build",
+    "start": "electron app",
+    "pack": "npm run build && build --dir",
+    "dist": "npm run build && build"
   },
-  "keywords": [
-    "Instagram",
-    "Electron",
-    "Social",
-    "Client"
-  ],
+  "build": {
+    "appId": "com.terkel.ramme",
+    "mac": {
+      "category": "public.app-category.social-networking"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ]
+    }
+  },
   "devDependencies": {
-    "devtron": "^1.3.0",
-    "electron": "^1.3.3",
-    "electron-packager": "^8.0.0",
-    "os": "^0.1.1",
-    "standard": "^8.0.0"
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "del": "^2.2.2",
+    "electron": "^1.4.5",
+    "electron-builder": "^11.3.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-sass": "^3.1.0",
+    "standard": "^8.5.0"
   },
-  "dependencies": {
-    "electron-config": "^0.2.1",
-    "electron-debug": "^1.0.1",
-    "element-ready": "^0.2.0"
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
   }
 }

@@ -1,0 +1,33 @@
+{
+  "name": "Ramme",
+  "main": "dist/main",
+  "private": true,
+  "version": "3.0.0",
+  "description": "Unofficial Instagram Desktop App",
+  "repository": "terkelg/ramme",
+  "license": "MIT",
+  "author": {
+    "name": "Terkel Gjervig",
+    "email": "hello@terkel.com",
+    "url": "terkel.com"
+  },
+  "bugs": {
+    "url": "https://github.com/terkelg/ramme/issues"
+  },
+  "keywords": [
+    "Instagram",
+    "Electron",
+    "Social",
+    "Client"
+  ],
+  "dependencies": {
+    "electron-config": "^0.2.1",
+    "electron-debug": "^1.1.0",
+    "electron-is-dev": "^0.1.2",
+    "element-ready": "^0.2.0",
+    "first-run": "^1.2.0",
+    "insight": "^0.8.3",
+    "ms": "^0.7.2",
+    "os": "^0.1.1"
+  }
+}

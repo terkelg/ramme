@@ -1,7 +1,6 @@
-'use strict'
-const Config = require('electron-config')
+import Config from 'electron-config'
 
-module.exports = new Config({
+const config = new Config({
   defaults: {
     darkMode: false,
     zoomFactor: 1,
@@ -11,3 +10,5 @@ module.exports = new Config({
     }
   }
 })
+
+export { config as default }

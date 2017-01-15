@@ -1,0 +1,91 @@
+.not-logged-in body {
+  overflow: hidden;
+}
+
+/* Hide elements */
+#react-root {
+  &._okmo7,
+  &._m8ogu,
+  &._9qbcz,
+  &._r48rb,
+  &._rpioj,
+  &._djahe,
+  &._j4ox0,
+  &._3bqd5 div:last-of-type,
+  &._3bqd5 ._nvyyp:last-of-type,
+  #header-notices {
+    display: none;
+  }
+}
+
+/* Center login */
+#react-root ._p8ymb {
+  max-width: 350px;
+  justify-content: center;
+  margin: 0!important;
+  height: 100vh;
+}
+
+/* Login */
+._du7bh {
+  margin: 0 auto 10px;
+}
+
+/* Remove margin from login box */
+#react-root ._60k3m {
+  margin-top: 0;
+}
+
+/* Facebook Button */
+#react-root ._56wku {
+  margin: 0;
+}
+
+/* Login Button */
+#react-root ._dyp7q {
+  margin: 0;
+  visibility: hidden; /* Hide text node */
+}
+
+/* Login go back */
+#react-root ._fcn8k {
+  visibility: visible;
+}
+#react-root ._fcn8k.goback {
+  margin: 0 auto;
+  display: block;
+  color: #dbdbdb;
+  width: 100px;
+}
+#react-root ._fcn8k:not(.goback) {
+  color: #fff;
+  background: #3897f0;
+  border-color: #3897f0;
+  line-height: 29px;
+  padding: 0 11px;
+  font-size: 14px;
+  display: block;
+  border-radius: 3px;
+  font-weight: 600;
+  max-width: 246px;
+  margin: 0 auto;
+}
+
+/* Remove border */
+#react-root ._nvyyp {
+  border: none;
+  padding: 0;
+  margin: -10px 0 0 0;
+}
+
+#react-root ._22yr2 {
+  border: 0;
+}
+
+#react-root ._djxz1 ._e0mru {
+  border: 0;
+}
+
+#react-root ._e0mru {
+  box-shadow: none;
+}

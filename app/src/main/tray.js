@@ -1,29 +1,27 @@
-'use strict'
-const path = require('path')
-const electron = require('electron')
+import * as path from 'path'
+import isPlatform from './../common/is-platform'
+import {app, shell, Tray, Menu} from 'electron'
 
-const app = electron.app
-const shell = electron.shell
-const Tray = electron.Tray
-const Menu = electron.Menu
-
-const trayIconDefault = path.join(__dirname, 'static/icon-18x18.png')
-const trayIconWindows = path.join(__dirname, 'static/icon.ico')
 let tray = null
 
-exports.create = win => {
-  if (process.platform === 'darwin' || tray) {
+/**
+ * Create a tray for Windows and Linux users
+ * @param win { BrowserWindow } - window instance
+ * @returns tray
+ */
+const createTray = win => {
+  if (isPlatform('macOS') || tray) {
     return
   }
 
-  let icon = trayIconDefault
+  // Set tray icon
+  const trayIconDefault = path.join(__dirname, '../static/icon-18x18.png')
+  const trayIconWindows = path.join(__dirname, '../static/icon.ico')
+  let icon = isPlatform('windows') ? trayIconWindows : trayIconDefault
 
-  if (process.platform === 'win32') {
-    icon = trayIconWindows
-  }
-
+  // TODO: Remove from here, and use evennts instead
   const toggleWin = () => {
-    if (process.platform === 'win32') {
+    if (isPlatform('windows')) {
       if (win.isMinimized()) {
         win.restore()
       } else if (win.isVisible()) {
@@ -36,15 +34,11 @@ exports.create = win => {
     }
   }
 
-  // Create toolbar
+  // Create tray
   tray = new Tray(icon)
 
   const contextMenu = [{
-    label: 'Toggle',
-    click () {
-      toggleWin()
-    }
-  },
+    label: 'Toggle', click () { toggleWin() } },
     {
       type: 'separator'
     },
@@ -72,7 +66,11 @@ exports.create = win => {
 
   tray.setToolTip(`${app.getName()}`)
   tray.setContextMenu(Menu.buildFromTemplate(contextMenu))
-  tray.on('click', function handleClicked () {
+  tray.on('click', () => {
     toggleWin()
   })
+
+  // return tray
 }
+
+export { createTray as default }

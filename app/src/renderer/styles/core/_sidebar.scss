@@ -1,0 +1,87 @@
+/* Make room for sidebar */
+.logged-in #react-root main._1wptv {
+  margin-left: 80px;
+}
+
+/* Add sidebar */
+#react-root ._onabe._kjy2s {
+  background-color: #fafafa;
+  position: fixed;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  border-right: 1px solid rgba(0,0,0,.08);
+  will-change: left, top;
+  display: block;
+}
+
+/* Make sidebar dragable */
+#react-root,
+#react-root > section,
+#react-root > section > nav {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+#react-root > section > main {
+  -webkit-app-region: no-drag;
+}
+
+/* Remove sidebar border, and position */
+#react-root ._bfc7q {
+  position: absolute;
+  border: none;
+}
+
+/* Icons list */
+#react-root ._n7q2c {
+  -webkit-app-region: drag;
+  margin-top: 80px;
+  flex-direction: column;
+}
+
+/* Remove margin from win and linux */
+html.os-linux #react-root ._n7q2c,
+html.os-win32 #react-root ._n7q2c {
+  margin-top: 50px;
+}
+
+/* Icon Item */
+#react-root ._r1svv {
+  width: 100%;
+  height: 40px;
+  margin: 20px 0;
+}
+
+/* Back Button */
+.back-btn {
+  position: fixed;
+  width: 78px;
+  left: 0px;
+  top: 35px;
+  border-top: 1px solid rgba(0, 0, 0, 0.0784314);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0784314);
+  padding: 15px 0;
+}
+
+html.os-linux .back-btn,
+html.os-win32 .back-btn { top: 0; }
+
+.back-btn a {
+  width: 24px;
+  height: 18px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.back-btn.inactive a {
+  cursor: default;
+}
+
+.back-btn svg {
+  fill: #000;
+}
+
+.back-btn.inactive svg {
+  fill: rgba(0, 0, 0, 0.0784314);
+}
