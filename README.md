@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="https://github.com/terkelg/ramme/raw/v3/media/icon.png" height="100" />
+  <img src="https://github.com/terkelg/ramme/raw/v3/media/icon.png" height="120" />
   <h3 align="center">Ramme</h3>
   <p align="center">Unofficial Instagram Desktop App</p>
   <p align="center">
-    <a href="https://releases.ramme.co"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg" alt="Platforms"></a>
+    <a href="https://github.com/terkelg/ramme/releases"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg" alt="Platforms"></a>
   </p>
   <p align="center">
      <a href="https://badge.fury.io/gh/terkelg%2Framme"><img src="https://badge.fury.io/gh/terkelg%2Framme.svg" alt="GitHub version"></a>
