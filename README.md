@@ -6,8 +6,8 @@
     <a href="https://github.com/terkelg/ramme/releases"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg" alt="Platforms"></a>
   </p>
   <p align="center">
-     <a href="https://badge.fury.io/gh/terkelg%2Framme"><img src="https://badge.fury.io/gh/terkelg%2Framme.svg" alt="GitHub version"></a>
-    <a href="https://travis-ci.org/terkelg/ramme"><img src="https://travis-ci.org/terkelg/ramme.svg?branch=v3" alt="Travis"></a>
+    <a href="https://github.com/terkelg/ramme"><img src="https://img.shields.io/github/release/terkelg/ramme.svg" alt="GitHub version"></a>
+    <a href="https://travis-ci.org/terkelg/ramme"><img src="https://img.shields.io/travis/terkelg/ramme.svg" alt="Travis"></a>
     <a href="https://ci.appveyor.com/project/terkelg/ramme"><img src="https://img.shields.io/appveyor/ci/terkelg/ramme.svg" alt="AppVeyor"></a>
   </p>
 </p>
