@@ -1,6 +1,6 @@
 import * as path from 'path'
 import isPlatform from './../common/is-platform'
-import {app, shell, Tray, Menu} from 'electron'
+import {app, shell, nativeImage, Tray, Menu} from 'electron'
 
 let tray = null
 
@@ -18,6 +18,7 @@ const createTray = win => {
   const trayIconDefault = path.join(__dirname, 'assets/icon-18x18.png')
   const trayIconWindows = path.join(__dirname, 'assets/icon.ico')
   let icon = isPlatform('windows') ? trayIconWindows : trayIconDefault
+  icon = nativeImage.createFromPath(icon)
 
   const toggleWin = () => {
     if (isPlatform('windows')) {
