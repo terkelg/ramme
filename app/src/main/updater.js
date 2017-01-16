@@ -21,7 +21,7 @@ function init (window) {
 
   setTimeout(() => {
     autoUpdater.checkForUpdates()
-  }, ms('5s')) // at this point the app is fully started and ready for everything
+  }, ms('5s')) // at this point the app is fully started and ready for updating
 
   let intervalId = createInterval()
 
