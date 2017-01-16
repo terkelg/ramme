@@ -15,11 +15,10 @@ const createTray = win => {
   }
 
   // Set tray icon
-  const trayIconDefault = path.join(__dirname, '../static/icon-18x18.png')
-  const trayIconWindows = path.join(__dirname, '../static/icon.ico')
+  const trayIconDefault = path.join(__dirname, 'assets/icon-18x18.png')
+  const trayIconWindows = path.join(__dirname, 'assets/icon.ico')
   let icon = isPlatform('windows') ? trayIconWindows : trayIconDefault
 
-  // TODO: Remove from here, and use evennts instead
   const toggleWin = () => {
     if (isPlatform('windows')) {
       if (win.isMinimized()) {
