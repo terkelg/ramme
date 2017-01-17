@@ -1,0 +1,13 @@
+.dark-mode {
+  .dialog-404 {
+    background-color: $dark;
+  }
+
+  .dialog-404 #react-root nav {
+    background-color: $dark;
+  }
+
+  .dialog-404 #react-root .main {
+    color: $white;
+  }
+}

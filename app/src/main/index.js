@@ -71,6 +71,12 @@ ipcMain.on('back', (e, arg) => {
   }
 })
 
+ipcMain.on('home', (e, arg) => {
+  let page = e.sender.webContents
+  page.loadURL('https://www.instagram.com/')
+  page.clearHistory()
+})
+
 /**
  * CreateMainWindow
  **/
@@ -108,7 +114,7 @@ function createMainWindow () {
 
   // Fake user agent to get mobile version of the site
   win.webContents.setUserAgent(userAgent)
-  win.loadURL(`https://www.instagram.com`)
+  win.loadURL('https://www.instagram.com/')
 
   // Create eventd
   setupWindowEvents(win)

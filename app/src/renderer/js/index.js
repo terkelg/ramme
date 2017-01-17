@@ -8,7 +8,8 @@ var post = 0
 
 const selectors = {
   root: '#react-root ._onabe',
-  loginButton: '#react-root ._fcn8k'
+  loginButton: '#react-root ._fcn8k',
+  notFoundPage: '.dialog-404'
 }
 
 ipcRenderer.on('toggle-dark-mode', () => {
@@ -61,18 +62,23 @@ ipcRenderer.on('navigate-down', () => {
   window.scrollBy(0, rect.top)
 })
 
-function backButton () {
+function backHomeButton (location) {
   const body = $('body')
   const link = document.createElement('a')
   const element = document.createElement('div')
 
   link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.84 17.39"><polygon points="22.84 8.22 1.82 8.22 9.37 0.67 8.7 0 0 8.7 8.7 17.39 9.37 16.72 1.82 9.17 22.84 9.17 22.84 8.22"/></svg>'
-  element.classList.add('back-btn', 'inactive')
+
+  if ( location === 'home' )
+    element.classList.add('back-btn')
+  else
+    element.classList.add('back-btn', 'inactive')
+
   element.appendChild(link)
   body.appendChild(element)
 
   link.addEventListener('click', event => {
-    ipcRenderer.send('back')
+    ipcRenderer.send(location)
   })
 
   ipcRenderer.on('set-button-state', (event, enabled) => {
@@ -101,9 +107,64 @@ function setDarkMode () {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
 }
 
+function fix404() {
+  // Add missing elements
+  const span = $('.root')
+  const section = $('.page')
+  const nav = document.createElement('nav')
+
+  let user = $('#link_profile a').href
+
+  span.id = 'react-root'
+  section.classList.add('_8f735')
+  nav.classList.add('_onabe', '_5z3y6')
+
+  nav.innerHTML = '<div class="_fjpuc _hykpq">\
+        <div>\
+          <div class="_bfc7q">\
+            <div class="_4kdxu">\
+              <div class="_n7q2c">\
+                <div class="_r1svv">\
+                  <a class="_gx3bg" href="/">\
+                    <div class="_o5rm6 coreSpriteMobileNavHomeActive"></div>\
+                  </a>\
+                </div>\
+                <div class="_r1svv">\
+                  <a class="_gx3bg" href="/explore/">\
+                    <div class="_o5rm6 coreSpriteMobileNavSearchInactive"></div>\
+                  </a>\
+                </div>\
+                <div class="_r1svv">\
+                  <a class="_gx3bg" href="/accounts/activity/">\
+                    <div class="_o5rm6 coreSpriteMobileNavActivityInactive"></div>\
+                  </a>\
+                </div>\
+                <div class="_r1svv">\
+                  <a class="_gx3bg" href="' + user + '">\
+                    <div class="_o5rm6 coreSpriteMobileNavProfileInactive"></div>\
+                  </a>\
+                </div>\
+              </div>\
+            </div>\
+          </div>\
+        </div>\
+      </div>'
+
+  section.appendChild(nav)
+
+  $('.error-container p a').remove()
+
+  // Add Back button
+  backHomeButton('home')
+}
+
 function init () {
-  backButton()
+
   setDarkMode()
+
+  if (!$(selectors.notFoundPage)) {
+    backHomeButton('back')
+  }
 
   // Prevent flash of white on startup when in dark mode
   // TODO: Find solution to this with pure css
@@ -116,6 +177,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // enable OS specific styles
   document.documentElement.classList.add(`os-${process.platform}`)
 
+  elementReady(selectors.notFoundPage).then(fix404)
   elementReady(selectors.root).then(init)
   elementReady(selectors.loginButton).then(login)
 })

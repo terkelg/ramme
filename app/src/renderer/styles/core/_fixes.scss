@@ -31,12 +31,13 @@ html {
 ._28zbs,
 ._nqfwp,
 ._nl1vc,
-._28zbs, {
+._28zbs {
   display: none;
 }
 
 /* Hide footer */
-section > footer {
+section > footer,
+.root > footer {
   display: none;
 }
 
