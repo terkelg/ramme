@@ -25,7 +25,7 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
 
 ## Screenshots
 <p align="center">
-  <img src="https://github.com/terkelg/ramme/raw/v3/media/strip.png" />
+  <img src="https://github.com/terkelg/ramme/blob/master/media/strip.png?raw=true" />
 </p>
 
 ## Keyboard shortcuts
