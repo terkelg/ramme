@@ -69,10 +69,11 @@ function backHomeButton (location) {
 
   link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.84 17.39"><polygon points="22.84 8.22 1.82 8.22 9.37 0.67 8.7 0 0 8.7 8.7 17.39 9.37 16.72 1.82 9.17 22.84 9.17 22.84 8.22"/></svg>'
 
-  if ( location === 'home' )
+  if (location === 'home') {
     element.classList.add('back-btn')
-  else
+  } else {
     element.classList.add('back-btn', 'inactive')
+  }
 
   element.appendChild(link)
   body.appendChild(element)
@@ -107,17 +108,18 @@ function setDarkMode () {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
 }
 
-function fix404() {
+function fix404 () {
   // Add missing elements
   const span = $('.root')
   const section = $('.page')
   const nav = document.createElement('nav')
 
-  let user = $('#link_profile a').href
-
   span.id = 'react-root'
   section.classList.add('_8f735')
   nav.classList.add('_onabe', '_5z3y6')
+
+  /*
+  let user = $('#link_profile a').href
 
   nav.innerHTML = '<div class="_fjpuc _hykpq">\
         <div>\
@@ -149,6 +151,7 @@ function fix404() {
           </div>\
         </div>\
       </div>'
+  */
 
   section.appendChild(nav)
 
@@ -159,7 +162,6 @@ function fix404() {
 }
 
 function init () {
-
   setDarkMode()
 
   if (!$(selectors.notFoundPage)) {
