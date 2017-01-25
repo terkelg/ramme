@@ -2,7 +2,7 @@
   "name": "Ramme",
   "main": "dist/main",
   "private": true,
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Unofficial Instagram Desktop App",
   "repository": "terkelg/ramme",
   "license": "MIT",
