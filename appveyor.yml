@@ -20,4 +20,4 @@ test_script:
 build_script:
   - node --version
   - npm --version
-  - npm run dist --ia32 --x64
+  - npm run dist -- --ia32 && npm run dist -- --x64
