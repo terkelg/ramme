@@ -18,8 +18,12 @@
   }
 }
 
-#react-root section[data-reactroot] > div:last-of-type {
-  display: none;
+.not-logged-in #react-root section[data-reactroot] {
+  & > div:last-of-type,
+  & > nav > div > div > div:last-of-type,
+  & > main > article > div > div:last-of-type {
+    display: none;
+  }
 }
 
 /* Center login */
