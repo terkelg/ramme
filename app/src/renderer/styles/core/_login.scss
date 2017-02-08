@@ -18,6 +18,10 @@
   }
 }
 
+#react-root section[data-reactroot] > div:last-of-type {
+  display: none;
+}
+
 /* Center login */
 #react-root ._p8ymb {
   max-width: 350px;
