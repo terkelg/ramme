@@ -36,5 +36,12 @@
     "plugins": [
       "transform-es2015-modules-commonjs"
     ]
+  },
+  "dependencies": {
+    "electron-config": "^0.2.1",
+    "electron-debug": "^1.1.0",
+    "electron-is-dev": "^0.1.2",
+    "first-run": "^1.2.0",
+    "insight": "^0.8.4"
   }
 }
