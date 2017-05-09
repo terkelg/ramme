@@ -76,7 +76,7 @@ function backHomeButton (location) {
   }
 
   element.appendChild(link)
-  body.appendChild(element)
+  body.prepend(element)
 
   link.addEventListener('click', event => {
     ipcRenderer.send(location)
@@ -117,41 +117,6 @@ function fix404 () {
   span.id = 'react-root'
   section.classList.add('_8f735')
   nav.classList.add('_onabe', '_5z3y6')
-
-  /*
-  let user = $('#link_profile a').href
-
-  nav.innerHTML = '<div class="_fjpuc _hykpq">\
-        <div>\
-          <div class="_bfc7q">\
-            <div class="_4kdxu">\
-              <div class="_n7q2c">\
-                <div class="_r1svv">\
-                  <a class="_gx3bg" href="/">\
-                    <div class="_o5rm6 coreSpriteMobileNavHomeActive"></div>\
-                  </a>\
-                </div>\
-                <div class="_r1svv">\
-                  <a class="_gx3bg" href="/explore/">\
-                    <div class="_o5rm6 coreSpriteMobileNavSearchInactive"></div>\
-                  </a>\
-                </div>\
-                <div class="_r1svv">\
-                  <a class="_gx3bg" href="/accounts/activity/">\
-                    <div class="_o5rm6 coreSpriteMobileNavActivityInactive"></div>\
-                  </a>\
-                </div>\
-                <div class="_r1svv">\
-                  <a class="_gx3bg" href="' + user + '">\
-                    <div class="_o5rm6 coreSpriteMobileNavProfileInactive"></div>\
-                  </a>\
-                </div>\
-              </div>\
-            </div>\
-          </div>\
-        </div>\
-      </div>'
-  */
 
   section.appendChild(nav)
 
