@@ -18,6 +18,7 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
 **macOS 10.9+, Windows 7+ & Linux are supported.**
 
 ## Features
+- Photo upload
 - Dark Theme
 - Auto Update
 - Keyboard shortcuts
