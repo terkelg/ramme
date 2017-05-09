@@ -12,8 +12,6 @@
   </p>
 </p>
 
-<p align="center"><b>Looking for maintainers, let me know if you can help out</b></p>
-
 ## Download
 The latest version of Ramme for macOS, Linux and Windows is available [here](https://github.com/terkelg/ramme/releases).
 
