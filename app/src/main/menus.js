@@ -135,15 +135,22 @@ const template = [
         }
       },
       {
-        label: 'Notifications',
+        label: 'Upload',
         accelerator: 'CmdOrCtrl+3',
+        click () {
+          sendAction('navigate-upload')
+        }
+      },
+      {
+        label: 'Notifications',
+        accelerator: 'CmdOrCtrl+4',
         click () {
           sendAction('navigate-notifications')
         }
       },
       {
         label: 'Profile',
-        accelerator: 'CmdOrCtrl+4',
+        accelerator: 'CmdOrCtrl+5',
         click () {
           sendAction('navigate-profile')
         }

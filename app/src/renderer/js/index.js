@@ -31,15 +31,22 @@ ipcRenderer.on('navigate-discover', () => {
   }
 })
 
+ipcRenderer.on('navigate-upload', () => {
+  const upload = $('._n7q2c div._r1svv._gx3bg._tegto')
+  if (upload) {
+    upload.click()
+  }
+})
+
 ipcRenderer.on('navigate-notifications', () => {
-  const notifications = $('._n7q2c ._r1svv:nth-child(3) a')
+  const notifications = $('._n7q2c ._r1svv:nth-child(4) a')
   if (notifications) {
     notifications.click()
   }
 })
 
 ipcRenderer.on('navigate-profile', () => {
-  const profile = $('._n7q2c ._r1svv:nth-child(4) a')
+  const profile = $('._n7q2c ._r1svv:nth-child(5) a')
   console.log(profile)
   if (profile) {
     profile.click()
