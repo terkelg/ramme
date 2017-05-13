@@ -106,7 +106,6 @@ function createMainWindow () {
     darkTheme: isDarkMode,
     backgroundColor: isDarkMode ? '#192633' : '#fff',
     autoHideMenuBar: true,
-    titleBarStyle: 'hidden-inset',
     webPreferences: {
       preload: path.join(__dirname, renderer.js, 'index.js'),
       nodeIntegration: false
