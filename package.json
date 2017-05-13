@@ -33,6 +33,11 @@
     "gulp-sass": "^3.1.0",
     "standard": "^10.0.2"
   },
+  "standard": {
+    "ignore": [
+      "app/dist"
+    ]
+  },
   "babel": {
     "plugins": [
       "transform-es2015-modules-commonjs"
