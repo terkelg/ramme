@@ -14,7 +14,7 @@
   "build": {
     "appId": "com.terkel.ramme",
     "mac": {
-      "category": "public.app-category.social-networking",
+      "category": "public.app-category.social-networking"
     },
     "linux": {
       "target": [
