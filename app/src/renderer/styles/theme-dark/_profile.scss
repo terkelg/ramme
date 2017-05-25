@@ -39,11 +39,13 @@ html.dark-mode #react-root ._bugdy span {
 }
 
 /* followers, following */
-html.dark-mode #react-root ._s53mj._13vpi {
-  color: $bright;
-}
-html.dark-mode #react-root ._bkw5z._kjym7 {
-  color: $bright;
+html.dark-mode #react-root {
+  ._bkw5z._kjym7,
+  ._s53mj._13vpi,
+  ._bkw5z,
+  ._s53mj{
+    color: $bright;
+  }
 }
 
 /* follow/following/edit profile buttons */
@@ -133,6 +135,27 @@ html.dark-mode #react-root ._cx1ua {
 html.dark-mode #react-root ._40h7m {
   background-color: $dark;
 }
+
+/* Settings */
+html.dark-mode #react-root ._jkiz5{
+  background-color: $dark;
+  ._kn3uh {
+    background-color: $darkLight;
+    border-color: $gray;
+    span, a {
+      color:$blue;
+    }
+  }
+  ._81dcm{
+    border-color: $gray;
+  }
+}
+html.dark-mode #react-root ._e5cd3 {
+  h2._aoi9w, p._m2kht, h2._bgfey, div._j0kjj, div._8unkm{
+    color: $bright;
+  }
+}
+
 
 /* label */
 html.dark-mode #react-root ._891mt {

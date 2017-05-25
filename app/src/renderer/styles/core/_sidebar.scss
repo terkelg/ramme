@@ -1,102 +1,130 @@
 /* Make room for sidebar */
+
 .logged-in #react-root ._8f735._e4u5z {
-    margin-left: 80px;
+  margin-left: 80px;
 }
+
 .logged-in #react-root ._a4zs2,
 .logged-in #react-root ._a2t9f {
   margin-left: 80px;
-  border-left: 1px solid rgba(0,0,0,.08);
+  border-left: 1px solid rgba(0, 0, 0, .08);
   box-sizing: border-box;
 }
-.logged-in #react-root ._a4zs2 { margin-left: 79px!important; }
+
+.logged-in #react-root ._a4zs2 {
+  margin-left: 79px!important;
+}
+
 
 /* Add sidebar */
+
 #react-root ._onabe {
-  background-color: #fafafa;
+  background-color: $light;
   position: fixed;
   left: 0;
   width: 80px;
   height: 100%;
-  border-right: 1px solid rgba(0,0,0,.08);
+  border-right: 1px solid $sidebar-border;
   will-change: left, top;
   display: block;
 }
 
+
 /* Make sidebar dragable */
+
 #react-root,
-#react-root > section,
-#react-root > section > nav {
+#react-root>section,
+#react-root>section>nav {
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
-#react-root > section > main {
+
+#react-root>section>main {
   -webkit-app-region: no-drag;
 }
 
+
 /* Remove sidebar border, and position */
-#react-root ._fjpuc > div > div {
+
+#react-root ._fjpuc>div>div {
   position: absolute;
   border: none;
 }
 
+
 /* Icons list */
+
 #react-root ._n7q2c {
   -webkit-app-region: drag;
   margin-top: 130px;
   flex-direction: column;
 }
 
+
 /* Remove margin from win and linux */
+
 html.os-linux #react-root ._n7q2c,
 html.os-win32 #react-root ._n7q2c {
   margin-top: 50px;
 }
 
+html.os-linux #react-root ._onabe {
+  top: 38px;
+}
+
+
 /* Icon Item */
+
 #react-root ._r1svv {
   width: 100%;
   height: 40px;
   margin-top: 20px;
 }
 
+
 /* Hide upload photo tooltip */
+
 #react-root ._pd08p._k2p2r {
   display: none;
 }
 
+
 /* Back Button */
+
 .back-btn {
   position: fixed;
   z-index: 1;
-  width: 79px;
+  width: 80px;
   left: 0px;
   top: 44px;
-  height: 47px;
-  border-top: 1px solid rgba(0, 0, 0, 0.0784314);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.0784314);
+  height: 45px;
+  border-top: 1px solid $back-btn-border;
+  border-bottom: 1px solid $back-btn-border;
+  background-color: $light;
+
+  a {
+    position: relative;
+    top: 14px;
+    width: 24px;
+    height: 18px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  &.inactive {
+    a {
+      cursor: default;
+    }
+    svg {
+      fill: $back-btn-inactive-fill;
+    }
+  }
+  svg {
+    fill: $back-btn-fill;
+  }
 }
 
 html.os-linux .back-btn,
-html.os-win32 .back-btn { top: 0; }
-
-.back-btn a {
-  position: relative;
-  top: 14px;
-  width: 24px;
-  height: 18px;
-  display: block;
-  margin: 0 auto;
-  cursor: pointer;
-}
-
-.back-btn.inactive a {
-  cursor: default;
-}
-
-.back-btn svg {
-  fill: #000;
-}
-
-.back-btn.inactive svg {
-  fill: rgba(0, 0, 0, 0.0784314);
+html.os-win32 .back-btn {
+  top: 0;
 }

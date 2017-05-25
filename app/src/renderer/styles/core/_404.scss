@@ -1,12 +1,13 @@
-/* Remove header in 404 */
-.dialog-404 .top-bar {
-  display: none;
-}
-
-/* Recenter error container */
-.dialog-404 .error-container {
-  width: calc(100% - 80px);
-  width: 72%;
-  display: block;
-  float: right;
+.dialog-404 {
+  /* Remove header in 404 */
+  .top-bar {
+    display: none;
+  }
+  /* Recenter error container */
+  .error-container {
+    width: calc(100% - 80px);
+    width: 72%;
+    display: block;
+    float: right;
+  }
 }
