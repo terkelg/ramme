@@ -1,6 +1,7 @@
-import { ipcRenderer } from 'electron'
-import config from '../../main/config'
-import elementReady from 'element-ready'
+const {ipcRenderer} = require('electron')
+const elementReady = require('element-ready')
+
+const config = require('../../main/config')
 
 const $ = document.querySelector.bind(document)
 
@@ -15,6 +16,7 @@ const selectors = {
 ipcRenderer.on('toggle-dark-mode', () => {
   config.set('darkMode', !config.get('darkMode'))
   setDarkMode()
+  document.location.reload()
 })
 
 ipcRenderer.on('navigate-home', () => {

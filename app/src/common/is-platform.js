@@ -15,4 +15,4 @@ const isPlatform = name => {
   return process.platform === handle
 }
 
-export { isPlatform as default }
+module.exports = isPlatform

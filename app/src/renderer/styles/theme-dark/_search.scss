@@ -1,22 +1,26 @@
 /* discover text */
+
 html.dark-mode #react-root ._bgfey {
   color: $gray;
 }
 
+
 /* search field bg */
+
 html.dark-mode #react-root ._oyz6j {
   background-color: $dark;
 }
 
+
 /* search field hover */
+
 html.dark-mode #react-root ._xk9bu {
   background-color: $darkLight;
 }
 
-/* username */
-html.dark-mode #react-root ._2uju6 { }
 
 /* seach field */
+
 html.dark-mode #react-root ._9x5sw,
 html.dark-mode #react-root ._55bi1 {
   color: $bright;
@@ -24,36 +28,47 @@ html.dark-mode #react-root ._55bi1 {
   border-color: #303b47;
 }
 
+
 /* input border */
+
 html.dark-mode #react-root ._55bi1,
 html.dark-mode #react-root ._48qwd {
   border-color: #303b47;
 }
 
+
 /* search drop-down */
+
 html.dark-mode #react-root ._o1o4h {
   background-color: $dark;
   box-shadow: 0 0 5px rgba(0, 0, 0, .85);
   border-color: $darkLight;
 }
+
 html.dark-mode #react-root ._o1o4h::after {
   border-color: transparent transparent $dark;
 }
+
 html.dark-mode #react-root ._pnw2j {
   background-color: $dark;
   box-shadow: 0 0 5px rgba(0, 0, 0, .85);
 }
+
 html.dark-mode #react-root ._k2vj6 {
   border-color: $darkLight;
 }
+
 html.dark-mode #react-root ._k2vj6 img {
   border-color: $darkLight;
 }
+
 html.dark-mode #react-root ._k2vj6 span {
   color: $gray;
 }
 
+
 /* border ul top */
+
 html.dark-mode #react-root ._769lo {
   border-color: $darkLight;
 }

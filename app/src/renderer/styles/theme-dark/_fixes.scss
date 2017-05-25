@@ -10,82 +10,110 @@ html.dark-mode #react-root {
   color: $bright;
 }
 
+
 /* Main container */
+
 html.dark-mode #react-root main {
   background-color: $dark;
 }
 
+
 /* Links */
+
 html.dark-mode #react-root a,
 html.dark-mode #react-root a:visited {
   color: $blue;
 }
 
+
 /* Username */
+
 html.dark-mode #react-root ._4zhc5,
 html.dark-mode #react-rrot ._4zhc5:visited,
 html.dark-mode #react-root ._2uju6 {
   color: $bright;
 }
 
+
 /* photo container bg */
+
 html.dark-mode #react-root ._22yr2,
 html.dark-mode #react-root ._h2d1o._j5hrx._pieko {
   background-color: $dark;
   border-style: none;
 }
 
+
 /* photo border, split */
+
 html.dark-mode #react-root ._pieko ._e0mru {
   border-color: $darkLight;
 }
 
+
 /* Profile thumbnail */
+
 html.dark-mode #react-root ._5lote {
   background-color: $dark;
   border: 1px solid $darkLight;
 }
 
+
 /* photo desc */
+
 html.dark-mode #react-root ._lx2l2,
 html.dark-mode #react-root ._lx2l2:visited,
 html.dark-mode #react-root ._oajsw {
   color: inherit;
 }
 
+
 /* split */
+
 html.dark-mode #react-root ._jveic {
   border-top: 1px solid $darkLight;
 }
 
+
 /* time-stamp */
+
 html.dark-mode #react-root ._ljyfo,
 html.dark-mode #react-root ._ljyfo:visited {
   color: $gray;
 }
 
+
 /* location */
+
 html.dark-mode #react-root ._rnlnu {
   color: $gray;
 }
 
+
 /* likes */
+
 html.dark-mode #react-root ._3sst1 {
   color: $bright;
 }
 
+
 /*add profile photo popup*/
+
 html.dark-mode #react-root ._82fo9._29u55 {
   background-color: $dark;
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
+
 /*comment input text color*/
+
 html.dark-mode #react-root ._7uiwk._qy55y {
   color: $white;
 }
 
+
 /* Dialog */
+
 html.dark-mode ._bt6iq,
 html.dark-mode ._gwvmk,
 html.dark-mode ._bt6iq,
@@ -97,15 +125,29 @@ html.dark-mode ._4y3e3 {
 
 
 /*Header*/
-html.dark-mode ._l1b8m {
-  background-color: $darkLight;
+
+html.dark-mode #react-root header {
+ &._l1b8m, &._q44m8 {
+    background-color: $darkLight;
+    border-color:rgba(255, 255, 255, 0.0784314);
+  }
+  &._l1b8m::before{
+    background-color:rgba(255, 255, 255, 0.0784314);
+  }
 }
 
+
+
+
 /*Header text*/
+
 html.dark-mode ._tkl3w {
   color: #fafafa;
 }
+
+
 /*Unreadable text on the "Following" button*/
+
 html.dark-mode {
   ._ah57t._6y2ah._i46jh._rmr7s,
   ._ah57t._6y2ah._frcv2._rmr7s {
@@ -113,17 +155,21 @@ html.dark-mode {
   }
 }
 
+
 /*Add a new photo*/
+
 html.dark-mode ._hxtsz {
   background-color: $dark;
 }
 
+
 /* Report a problem */
+
 html.dark-mode {
   ._61vr4 {
     background-color: $dark;
     h1._3smff,
-    p._1ln98{
+    p._1ln98 {
       color: $bright;
     }
   }

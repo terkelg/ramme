@@ -1,14 +1,13 @@
-import Config from 'electron-config'
+const Config = require('electron-config')
 
 const config = new Config({
   defaults: {
     darkMode: false,
     zoomFactor: 1,
     lastWindowState: {
-      width: 414,
+      width: 460,
       height: 700
     }
   }
 })
-
-export { config as default }
+module.exports = config

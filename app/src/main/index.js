@@ -1,22 +1,23 @@
-import * as path from 'path'
-import * as fs from 'fs'
-import { BrowserWindow, app, Menu, ipcMain, shell } from 'electron'
-
-import createTray from './tray'
-import appMenu from './menus'
-
-import config from './config'
-import updater from './updater'
-import * as analytics from './analytics'
-import isPlatform from './../common/is-platform'
+const path = require('path')
+const fs = require('fs')
+const {app, BrowserWindow, Menu, shell, ipcMain} = require('electron')
+const tray = require('./tray')
+const appMenu = require('./menus')
+const config = require('./config')
+const updater = require('./updater')
+const analytics = require('./analytics')
+const isPlatform = require('./../common/is-platform')
 
 let mainWindow
+
 const renderer = {
   styles: '../renderer/styles',
   js: '../renderer/js'
 }
 
-require('electron-debug')({showDevTools: true})
+require('electron-debug')({
+  showDevTools: true
+})
 
 /**
  * Singleton
@@ -42,10 +43,10 @@ app.on('ready', () => {
 
   // Create menus
   Menu.setApplicationMenu(appMenu)
-  createTray(mainWindow)
+  tray.createTray(mainWindow)
 
   // Update and analytics
-  updater(mainWindow)
+  updater.init(mainWindow)
   analytics.init()
 
   // Setup events
@@ -84,7 +85,7 @@ function createMainWindow () {
   const lastWindowState = config.get('lastWindowState')
   const isDarkMode = config.get('darkMode')
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
-  const rammeDesktopIcon = path.join(__dirname, '../static/icon.png')
+  const rammeDesktopIcon = path.join(__dirname, '../assets/icon.png')
   const maxWidthValue = 550
   const minWidthValue = 460
 
@@ -143,9 +144,9 @@ function setupWindowEvents (win) {
   })
 }
 
- /**
-  * mainWindowEvents
-  */
+/**
+ * mainWindowEvents
+ */
 function setupWebContentsEvents (page) {
   page.on('did-navigate-in-page', (event, arg) => {
     // Get back menu item and disable/enable it

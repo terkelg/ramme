@@ -1,6 +1,14 @@
-import {src, dest, watch as watchSrc, parallel, series} from 'gulp'
+import {
+  src,
+  dest,
+  watch as watchSrc,
+  parallel,
+  series
+} from 'gulp'
 import babel from 'gulp-babel'
 import del from 'del'
+import autoprefixer from 'gulp-autoprefixer'
+import image from 'gulp-image'
 import sass from 'gulp-sass'
 
 // Directories
@@ -19,19 +27,31 @@ export function clean () {
 
 // JS Task
 export function scripts () {
-  return src(JS_GLOB, {base: SRC_DIR})
-    .pipe(babel())
+  return src(JS_GLOB, {
+    base: SRC_DIR
+  })
+    .pipe(babel({
+      compact: true
+    }))
     .pipe(dest(DIST_DIR))
 }
 
 export function styles () {
-  return src(CSS_GLOB, {base: SRC_DIR})
-    .pipe(sass().on('error', sass.logError))
+  return src(CSS_GLOB, {
+    base: SRC_DIR
+  })
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(dest(DIST_DIR))
 }
 
 export function assets () {
-  return src(ASSETS_GLOB, {base: SRC_DIR})
+  return src(ASSETS_GLOB, {
+    base: SRC_DIR
+  })
+    .pipe(image())
     .pipe(dest(DIST_DIR))
 }
 
