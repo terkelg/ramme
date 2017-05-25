@@ -1,7 +1,7 @@
-const firstRun = require("first-run")
-const Insight = require("insight")
+const firstRun = require('first-run')
+const Insight = require('insight')
 
-const pkg = require("../../package")
+const pkg = require('../../package')
 
 const trackingCode = 'UA-87371303-1'
 
@@ -10,7 +10,7 @@ const insight = new Insight({
   pkg
 })
 
-exports.init = function (){
+exports.init = function () {
   if (firstRun()) {
     insight.track('install')
   }
@@ -19,6 +19,6 @@ exports.init = function (){
   }
 }
 
-exports.track = function(...paths){
+exports.track = function (...paths) {
   insight.track(...paths)
 }

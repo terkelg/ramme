@@ -1,7 +1,7 @@
-const path = require("path")
-const {app, shell, nativeImage, Tray, Menu} = require("electron")
+const path = require('path')
+const {app, shell, nativeImage, Tray, Menu} = require('electron')
 
-const isPlatform = require("./../common/is-platform")
+const isPlatform = require('./../common/is-platform')
 
 let tray = null
 
@@ -18,9 +18,9 @@ exports.createTray = win => {
   let iconName = null
   // Set tray icon
   if (isPlatform('windows')) {
-    iconName = "icon.icon"
+    iconName = 'icon.icon'
   } else {
-    iconName = "icon-18x18.png"
+    iconName = 'icon-18x18.png'
   }
 
   const iconPath = nativeImage.createFromPath(path.join(__dirname, 'assets/' + iconName))
@@ -44,7 +44,7 @@ exports.createTray = win => {
   const contextMenu = [
     {
       label: 'Toggle',
-      click() {
+      click () {
         toggleWin()
       }
     },
@@ -53,13 +53,13 @@ exports.createTray = win => {
     },
     {
       label: 'GitHub',
-      click() {
+      click () {
         shell.openExternal('https://github.com/terkelg/ramme')
       }
     },
     {
       label: 'Issue',
-      click() {
+      click () {
         shell.openExternal('https://github.com/terkelg/ramme/issues')
       }
     },
@@ -68,7 +68,7 @@ exports.createTray = win => {
     },
     {
       label: 'Quit',
-      click() {
+      click () {
         app.quit()
       }
     }

@@ -1,4 +1,4 @@
-const Config = require("electron-config")
+const Config = require('electron-config')
 
 const config = new Config({
   defaults: {

@@ -1,13 +1,12 @@
-const {autoUpdater, ipcMain} = require("electron")
-const isDev = require("electron-is-dev")
-const ms = require("ms")
-const {version} = require("../../package")
-const isPlatform = require("./../common/is-platform")
-
+const {autoUpdater, ipcMain} = require('electron')
+const isDev = require('electron-is-dev')
+const ms = require('ms')
+const {version} = require('../../package')
+const isPlatform = require('./../common/is-platform')
 
 const FEED_URL = `https://nuts-serve-gapvnvvtee.now.sh/update/${process.platform}/${version}`
 
-function createInterval() {
+function createInterval () {
   return setInterval(() => {
     autoUpdater.checkForUpdates()
   }, ms('30m'))

@@ -1,15 +1,12 @@
 const path = require('path')
 const fs = require('fs')
-const {app, BrowserWindow, Menu, shell, ipcMain} = require("electron")
-const tray = require("./tray")
-const appMenu = require("./menus")
-const config = require("./config")
-const updater = require("./updater")
-const analytics = require("./analytics")
-const isPlatform = require("./../common/is-platform")
-
-
-
+const {app, BrowserWindow, Menu, shell, ipcMain} = require('electron')
+const tray = require('./tray')
+const appMenu = require('./menus')
+const config = require('./config')
+const updater = require('./updater')
+const analytics = require('./analytics')
+const isPlatform = require('./../common/is-platform')
 
 let mainWindow
 
@@ -84,7 +81,7 @@ ipcMain.on('home', (e, arg) => {
 /**
  * CreateMainWindow
  **/
-function createMainWindow() {
+function createMainWindow () {
   const lastWindowState = config.get('lastWindowState')
   const isDarkMode = config.get('darkMode')
   const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
@@ -129,7 +126,7 @@ function createMainWindow() {
 /**
  * setupWindowEvents
  */
-function setupWindowEvents(win) {
+function setupWindowEvents (win) {
   win.on('close', e => {
     if (!shouldQuit) {
       e.preventDefault()
@@ -150,7 +147,7 @@ function setupWindowEvents(win) {
 /**
  * mainWindowEvents
  */
-function setupWebContentsEvents(page) {
+function setupWebContentsEvents (page) {
   page.on('did-navigate-in-page', (event, arg) => {
     // Get back menu item and disable/enable it
     const menuBackBtn = appMenu.items[1].submenu.items[0]
