@@ -1,18 +1,17 @@
 /* Make room for sidebar */
 
-.logged-in #react-root ._8f735._e4u5z {
-  margin-left: 80px;
-}
-
-.logged-in #react-root ._a4zs2,
-.logged-in #react-root ._a2t9f {
-  margin-left: 80px;
-  border-left: 1px solid rgba(0, 0, 0, .08);
-  box-sizing: border-box;
-}
-
-.logged-in #react-root ._a4zs2 {
-  margin-left: 79px!important;
+.logged-in #react-root {
+  ._8f735._e4u5z {
+    margin-left: 80px;
+  }
+  ._a4zs2,  ._a2t9f {
+    margin-left: 80px;
+    border-left: 1px solid rgba(0, 0, 0, .08);
+    box-sizing: border-box;
+  }
+  ._a4zs2 {
+    margin-left: 79px!important;
+  }
 }
 
 

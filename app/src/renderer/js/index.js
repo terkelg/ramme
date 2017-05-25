@@ -16,6 +16,7 @@ const selectors = {
 ipcRenderer.on('toggle-dark-mode', () => {
   config.set('darkMode', !config.get('darkMode'))
   setDarkMode()
+  document.location.reload()
 })
 
 ipcRenderer.on('navigate-home', () => {

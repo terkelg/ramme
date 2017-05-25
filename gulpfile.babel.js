@@ -30,7 +30,9 @@ export function scripts () {
   return src(JS_GLOB, {
     base: SRC_DIR
   })
-    .pipe(babel())
+    .pipe(babel({
+      compact: true
+    }))
     .pipe(dest(DIST_DIR))
 }
 
