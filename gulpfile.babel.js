@@ -1,6 +1,14 @@
-import {src, dest, watch as watchSrc, parallel, series} from 'gulp'
+import {
+  src,
+  dest,
+  watch as watchSrc,
+  parallel,
+  series
+} from 'gulp'
 import babel from 'gulp-babel'
 import del from 'del'
+import autoprefixer from 'gulp-autoprefixer'
+import image from 'gulp-image'
 import sass from 'gulp-sass'
 
 // Directories
@@ -13,29 +21,38 @@ const CSS_GLOB = `${SRC_DIR}/**/*.scss`
 const ASSETS_GLOB = `app/src/assets/*.*`
 
 // Clean DIST directory
-export function clean () {
+export function clean() {
   return del([DIST_DIR])
 }
 
 // JS Task
-export function scripts () {
-  return src(JS_GLOB, {base: SRC_DIR})
+export function scripts() {
+  return src(JS_GLOB, {
+      base: SRC_DIR
+    })
     .pipe(babel())
     .pipe(dest(DIST_DIR))
 }
 
-export function styles () {
-  return src(CSS_GLOB, {base: SRC_DIR})
-    .pipe(sass().on('error', sass.logError))
+export function styles() {
+  return src(CSS_GLOB, {
+      base: SRC_DIR
+    })
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(dest(DIST_DIR))
 }
 
-export function assets () {
-  return src(ASSETS_GLOB, {base: SRC_DIR})
+export function assets() {
+  return src(ASSETS_GLOB, {
+      base: SRC_DIR
+    })
     .pipe(dest(DIST_DIR))
 }
 
-export function watch () {
+export function watch() {
   watchSrc(JS_GLOB, scripts)
   watchSrc(CSS_GLOB, styles)
   watchSrc(ASSETS_GLOB, assets)

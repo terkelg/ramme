@@ -2,8 +2,10 @@
   overflow: hidden;
 }
 
+
 /* Hide elements */
-#react-root {
+
+#react-root {
   &._okmo7,
   &._m8ogu,
   &._9qbcz,
@@ -23,14 +25,16 @@
 }
 
 .not-logged-in #react-root section[data-reactroot] {
-  & > div:last-of-type,
-  & > nav > div > div > div:last-of-type,
-  & > main > article > div > div:last-of-type {
+  &>div:last-of-type,
+  &>nav>div>div>div:last-of-type,
+  &>main>article>div>div:last-of-type {
     display: none;
   }
 }
 
+
 /* Center login */
+
 #react-root ._p8ymb {
   max-width: 350px;
   justify-content: center;
@@ -38,37 +42,50 @@
   height: 100vh;
 }
 
+
 /* Login */
+
 ._du7bh {
   margin: 0 auto 10px;
 }
 
+
 /* Remove margin from login box */
+
 #react-root ._60k3m {
   margin-top: 0;
 }
 
+
 /* Facebook Button */
+
 #react-root ._56wku {
   margin: 0;
 }
 
+
 /* Login Button */
+
 #react-root ._dyp7q {
   margin: 0;
-  visibility: hidden; /* Hide text node */
+  visibility: hidden;
+  /* Hide text node */
 }
 
+
 /* Login go back */
+
 #react-root ._fcn8k {
   visibility: visible;
 }
+
 #react-root ._fcn8k.goback {
   margin: 0 auto;
   display: block;
   color: #dbdbdb;
   width: 100px;
 }
+
 #react-root ._fcn8k:not(.goback) {
   color: #fff;
   background: #3897f0;
@@ -83,7 +100,9 @@
   margin: 0 auto;
 }
 
+
 /* Remove border */
+
 #react-root ._nvyyp {
   border: none;
   padding: 0;

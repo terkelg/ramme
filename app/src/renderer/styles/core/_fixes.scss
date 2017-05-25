@@ -1,4 +1,5 @@
 /* Scrollbar - currently hidden */
+
 ::-webkit-scrollbar {
   width: 2px;
   display: none;
@@ -12,14 +13,15 @@
   background-color: #000;
 }
 
+
 /* Remove focus glow */
+
 * {
   outline: none;
 }
 
 html {
   cursor: default!important;
-
   /* Force a scrollbar on Linux and Windows to prevent jumping when changing tabs */
   &.os-linux,
   &.os-win32 {
@@ -27,7 +29,9 @@ html {
   }
 }
 
+
 /* Hide 'Open in app' popup and button */
+
 ._28zbs,
 ._nqfwp,
 ._nl1vc,
@@ -35,13 +39,25 @@ html {
   display: none;
 }
 
+
 /* Hide footer */
-section > footer,
-.root > footer {
+
+section>footer,
+.root>footer {
   display: none;
 }
 
+
 /* Hide facebook cookie notice */
+
 #header-notices {
   display: none;
 }
+
+/* Force the height of Followers and bgcolor*/
+#react-root ._q44m8{
+  background-color: $light;
+  height: 45px; /*The same as the back btn*/
+  border-color: $light;
+}
+

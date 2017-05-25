@@ -11,11 +11,18 @@ html.dark-mode #react-root ._r1svv {
   -webkit-filter: brightness(0) invert(1);
 }
 
-html.dark-mode .back-btn {
+html.dark-mode.os-macos .back-btn{
   border-top: 1px solid rgba(255, 255, 255, 0.0784314);
+}
+html.dark-mode .back-btn {
   border-bottom: 1px solid rgba(255, 255, 255, 0.0784314);
   background-color: rgb(32, 44, 58);
 }
 
-html.dark-mode .back-btn svg { fill: $white; }
-html.dark-mode .back-btn.inactive svg { fill: rgba(255, 255, 255, 0.2);  }
+html.dark-mode .back-btn svg {
+  fill: $white;
+}
+
+html.dark-mode .back-btn.inactive svg {
+  fill: rgba(255, 255, 255, 0.2);
+}

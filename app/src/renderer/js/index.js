@@ -1,6 +1,7 @@
-import { ipcRenderer } from 'electron'
-import config from '../../main/config'
-import elementReady from 'element-ready'
+const {ipcRenderer} = require("electron")
+const elementReady = require('element-ready')
+
+const config = require("../../main/config")
 
 const $ = document.querySelector.bind(document)
 
@@ -69,7 +70,7 @@ ipcRenderer.on('navigate-down', () => {
   window.scrollBy(0, rect.top)
 })
 
-function backHomeButton (location) {
+function backHomeButton(location) {
   const body = $('body')
   const link = document.createElement('a')
   const element = document.createElement('div')
@@ -98,7 +99,7 @@ function backHomeButton (location) {
   })
 }
 
-function login (elm) {
+function login(elm) {
   elm.addEventListener('click', (e) => {
     elm.classList.toggle('goback')
     process.nextTick(() => {
@@ -111,11 +112,11 @@ function login (elm) {
   })
 }
 
-function setDarkMode () {
+function setDarkMode() {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
 }
 
-function fix404 () {
+function fix404() {
   // Add missing elements
   const span = $('.root')
   const section = $('.page')
@@ -133,7 +134,7 @@ function fix404 () {
   backHomeButton('home')
 }
 
-function init () {
+function init() {
   setDarkMode()
 
   if (!$(selectors.notFoundPage)) {

@@ -1,4 +1,4 @@
-import Config from 'electron-config'
+const Config = require("electron-config")
 
 const config = new Config({
   defaults: {
@@ -10,5 +10,4 @@ const config = new Config({
     }
   }
 })
-
-export { config as default }
+module.exports = config

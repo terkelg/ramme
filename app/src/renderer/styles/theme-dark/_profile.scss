@@ -1,10 +1,13 @@
 /* edit button */
+
 html.dark-mode #react-root ._aj7mu._a89os {
   color: $gray;
   border-color: #303b47;
 }
 
+
 /* load more */
+
 //html.dark-mode #react-root ._1ooyk,
 html.dark-mode #react-root ._8imhp._glz1g {
   border-color: $blue;
@@ -12,89 +15,119 @@ html.dark-mode #react-root ._8imhp._glz1g {
   color: $blue;
 }
 
+
 /* border after profile info */
+
 html.dark-mode #react-root ._o2h6b,
 html.dark-mode #react-root ._1ooyk {
   border-color: $darkLight;
 }
 
+
 /* username */
+
 html.dark-mode #react-root ._i572c {
   color: $bright;
 }
 
+
 /* name */
+
 html.dark-mode #react-root ._79dar {
   color: $bright;
 }
 
+
 /* Color split for profile header */
+
 html.dark-mode #react-root ._bugdy {
   border-color: $darkLight;
 }
 
+
 /* desc */
+
 html.dark-mode #react-root ._bugdy span {
   color: $bright;
 }
 
+
 /* followers, following */
+
 html.dark-mode #react-root {
   ._bkw5z._kjym7,
   ._s53mj._13vpi,
   ._bkw5z,
-  ._s53mj{
+  ._s53mj {
     color: $bright;
   }
 }
 
+
 /* follow/following/edit profile buttons */
+
 html.dark-mode #react-root ._dzx3o {
   color: $bright;
 }
 
+
 /* profile picture */
+
 html.dark-mode #react-root ._8gpiy {
   border-color: $dark;
 }
 
+
 /* Private profile */
+
 html.dark-mode #react-root ._76rrx {
   background-color: $darkLight;
   border: none;
 }
+
 html.dark-mode #react-root ._76rrx h2,
 html.dark-mode #react-root ._76rrx p {
   color: $bright;
 }
 
+
 /*Suggested*/
+
 html.dark-mode #react-root ._3p78u._28ejm._go7te._pn9fv::before {
   background-color: $dark;
-  border-left: 1px solid rgba(80,80,80,.2);
-  border-top: 1px solid rgba(80,80,80,.2);
+  border-left: 1px solid rgba(80, 80, 80, .2);
+  border-top: 1px solid rgba(80, 80, 80, .2);
 }
+
 html.dark-mode #react-root ._3p78u._28ejm._go7te._pn9fv {
   background-color: $dark;
-  border-top: 1px solid rgba(80,80,80,.2);
-  border-bottom: 1px solid rgba(80,80,80,.2);
+  border-top: 1px solid rgba(80, 80, 80, .2);
+  border-bottom: 1px solid rgba(80, 80, 80, .2);
 }
+
 
 /*Profile card*/
+
 html.dark-mode #react-root ._owacc._1po6t {
   background-color: $darkLight;
-  border: 1px solid rgba(0,0,0,.08);
+  border: 1px solid rgba(0, 0, 0, .08);
 }
 
+
 /*http://i.imgur.com/1t7aeKW.png*/
-html.dark-mode #react-root ._azlhu{
+
+html.dark-mode #react-root ._azlhu {
   background-color: $darkLight;
 }
+
 
 /**
  * Photo view
  */
+
+
 /* time */
+
 html.dark-mode #react-root ._379kp {
   color: $bright;
 }
@@ -104,12 +137,16 @@ html.dark-mode #react-root ._379kp {
  * Notifications (likes)
  */
 
+
 /* text */
+
 html.dark-mode #react-root ._auspy {
   color: $bright;
 }
 
+
 /* border */
+
 html.dark-mode #react-root ._mkiio::after {
   border-color: $darkLight;
 }
@@ -118,6 +155,7 @@ html.dark-mode #react-root ._mkiio::after {
 /**
  * Tableviews (Following, Followers)
  */
+
 html.dark-mode #react-root ._q44m8 {
   background-color: $dark;
   color: $bright;
@@ -132,42 +170,56 @@ html.dark-mode #react-root ._cx1ua {
 /**
  * Edit profile page
  */
+
 html.dark-mode #react-root ._40h7m {
   background-color: $dark;
 }
 
+
 /* Settings */
-html.dark-mode #react-root ._jkiz5{
+
+html.dark-mode #react-root ._jkiz5 {
   background-color: $dark;
   ._kn3uh {
     background-color: $darkLight;
     border-color: $gray;
-    span, a {
-      color:$blue;
+    span,
+    a {
+      color: $blue;
     }
   }
-  ._81dcm{
+  ._81dcm {
     border-color: $gray;
   }
 }
+
 html.dark-mode #react-root ._e5cd3 {
-  h2._aoi9w, p._m2kht, h2._bgfey, div._j0kjj, div._8unkm{
+  h2._aoi9w,
+  p._m2kht,
+  h2._bgfey,
+  div._j0kjj,
+  div._8unkm {
     color: $bright;
   }
 }
 
 
 /* label */
+
 html.dark-mode #react-root ._891mt {
   color: $bright;
 }
 
+
 /* private label */
+
 html.dark-mode #react-root ._bgfey {
   color: $gray;
 }
 
+
 /* inputs */
+
 html.dark-mode #react-root ._9pfjt,
 html.dark-mode #react-root ._g6a4a,
 html.dark-mode #react-root ._cmoxu ._qy55y {
@@ -176,7 +228,9 @@ html.dark-mode #react-root ._cmoxu ._qy55y {
   color: $bright;
 }
 
+
 /* terms */
+
 html.dark-mode #react-root ._lxlnj {
   color: $bright;
 }

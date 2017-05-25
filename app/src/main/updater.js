@@ -1,27 +1,29 @@
-import { autoUpdater, ipcMain } from 'electron'
-import isDev from 'electron-is-dev'
-import ms from 'ms'
-import { version } from '../../package'
-import isPlatform from './../common/is-platform'
+const {autoUpdater, ipcMain} = require("electron")
+const isDev = require("electron-is-dev")
+const ms = require("ms")
+const {version} = require("../../package")
+const isPlatform = require("./../common/is-platform")
+
 
 const FEED_URL = `https://nuts-serve-gapvnvvtee.now.sh/update/${process.platform}/${version}`
 
-function createInterval () {
+function createInterval() {
   return setInterval(() => {
     autoUpdater.checkForUpdates()
   }, ms('30m'))
 }
 
-function init (window) {
+exports.init = window => {
   if (isDev || isPlatform('linux')) {
     return
   }
 
   autoUpdater.setFeedURL(FEED_URL)
 
+   // at this point the app is fully started and ready for updating
   setTimeout(() => {
     autoUpdater.checkForUpdates()
-  }, ms('5s')) // at this point the app is fully started and ready for updating
+  }, ms('5s'))
 
   let intervalId = createInterval()
 
@@ -46,4 +48,3 @@ function init (window) {
     console.log('Error fetching updates', err)
   })
 }
-export { init as default }

@@ -91,6 +91,10 @@ html.os-linux #react-root ._onabe {
 
 /* Back Button */
 
+html.os-macos .back-btn{
+  border-top: 1px solid $back-btn-border;
+}
+
 .back-btn {
   position: fixed;
   z-index: 1;
@@ -98,10 +102,8 @@ html.os-linux #react-root ._onabe {
   left: 0px;
   top: 44px;
   height: 45px;
-  border-top: 1px solid $back-btn-border;
   border-bottom: 1px solid $back-btn-border;
   background-color: $light;
-
   a {
     position: relative;
     top: 14px;
