@@ -24,6 +24,7 @@ addons:
       - xz-utils
       - rpm
       - bsdtar
+      - snapcraft
       - gcc-multilib
       - g++-multilib
 
