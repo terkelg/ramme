@@ -21,13 +21,13 @@
     "Client"
   ],
   "dependencies": {
-    "electron-config": "^0.2.1",
+    "electron-config": "^1.0.0",
     "electron-debug": "^1.1.0",
     "electron-is-dev": "^0.1.2",
-    "element-ready": "^0.2.0",
+    "element-ready": "^1.0.0",
     "first-run": "^1.2.0",
-    "insight": "^0.8.3",
-    "ms": "^0.7.2",
+    "insight": "^0.8.4",
+    "ms": "^2.0.0",
     "os": "^0.1.1"
   }
 }
