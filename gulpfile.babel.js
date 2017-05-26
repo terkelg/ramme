@@ -21,25 +21,25 @@ const CSS_GLOB = `${SRC_DIR}/**/*.scss`
 const ASSETS_GLOB = `app/src/assets/*.*`
 
 // Clean DIST directory
-export function clean () {
+export function clean() {
   return del([DIST_DIR])
 }
 
 // JS Task
-export function scripts () {
+export function scripts() {
   return src(JS_GLOB, {
-    base: SRC_DIR
-  })
+      base: SRC_DIR
+    })
     .pipe(babel({
       compact: true
     }))
     .pipe(dest(DIST_DIR))
 }
 
-export function styles () {
+export function styles() {
   return src(CSS_GLOB, {
-    base: SRC_DIR
-  })
+      base: SRC_DIR
+    })
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
@@ -47,15 +47,15 @@ export function styles () {
     .pipe(dest(DIST_DIR))
 }
 
-export function assets () {
+export function assets() {
   return src(ASSETS_GLOB, {
-    base: SRC_DIR
-  })
+      base: SRC_DIR
+    })
     .pipe(image())
     .pipe(dest(DIST_DIR))
 }
 
-export function watch () {
+export function watch() {
   watchSrc(JS_GLOB, scripts)
   watchSrc(CSS_GLOB, styles)
   watchSrc(ASSETS_GLOB, assets)

@@ -1,5 +1,11 @@
 const path = require('path')
-const {app, shell, nativeImage, Tray, Menu} = require('electron')
+const {
+  app,
+  shell,
+  nativeImage,
+  Tray,
+  Menu
+} = require('electron')
 
 const isPlatform = require('./../common/is-platform')
 
@@ -23,7 +29,7 @@ exports.createTray = win => {
     iconName = 'icon-18x18.png'
   }
 
-  const iconPath = nativeImage.createFromPath(path.join(__dirname, 'assets/' + iconName))
+  const iconPath = path.join(__dirname, '../assets/' + iconName)
   const toggleWin = () => {
     if (isPlatform('windows')) {
       if (win.isMinimized()) {
@@ -41,10 +47,9 @@ exports.createTray = win => {
   // Create tray
   tray = new Tray(iconPath)
 
-  const contextMenu = [
-    {
+  const contextMenu = [{
       label: 'Toggle',
-      click () {
+      click() {
         toggleWin()
       }
     },
@@ -53,13 +58,13 @@ exports.createTray = win => {
     },
     {
       label: 'GitHub',
-      click () {
+      click() {
         shell.openExternal('https://github.com/terkelg/ramme')
       }
     },
     {
       label: 'Issue',
-      click () {
+      click() {
         shell.openExternal('https://github.com/terkelg/ramme/issues')
       }
     },
@@ -68,7 +73,7 @@ exports.createTray = win => {
     },
     {
       label: 'Quit',
-      click () {
+      click() {
         app.quit()
       }
     }
