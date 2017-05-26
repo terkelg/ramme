@@ -16,8 +16,7 @@
 
 
 /* Add sidebar */
-
-#react-root ._onabe {
+#react-root > section > nav {
   background-color: $light;
   position: fixed;
   left: 0;
@@ -28,24 +27,30 @@
   display: block;
 }
 
+/* Fix main container width */
+#react-root > section > main {
+  max-width: calc(100% - 80px);
+  margin-left: 80px;
+}
+
 
 /* Make sidebar dragable */
 
 #react-root,
-#react-root>section,
-#react-root>section>nav {
+#react-root > section,
+#react-root > section > nav {
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
 
-#react-root>section>main {
+#react-root > section > main {
   -webkit-app-region: no-drag;
 }
 
 
 /* Remove sidebar border, and position */
 
-#react-root ._fjpuc>div>div {
+#react-root ._fjpuc > div > div {
   position: absolute;
   border: none;
 }
