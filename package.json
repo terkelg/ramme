@@ -17,13 +17,25 @@
       "category": "public.app-category.social-networking"
     },
     "linux": {
+      "synopsis": "Unofficial Instagram Desktop App",
+      "category": "Internet",
+      "packageCategory": "Network;",
+      "depdends": [
+        "libappindicator1",
+        "libindicator7"
+      ],
       "target": [
         "deb",
         "rpm",
         "pacman",
-        "AppImage"
+        "AppImage",
+        "snap"
       ]
     }
+  },
+  "snap": {
+      "confinement": "devmode",
+      "grade": "stable"
   },
   "devDependencies": {
     "babel-preset-babili": "^0.1.2",

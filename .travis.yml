@@ -1,3 +1,4 @@
+sudo: required
 dist: trusty
 osx_image: xcode8
 
@@ -23,6 +24,8 @@ addons:
       - xz-utils
       - rpm
       - bsdtar
+      - gcc-multilib
+      - g++-multilib
 
 before_script:
   - npm prune
