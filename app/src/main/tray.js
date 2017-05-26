@@ -2,7 +2,6 @@ const path = require('path')
 const {
   app,
   shell,
-  nativeImage,
   Tray,
   Menu
 } = require('electron')
@@ -48,35 +47,35 @@ exports.createTray = win => {
   tray = new Tray(iconPath)
 
   const contextMenu = [{
-      label: 'Toggle',
-      click() {
-        toggleWin()
-      }
-    },
-    {
-      type: 'separator'
-    },
-    {
-      label: 'GitHub',
-      click() {
-        shell.openExternal('https://github.com/terkelg/ramme')
-      }
-    },
-    {
-      label: 'Issue',
-      click() {
-        shell.openExternal('https://github.com/terkelg/ramme/issues')
-      }
-    },
-    {
-      type: 'separator'
-    },
-    {
-      label: 'Quit',
-      click() {
-        app.quit()
-      }
+    label: 'Toggle',
+    click () {
+      toggleWin()
     }
+  },
+  {
+    type: 'separator'
+  },
+  {
+    label: 'GitHub',
+    click () {
+      shell.openExternal('https://github.com/terkelg/ramme')
+    }
+  },
+  {
+    label: 'Issue',
+    click () {
+      shell.openExternal('https://github.com/terkelg/ramme/issues')
+    }
+  },
+  {
+    type: 'separator'
+  },
+  {
+    label: 'Quit',
+    click () {
+      app.quit()
+    }
+  }
   ]
 
   tray.setToolTip(`${app.getName()}`)
