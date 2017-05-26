@@ -25,14 +25,9 @@
         "rpm",
         "pacman",
         "tar.gz",
-        "AppImage",
-        "snap"
+        "AppImage"
       ]
     }
-  },
-  "snap": {
-      "confinement": "devmode",
-      "grade": "stable"
   },
   "devDependencies": {
     "babel-preset-babili": "^0.1.2",
