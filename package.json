@@ -20,14 +20,11 @@
       "synopsis": "Unofficial Instagram Desktop App",
       "category": "Internet",
       "packageCategory": "Network;",
-      "depdends": [
-        "libappindicator1",
-        "libindicator7"
-      ],
       "target": [
         "deb",
         "rpm",
         "pacman",
+        "tar.gz",
         "AppImage",
         "snap"
       ]
