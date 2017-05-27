@@ -24,7 +24,7 @@ before_script:
   - npm prune
 
 script:
-  - npm run dist --ia32 --x64
+  - npm run dist
 
 notifications:
   slack: ramme:44ubE4BVf3FGi8OldEKL743J
