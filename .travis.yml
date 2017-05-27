@@ -1,7 +1,3 @@
-dist: trusty
-sudo: required
-osx_image: xcode8
-
 language: node_js
 node_js: 6
 
@@ -13,8 +9,6 @@ matrix:
   include:
     - os: osx
     - os: linux
-      env: CC=clang CXX=clang++ npm_config_clang=1
-      compiler: clang
 
 addons:
   apt:
