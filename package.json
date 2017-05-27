@@ -17,8 +17,14 @@
       "category": "public.app-category.social-networking"
     },
     "linux": {
+      "synopsis": "Unofficial Instagram Desktop App",
+      "category": "Internet",
+      "packageCategory": "Network;",
       "target": [
         "deb",
+        "rpm",
+        "pacman",
+        "tar.gz",
         "AppImage"
       ]
     }
