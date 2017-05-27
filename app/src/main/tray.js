@@ -23,7 +23,7 @@ exports.createTray = win => {
   let iconName = null
   // Set tray icon
   if (isPlatform('windows')) {
-    iconName = 'icon.icon'
+    iconName = 'icon.ico'
   } else {
     iconName = 'icon-18x18.png'
   }
@@ -31,13 +31,7 @@ exports.createTray = win => {
   const iconPath = path.join(__dirname, '../assets/' + iconName)
   const toggleWin = () => {
     if (isPlatform('windows')) {
-      if (win.isMinimized()) {
-        win.restore()
-      } else if (win.isVisible()) {
-        win.hide()
-      } else {
-        win.show()
-      }
+      win.isMinimized() ? win.restore() : win.isVisible() ? win.hide() : win.show()
     } else {
       win.isVisible() ? win.hide() : win.show()
     }
