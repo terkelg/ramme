@@ -1,6 +1,8 @@
 const path = require('path')
 const {
   app,
+  dialog,
+  session,
   shell,
   Tray,
   Menu
@@ -44,6 +46,16 @@ exports.createTray = win => {
     label: 'Toggle',
     click () {
       toggleWin()
+    }
+  },
+  {
+    label: 'Clear cache',
+    click () {
+      win.webContents.session.clearCache(() => {
+        dialog.showMessageBox({
+          message: 'Cache cleared correctly!'
+        })
+      })
     }
   },
   {
