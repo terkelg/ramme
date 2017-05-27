@@ -5,10 +5,9 @@ cache:
   directories:
     - node_modules
 
-matrix:
-  include:
-    - os: osx
-    - os: linux
+os:
+  - osx
+  - linux
 
 addons:
   apt:
