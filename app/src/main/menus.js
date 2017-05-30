@@ -115,13 +115,14 @@ const template = [{
   {
     label: 'Clear cache',
     click (item, focusedWindow) {
-      if (focusedWindow)
+      if (focusedWindow) {
         focusedWindow.webContents.session.clearCache(() => {
           dialog.showMessageBox({
             message: 'Cache cleared correctly!'
           })
           focusedWindow.reload()
         })
+      }
     }
   },
   {

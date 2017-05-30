@@ -2,7 +2,6 @@ const path = require('path')
 const {
   app,
   dialog,
-  session,
   shell,
   Tray,
   Menu
