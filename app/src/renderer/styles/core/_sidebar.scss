@@ -1,5 +1,6 @@
 /* Make room for sidebar */
 
+/*
 .logged-in #react-root {
   ._8f735._e4u5z {
     margin-left: 80px;
@@ -13,7 +14,8 @@
     margin-left: 79px!important;
   }
 }
-
+Outdated
+*/
 
 /* Add sidebar */
 #react-root > section > nav {
@@ -29,8 +31,10 @@
 
 /* Fix main container width */
 #react-root > section > main {
-  max-width: calc(100% - 80px);
-  margin-left: 80px;
+  max-width: calc(100vw - 80px);
+  position: relative;
+  left: 80px;
+  top: 44px;
 }
 
 

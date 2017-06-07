@@ -174,3 +174,17 @@ html.dark-mode {
     }
   }
 }
+
+/*Title, Heart and Comment images*/
+
+html.dark-mode .coreSpriteComment {
+  filter: invert(100%);
+}
+
+html.dark-mode .coreSpriteLikeHeartOpen {
+  filter: invert(100%);
+}
+
+html.dark-mode .coreSpriteMobileNavTypeLogo {
+  filter: invert(100%);
+}

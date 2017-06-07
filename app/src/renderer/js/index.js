@@ -60,7 +60,7 @@ ipcRenderer.on('navigate-up', () => {
     post -= 1
     var title = $('#react-root > section > main > section > div > div:nth-child(1) > article:nth-child(' + post + ') > header')
     var rect = title.getBoundingClientRect()
-    window.scrollBy(0, rect.top)
+    window.scrollBy(0, rect.top - 44)
   }
 })
 
@@ -68,7 +68,7 @@ ipcRenderer.on('navigate-down', () => {
   post += 1
   var title = $('#react-root > section > main > section > div > div:nth-child(1) > article:nth-child(' + post + ') > header')
   var rect = title.getBoundingClientRect()
-  window.scrollBy(0, rect.top)
+  window.scrollBy(0, rect.top - 44)
 })
 
 function backHomeButton (location) {
