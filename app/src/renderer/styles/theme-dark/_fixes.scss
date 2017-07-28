@@ -177,14 +177,15 @@ html.dark-mode {
 
 /*Title, Heart and Comment images*/
 
-html.dark-mode .coreSpriteComment {
+html.dark-mode .coreSpriteHeartOpen,
+html.dark-mode .coreSpriteMobileNavTypeLogo,
+html.dark-mode .coreSpriteComment,
+html.dark-mode .coreSpriteOptionsEllipsis,
+html.dark-mode .coreSpriteMobileNavSettings {
   filter: invert(100%);
 }
 
-html.dark-mode .coreSpriteLikeHeartOpen {
-  filter: invert(100%);
-}
-
-html.dark-mode .coreSpriteMobileNavTypeLogo {
-  filter: invert(100%);
+/*Likes count text*/
+html.dark-mode ._tf9x3 {
+  color: $bright;
 }
