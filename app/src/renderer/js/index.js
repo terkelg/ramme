@@ -56,19 +56,23 @@ ipcRenderer.on('navigate-profile', () => {
 })
 
 ipcRenderer.on('navigate-up', () => {
-  if (post > 1) {
-    post -= 1
-    var title = $('#react-root > section > main > section > div > div:nth-child(1) > article:nth-child(' + post + ') > header')
-    var rect = title.getBoundingClientRect()
-    window.scrollBy(0, rect.top - 44)
+  if (post >= 1) {
+    var titles = document.getElementsByClassName('_h2d1o')
+    if (titles[post] != null) {
+      post -= 1
+      var rect = titles[post].getBoundingClientRect()
+      window.scrollBy(0, rect.top - 44)
+    }
   }
 })
 
 ipcRenderer.on('navigate-down', () => {
-  post += 1
-  var title = $('#react-root > section > main > section > div > div:nth-child(1) > article:nth-child(' + post + ') > header')
-  var rect = title.getBoundingClientRect()
-  window.scrollBy(0, rect.top - 44)
+  var titles = document.getElementsByClassName('_h2d1o')
+  if (titles[post + 1] != null) {
+    post += 1
+    var rect = titles[post].getBoundingClientRect()
+    window.scrollBy(0, rect.top - 44)
+  }
 })
 
 function backHomeButton (location) {
@@ -85,7 +89,7 @@ function backHomeButton (location) {
   }
 
   element.appendChild(link)
-  body.prepend(element)
+  body.insertBefore(element, body.firstChild)
 
   link.addEventListener('click', event => {
     ipcRenderer.send(location)
