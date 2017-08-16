@@ -12,6 +12,9 @@
   </p>
 </p>
 
+## WE ARE LOOKING FOR CONTRIBUTORS
+Ramme is currently unmaintaned. We need your help. Let me know if you're interested in helping out maintain Ramme. It's not that hard - just some basic CSS and JS.
+
 ## Download
 The latest version of Ramme for macOS, Linux and Windows is available [here](https://github.com/terkelg/ramme/releases).
 
