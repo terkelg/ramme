@@ -1,0 +1,46 @@
+html {
+  -webkit-app-region: drag;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif
+}
+
+#icon {
+  width: 50%;
+  margin: 25%;
+}
+
+#text {
+  position: relative;
+  left: calc(50% - 29px);
+  width: 48px;
+  font-size: 0.8rem;
+  color: #535353;
+}
+
+html.dark-mode {
+  background-color: #192633;
+}
+
+html.dark-mode #text {
+  color: #ACACAC;
+}
+
+/* Progress Bar */
+
+@keyframes rainbow {
+  0% { background-position: 0% 100%; }
+  50% { background-position: 100% 200%; }
+  100% {background-position: 0% 100%; }
+}
+
+#progress {
+  height: 4px;
+  width: 90%;
+  margin: 5%;
+
+  background: linear-gradient(124deg, #ff2400, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3);
+  background-size: 900% 900%;
+  border: 0px solid white;
+  border-radius: 10px;
+
+  animation: rainbow 9s linear infinite;
+}

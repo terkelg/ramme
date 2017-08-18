@@ -7,8 +7,8 @@ const isPlatform = require('./../common/is-platform')
  * API
  */
 
-let registered_windows = {}
-let current_windows = {}
+let registeredWindows = {}
+let currentWindows = {}
 
 // [function] Register Window
 function registerWindow (name, def) {
@@ -24,12 +24,12 @@ function registerWindow (name, def) {
   delete def.defaultWindowEvents
   delete def.url
 
-  def.icon = isPlatform('linux') && path.join(__dirname, '../assets/icon.png'),
+  def.icon = isPlatform('linux') ? path.join(__dirname, '../assets/icon.png') : null
   def.title = def.title || app.getName()
   def.darkTheme = isDarkMode
   def.backgroundColor = isDarkMode ? '#192633' : '#fff'
 
-  registered_windows[name] = {
+  registeredWindows[name] = {
     'def': def,
     'options': {
       url: url,
@@ -44,12 +44,12 @@ function registerWindow (name, def) {
 
 // [function] Open Window
 function openWindow (name) {
-  if (registered_windows[name]) {
-    const wanted = registered_windows[name]
+  if (registeredWindows[name]) {
+    const wanted = registeredWindows[name]
 
     // Restore window size if useLastState
     if (wanted.options.useLastState) {
-      const lastWindowState = config.get(name + "LastState")
+      const lastWindowState = config.get(name + 'LastState')
       wanted.def.x = lastWindowState.x
       wanted.def.y = lastWindowState.y
       wanted.def.width = lastWindowState.width
@@ -63,11 +63,6 @@ function openWindow (name) {
         win.webContents.setUserAgent(wanted.options.agent)
       }
 
-      // Create eventd if enabled
-      if (wanted.options.defaultWindowEvents) {
-        setupWindowEvents(win)
-      }
-
       // Load URL
       if (wanted.options.url) {
         win.loadURL(wanted.options.url)
@@ -76,17 +71,17 @@ function openWindow (name) {
       // Add save size event
       if (wanted.options.useLastState) {
         win.on('close', e => {
-          config.set(name + "LastState", win.getBounds())
+          config.set(name + 'LastState', win.getBounds())
         })
       }
 
       // Add de-reference event
       win.on('closed', e => {
-        delete current_windows[name]
+        delete currentWindows[name]
       })
 
       // Setup reference
-      current_windows[name] = win
+      currentWindows[name] = win
 
       return win
     }
@@ -95,44 +90,44 @@ function openWindow (name) {
 
 // [function] Get window
 function getWindow (name) {
-  if (current_windows[name]) {
-    return current_windows[name]
+  if (currentWindows[name]) {
+    return currentWindows[name]
   }
 }
 
 // [function] Window(s) is/are open
 function isOpen (name) {
-  if (name && current_windows[name]) {
+  if (name && currentWindows[name]) {
     return true
   }
 }
 
 // [function] Count open windows
 function countOpen () {
-  return Object.keys(current_windows).length
+  return Object.keys(currentWindows).length
 }
 
 // [function] Close window
 function closeWindow (name) {
-  if (current_windows[name]) {
-    current_windows[name].close()
+  if (currentWindows[name]) {
+    currentWindows[name].close()
     return true
   }
 }
 
 // [function] LoadURL
 function loadURL (name, url) {
-  if (current_windows[name] && url) {
-    current_windows[name].loadURL(url)
+  if (currentWindows[name] && url) {
+    currentWindows[name].loadURL(url)
   }
 }
 
 // [function] For each window
 function each (func) {
   if (countOpen() > 0) {
-    for (var name in current_windows) {
-      if (current_windows.hasOwnProperty(name)) {
-        func(current_windows[name])
+    for (var name in currentWindows) {
+      if (currentWindows.hasOwnProperty(name)) {
+        func(currentWindows[name])
       }
     }
     return true

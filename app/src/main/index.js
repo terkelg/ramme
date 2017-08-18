@@ -3,7 +3,7 @@ const fs = require('fs')
 const {app, Menu, shell, ipcMain} = require('electron')
 const tray = require('./tray')
 const appMenu = require('./menus')
-const config = require('./config')
+
 const updater = require('./updater')
 const analytics = require('./analytics')
 const isPlatform = require('./../common/is-platform')
@@ -22,7 +22,7 @@ require('electron-debug')({
  * Register Windows
  */
 
-window.register("main", {
+window.register('main', {
   url: 'https://www.instagram.com/',
   useLastState: true,
   fakeUserAgent: true,
@@ -38,7 +38,18 @@ window.register("main", {
   webPreferences: {
     preload: path.join(__dirname, renderer.js, 'index.js'),
     nodeIntegration: false
-  },
+  }
+})
+
+window.register('preload', {
+  url: path.join('file://', __dirname, '../renderer/html/preload.html'),
+  useLastState: true,
+  width: 200,
+  height: 400,
+  resizable: false,
+  fullscreenable: false,
+  maximizable: false,
+  frame: false
 })
 
 /**
@@ -62,8 +73,11 @@ if (shouldQuit && window.countOpen() > 0) {
  * Kick off!
  */
 app.on('ready', () => {
+  // Open preload window
+  window.open('preload')
+
   // Open main window
-  let mainWindow = window.open("main")
+  let mainWindow = window.open('main')
   setupWindowEvents(mainWindow)
 
   // Create menus
@@ -79,7 +93,7 @@ app.on('ready', () => {
 })
 
 app.on('activate', () => {
-  window.get("main").show()
+  window.get('main').show()
 })
 
 app.on('before-quit', () => {
@@ -139,7 +153,9 @@ function setupWebContentsEvents (page) {
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark/main.css'), 'utf8'))
-    window.get("main").show()
+
+    window.close('preload') // Close preload window
+    window.get('main').show() // Show main window
   })
 
   // Open links in external applications
