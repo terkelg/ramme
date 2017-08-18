@@ -3,3 +3,6 @@ node_modules/
 dist/
 npm-debug.log
 *.swp
+.sass-cache
+*.css
+*.css.map
