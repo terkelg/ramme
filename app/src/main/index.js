@@ -1,14 +1,13 @@
 const path = require('path')
 const fs = require('fs')
-const {app, BrowserWindow, Menu, shell, ipcMain} = require('electron')
+const {app, Menu, shell, ipcMain} = require('electron')
 const tray = require('./tray')
 const appMenu = require('./menus')
 const config = require('./config')
 const updater = require('./updater')
 const analytics = require('./analytics')
 const isPlatform = require('./../common/is-platform')
-
-let mainWindow
+const window = require('./window.js')
 
 const renderer = {
   styles: '../renderer/styles',
@@ -20,17 +19,42 @@ require('electron-debug')({
 })
 
 /**
+ * Register Windows
+ */
+
+window.register("main", {
+  url: 'https://www.instagram.com/',
+  useLastState: true,
+  fakeUserAgent: true,
+  defaultWindowEvents: false,
+  show: false,
+  minHeight: 400,
+  minWidth: 460,
+  maxWidth: 550,
+  maximizable: false,
+  fullscreenable: false,
+  titleBarStyle: 'hidden-inset',
+  autoHideMenuBar: true,
+  webPreferences: {
+    preload: path.join(__dirname, renderer.js, 'index.js'),
+    nodeIntegration: false
+  },
+})
+
+/**
  * Singleton
  */
 let shouldQuit = app.makeSingleInstance(() => {
   // Someone tried to run a second instance, we should focus our window.
-  if (mainWindow) {
-    if (mainWindow.isMinimized()) mainWindow.restore()
-    mainWindow.focus()
-  }
+  window.each(win => {
+    if (win) {
+      if (win.isMinimized()) win.restore()
+      win.focus()
+    }
+  })
 })
 
-if (shouldQuit) {
+if (shouldQuit && window.countOpen() > 0) {
   app.quit()
 }
 
@@ -38,8 +62,9 @@ if (shouldQuit) {
  * Kick off!
  */
 app.on('ready', () => {
-  // Create window
-  mainWindow = createMainWindow()
+  // Open main window
+  let mainWindow = window.open("main")
+  setupWindowEvents(mainWindow)
 
   // Create menus
   Menu.setApplicationMenu(appMenu)
@@ -54,12 +79,11 @@ app.on('ready', () => {
 })
 
 app.on('activate', () => {
-  mainWindow.show()
+  window.get("main").show()
 })
 
 app.on('before-quit', () => {
   shouldQuit = true
-  config.set('lastWindowState', mainWindow.getBounds())
 })
 
 /**
@@ -77,51 +101,6 @@ ipcMain.on('home', (e, arg) => {
   page.loadURL('https://www.instagram.com/')
   page.clearHistory()
 })
-
-/**
- * CreateMainWindow
- **/
-function createMainWindow () {
-  const lastWindowState = config.get('lastWindowState')
-  const isDarkMode = config.get('darkMode')
-  const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
-  const rammeDesktopIcon = path.join(__dirname, '../assets/icon.png')
-  const maxWidthValue = 550
-  const minWidthValue = 460
-
-  // Create the browser window.
-  const win = new BrowserWindow({
-    title: app.getName(),
-    show: false,
-    x: lastWindowState.x,
-    y: lastWindowState.y,
-    minHeight: 400,
-    minWidth: minWidthValue,
-    maxWidth: maxWidthValue,
-    width: lastWindowState.width,
-    height: lastWindowState.height,
-    maximizable: false,
-    fullscreenable: false,
-    icon: isPlatform('linux') && rammeDesktopIcon,
-    titleBarStyle: 'hidden-inset',
-    darkTheme: isDarkMode,
-    backgroundColor: isDarkMode ? '#192633' : '#fff',
-    autoHideMenuBar: true,
-    webPreferences: {
-      preload: path.join(__dirname, renderer.js, 'index.js'),
-      nodeIntegration: false
-    }
-  })
-
-  // Fake user agent to get mobile version of the site
-  win.webContents.setUserAgent(userAgent)
-  win.loadURL('https://www.instagram.com/')
-
-  // Create eventd
-  setupWindowEvents(win)
-
-  return win
-}
 
 /**
  * setupWindowEvents
@@ -160,7 +139,7 @@ function setupWebContentsEvents (page) {
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark/main.css'), 'utf8'))
-    mainWindow.show()
+    window.get("main").show()
   })
 
   // Open links in external applications
