@@ -14,10 +14,6 @@ const renderer = {
   js: '../renderer/js'
 }
 
-require('electron-debug')({
-  showDevTools: true
-})
-
 /**
  * Register Windows
  */
