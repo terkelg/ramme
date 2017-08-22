@@ -1,8 +1,3 @@
-.not-logged-in body {
-  overflow: hidden;
-}
-
-
 /* Hide elements */
 
 #react-root {
@@ -119,4 +114,21 @@
 
 #react-root ._e0mru {
   box-shadow: none;
+}
+
+/**
+ * Fix Scrolling/Positioning
+ */
+
+/* Show scrollbar */
+
+#react-root ._29u45 {
+  overflow: visible;
+}
+
+/* Add bottom margin & remove border */
+
+#react-root main[role="main"] {
+  margin-bottom: 44px;
+  border-width: 0px;
 }

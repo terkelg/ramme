@@ -1,11 +1,19 @@
-/* logo */
+html.dark-mode #react-root {
+  /* Panels */
+  ._kp5f7._qy55y, ._f9sjj, ._f9sjj {
+    color: $bright;
+    background-color: $dark;
+    border-color: $dark;
+  }
 
-html.dark-mode #react-root ._du7bh {
-  -webkit-filter: brightness(0) invert(1);
-}
+  /* "Have an account" & "Don't have an account" text */
+  ._c59vy {
+    color: $bright;
+  }
 
-html.dark-mode #react-root ._kp5f7._qy55y {
-  color: $bright;
-  background-color: $dark;
-  border-color: $dark;
+  /* Input fields */
+  ._sjplo {
+    border-color: $darkLight;
+    background-color: $darkLight;
+  }
 }

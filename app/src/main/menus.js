@@ -2,6 +2,7 @@ const os = require('os')
 const path = require('path')
 const isPlatform = require('./../common/is-platform')
 const {app, BrowserWindow, Menu, shell, dialog, nativeImage} = require('electron')
+const config = require('./config')
 
 const appName = app.getName()
 
@@ -164,25 +165,6 @@ const template = [{
     }
   },
   {
-    label: 'Toggle Dark Mode',
-    accelerator: 'CmdOrCtrl+D',
-    click () {
-      sendAction('toggle-dark-mode')
-    }
-  },
-  {
-    type: 'separator'
-  },
-  {
-    role: 'resetzoom'
-  },
-  {
-    role: 'zoomin'
-  },
-  {
-    role: 'zoomout'
-  },
-  {
     type: 'separator'
   },
   {
@@ -198,7 +180,19 @@ const template = [{
     click () {
       sendAction('navigate-down')
     }
-  }
+  },
+  {
+    type: 'separator'
+  },
+  {
+    type: 'checkbox',
+    checked: config.get('darkMode'),
+    label: 'Toggle Dark Mode',
+    accelerator: 'CmdOrCtrl+D',
+    click () {
+      sendAction('toggle-dark-mode')
+    }
+  },
   ]
 },
 {

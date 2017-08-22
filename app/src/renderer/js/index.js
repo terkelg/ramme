@@ -7,49 +7,42 @@ const $ = document.querySelector.bind(document)
 
 var post = 0
 
-const selectors = {
-  root: '#react-root ._onabe',
-  loginButton: '#react-root ._fcn8k',
-  notFoundPage: '.dialog-404'
-}
-
 ipcRenderer.on('toggle-dark-mode', () => {
   config.set('darkMode', !config.get('darkMode'))
   setDarkMode()
-  document.location.reload()
 })
 
 ipcRenderer.on('navigate-home', () => {
-  const home = $('._n7q2c ._r1svv:nth-child(1) a')
+  const home = $('._tdn3u').childNodes[0].childNodes[0]
   if (home) {
     home.click()
   }
 })
 
 ipcRenderer.on('navigate-discover', () => {
-  const discover = $('._n7q2c ._r1svv:nth-child(2) a')
+  const discover = $('._tdn3u').childNodes[1].childNodes[0]
+  console.log(discover)
   if (discover) {
     discover.click()
   }
 })
 
 ipcRenderer.on('navigate-upload', () => {
-  const upload = $('._n7q2c div._r1svv._gx3bg._tegto')
+  const upload = $('._tdn3u').childNodes[2]
   if (upload) {
     upload.click()
   }
 })
 
 ipcRenderer.on('navigate-notifications', () => {
-  const notifications = $('._n7q2c ._r1svv:nth-child(4) a')
+  const notifications = $('._tdn3u').childNodes[3].childNodes[0]
   if (notifications) {
     notifications.click()
   }
 })
 
 ipcRenderer.on('navigate-profile', () => {
-  const profile = $('._n7q2c ._r1svv:nth-child(5) a')
-  console.log(profile)
+  const profile = $('._tdn3u').childNodes[4].childNodes[0]
   if (profile) {
     profile.click()
   }
@@ -57,7 +50,7 @@ ipcRenderer.on('navigate-profile', () => {
 
 ipcRenderer.on('navigate-up', () => {
   if (post >= 1) {
-    var titles = document.getElementsByClassName('_h2d1o')
+    var titles = document.getElementsByClassName('_s5vjd')
     if (titles[post] != null) {
       post -= 1
       var rect = titles[post].getBoundingClientRect()
@@ -67,7 +60,7 @@ ipcRenderer.on('navigate-up', () => {
 })
 
 ipcRenderer.on('navigate-down', () => {
-  var titles = document.getElementsByClassName('_h2d1o')
+  var titles = document.getElementsByClassName('_s5vjd')
   if (titles[post + 1] != null) {
     post += 1
     var rect = titles[post].getBoundingClientRect()
@@ -104,21 +97,14 @@ function backHomeButton (location) {
   })
 }
 
-function login (elm) {
-  elm.addEventListener('click', (e) => {
-    elm.classList.toggle('goback')
-    process.nextTick(() => {
-      if (elm.classList.contains('goback')) {
-        elm.innerText = 'Go back'
-      } else {
-        elm.innerText = 'Log In'
-      }
-    })
-  })
-}
-
 function setDarkMode () {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
+
+  if (document.documentElement.style.backgroundColor == 'rgb(25, 38, 51)') {
+    document.documentElement.style.backgroundColor = '#fff'
+  } else if (config.get('darkMode')) {
+    document.documentElement.style.backgroundColor = '#192633'
+  }
 }
 
 function fix404 () {
@@ -139,25 +125,13 @@ function fix404 () {
   backHomeButton('home')
 }
 
-function init () {
-  setDarkMode()
-
-  if (!$(selectors.notFoundPage)) {
-    backHomeButton('back')
-  }
-
-  // Prevent flash of white on startup when in dark mode
-  // TODO: Find solution to this with pure css
-  if (config.get('darkMode')) {
-    document.documentElement.style.backgroundColor = '#192633'
-  }
-}
-
 document.addEventListener('DOMContentLoaded', (event) => {
   // enable OS specific styles
   document.documentElement.classList.add(`os-${process.platform}`)
 
-  elementReady(selectors.notFoundPage).then(fix404)
-  elementReady(selectors.root).then(init)
-  elementReady(selectors.loginButton).then(login)
+  // Initialize darkMode settings
+  setDarkMode()
+
+  // Fix 404 pages
+  elementReady('.dialog-404').then(fix404)
 })
