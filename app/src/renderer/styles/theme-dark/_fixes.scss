@@ -1,15 +1,26 @@
+/* Scrollbar */
+
 html.dark-mode::-webkit-scrollbar-track {
-  background-color: $dark;
+  background-color: $darkLight;
 }
 
 html.dark-mode::-webkit-scrollbar-thumb {
-  background-color: $white;
+  background-color: #596b7d;
 }
+
+html.dark-mode::-webkit-scrollbar-thumb:hover {
+  background-color: #425466;
+}
+
+html.dark-mode::-webkit-scrollbar-thumb:active {
+  background-color: #364657;
+}
+
+/* React Root */
 
 html.dark-mode #react-root {
   color: $bright;
 }
-
 
 /* Main container */
 
@@ -75,20 +86,24 @@ html.dark-mode #react-root ._jveic {
 }
 
 
-/* time-stamp */
+/* time-stamp, location, paid partnership text */
 
-html.dark-mode #react-root ._ljyfo,
-html.dark-mode #react-root ._ljyfo:visited {
+html.dark-mode #react-root ._q8ysx,
+html.dark-mode #react-root ._q8ysx:visited,
+html.dark-mode #react-root ._6y8ij,
+html.dark-mode #react-root ._6y8ij:visited,
+html.dark-mode #react-root ._rnlnu,
+html.dark-mode ._nr3h3,
+html.dark-mode ._s7b66 {
   color: $gray;
 }
 
+/* Location Post Listing Text */
 
-/* location */
-
-html.dark-mode #react-root ._rnlnu {
-  color: $gray;
+html.dark-mode ._qkuz0,
+html.dark-mode ._52qm9 {
+  color: $white;
 }
-
 
 /* likes */
 
@@ -136,32 +151,17 @@ html.dark-mode #react-root header {
   }
 }
 
-
-
-
 /*Header text*/
 
 html.dark-mode ._tkl3w {
   color: #fafafa;
 }
 
-
-/*Unreadable text on the "Following" button*/
-
-html.dark-mode {
-  ._ah57t._6y2ah._i46jh._rmr7s,
-  ._ah57t._6y2ah._frcv2._rmr7s {
-    color: #fafafa;
-  }
-}
-
-
 /*Add a new photo*/
 
 html.dark-mode ._hxtsz {
   background-color: $dark;
 }
-
 
 /* Report a problem */
 
@@ -175,18 +175,32 @@ html.dark-mode {
   }
 }
 
-/*Title, Heart and Comment images*/
+/* Title(s), Heart, Dropdown Arrow, Close, and Comment images */
 
-html.dark-mode .coreSpriteHeartOpen,
-html.dark-mode .coreSpriteMobileNavTypeLogo,
-html.dark-mode .coreSpriteComment,
-html.dark-mode .coreSpriteOptionsEllipsis,
-html.dark-mode .coreSpriteMobileNavSettings {
-  filter: invert(100%);
+html.dark-mode {
+  .coreSpriteHeartOpen,
+  .coreSpriteMobileNavTypeLogo,
+  .coreSpriteComment,
+  .coreSpriteOptionsEllipsis,
+  .coreSpriteMobileNavSettings,
+  .coreSpriteDropdownArrowGrey9,
+  .coreSpriteLoggedOutWordmark,
+  .coreSpriteClose {
+    filter: invert(100%);
+  }
 }
 
-/*Likes count text*/
-html.dark-mode ._tf9x3 {
+/* Likes & Views count text */
+
+html.dark-mode {
+  ._nzn1h, ._m5zti {
+    color: $bright;
+  }
+}
+
+/* "and" & "like this" text (likes) */
+
+html.dark-mode ._3gwk6._nt9ow {
   color: $bright;
 }
 
@@ -197,4 +211,14 @@ html.dark-mode ._eskl6 {
 
 html.dark-mode ._s6yvg {
   border-color: $darkLight;
+}
+
+/* Text Input (e.g. comments) */
+
+html.dark-mode input,
+html.dark-mode textarea,
+html.dark-mode select {
+  border-color: $dark;
+  background-color: $darkLight;
+  color: $white;
 }

@@ -20,12 +20,8 @@ Outdated
 /* Add sidebar */
 #react-root > section > nav {
   background-color: $light;
-  position: fixed;
-  left: 0;
   width: 80px;
   height: 100%;
-  border-right: 1px solid $sidebar-border;
-  will-change: left, top;
   display: block;
 }
 
@@ -33,8 +29,9 @@ Outdated
 #react-root > section > main {
   max-width: calc(100vw - 80px);
   position: relative;
-  left: 80px;
-  top: 44px;
+  left: 40px;
+  top: 22px;
+  margin-bottom: 88px;
 }
 
 

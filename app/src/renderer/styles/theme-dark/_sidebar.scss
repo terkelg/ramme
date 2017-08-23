@@ -1,19 +1,24 @@
-html.dark-mode #react-root ._onabe._kjy2s {
-  background-color: $darkLight;
-  border-right: 1px solid rgba(255, 255, 255, .08);
-}
-
-html.dark-mode #react-root ._bfc7q {
+html.dark-mode #react-root main {
   background-color: $darkLight;
 }
 
-html.dark-mode #react-root ._r1svv {
+html.dark-mode #react-root header,
+html.dark-mode #react-root ._f4a0g {
+  background-color: $darkLight;
+}
+
+html.dark-mode #react-root header._7b8eu._9dpug {
+  border-color: $darkLight;
+}
+
+html.dark-mode #react-root .coreSpriteMobileNavAddPeopleInactive {
   -webkit-filter: brightness(0) invert(1);
 }
 
-html.dark-mode.os-macos .back-btn{
+html.dark-mode.os-macos .back-btn {
   border-top: 1px solid rgba(255, 255, 255, 0.0784314);
 }
+
 html.dark-mode .back-btn {
   border-bottom: 1px solid rgba(255, 255, 255, 0.0784314);
   background-color: rgb(32, 44, 58);
@@ -25,4 +30,16 @@ html.dark-mode .back-btn svg {
 
 html.dark-mode .back-btn.inactive svg {
   fill: rgba(255, 255, 255, 0.2);
+}
+
+/* Change background color */
+
+html.dark-mode #react-root ._tdn3u {
+  background-color: $darkLight;
+}
+
+/* Invert icon colors */
+
+html.dark-mode #react-root ._crp8c {
+  filter: invert(100%);
 }
