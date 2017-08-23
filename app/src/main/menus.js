@@ -193,6 +193,22 @@ const template = [{
       sendAction('toggle-dark-mode')
     }
   },
+  {
+    label: 'Toggle Developer Tools',
+    type: 'checkbox',
+    accelerator: (function () {
+      if (process.platform === 'darwin') {
+        return 'Alt+Command+I'
+      } else {
+        return 'Ctrl+Shift+I'
+      }
+    })(),
+    click: function (item, focusedWindow) {
+      if (focusedWindow) {
+        focusedWindow.toggleDevTools()
+      }
+    }
+  }
   ]
 },
 {
