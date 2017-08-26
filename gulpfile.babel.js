@@ -18,6 +18,7 @@ const DIST_DIR = 'app/dist'
 // Source files
 const JS_GLOB = `${SRC_DIR}/**/*.js`
 const CSS_GLOB = `${SRC_DIR}/**/*.scss`
+const HTML_GLOB = `${SRC_DIR}/**/*.html`
 const ASSETS_GLOB = `app/src/assets/*.*`
 
 // Clean DIST directory
@@ -33,6 +34,13 @@ export function scripts () {
     .pipe(babel({
       compact: true
     }))
+    .pipe(dest(DIST_DIR))
+}
+
+export function html () {
+  return src(HTML_GLOB, {
+    base: SRC_DIR
+  })
     .pipe(dest(DIST_DIR))
 }
 
@@ -57,11 +65,12 @@ export function assets () {
 
 export function watch () {
   watchSrc(JS_GLOB, scripts)
+  watchSrc(HTML_GLOB, html)
   watchSrc(CSS_GLOB, styles)
   watchSrc(ASSETS_GLOB, assets)
 }
 
-const mainTasks = parallel(scripts, styles, assets)
+const mainTasks = parallel(scripts, html, styles, assets)
 export const build = series(clean, mainTasks)
 export const dev = series(clean, mainTasks, watch)
 

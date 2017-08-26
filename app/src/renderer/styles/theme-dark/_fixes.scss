@@ -185,15 +185,17 @@ html.dark-mode {
   .coreSpriteMobileNavSettings,
   .coreSpriteDropdownArrowGrey9,
   .coreSpriteLoggedOutWordmark,
-  .coreSpriteClose {
+  .coreSpriteClose,
+  .coreSpriteMobileNavDiscoverPeople,
+  .coreSpriteNotificationLeftChevron {
     filter: invert(100%);
   }
 }
 
-/* Likes & Views count text */
+/* Likes, Views count & Follow request text */
 
 html.dark-mode {
-  ._nzn1h, ._m5zti {
+  ._nzn1h, ._m5zti, ._o7xyo {
     color: $bright;
   }
 }
@@ -221,4 +223,38 @@ html.dark-mode select {
   border-color: $dark;
   background-color: $darkLight;
   color: $white;
+}
+
+/* Post options */
+html.dark-mode ._h74gn {
+  background: $dark;
+  color: $bright;
+}
+
+/* Discover people */
+html.dark-mode {
+  ._6e4x5,
+  ._b9n99 {
+    background: $dark;
+  }
+}
+
+/* Embed dialog */
+html.dark-mode ._dnf8p {
+  background: $dark;
+  border: 1px solid $darkLight;
+}
+
+/* Annoying 1px white line at the bottom */
+html.dark-mode ._4pxed::before {
+  background: $dark;
+}
+
+/* Annoying margins at the bottom */
+html.dark-mode { 
+  ._dmx7t,
+  ._j54dd,
+  ._lq68t {
+    margin: 0;
+  }
 }

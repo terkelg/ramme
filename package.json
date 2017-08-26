@@ -6,6 +6,7 @@
     "postinstall": "cd app && npm install",
     "test": "standard",
     "build": "gulp build",
+    "dev": "gulp dev & electron app",
     "prestart": "npm run build",
     "start": "electron app",
     "pack": "npm run build && build --dir",
