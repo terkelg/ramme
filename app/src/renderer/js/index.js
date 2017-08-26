@@ -100,7 +100,7 @@ function backHomeButton (location) {
 function setDarkMode () {
   document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
 
-  if (document.documentElement.style.backgroundColor == 'rgb(25, 38, 51)') {
+  if (document.documentElement.style.backgroundColor === 'rgb(25, 38, 51)') {
     document.documentElement.style.backgroundColor = '#fff'
   } else if (config.get('darkMode')) {
     document.documentElement.style.backgroundColor = '#192633'
