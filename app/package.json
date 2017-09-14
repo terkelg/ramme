@@ -22,8 +22,8 @@
   ],
   "dependencies": {
     "electron-config": "^1.0.0",
-    "electron-is-dev": "^0.1.2",
-    "element-ready": "^1.0.0",
+    "electron-is-dev": "^0.3.0",
+    "element-ready": "^2.1.0",
     "first-run": "^1.2.0",
     "insight": "^0.8.4",
     "ms": "^2.0.0",
