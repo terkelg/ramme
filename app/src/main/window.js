@@ -50,10 +50,12 @@ function openWindow (name) {
     // Restore window size if useLastState
     if (wanted.options.useLastState) {
       const lastWindowState = config.get(name + 'LastState')
-      wanted.def.x = lastWindowState.x
-      wanted.def.y = lastWindowState.y
-      wanted.def.width = lastWindowState.width
-      wanted.def.height = lastWindowState.height
+      if (lastWindowState) {
+        wanted.def.x = lastWindowState.x
+        wanted.def.y = lastWindowState.y
+        wanted.def.width = lastWindowState.width
+        wanted.def.height = lastWindowState.height
+      }
     }
 
     const win = new BrowserWindow(wanted.def)

@@ -185,6 +185,20 @@ const template = [{
     type: 'separator'
   },
   {
+    label: 'Logout',
+    click () {
+      win.webContents.session.clearStorageData(() => {
+        win.webContents.loadURL('https://www.instagram.com/')
+        dialog.showMessageBox({
+          message: 'Logged out successfully!'
+        })
+      })
+    }
+  },
+  {
+    type: 'separator'
+  },
+  {
     type: 'checkbox',
     checked: config.get('darkMode'),
     label: 'Toggle Dark Mode',

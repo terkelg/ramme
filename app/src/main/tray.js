@@ -58,6 +58,17 @@ exports.createTray = win => {
     }
   },
   {
+    label: 'Logout',
+    click () {
+      win.webContents.session.clearStorageData(() => {
+        win.webContents.loadURL('https://www.instagram.com/')
+        dialog.showMessageBox({
+          message: 'Logged out successfully!'
+        })
+      })
+    }
+  },
+  {
     type: 'separator'
   },
   {
