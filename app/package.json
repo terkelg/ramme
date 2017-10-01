@@ -1,6 +1,6 @@
 {
   "name": "Ramme",
-  "main": "dist/main",
+  "main": "src/main",
   "private": true,
   "version": "3.2.3",
   "description": "Unofficial Instagram Desktop App",
