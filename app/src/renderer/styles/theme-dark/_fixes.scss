@@ -159,8 +159,12 @@ html.dark-mode ._tkl3w {
 
 /*Add a new photo*/
 
-html.dark-mode ._hxtsz {
-  background-color: $dark;
+html.dark-mode {
+  ._41f3i, ._fnbsm, ._9r8i9, ._g59ip {
+    background-color: $dark;
+    border-color: $darkLight;
+    color: $white;
+  }
 }
 
 /* Report a problem */
@@ -251,10 +255,25 @@ html.dark-mode ._4pxed::before {
 }
 
 /* Annoying margins at the bottom */
-html.dark-mode { 
+html.dark-mode {
   ._dmx7t,
   ._j54dd,
   ._lq68t {
     margin: 0;
+  }
+}
+
+/* Stories Selection */
+
+html.dark-mode {
+  ._hr9tt {
+    background: $darkLight;
+    border-color: $dark;
+  }
+  ._fdrjr, ._ocij3 {
+    color: $white;
+  }
+  ._sq4bv._29u45._snde0 {
+    background-color: $dark;
   }
 }
