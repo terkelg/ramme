@@ -70,3 +70,9 @@ section > footer,
 ._h2d1o {
   margin-bottom: 0;
 }
+
+/* Hide "Add Location" Button in "Add Photo" (unusable) */
+
+#react-root ._9r8i9 {
+  display: none;
+}
