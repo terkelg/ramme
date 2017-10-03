@@ -232,7 +232,10 @@ const template = [{
   },
   {
     role: 'close'
-  }
+  },
+  {
+    role: 'quit'
+  },
   ]
 },
 {
