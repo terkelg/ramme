@@ -15,6 +15,27 @@ const renderer = {
 }
 
 /**
+ * Singleton
+ */
+let shouldQuit = app.makeSingleInstance(() => {
+  // Someone tried to run a second instance, we should focus our window.
+  window.each(win => {
+    if (win) {
+      if (!win.isVisible()) {
+        win.show()
+      } else {
+        if (win.isMinimized()) win.restore()
+        win.focus()
+      }
+    }
+  })
+})
+
+if (shouldQuit) {
+  app.quit()
+}
+
+/**
  * Register Windows
  */
 
@@ -47,23 +68,6 @@ window.register('preload', {
   maximizable: false,
   frame: false
 })
-
-/**
- * Singleton
- */
-let shouldQuit = app.makeSingleInstance(() => {
-  // Someone tried to run a second instance, we should focus our window.
-  window.each(win => {
-    if (win) {
-      if (win.isMinimized()) win.restore()
-      win.focus()
-    }
-  })
-})
-
-if (shouldQuit && window.countOpen() > 0) {
-  app.quit()
-}
 
 /**
  * Kick off!
