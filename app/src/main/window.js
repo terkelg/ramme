@@ -58,6 +58,9 @@ function openWindow (name) {
       }
     }
 
+    // Hide window until it is ready
+    wanted.def.show = false
+
     const win = new BrowserWindow(wanted.def)
 
     if (win) {
@@ -80,6 +83,11 @@ function openWindow (name) {
       // Add de-reference event
       win.on('closed', e => {
         delete currentWindows[name]
+      })
+
+      // Show window when ready
+      win.once('ready-to-show', () => {
+        win.show()
       })
 
       // Setup reference
