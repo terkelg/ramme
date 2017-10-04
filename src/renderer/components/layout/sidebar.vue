@@ -1,6 +1,6 @@
 <template>
-  <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="true">
-    <el-menu-item index="1">
+  <el-menu default-active="1" :collapse="true">
+    <el-menu-item index="1" @click="navigate('/')">
       <i class="icon-home"></i>
       <span slot="title">Home</span>
     </el-menu-item>
@@ -25,6 +25,12 @@
 
 <script>
   export default {
-    name: 'header'
+    name: 'header',
+    methods: {
+      navigate (route) {
+        console.log(route)
+        this.$router.push(route)
+      }
+    }
   }
 </script>

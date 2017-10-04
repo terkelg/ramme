@@ -5,7 +5,7 @@ import {
   globalShortcut
 } from 'electron'
 import utilsWindowLib from './window'
-import {createFile from './utils'
+import {createFile} from './utils'
 const join = require('path').join
 
 class Events {
