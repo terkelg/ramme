@@ -1,26 +1,73 @@
 {
-  "repository": "terkelg/ramme",
-  "author": "Terkel Gjervig",
+  "name": "ramme",
+  "version": "4.0.0",
+  "author": "Anatoli Nicolae <anatoli@ramme.co>",
+  "contributors": [
+    {
+      "author": "Terkel Gjervig",
+      "email": "terkel@ramme.co"
+    },
+    {
+      "author": "Bil Elmoussaoui",
+      "email": "bil@ramme.co"
+    },
+    {
+      "author": "Elijah Duffy",
+      "email": "elijah@ramme.co"
+    }
+  ],
+  "description": "Unofficial Instagram Desktop App",
   "license": "MIT",
+  "main": "./dist/electron/main.js",
   "scripts": {
-    "postinstall": "cd app && npm install",
-    "test": "standard",
-    "build": "gulp build",
-    "dev": "gulp dev & electron app",
-    "prestart": "npm run build",
-    "start": "electron app",
-    "pack": "npm run build && build --dir",
-    "dist": "npm run build && build --ia32 --x64"
+    "build": "node .electron-vue/build.js && electron-builder",
+    "build:dir": "node .electron-vue/build.js && electron-builder --dir",
+    "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
+    "build:web": "cross-env BUILD_TARGET=web node .electron-vue/build.js",
+    "dev": "node .electron-vue/dev-runner.js",
+    "lint": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter src",
+    "lint:fix": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter --fix src",
+    "pack": "yarn run pack:main && yarn run pack:renderer",
+    "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
+    "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
+    "postinstall": "yarn run lint:fix"
   },
   "build": {
+    "productName": "ramme",
     "appId": "com.terkel.ramme",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "dist/electron/**/*"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
     "mac": {
+      "icon": "build/icons/icon.icns",
       "category": "public.app-category.social-networking"
     },
+    "win": {
+      "icon": "build/icons/icon.ico"
+    },
     "linux": {
+      "icon": "build/icons",
       "synopsis": "Unofficial Instagram Desktop App",
       "category": "Internet",
-      "packageCategory": "Network;",
+      "packageCategory": "Network",
       "target": [
         "deb",
         "rpm",
@@ -30,23 +77,61 @@
       ]
     }
   },
-  "devDependencies": {
-    "babel-preset-babili": "^0.1.4",
-    "babel-preset-es2015": "^6.24.1",
-    "babili": "^0.1.4",
-    "del": "^3.0.0",
-    "electron": "^1.7.6",
-    "electron-builder": "^19.27.7",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^7.0.0",
-    "gulp-image": "^3.0.0",
-    "gulp-sass": "^3.1.0",
-    "standard": "^10.0.3"
+  "dependencies": {
+    "axios": "^0.16.1",
+    "electron-positioner": "^3.0.0",
+    "electron-settings": "^3.1.2",
+    "electron-window-state": "^4.1.1",
+    "element-ui": "^1.4.6",
+    "instagram-private-api": "^0.6.7",
+    "nedb": "^1.8.0",
+    "vue": "^2.3.3",
+    "vue-electron": "^1.0.6",
+    "vue-router": "^2.5.3",
+    "vuex": "^2.3.1"
   },
-  "standard": {
-    "ignore": [
-      "app/dist"
-    ]
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
+    "cfonts": "^1.1.3",
+    "chalk": "^2.1.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.4",
+    "del": "^3.0.0",
+    "devtron": "^1.4.0",
+    "electron": "^1.7.5",
+    "electron-builder": "^19.19.1",
+    "electron-debug": "^1.4.0",
+    "electron-devtools-installer": "^2.2.0",
+    "eslint": "^4.4.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "multispinner": "^0.2.1",
+    "node-loader": "^0.6.0",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^13.0.5",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.4.2",
+    "webpack": "^3.5.2",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-hot-middleware": "^2.18.2"
   }
 }

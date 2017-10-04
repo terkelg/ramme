@@ -1,8 +1,10 @@
 .DS_Store
+dist/electron/*
+dist/web/*
+build/*
+!build/icons
 node_modules/
-dist/
 npm-debug.log
-*.swp
-.sass-cache
-*.css
-*.css.map
+npm-debug.log.*
+thumbs.db
+!.gitkeep

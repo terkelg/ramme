@@ -1,8 +1,30 @@
 {
-  "presets": ["es2015"],
+  "comments": false,
   "env": {
-    "production": {
-      "presets": ["babili"]
+    "main": {
+      "presets": [
+        ["env", {
+          "targets": { "node": 8 }
+        }],
+        "stage-0"
+      ]
+    },
+    "renderer": {
+      "presets": [
+        ["env", {
+          "modules": false
+        }],
+        "stage-0"
+      ]
+    },
+    "web": {
+      "presets": [
+        ["env", {
+          "modules": false
+        }],
+        "stage-0"
+      ]
     }
-  }
+  },
+  "plugins": ["transform-runtime"]
 }
