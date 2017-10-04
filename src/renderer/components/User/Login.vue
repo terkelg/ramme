@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  const api = require('instagram-private-api').V1
+  import {V1 as api} from 'instagram-private-api'
 
   export default {
     data () {
