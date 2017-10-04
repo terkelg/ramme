@@ -37,9 +37,7 @@
       }
     },
     created () {
-      this.$electron.ipcRenderer.send('store', {
-        username: this.account.username
-      })
+      this.$electron.ipcRenderer.send('store', this.account.username)
       this.$electron.ipcRenderer.on(`store:res`, (event, arg) => {
         this.storage = arg
         console.log(arg)
@@ -98,15 +96,3 @@
     }
   }
 </script>
-
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Space+Mono');
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body { font-family: 'Space Mono', sans-serif; }
-</style>

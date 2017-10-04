@@ -5,7 +5,7 @@ import {
   globalShortcut
 } from 'electron'
 import utilsWindowLib from './window'
-import createFile from './utils'
+import {createFile} from './utils'
 const join = require('path').join
 
 class Events {
@@ -91,11 +91,13 @@ class Events {
 
   ipcStore () {
     ipcMain.on('store', (event, arg) => {
-      console.log(event)
-      console.log(arg)
-      let path = join(app.getPath('userData'), `${arg}.json`)
-      createFile(path)
-      event.sender.send('store:res', path)
+      if (arg !== null) {
+        let path = join(app.getPath('userData'), `${arg}.json`)
+        createFile(path)
+        event.sender.send('store:res', path)
+      } else {
+        event.sender.send('store:res', null)
+      }
     })
   }
 

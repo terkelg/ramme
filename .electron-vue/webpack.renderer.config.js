@@ -42,11 +42,17 @@ let rendererConfig = {
         }
       },
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
+        test: /\.(less|css)$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+          { loader: 'less-loader', options: { noIeCompat: true } }
+          /*, ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: 'css-loader'
+          })*/
+        ]
       },
       {
         test: /\.html$/,
@@ -68,8 +74,8 @@ let rendererConfig = {
           options: {
             extractCSS: process.env.NODE_ENV === 'production',
             loaders: {
-              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader'
+              sass: 'vue-style-loader!css-loader!postcss-loader!less-loader!sass-loader?indentedSyntax=1',
+              scss: 'vue-style-loader!css-loader!postcss-loader!less-loader!sass-loader'
             }
           }
         }

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 
-import 'element-ui/lib/theme-default/index.css'
+import './assets/styles/app.less'
 
 import App from './App'
 import router from './router'
