@@ -1,5 +1,6 @@
 import {
   isLoggedIn,
+  doLogin,
   getUser,
   getUserMedia
 } from './user'
@@ -10,6 +11,7 @@ import {
 
 export default {
   isLoggedIn,
+  doLogin,
   getUser,
   getUserMedia,
   getPost

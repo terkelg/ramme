@@ -4,14 +4,15 @@ import {
 } from 'electron'
 import { exec } from 'child_process'
 import { join } from 'path'
+import touch from 'touch'
 
 // Access App from both main and renderer
 const main = app || remote.app
 
 // Create file give a path
 async function createFile (path) {
-  await exec(`touch ${path}`)
-  return path
+  let file = await touch(path)
+  return file
 }
 
 // Remove file given a path

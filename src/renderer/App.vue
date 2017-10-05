@@ -1,10 +1,10 @@
 <template>
   <el-row id="app">
-    <el-col :span="6">
+    <el-col :span="4">
       <sidebar class="sidebar"></sidebar>
     </el-col>
-    <el-col :span="18">
-      <wrapper></wrapper>
+    <el-col :span="20">
+      <wrapper class="wrapper"></wrapper>
     </el-col>
   </el-row>
 </template>

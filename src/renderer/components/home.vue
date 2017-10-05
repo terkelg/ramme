@@ -1,5 +1,5 @@
 <template>
-  <main id="wrapper">
+  <main>
     <el-button
       type="primary"
       @click="route('/login')">
