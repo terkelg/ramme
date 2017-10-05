@@ -39,9 +39,9 @@
       </el-row>
     </header>
     <main v-model="feed" v-if="user !== null">
-      <el-row class="posts">
+      <el-row class="posts" v-loading.body="loadingMedia">
         <el-col :span="8" v-for="post in feed" :key="post.id">
-          <img :src="post.images[1].url" width="100%">
+          <img :src="post.images[1].url" width="100%" @click="log(post)">
         </el-col>
       </el-row>
     </main>
@@ -54,24 +54,31 @@
   import api from '../../../common/api'
 
   export default {
+    data () {
+      return {
+        loadingMedia: true
+      }
+    },
+
     components: {
       avatar
     },
 
-    async created () {
-      let user = await api.getUser()
+    created () {
+      api.getUser().then(user => {
+        if (!user) {
+          this.$router.push('login')
+        } else {
+          this.$store.commit('SET_USER_DATA', user)
+        }
+      })
 
-      if (!user) {
-        this.$router.push('login')
-      } else {
-        this.$store.commit('SET_USER_DATA', user)
-      }
-
-      let posts = await api.getUserPosts()
-
-      if (posts) {
-        this.$store.commit('SET_USER_FEED', posts)
-      }
+      api.getUserMedia().then(media => {
+        if (media) {
+          this.$store.commit('SET_USER_FEED', media)
+          this.loadingMedia = false
+        }
+      })
     },
 
     computed: {
@@ -81,8 +88,20 @@
       })
     },
 
+    methods: {
+      log (p) {
+        api.getPost(p.id).then(console.log)
+      }
+    },
+
     beforeDestroy () {
       this.$electron.ipcRenderer.removeAllListeners('profile:res')
     }
   }
 </script>
+
+<style>
+  .posts {
+    min-height: 400px;
+  }
+</style>

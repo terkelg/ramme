@@ -32,15 +32,18 @@ const getUser = async () => {
 }
 
 // Get user data
-const getUserPosts = async (page = 1, start = 0, limit = 5) => {
+const getUserMedia = async (page = 1, limit = 1) => {
   if (user) {
     let session = await loadSession(user)
     let account = await session.getAccount()
     let feed = new api.Feed.UserMedia(session, account._params.id)
     let media = []
 
-    for (let i = start; i < limit; i++) {
+    feed.setCursor(page)
+
+    for (let i = page; i <= limit; i++) {
       media.push(await feed.get())
+      if (!feed.isMoreAvailable()) break
     }
 
     media = flatten(media)
@@ -48,7 +51,8 @@ const getUserPosts = async (page = 1, start = 0, limit = 5) => {
     let urls = media.map(medium => {
       return {
         images: medium._params.images,
-        id: medium._params.id
+        id: medium._params.id,
+        url: medium._params.webLink
       }
     })
 
@@ -59,5 +63,5 @@ const getUserPosts = async (page = 1, start = 0, limit = 5) => {
 export {
   isLoggedIn,
   getUser,
-  getUserPosts
+  getUserMedia
 }

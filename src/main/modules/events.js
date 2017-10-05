@@ -5,7 +5,6 @@ import {
   ipcMain
 } from 'electron'
 import utilsWindowLib from './window'
-import {Communication} from './communication'
 
 class Events {
   constructor (options = {}) {
@@ -33,9 +32,6 @@ class Events {
   }
 
   init () {
-    const c = new Communication()
-    c.ipcSetup()
-
     this.initApp()
   }
 

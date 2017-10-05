@@ -1,11 +1,16 @@
 import {
   isLoggedIn,
   getUser,
-  getUserPosts
+  getUserMedia
 } from './user'
+
+import {
+  getPost
+} from './media'
 
 export default {
   isLoggedIn,
   getUser,
-  getUserPosts
+  getUserMedia,
+  getPost
 }
