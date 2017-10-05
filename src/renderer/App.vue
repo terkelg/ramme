@@ -1,8 +1,12 @@
 <template>
-  <div id="app">
-    <sidebar></sidebar>
-    <wrapper></wrapper>
-  </div>
+  <el-row id="app">
+    <el-col :span="6">
+      <sidebar class="sidebar"></sidebar>
+    </el-col>
+    <el-col :span="18">
+      <wrapper></wrapper>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -17,7 +21,3 @@
     }
   }
 </script>
-
-<style>
-  /* CSS */
-</style>

@@ -1,13 +1,15 @@
-const app = require('electron').app
-const join = require('path').join
-const mkdir = require('fs').mkdir
-const settings = require('electron-settings')
+import {app} from 'electron'
+import {join} from 'path'
+import mkdirp from 'mkdirp'
+import settings from 'electron-settings'
 
 export function initSettings () {
   if (!settings.get('sessionsPath')) {
-    let path = join(app.getPath('userData'), 'sessions')
-    mkdir(path, 777, () => {
-      settings.set('sessionsPath', path)
+    let path = join(app.getPath('appData'), 'sessions')
+
+    mkdirp(path, error => {
+      if (!error) settings.set('sessionsPath', path)
+      else console.log(error)
     })
   }
 }

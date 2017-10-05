@@ -1,12 +1,11 @@
 import {
   app,
-  ipcMain,
   BrowserWindow,
-  globalShortcut
+  globalShortcut,
+  ipcMain
 } from 'electron'
 import utilsWindowLib from './window'
-import {createFile} from './utils'
-const join = require('path').join
+import {Communication} from './communication'
 
 class Events {
   constructor (options = {}) {
@@ -34,7 +33,9 @@ class Events {
   }
 
   init () {
-    this.initIpc()
+    const c = new Communication()
+    c.ipcSetup()
+
     this.initApp()
   }
 
@@ -43,10 +44,6 @@ class Events {
     this.appWindowAllClosed()
     this.appActivate()
     this.appOpenUrl()
-  }
-
-  initIpc () {
-    this.ipcStore()
   }
 
   makeSingleInstance () {
@@ -87,18 +84,6 @@ class Events {
     } else {
       app.dock.show()
     }
-  }
-
-  ipcStore () {
-    ipcMain.on('store', (event, arg) => {
-      if (arg !== null) {
-        let path = join(app.getPath('userData'), `${arg}.json`)
-        createFile(path)
-        event.sender.send('store:res', path)
-      } else {
-        event.sender.send('store:res', null)
-      }
-    })
   }
 
   ipcOpenSettingsWindow () {

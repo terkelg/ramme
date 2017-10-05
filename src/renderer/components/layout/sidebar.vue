@@ -16,7 +16,7 @@
       <i class="icon-heart"></i>
       <span slot="title">Activity</span>
     </el-menu-item>
-    <el-menu-item index="5">
+    <el-menu-item index="5" @click="navigate('/profile')">
       <i class="icon-person"></i>
       <span slot="title">Profile</span>
     </el-menu-item>
@@ -28,7 +28,6 @@
     name: 'header',
     methods: {
       navigate (route) {
-        console.log(route)
         this.$router.push(route)
       }
     }
