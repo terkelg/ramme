@@ -1,10 +1,15 @@
 const state = {
-  user: 2
+  user: null,
+  feed: null
 }
 
 const getters = {
   getUser: state => {
     return state.user
+  },
+
+  getUserPosts: state => {
+    return state.feed
   }
 }
 
@@ -14,12 +19,19 @@ const mutations = {
   },
   SET_USER_DATA (state, user) {
     state.user = user
+  },
+  SET_USER_FEED (state, feed) {
+    state.feed = feed
   }
 }
 
 const actions = {
   setUser ({ dispatch }) {
     dispatch('SET_USER_DATA')
+  },
+
+  setUserFeed ({ dispatch }) {
+    dispatch('SET_USER_FEED')
   }
 }
 

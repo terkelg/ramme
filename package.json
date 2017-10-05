@@ -83,6 +83,7 @@
     "element-ui": "^1.4.6",
     "hasha": "^3.0.0",
     "instagram-private-api": "^0.6.7",
+    "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "nedb": "^1.8.0",
     "vue": "^2.3.3",

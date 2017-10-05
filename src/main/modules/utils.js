@@ -13,10 +13,11 @@ async function removeFile (path) {
 }
 
 function buildPath (file) {
+  console.log(app)
   return join(app.getPath('userData'), `${file}.json`)
 }
 
-export {
+export default {
   createFile,
   removeFile,
   buildPath
