@@ -66,14 +66,12 @@
     "linux": {
       "icon": "build/icons",
       "synopsis": "Unofficial Instagram Desktop App",
-      "category": "Internet",
-      "packageCategory": "Network",
+      "category": "Development",
       "target": [
         "deb",
         "rpm",
         "pacman",
-        "tar.gz",
-        "AppImage"
+        "tar.gz"
       ]
     }
   },
