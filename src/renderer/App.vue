@@ -12,7 +12,6 @@
 <script>
   import sidebar from './components/layout/sidebar'
   import wrapper from './components/layout/content'
-  import api from '../common/api'
 
   export default {
     name: 'Ramme',
@@ -20,9 +19,10 @@
       sidebar,
       wrapper
     },
-    async created () {
-      let logged = await api.isLoggedIn()
-      if (!logged) this.$router.push('login')
+    created () {
+      this.$api.user.isLoggedIn().then(res => {
+        if (!res) this.$router.push('login')
+      })
     }
   }
 </script>

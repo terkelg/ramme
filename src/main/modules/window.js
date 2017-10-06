@@ -1,6 +1,6 @@
 'use strict'
 
-import { BrowserWindow, Menu } from 'electron'
+import { BrowserWindow } from 'electron'
 import windowStateKeeper from 'electron-window-state'
 import Positioner from 'electron-positioner'
 
@@ -51,21 +51,15 @@ class WindowUtils {
     mainWindowState.manage(mainWindow)
     mainWindow.loadURL(this.winURL)
 
-    if (process.env.NODE_ENV === 'development') {
-      mainWindow.webContents.openDevTools()
-    }
-
     mainWindow.on('closed', () => {
       mainWindow = null
     })
 
-    mainWindow.webContents.on('did-finish-load', () => {
-      const origMenu = Menu.getApplicationMenu()
-      mainWindow.webContents.send('log', 'menubar', [mainWindow.isMenuBarVisible(), mainWindow.isMenuBarAutoHide(), origMenu])
-    })
-
     mainWindow.once('ready-to-show', () => {
       mainWindow.show()
+      if (process.env.NODE_ENV === 'development') {
+        mainWindow.webContents.openDevTools()
+      }
     })
 
     return mainWindow

@@ -1,5 +1,4 @@
 import { V1 as api } from 'instagram-private-api'
-import { flatten } from 'lodash'
 import settings from 'electron-settings'
 import hasha from 'hasha'
 import utils from '../utils'
@@ -42,13 +41,9 @@ const createSessionFile = async user => {
 // Check if user logged in
 const isLoggedIn = async () => {
   if (user) {
-    try {
-      let session = await loadSession(user)
-      let account = await session.getAccount()
-      return account.hasOwnProperty('_params')
-    } catch (e) {
-      return false
-    }
+    let session = await loadSession(user)
+    let account = await session.getAccount()
+    return account.hasOwnProperty('_params')
   }
 }
 
@@ -84,30 +79,18 @@ const getUserMedia = async (page = 1, limit = 1) => {
     let session = await loadSession(user)
     let account = await session.getAccount()
     let feed = new api.Feed.UserMedia(session, account._params.id)
-    let media = []
 
     feed.setCursor(page)
 
-    for (let i = page; i <= limit; i++) {
-      media.push(await feed.get())
-      if (!feed.isMoreAvailable()) break
-    }
+    let q = await feed.get()
+    console.log(typeof q)
+    console.log(q[0])
 
-    media = flatten(media)
-
-    let urls = media.map(medium => {
-      return {
-        images: medium._params.images,
-        id: medium._params.id,
-        url: medium._params.webLink
-      }
-    })
-
-    return urls
+    return q
   }
 }
 
-export {
+export default {
   isLoggedIn,
   doLogin,
   getUser,

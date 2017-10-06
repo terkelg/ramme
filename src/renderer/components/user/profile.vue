@@ -41,7 +41,7 @@
     <main v-model="feed" v-if="user !== null">
       <el-row class="posts" v-loading.body="loadingMedia">
         <el-col :span="8" v-for="post in feed" :key="post.id">
-          <img :src="post.images[1].url" width="100%" @click="log(post)">
+          <img :src="post._params.images[1].url" width="100%" @click="log(post)">
         </el-col>
       </el-row>
     </main>
@@ -51,7 +51,6 @@
 <script>
   import { mapGetters } from 'vuex'
   import avatar from './avatar'
-  import api from '../../../common/api'
 
   export default {
     data () {
@@ -65,20 +64,26 @@
     },
 
     created () {
-      api.getUser().then(user => {
-        if (!user) {
-          this.$router.push('login')
-        } else {
-          this.$store.commit('SET_USER_DATA', user)
-        }
-      })
+      if (this.user !== null) {
+        this.$api.user.getUser().then(user => {
+          if (!user) {
+            this.$router.push('login')
+          } else {
+            this.$store.commit('SET_USER_DATA', user)
+            console.log('USER : Loaded')
+          }
+        })
+      }
 
-      api.getUserMedia().then(media => {
-        if (media) {
-          this.$store.commit('SET_USER_FEED', media)
-          this.loadingMedia = false
-        }
-      })
+      if (this.feed !== null) {
+        this.$api.user.getUserMedia().then(media => {
+          if (media) {
+            this.$store.commit('SET_USER_FEED', media)
+            console.log('FEED: Loaded')
+            this.loadingMedia = false
+          }
+        })
+      }
     },
 
     computed: {
@@ -90,12 +95,15 @@
 
     methods: {
       log (p) {
-        api.getPost(p.id).then(console.log)
+        this.$api.media.getPost(p.id).then(console.log)
       }
     },
 
     beforeDestroy () {
-      this.$electron.ipcRenderer.removeAllListeners('profile:res')
+      this.$store.commit('UNSET_USER_DATA')
+      console.log('USER: Unloaded')
+      this.$store.commit('UNSET_USER_FEED')
+      console.log('FEED: Unloaded')
     }
   }
 </script>

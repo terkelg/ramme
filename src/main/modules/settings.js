@@ -1,3 +1,5 @@
+'use strict'
+
 import {app} from 'electron'
 import {join} from 'path'
 import mkdirp from 'mkdirp'

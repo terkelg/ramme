@@ -1,6 +1,6 @@
-const state = {
-  user: null,
-  feed: null
+let state = {
+  user: {},
+  feed: []
 }
 
 const getters = {
@@ -15,7 +15,10 @@ const getters = {
 
 const mutations = {
   UNSET_USER_DATA (state) {
-    state.user = null
+    state.user = {}
+  },
+  UNSET_USER_FEED (state) {
+    state.feed = {}
   },
   SET_USER_DATA (state, user) {
     state.user = user

@@ -16,6 +16,7 @@
 <script>
   export default {
     name: 'home',
+
     methods: {
       route (link) {
         // this.$electron.shell.openExternal(link)

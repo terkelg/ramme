@@ -18,8 +18,6 @@
 </template>
 
 <script>
-  import api from '../../../common/api'
-
   export default {
     data () {
       return {
@@ -32,11 +30,12 @@
     },
 
     methods: {
-      async login () {
+      login () {
         this.fullscreenLoading = true
-        let session = await api.doLogin(this.account.username, this.account.password)
-        if (session) this.$router.push('profile')
-        this.fullscreenLoading = false
+        this.$api.user.doLogin(this.account.username, this.account.password).then(session => {
+          if (session) this.$router.push('profile')
+          this.fullscreenLoading = false
+        })
       }
     }
   }

@@ -1,22 +1,25 @@
+import electron from 'electron'
 import Vue from 'vue'
 import axios from 'axios'
 import ElementUI from 'element-ui'
+import { install as devtron } from 'devtron'
 
 import './assets/styles/app.less'
 
 import App from './App'
 import router from './router'
 import store from './store'
-import db from './datastore'
+import api from '../common/api'
 
 Vue.use(ElementUI)
-if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
+if (!process.env.IS_WEB) Vue.use(electron)
+if (process.env.NODE_ENV === 'development') devtron()
 
+Vue.prototype.$electron = require('electron')
 Vue.http = Vue.prototype.$http = axios
-Vue.db = Vue.prototype.$db = db
+Vue.api = Vue.prototype.$api = api
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 const app = new Vue({
   components: { App },
   router,
@@ -24,4 +27,4 @@ const app = new Vue({
   template: '<App/>'
 }).$mount('#app')
 
-export { app, router, store }
+export { app, router, store, api }

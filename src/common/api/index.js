@@ -1,18 +1,9 @@
-import {
-  isLoggedIn,
-  doLogin,
-  getUser,
-  getUserMedia
-} from './user'
+const files = require.context('.', false, /\.js$/)
+const modules = {}
 
-import {
-  getPost
-} from './media'
+files.keys().forEach(key => {
+  if (key === './index.js') return
+  modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
+})
 
-export default {
-  isLoggedIn,
-  doLogin,
-  getUser,
-  getUserMedia,
-  getPost
-}
+export default modules

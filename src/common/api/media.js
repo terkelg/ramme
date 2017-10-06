@@ -5,7 +5,7 @@ import utils from '../utils'
 const user = settings.get('currentUser')
 
 // Set session from cookie file
-const loadSession = async user => {
+const loadSession = user => {
   let path = utils.buildPath(user.hash)
   let device = new api.Device(user.username)
   let storage = new api.CookieFileStorage(path)
@@ -21,6 +21,6 @@ const getPost = async id => {
   }
 }
 
-export {
+export default {
   getPost
 }
