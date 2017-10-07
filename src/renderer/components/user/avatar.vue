@@ -6,7 +6,12 @@
 
 <script>
   export default {
-    name: 'avatar',
-    props: ['url']
+    name: 'Avatar',
+    props: {
+      url: {
+        type: String,
+        required: true
+      }
+    }
   }
 </script>

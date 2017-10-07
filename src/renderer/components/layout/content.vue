@@ -4,6 +4,6 @@
 
 <script>
   export default {
-    name: 'wrapper'
+    name: 'Wrapper'
   }
 </script>

@@ -1,28 +1,37 @@
 <template>
   <el-row id="app">
     <el-col :span="4">
-      <sidebar class="sidebar"></sidebar>
+      <Sidebar class="sidebar"></Sidebar>
     </el-col>
     <el-col :span="20">
-      <wrapper class="wrapper"></wrapper>
+      <Wrapper class="wrapper"></Wrapper>
     </el-col>
   </el-row>
 </template>
 
 <script>
-  import sidebar from './components/layout/sidebar'
-  import wrapper from './components/layout/content'
+  import Sidebar from './components/Layout/Sidebar'
+  import Wrapper from './components/Layout/Content'
 
   export default {
     name: 'Ramme',
+
     components: {
-      sidebar,
-      wrapper
+      Sidebar,
+      Wrapper
     },
+
     created () {
-      this.$api.user.isLoggedIn().then(res => {
-        if (!res) this.$router.push('login')
+      this.$electron.ipcRenderer.send('getUser')
+      this.$electron.ipcRenderer.on('getUser:res', (event, user) => {
+        if (!user) {
+          this.$router.push('login')
+        }
       })
+    },
+
+    beforeDestroy () {
+      this.$electron.ipcRenderer.removeAllListeners('getUser:res')
     }
   }
 </script>

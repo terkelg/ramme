@@ -1,9 +1,10 @@
 <template>
   <section>
-    <header v-model="user" v-if="user !== null">
-      <el-row class="user">
+    <header
+      v-model="user">
+      <el-row class="user" v-if="Object.keys(user).length !== 0">
         <el-col :span="6">
-          <avatar :url="user.picture" />
+          <Avatar :url="user.picture" />
         </el-col>
         <el-col :span="18">
           <h2>
@@ -38,10 +39,18 @@
         </el-col>
       </el-row>
     </header>
-    <main v-model="feed" v-if="user !== null">
-      <el-row class="posts" v-loading.body="loadingMedia">
-        <el-col :span="8" v-for="post in feed" :key="post.id">
-          <img :src="post._params.images[1].url" width="100%" @click="log(post)">
+    <main v-model="posts">
+      <el-row
+        class="posts"
+        v-loading.body="loadingMedia"
+        v-if="typeof posts !== 'undefined'">
+        <el-col
+          :span="8"
+          v-for="(post, i) of posts"
+          :key="i">
+          <div v-if="typeof post !== 'undefined'">
+            <img :src="post.images[0].url" width="100%" @click="log(post)">
+          </div>
         </el-col>
       </el-row>
     </main>
@@ -50,9 +59,11 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import avatar from './avatar'
+  import Avatar from './Avatar'
 
   export default {
+    name: 'Profile',
+
     data () {
       return {
         loadingMedia: true
@@ -60,50 +71,47 @@
     },
 
     components: {
-      avatar
+      Avatar
     },
 
     created () {
-      if (this.user !== null) {
-        this.$api.user.getUser().then(user => {
-          if (!user) {
-            this.$router.push('login')
-          } else {
-            this.$store.commit('SET_USER_DATA', user)
-            console.log('USER : Loaded')
-          }
-        })
-      }
+      this.$electron.ipcRenderer.on('getUser:res', (event, user) => {
+        if (!user) {
+          this.$router.push('login')
+        } else {
+          this.$store.commit('SET_USER_DATA', user)
+        }
+      })
 
-      if (this.feed !== null) {
-        this.$api.user.getUserMedia().then(media => {
-          if (media) {
-            this.$store.commit('SET_USER_FEED', media)
-            console.log('FEED: Loaded')
-            this.loadingMedia = false
-          }
-        })
-      }
+      this.$electron.ipcRenderer.on('getUserMedia:res', (event, media) => {
+        if (media) {
+          this.$store.commit('SET_USER_FEED', media)
+          this.loadingMedia = false
+        }
+      })
+
+      this.$electron.ipcRenderer.send('getUser')
+      this.$electron.ipcRenderer.send('getUserMedia')
     },
 
     computed: {
       ...mapGetters({
         user: 'getUser',
-        feed: 'getUserPosts'
+        posts: 'getUserPosts'
       })
     },
 
     methods: {
-      log (p) {
-        this.$api.media.getPost(p.id).then(console.log)
+      log (post) {
+        this.$router.push(`/post/${post.id}`)
       }
     },
 
     beforeDestroy () {
+      this.$electron.ipcRenderer.removeAllListeners('getUser:res')
+      this.$electron.ipcRenderer.removeAllListeners('getUserMedia:res')
       this.$store.commit('UNSET_USER_DATA')
-      console.log('USER: Unloaded')
       this.$store.commit('UNSET_USER_FEED')
-      console.log('FEED: Unloaded')
     }
   }
 </script>

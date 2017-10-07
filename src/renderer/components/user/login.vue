@@ -19,24 +19,41 @@
 
 <script>
   export default {
+    name: 'Login',
+
     data () {
       return {
         fullscreenLoading: false,
         account: {
-          username: null,
+          username: 'anatolinicolae',
           password: null
         }
       }
     },
 
+    created () {
+      this.$electron.ipcRenderer.on('doLogin:res', (event, session) => {
+        console.log(session)
+
+        if (session) {
+          this.$router.push('profile')
+        }
+
+        this.fullscreenLoading = false
+      })
+    },
+
     methods: {
       login () {
         this.fullscreenLoading = true
-        this.$api.user.doLogin(this.account.username, this.account.password).then(session => {
-          if (session) this.$router.push('profile')
-          this.fullscreenLoading = false
+        this.$electron.ipcRenderer.send('doLogin', {
+          account: this.account
         })
       }
+    },
+
+    beforeDestroy () {
+      this.$electron.ipcRenderer.removeAllListeners('doLogin:res')
     }
   }
 </script>

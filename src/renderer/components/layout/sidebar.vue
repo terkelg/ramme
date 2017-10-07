@@ -25,7 +25,8 @@
 
 <script>
   export default {
-    name: 'header',
+    name: 'Sidebar',
+
     methods: {
       navigate (route) {
         this.$router.push(route)

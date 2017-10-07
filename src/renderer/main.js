@@ -1,3 +1,5 @@
+'use strict'
+
 import electron from 'electron'
 import Vue from 'vue'
 import axios from 'axios'
@@ -12,12 +14,19 @@ import store from './store'
 import api from '../common/api'
 
 Vue.use(ElementUI)
-if (!process.env.IS_WEB) Vue.use(electron)
-if (process.env.NODE_ENV === 'development') devtron()
 
-Vue.prototype.$electron = require('electron')
+if (!process.env.IS_WEB) {
+  Vue.use(electron)
+}
+
+if (process.env.NODE_ENV === 'development') {
+  devtron()
+}
+
+Vue.electron = Vue.prototype.$electron = electron
 Vue.http = Vue.prototype.$http = axios
 Vue.api = Vue.prototype.$api = api
+
 Vue.config.productionTip = false
 
 const app = new Vue({

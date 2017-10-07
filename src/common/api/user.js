@@ -41,9 +41,13 @@ const createSessionFile = async user => {
 // Check if user logged in
 const isLoggedIn = async () => {
   if (user) {
-    let session = await loadSession(user)
-    let account = await session.getAccount()
-    return account.hasOwnProperty('_params')
+    try {
+      let session = await loadSession(user)
+      let account = await session.getAccount()
+      return account.hasOwnProperty('_params')
+    } catch (e) {
+      return false
+    }
   }
 }
 
@@ -67,26 +71,38 @@ const doLogin = async (username, password) => {
 // Get user data
 const getUser = async () => {
   if (user) {
-    let session = await loadSession(user)
-    let account = await session.getAccount()
-    return account._params
+    try {
+      let session = await loadSession(user)
+      let account = await session.getAccount()
+      return account._params
+    } catch (e) {
+      return false
+    }
   }
 }
 
 // Get user data
 const getUserMedia = async (page = 1, limit = 1) => {
   if (user) {
-    let session = await loadSession(user)
-    let account = await session.getAccount()
-    let feed = new api.Feed.UserMedia(session, account._params.id)
+    try {
+      let session = await loadSession(user)
+      let account = await session.getAccount()
+      let feed = new api.Feed.UserMedia(session, account._params.id)
 
-    feed.setCursor(page)
+      feed.setCursor(page)
 
-    let q = await feed.get()
-    console.log(typeof q)
-    console.log(q[0])
+      let q = await feed.get()
 
-    return q
+      return q.map(el => {
+        return {
+          images: el._params.images,
+          id: el.id,
+          url: el._params.webLink
+        }
+      })
+    } catch (e) {
+      return false
+    }
   }
 }
 

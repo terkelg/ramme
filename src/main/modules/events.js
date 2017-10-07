@@ -7,6 +7,7 @@ import {
   ipcMain
 } from 'electron'
 import utilsWindowLib from './window'
+import communication from './communication'
 
 class Events {
   constructor (options = {}) {
@@ -35,6 +36,7 @@ class Events {
 
   init () {
     this.initApp()
+    communication()
   }
 
   initApp () {

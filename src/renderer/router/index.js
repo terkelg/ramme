@@ -8,17 +8,22 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: require('@/components/home').default
+      component: require('@/components/Home').default
     },
     {
       path: '/login',
       name: 'login',
-      component: require('@/components/user/login').default
+      component: require('@/components/User/Login').default
     },
     {
       path: '/profile',
       name: 'profile',
-      component: require('@/components/user/profile').default
+      component: require('@/components/User/Profile').default
+    },
+    {
+      path: '/post/:id',
+      name: 'post',
+      component: require('@/components/Media/Post').default
     },
     {
       path: '*',
