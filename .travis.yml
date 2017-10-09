@@ -20,9 +20,6 @@ addons:
       - gcc-multilib
       - g++-multilib
 
-before_script:
-  - npm prune
-
 script:
   - npm run dist
 
