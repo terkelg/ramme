@@ -19,8 +19,7 @@
     },
     "linux": {
       "synopsis": "Unofficial Instagram Desktop App",
-      "category": "Internet",
-      "packageCategory": "Network;",
+      "category": "Network;",
       "target": [
         "deb",
         "rpm",
