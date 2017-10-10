@@ -3,12 +3,10 @@ const path = require('path')
 const isPlatform = require('./../common/is-platform')
 const {app, BrowserWindow, Menu, shell, dialog, nativeImage} = require('electron')
 const config = require('./config')
-
+const win = BrowserWindow.getAllWindows()[0]
 const appName = app.getName()
 
 function sendAction (action) {
-  const win = BrowserWindow.getAllWindows()[0]
-
   if (isPlatform('macOS')) {
     win.restore()
   }
@@ -229,14 +227,11 @@ const template = [{
   role: 'window',
   submenu: [{
     role: 'minimize'
-  },
-  {
+  }, {
     role: 'close'
-  },
-  {
+  }, {
     role: 'quit'
-  },
-  ]
+  }]
 },
 {
   role: 'help',
