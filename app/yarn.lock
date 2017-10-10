@@ -179,24 +179,15 @@ electron-config@^1.0.0:
   dependencies:
     conf "^1.0.0"
 
-electron-debug@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/electron-debug/-/electron-debug-1.1.0.tgz#050a9c3f906fffc2492510cf8ac31d0f32a579e1"
+electron-is-dev@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-0.3.0.tgz#14e6fda5c68e9e4ecbeff9ccf037cbd7c05c5afe"
+
+element-ready@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/element-ready/-/element-ready-2.2.0.tgz#a504524bb70fd6a310b80a6be49971e4c0752f6e"
   dependencies:
-    electron-is-dev "^0.1.0"
-    electron-localshortcut "^0.6.0"
-
-electron-is-dev@^0.1.0, electron-is-dev@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-0.1.2.tgz#8a1043e32b3a1da1c3f553dce28ce764246167e3"
-
-electron-localshortcut@^0.6.0:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/electron-localshortcut/-/electron-localshortcut-0.6.1.tgz#c4e268c38a6e42f40de5618fc906d1ed608f11aa"
-
-element-ready@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/element-ready/-/element-ready-1.0.0.tgz#1e388cbc5cc543a71e5039a022deb8c8b9f169be"
+    p-cancelable "^0.3.0"
 
 env-paths@^1.0.0:
   version "1.0.0"
@@ -551,6 +542,10 @@ osx-release@^1.0.0:
   resolved "https://registry.yarnpkg.com/osx-release/-/osx-release-1.1.0.tgz#f217911a28136949af1bf9308b241e2737d3cd6c"
   dependencies:
     minimist "^1.1.0"
+
+p-cancelable@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/p-cancelable/-/p-cancelable-0.3.0.tgz#b9e123800bcebb7ac13a479be195b507b98d30fa"
 
 p-limit@^1.1.0:
   version "1.1.0"

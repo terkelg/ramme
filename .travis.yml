@@ -1,6 +1,9 @@
 language: node_js
 node_js: 8
 
+sudo: required
+dist: trusty
+
 cache:
   directories:
     - node_modules
@@ -20,8 +23,14 @@ addons:
       - gcc-multilib
       - g++-multilib
 
+
+install:
+  - curl -L https://yarnpkg.com/latest.tar.gz | tar xvz && mv yarn-* $HOME/.yarn
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - yarn
+
 script:
-  - npm run dist
+  - yarn dist
 
 notifications:
   slack: ramme:44ubE4BVf3FGi8OldEKL743J

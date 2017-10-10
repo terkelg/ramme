@@ -3,14 +3,14 @@
   "author": "Terkel Gjervig",
   "license": "MIT",
   "scripts": {
-    "postinstall": "cd app && npm install",
+    "postinstall": "electron-builder install-app-deps && cd app && yarn",
     "test": "standard",
     "build": "gulp build",
     "dev": "gulp dev & electron app",
-    "prestart": "npm run build",
+    "prestart": "yarn build",
     "start": "electron app",
-    "pack": "npm run build && build --dir",
-    "dist": "npm run build && build --ia32 --x64"
+    "pack": "yarn build && build --dir",
+    "dist": "yarn build && build --ia32 --x64"
   },
   "build": {
     "appId": "com.terkel.ramme",
@@ -19,13 +19,12 @@
     },
     "linux": {
       "synopsis": "Unofficial Instagram Desktop App",
-      "category": "Network;",
+      "category": "Network",
       "target": [
         "deb",
         "rpm",
         "pacman",
-        "tar.gz",
-        "AppImage"
+        "tar.gz"
       ]
     }
   },
@@ -35,7 +34,7 @@
     "babili": "^0.1.4",
     "del": "^3.0.0",
     "electron": "^1.7.8",
-    "electron-builder": "^19.34.2",
+    "electron-builder": "^19.35.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^7.0.0",
