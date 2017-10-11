@@ -106,9 +106,33 @@ const getUserMedia = async (page = 1, limit = 1) => {
   }
 }
 
+const getUserFeed = async (page = 1, limit = 1) => {
+  if (user) {
+    try {
+      let session = await loadSession(user)
+      let feed = new api.Feed.Timeline(session)
+
+      feed.setCursor(page)
+
+      let q = await feed.get()
+
+      return q.map(el => {
+        return {
+          images: el._params.images,
+          id: el.id,
+          url: el._params.webLink
+        }
+      })
+    } catch (e) {
+      return false
+    }
+  }
+}
+
 export default {
   isLoggedIn,
   doLogin,
   getUser,
+  getUserFeed,
   getUserMedia
 }

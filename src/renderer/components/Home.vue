@@ -1,21 +1,16 @@
 <template>
-  <main>
-    <el-button
-      type="primary"
-      @click="route('/login')">
-      Login
-    </el-button>
-    <el-button
-      type="primary"
-      @click="route('/profile')">
-      Profile
-    </el-button>
-  </main>
+  <Feed></Feed>
 </template>
 
 <script>
+  import Feed from './User/Feed'
+
   export default {
     name: 'Home',
+
+    components: {
+      Feed
+    },
 
     methods: {
       route (link) {

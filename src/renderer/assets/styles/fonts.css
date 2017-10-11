@@ -27,19 +27,22 @@
 .icon-person:before {
   content: "\e900";
 }
-.icon-person-filled:before {
+.icon-person-filled:before,
+.router-link-exact-active .icon-person:before {
   content: "\e901";
 }
 .icon-camera:before {
   content: "\e909";
 }
-.icon-camera-filled:before {
+.icon-camera-filled:before,
+.router-link-exact-active .icon-camera:before {
   content: "\e90a";
 }
 .icon-home:before {
   content: "\e902";
 }
-.icon-home-filled:before {
+.icon-home-filled:before,
+.router-link-exact-active .icon-home:before {
   content: "\e903";
 }
 .icon-cog:before {
@@ -48,10 +51,12 @@
 .icon-heart:before {
   content: "\e905";
 }
-.icon-heart-filled:before {
+.icon-heart-filled:before,
+.router-link-exact-active .icon-heart:before {
   content: "\e906";
 }
-.icon-search-filled:before {
+.icon-search-filled:before,
+.router-link-exact-active .icon-search:before {
   content: "\e907";
 }
 .icon-search:before {

@@ -1,0 +1,73 @@
+@import '../common/mixins';
+@import './colors';
+
+.system-ui {
+  max-width: 100%;
+  position: relative;
+}
+
+.system-ui--buttons {
+  padding: .5em;
+
+  & .system-ui--buttons--btn {
+    display: inline-block;
+    width: .75em;
+    height: .75em;
+    border-radius: 100%;
+    margin-right: .25em;
+    opacity: .75;
+    position: relative;
+    -webkit-app-region: no-drag;
+    .transition(all 250ms);
+
+    &.close {
+      background-color: @red;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 8px;
+        top: 5px;
+        left: 2px;
+        background: #fff;
+        opacity: 0;
+        .transition(all 250ms);
+      }
+
+      &:hover::before {
+        opacity: 1;
+        .transform(rotate(45deg));
+      }
+
+      &:hover::after {
+        opacity: 1;
+        .transform(rotate(-45deg));
+      }
+    }
+
+    &.minimize {
+      background-color: @yellow;
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 6px;
+        top: 5px;
+        left: 3px;
+        background: #fff;
+        opacity: 0;
+        .transition(all 250ms);
+      }
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

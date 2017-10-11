@@ -1,0 +1,34 @@
+nav {
+  li {
+    padding: 1.5em 0;
+    text-align: center;
+    position: relative;
+    -webkit-app-region: no-drag;
+    .transition(all 250ms);
+
+    &:hover {
+      .transition(all 250ms);
+      background-color: @white;
+    }
+
+    &.router-link-exact-active::after {
+      content: '';
+      position: absolute;
+      bottom: .75em;
+      left: 50%;
+      margin-left: -0.125em;
+      width: .3125em;
+      height: .3125em;
+      background-color: @green;
+      .border-radius
+    }
+
+    i {
+      font-size: 24px;
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
