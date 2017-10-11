@@ -1,6 +1,6 @@
 {
   "repository": "terkelg/ramme",
-  "author": "Terkel Gjervig",
+  "author": "Aman Sharma",
   "license": "MIT",
   "scripts": {
     "postinstall": "electron-builder install-app-deps && cd app && yarn",
