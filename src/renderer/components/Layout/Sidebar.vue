@@ -25,6 +25,8 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     name: 'Sidebar',
 
@@ -43,27 +45,53 @@
           },
           {
             name: 'Upload',
-            icon: 'icon-camera',
+            icon: 'icon-upload',
             href: '/upload'
           },
           {
             name: 'Activity',
-            icon: 'icon-heart',
+            icon: 'icon-activity',
             href: '/activity'
           },
           {
             name: 'Profile',
-            icon: 'icon-person',
+            icon: 'icon-profile',
             href: '/profile'
           }
         ]
       }
     },
 
-    methods: {
-      navigate (route) {
-        this.$router.push(route)
+    created () {
+      this.$electron.ipcRenderer.on('getUser:res', (event, user) => {
+        if (!user) {
+          this.$router.push('login')
+        } else {
+          this.$store.commit('SET_USER_DATA', user)
+        }
+      })
+
+      if (!('id' in this.user)) {
+        this.$electron.ipcRenderer.send('getUser')
       }
+    },
+
+    computed: {
+      ...mapGetters({
+        user: 'getUser'
+      })
+    },
+
+    watch: {
+      user (user) {
+        if (user.gender && this.routes[4].icon.indexOf('gender') === -1) {
+          this.routes[4].icon += ` gender-${user.gender}`
+        }
+      }
+    },
+
+    beforeDestroy () {
+      this.$electron.ipcRenderer.removeAllListeners('getUser:res')
     }
   }
 </script>

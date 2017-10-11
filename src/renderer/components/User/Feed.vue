@@ -23,24 +23,29 @@
 
     data () {
       return {
-        loadingMedia: true
+        loadingMedia: false
       }
     },
 
     created () {
       this.$electron.ipcRenderer.on('getUserFeed:res', (event, media) => {
         if (media) {
-          this.$store.commit('SET_USER_FEED', media)
+          this.$store.commit('SET_FEED', media)
           this.loadingMedia = false
         }
       })
+    },
 
-      this.$electron.ipcRenderer.send('getUserFeed')
+    mounted () {
+      if (!this.posts.length) {
+        this.loadingMedia = true
+        this.$electron.ipcRenderer.send('getUserFeed')
+      }
     },
 
     computed: {
       ...mapGetters({
-        posts: 'getUserPosts'
+        posts: 'getFeed'
       })
     },
 
@@ -52,7 +57,6 @@
 
     beforeDestroy () {
       this.$electron.ipcRenderer.removeAllListeners('getUserFeed:res')
-      this.$store.commit('UNSET_USER_FEED')
     }
   }
 </script>

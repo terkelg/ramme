@@ -11,7 +11,7 @@ nav {
       background-color: @white;
     }
 
-    &.router-link-exact-active::after {
+    &::after {
       content: '';
       position: absolute;
       bottom: .75em;
@@ -20,7 +20,13 @@ nav {
       width: .3125em;
       height: .3125em;
       background-color: @green;
-      .border-radius
+      .border-radius(.3125em);
+      .transition(all 250ms);
+      .transform(scale(0));
+    }
+
+    &.router-link-exact-active::after {
+      .transform(scale(1));
     }
 
     i {

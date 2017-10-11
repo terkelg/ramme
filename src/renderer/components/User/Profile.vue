@@ -66,7 +66,7 @@
 
     data () {
       return {
-        loadingMedia: true
+        loadingMedia: false
       }
     },
 
@@ -89,9 +89,17 @@
           this.loadingMedia = false
         }
       })
+    },
 
-      this.$electron.ipcRenderer.send('getUser')
-      this.$electron.ipcRenderer.send('getUserMedia')
+    mounted () {
+      if (!('id' in this.user)) {
+        this.$electron.ipcRenderer.send('getUser')
+      }
+
+      if (!this.posts.length) {
+        this.loadingMedia = true
+        this.$electron.ipcRenderer.send('getUserMedia')
+      }
     },
 
     computed: {
@@ -110,8 +118,6 @@
     beforeDestroy () {
       this.$electron.ipcRenderer.removeAllListeners('getUser:res')
       this.$electron.ipcRenderer.removeAllListeners('getUserMedia:res')
-      this.$store.commit('UNSET_USER_DATA')
-      this.$store.commit('UNSET_USER_FEED')
     }
   }
 </script>

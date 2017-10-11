@@ -18,7 +18,7 @@ const mutations = {
     state.user = {}
   },
   UNSET_USER_FEED (state) {
-    state.feed = {}
+    state.feed = []
   },
   SET_USER_DATA (state, user) {
     state.user = user

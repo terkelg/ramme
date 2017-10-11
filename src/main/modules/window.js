@@ -21,23 +21,16 @@ class WindowUtils {
     })
 
     const mainWindowOptions = {
-      'x': mainWindowState.x,
-      'y': mainWindowState.y,
-      'width': mainWindowState.width,
-      'height': mainWindowState.height,
+      x: mainWindowState.x,
+      y: mainWindowState.y,
+      width: mainWindowState.width,
+      height: mainWindowState.height,
       useContentSize: true,
-      'minWidth': 440,
-      'minHeight': 580,
+      minWidth: 440,
+      minHeight: 580,
       backgroundColor: '#ffffff',
-      show: false
-    }
-
-    if (process.platform === 'darwin') {
-      mainWindowOptions.titleBarStyle = 'hidden'
-      mainWindowOptions.fullscreen = false
-      mainWindowOptions.fullscreenable = false
-    } else if (['win32', 'linux'].includes(process.platform)) {
-      mainWindowOptions.frame = false
+      show: false,
+      frame: false
     }
 
     let mainWindow = new BrowserWindow(mainWindowOptions)
