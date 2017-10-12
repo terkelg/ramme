@@ -1,17 +1,16 @@
-'use strict'
-
-import Events from './modules/events'
-const app = require('electron').app
-const initSettings = require('./modules/settings').initSettings
-const events = Events()
+import { app } from 'electron'
+import Startapp from './modules/start'
+import { initSettings } from './modules/settings'
 
 if (process.env.NODE_ENV !== 'development') {
   global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
 }
 
+const start = new Startapp()
+
 initSettings()
-events.makeSingleInstance()
-events.init(app)
+start.makeSingleInstance()
+start.init(app)
 
 /**
  * Auto Updater

@@ -1,13 +1,13 @@
 export default [
   {
     path: '/',
-    name: 'home',
-    title: 'Home',
+    name: 'feed',
+    title: 'Feed',
     icon: {
       normal: 'icon-home',
       filled: ''
     },
-    component: require('@/components/Home').default
+    component: require('@/components/User/Feed').default
   },
   {
     path: '/login',

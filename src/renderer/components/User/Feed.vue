@@ -1,18 +1,17 @@
 <template>
-  <section v-model="posts">
-    <el-row
+  <div v-model="posts">
+    <section
       class="posts"
-      v-loading.body="loadingMedia"
       v-if="typeof posts !== 'undefined'">
-      <el-col
+      <div
         v-for="(post, i) of posts"
         :key="i">
         <div v-if="typeof post !== 'undefined'">
           <img :src="post.images[0].url" width="100%" @click="log(post)">
         </div>
-      </el-col>
-    </el-row>
-  </section>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -60,10 +59,3 @@
     }
   }
 </script>
-
-<style>
-  .posts {
-    max-height: 400px;
-    overflow: auto;
-  }
-</style>

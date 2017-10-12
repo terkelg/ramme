@@ -1,0 +1,39 @@
+header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1em;
+}
+
+.profile {
+  .avatar {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+    img {
+      .border-radius(128px);
+    }
+  }
+
+  .main-infos {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+    h1 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 1.25em;
+      line-height: 1.5em;
+      font-weight: 200;
+    }
+  }
+}
+
+.biography-box {
+  grid-column: 1;
+  grid-row: 2;
+}

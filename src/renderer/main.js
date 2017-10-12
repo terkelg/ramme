@@ -3,7 +3,6 @@
 import electron from 'electron'
 import Vue from 'vue'
 import axios from 'axios'
-import ElementUI from 'element-ui'
 import { install as devtron } from 'devtron'
 
 import './assets/styles/app.less'
@@ -12,8 +11,6 @@ import App from './App'
 import router from './router'
 import store from './store'
 import api from '../common/api'
-
-Vue.use(ElementUI)
 
 if (!process.env.IS_WEB) {
   Vue.use(electron)

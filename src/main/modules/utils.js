@@ -1,5 +1,3 @@
-'use strict'
-
 import {app} from 'electron'
 import {exec} from 'child_process'
 import {join} from 'path'

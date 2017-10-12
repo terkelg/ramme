@@ -1,24 +1,22 @@
 <template>
-  <el-row id="app">
-    <el-col :span="4">
-      <Sidebar class="sidebar"></Sidebar>
-    </el-col>
-    <el-col :span="20">
-      <Wrapper class="wrapper"></Wrapper>
-    </el-col>
-  </el-row>
+  <div class="app">
+    <Sidebar class="sidebar"></Sidebar>
+    <VuePerfectScrollbar class="wrapper">
+      <router-view></router-view>
+    </VuePerfectScrollbar>
+  </div>
 </template>
 
 <script>
+  import VuePerfectScrollbar from 'vue-perfect-scrollbar'
   import Sidebar from './components/Layout/Sidebar'
-  import Wrapper from './components/Layout/Content'
 
   export default {
     name: 'Ramme',
 
     components: {
       Sidebar,
-      Wrapper
+      VuePerfectScrollbar
     },
 
     created () {

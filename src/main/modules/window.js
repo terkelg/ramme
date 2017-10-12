@@ -1,5 +1,3 @@
-'use strict'
-
 import { BrowserWindow } from 'electron'
 import windowStateKeeper from 'electron-window-state'
 import Positioner from 'electron-positioner'
@@ -23,14 +21,21 @@ class WindowUtils {
     const mainWindowOptions = {
       x: mainWindowState.x,
       y: mainWindowState.y,
+
       width: mainWindowState.width,
       height: mainWindowState.height,
-      useContentSize: true,
       minWidth: 440,
       minHeight: 580,
+
+      useContentSize: true,
+      maximizable: false,
+      fullscreenable: false,
+
       backgroundColor: '#ffffff',
-      show: false,
-      frame: false
+
+      frame: false,
+      // skipTaskbar: true,
+      show: false
     }
 
     let mainWindow = new BrowserWindow(mainWindowOptions)

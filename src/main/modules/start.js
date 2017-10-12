@@ -1,15 +1,14 @@
-'use strict'
-
 import {
   app,
-  BrowserWindow,
   globalShortcut,
-  ipcMain
+  ipcMain,
+  Tray,
+  nativeImage
 } from 'electron'
 import utilsWindowLib from './window'
 import communication from './communication'
 
-class Events {
+class Startapp {
   constructor (options = {}) {
     const opt = {
       queueConcurrency: 3,
@@ -35,15 +34,14 @@ class Events {
   }
 
   init () {
-    this.initApp()
-    communication()
-  }
-
-  initApp () {
     this.appReady()
     this.appWindowAllClosed()
     this.appActivate()
     this.appOpenUrl()
+    this.ipcSetup()
+    this.traySetup()
+
+    communication()
   }
 
   makeSingleInstance () {
@@ -66,69 +64,25 @@ class Events {
     }
   }
 
-  toggleTray (vis) {
-    if (!vis) {
-      this.appIcon.destroy()
-    } else {
-      this.utilsTray.window = this.window
-      this.appIcon = this.utilsTray.addIcon()
-    }
-  }
-
-  toggleDock (vis) {
-    if (process.platform === 'win32') {
-      return
-    }
-    if (!vis) {
-      app.dock.hide()
-    } else {
-      app.dock.show()
-    }
-  }
-
-  ipcOpenSettingsWindow () {
-    ipcMain.on('open-settings-window', function () {
-      if (this.options.settingsWindow) {
-        return
-      }
-
-      const settingsWindowOptions = {
-        frame: false,
-        height: 580,
-        width: 440,
-        minWidth: 440,
-        minHeight: 580,
-        resizable: true,
-        minimizable: false,
-        maximizable: false,
-        useContentSize: true,
-        backgroundColor: '#232421',
-        parent: this.window || null,
-        modal: true,
-        show: false
-      }
-
-      this.options.settingsWindow = new BrowserWindow(settingsWindowOptions)
-      const settingsURL = process.env.NODE_ENV === 'development'
-        ? 'http://localhost:9080/#/settings'
-        : `file://${__dirname}/index.html#settings`
-
-      this.options.settingsWindow.loadURL(settingsURL)
-      this.options.settingsWindow.setMenuBarVisibility(false)
-
-      this.options.settingsWindow.on('closed', function () {
-        this.options.settingsWindow = null
-      })
-
-      this.options.settingsWindow.once('ready-to-show', () => {
-        this.options.settingsWindow.show()
-      })
+  ipcSetup () {
+    ipcMain.on('minimize', event => {
+      this.window.isVisible() ? this.window.hide() : this.window.show()
+    })
+    ipcMain.on('close', event => {
+      console.log(event)
     })
   }
 
-  ipcShowTray () {
-    ipcMain.on('show-tray', (event, vis) => {
-      this.toggleTray(vis)
+  traySetup () {
+    let size = process.platform === 'win32' ? '64x64.png' : '32x32.png'
+    let icon = require('path').join(__dirname, '/../../../build/icons', size)
+    let nicon = nativeImage.createFromPath(icon)
+
+    app.on('ready', () => {
+      this.options.tray = new Tray(nicon)
+      this.options.tray.on('click', () => {
+        this.window.isVisible() ? this.window.hide() : this.window.show()
+      })
     })
   }
 
@@ -179,5 +133,5 @@ class Events {
 }
 
 export default function (opts) {
-  return new Events(opts)
+  return new Startapp(opts)
 }

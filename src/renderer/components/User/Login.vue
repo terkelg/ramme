@@ -1,20 +1,19 @@
 <template>
-  <el-form label-position="left" :model="account">
-    <el-form-item label="Username">
-      <el-input v-model="account.username"></el-input>
-    </el-form-item>
-    <el-form-item label="Password">
-      <el-input type="password" v-model="account.password"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-button
+  <form labposition="left" :model="account">
+    <div label="Username">
+      <input v-model="account.username"></input>
+    </div>
+    <div label="Password">
+      <input type="password" v-model="account.password"></input>
+    </div>
+    <div>
+      <button
         type="primary"
-        @click="login"
-        v-loading.fullscreen.lock="fullscreenLoading">
+        @click="login">
         Login
-      </el-button>
-    </el-form-item>
-  </el-form>
+      </button>
+    </div>
+  </form>
 </template>
 
 <script>

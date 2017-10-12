@@ -2,8 +2,12 @@
   <aside id="sidebar">
     <div class="system-ui">
       <div class="system-ui--buttons">
-        <span class="system-ui--buttons--btn close"></span>
-        <span class="system-ui--buttons--btn minimize"></span>
+        <span
+          class="system-ui--buttons--btn close"
+          @click="close"></span>
+        <span
+          class="system-ui--buttons--btn minimize"
+          @click="minimize"></span>
       </div>
     </div>
     <nav>
@@ -80,6 +84,15 @@
       ...mapGetters({
         user: 'getUser'
       })
+    },
+
+    methods: {
+      close () {
+        this.$electron.ipcRenderer.send('close')
+      },
+      minimize () {
+        this.$electron.ipcRenderer.send('minimize')
+      }
     },
 
     watch: {

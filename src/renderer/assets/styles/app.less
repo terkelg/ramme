@@ -1,9 +1,9 @@
-@import '~element-ui/lib/theme-default/index.css';
-
 @import 'common/colors';
 @import 'common/icons';
 @import 'light/system';
 @import 'light/sidebar';
+@import 'light/components/buttons';
+@import 'light/components/profile';
 
 * {
   box-sizing: border-box;
@@ -11,6 +11,31 @@
   padding: 0;
 }
 
+html,
+body,
+.app {
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 5em 1fr;
+}
+
+aside {
+  grid-column: 1;
+}
+
+main {
+  grid-column: 2;
+  overflow: auto;
+  max-height: 100%;
 }

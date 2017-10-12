@@ -1,60 +1,55 @@
 <template>
-  <section>
+  <div>
     <header
       v-model="user">
-      <el-row class="user" v-if="Object.keys(user).length !== 0">
-        <el-col :span="6">
-          <Avatar :url="user.picture" />
-        </el-col>
-        <el-col :span="18">
-          <h2>
+      <div class="profile" v-if="Object.keys(user).length !== 0">
+        <Avatar :url="user.picture"></Avatar>
+        <div class="main-infos">
+          <h1>
             {{ user.username }}
-            <el-button type="text">
-              <i class="icon-cog"></i>
-            </el-button>
-          </h2>
+            <button type="text" class="btn-icon">
+              <i class="icon-settings"></i>
+            </button>
+          </h1>
           <el-button>
             Edit profile
           </el-button>
-        </el-col>
-      </el-row>
-      <el-row class="biography">
-        <el-col :span="24">
+        </div>
+      </div>
+      <div class="biography-box">
+        <div class="biography">
           <p>{{ user.biography }}</p>
           <a :href="user.externalLynxUrl">{{ user.externalUrl }}</a>
-        </el-col>
-      </el-row>
-      <el-row class="counters">
-        <el-col :span="8">
+        </div>
+      </div>
+      <div class="counter-box">
+        <div class="counter">
           <span class="counters--number">{{ user.mediaCount }}</span>
           <span class="counters--desc">post</span>
-        </el-col>
-        <el-col :span="8">
+        </div>
+        <div class="counter">
           <span class="counters--number">{{ user.followingCount }}</span>
           <span class="counters--desc">follower</span>
-        </el-col>
-        <el-col :span="8">
+        </div>
+        <div class="counter">
           <span class="counters--number">{{ user.followingCount }}</span>
           <span class="counters--desc">following</span>
-        </el-col>
-      </el-row>
+        </div>
+      </div>
     </header>
-    <main v-model="posts">
-      <el-row
-        class="posts"
-        v-loading.body="loadingMedia"
-        v-if="typeof posts !== 'undefined'">
-        <el-col
-          :span="8"
-          v-for="(post, i) of posts"
-          :key="i">
-          <div v-if="typeof post !== 'undefined'">
-            <img :src="post.images[0].url" width="100%" @click="log(post)">
-          </div>
-        </el-col>
-      </el-row>
-    </main>
-  </section>
+    <section
+      class="posts"
+      v-if="typeof posts !== 'undefined'">
+      <article
+        class="post"
+        v-for="(post, i) of posts"
+        :key="i">
+        <div v-if="typeof post !== 'undefined'">
+          <img :src="post.images[0].url" width="100%" @click="log(post)">
+        </div>
+      </article>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -121,9 +116,3 @@
     }
   }
 </script>
-
-<style>
-  .posts {
-    min-height: 400px;
-  }
-</style>
