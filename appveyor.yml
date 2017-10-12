@@ -22,7 +22,6 @@ install:
   - choco install yarn --ignore-dependencies
   - git reset --hard HEAD
   - yarn
-  - node --version
 
 build_script:
   - yarn build

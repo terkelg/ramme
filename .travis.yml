@@ -23,7 +23,7 @@ addons:
       - g++-multilib
 
 script:
-  - yarn run build
+  - yarn build
 
 notifications:
   slack: ramme:44ubE4BVf3FGi8OldEKL743J
