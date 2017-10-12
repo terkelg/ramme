@@ -74,7 +74,7 @@ class Startapp {
   }
 
   traySetup () {
-    let size = process.platform === 'win32' ? '64x64.png' : '32x32.png'
+    let size = process.platform === 'win32' ? '64x64.png' : '16x16.png'
     let icon = require('path').join(__dirname, '/../../../build/icons', size)
     let nicon = nativeImage.createFromPath(icon)
 

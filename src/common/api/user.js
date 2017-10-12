@@ -73,8 +73,9 @@ const getUser = async () => {
   if (user) {
     try {
       let session = await loadSession(user)
+      let account = await session.getAccount()
       let profile = await api.Account.showProfile(session)
-      return profile
+      return Object.assign({}, account._params, profile)
     } catch (e) {
       return false
     }
