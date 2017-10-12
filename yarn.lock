@@ -22,6 +22,14 @@
     "7zip-bin-mac" "^1.0.1"
     "7zip-bin-win" "^2.1.1"
 
+"7zip-bin@^2.2.7":
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-2.2.7.tgz#724802b8d6bda0bf2cfe61a4b86a820efc8ece93"
+  optionalDependencies:
+    "7zip-bin-linux" "^1.1.0"
+    "7zip-bin-mac" "^1.0.1"
+    "7zip-bin-win" "^2.1.1"
+
 "7zip@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/7zip/-/7zip-0.0.6.tgz#9cafb171af82329490353b4816f03347aa150a30"
@@ -1489,11 +1497,11 @@ builder-util-runtime@^1.0.8:
     debug "^3.1.0"
     fs-extra-p "^4.4.3"
 
-builder-util@3.0.10, builder-util@^3.0.10:
-  version "3.0.10"
-  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-3.0.10.tgz#841b75efef2ca939c88900f275524082cc92d1a5"
+builder-util@3.0.11:
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-3.0.11.tgz#078d71b883311bba0d96edef7dd784ea2917874b"
   dependencies:
-    "7zip-bin" "^2.2.4"
+    "7zip-bin" "^2.2.7"
     bluebird-lst "^1.0.4"
     builder-util-runtime "^2.0.0"
     chalk "^2.1.0"
@@ -1517,6 +1525,27 @@ builder-util@^2.0.10:
     "7zip-bin" "^2.2.4"
     bluebird-lst "^1.0.4"
     builder-util-runtime "^1.0.8"
+    chalk "^2.1.0"
+    debug "^3.1.0"
+    fs-extra-p "^4.4.3"
+    ini "^1.3.4"
+    is-ci "^1.0.10"
+    js-yaml "^3.10.0"
+    lazy-val "^1.0.2"
+    node-emoji "^1.8.1"
+    semver "^5.4.1"
+    source-map-support "^0.5.0"
+    stat-mode "^0.2.2"
+    temp-file "^2.0.3"
+    tunnel-agent "^0.6.0"
+
+builder-util@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-3.0.10.tgz#841b75efef2ca939c88900f275524082cc92d1a5"
+  dependencies:
+    "7zip-bin" "^2.2.4"
+    bluebird-lst "^1.0.4"
+    builder-util-runtime "^2.0.0"
     chalk "^2.1.0"
     debug "^3.1.0"
     fs-extra-p "^4.4.3"
@@ -2516,16 +2545,16 @@ ejs@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
 
-electron-builder@^19.35.1:
-  version "19.36.0"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.36.0.tgz#25a6025f6c08db9dacc6dc14c6299c8d5b3b1669"
+electron-builder@^19.36.0:
+  version "19.36.1"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.36.1.tgz#fa2afa6d8932d60fbf749db8ca97333b09a00939"
   dependencies:
-    "7zip-bin" "^2.2.4"
+    "7zip-bin" "^2.2.7"
     app-package-builder "1.1.0"
     asar-integrity "0.2.2"
     async-exit-hook "^2.0.1"
     bluebird-lst "^1.0.4"
-    builder-util "3.0.10"
+    builder-util "3.0.11"
     builder-util-runtime "2.0.0"
     chalk "^2.1.0"
     chromium-pickle-js "^0.2.0"
@@ -7329,9 +7358,9 @@ vue-electron@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/vue-electron/-/vue-electron-1.0.6.tgz#e798e03180b8933539defe31f92e53b9242b9406"
 
-vue-hot-reload-api@^2.1.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.1.tgz#1ba6712166182fd651753804b9d8d8d02d855579"
+vue-hot-reload-api@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.2.0.tgz#9a21b35ced3634434a43ee80efb7350ea8fb206d"
 
 vue-html-loader@^1.2.4:
   version "1.2.4"
@@ -7343,9 +7372,9 @@ vue-html-loader@^1.2.4:
     loader-utils "^1.0.2"
     object-assign "^4.1.0"
 
-vue-loader@^13.2.1:
-  version "13.2.1"
-  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-13.2.1.tgz#0c6cba3154d2b325d17dde2c0be52c34b888bc6d"
+vue-loader@^13.3.0:
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-13.3.0.tgz#3bf837d490ba5dea6fc07e0835ffa6c688c8af33"
   dependencies:
     consolidate "^0.14.0"
     hash-sum "^1.0.2"
@@ -7357,13 +7386,17 @@ vue-loader@^13.2.1:
     prettier "^1.7.0"
     resolve "^1.4.0"
     source-map "^0.6.1"
-    vue-hot-reload-api "^2.1.0"
+    vue-hot-reload-api "^2.2.0"
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
-vue-router@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.7.0.tgz#16d424493aa51c3c8cce8b7c7210ea4c3a89aff1"
+vue-perfect-scrollbar@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/vue-perfect-scrollbar/-/vue-perfect-scrollbar-0.0.14.tgz#3219c10cac2773203abf8b6454ce863e56ef6a5a"
+
+vue-router@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.0.tgz#458092ad5d8e3b8d26661cfbcbf46c120f8ea1ae"
 
 vue-style-loader@^3.0.0, vue-style-loader@^3.0.3:
   version "3.0.3"
@@ -7387,9 +7420,9 @@ vue@^2.4.4:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.4.tgz#ea9550b96a71465fd2b8b17b61673b3561861789"
 
-vuex@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/vuex/-/vuex-2.4.1.tgz#7890b650ba8565b70937b4e7670577082dfe8bc1"
+vuex@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.0.0.tgz#98b4b5c4954b1c1c1f5b29fa0476a23580315814"
 
 watchpack@^1.4.0:
   version "1.4.0"
@@ -7460,9 +7493,9 @@ webpack-sources@^1.0.1:
     source-list-map "^2.0.0"
     source-map "~0.5.3"
 
-webpack@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.6.0.tgz#a89a929fbee205d35a4fa2cc487be9cbec8898bc"
+webpack@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.7.1.tgz#6046b5c415ff7df7a0dc54c5b6b86098e8b952da"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
