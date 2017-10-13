@@ -24,7 +24,7 @@
       return {
         fullscreenLoading: false,
         account: {
-          username: 'anatolinicolae',
+          username: null,
           password: null
         }
       }

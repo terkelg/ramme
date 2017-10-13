@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div :class="appClass">
     <Sidebar class="sidebar"></Sidebar>
     <VuePerfectScrollbar class="wrapper">
       <router-view></router-view>
@@ -20,12 +20,22 @@
     },
 
     created () {
+      console.log(process.platform)
       this.$electron.ipcRenderer.send('getUser')
       this.$electron.ipcRenderer.on('getUser:res', (event, user) => {
         if (!user) {
           this.$router.push('login')
         }
       })
+    },
+
+    computed: {
+      appClass: function () {
+        return [
+          'app',
+          `os-${process.platform}`
+        ]
+      }
     },
 
     beforeDestroy () {

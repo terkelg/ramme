@@ -11,9 +11,9 @@
               <i class="icon-settings"></i>
             </button>
           </h1>
-          <el-button>
+          <button>
             Edit profile
-          </el-button>
+          </button>
         </div>
       </div>
       <div class="biography-box">

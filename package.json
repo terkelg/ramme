@@ -88,9 +88,11 @@
     "nedb": "^1.8.0",
     "touch": "^3.1.0",
     "vue": "^2.5.0",
+    "vue-click-helper": "^0.0.2",
     "vue-electron": "^1.0.6",
     "vue-perfect-scrollbar": "^0.0.14",
     "vue-router": "^3.0.0",
+    "vue-timeago": "^3.3.6",
     "vuex": "^3.0.0"
   },
   "devDependencies": {

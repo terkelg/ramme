@@ -21,7 +21,7 @@
           <span slot="title">{{ route.name }}</span>
         </router-link>
         <li onclick="javascript:history.back()">
-          <span class="arrow left"></span>
+          <span class="icon-left-arrow"></span>
         </li>
       </ul>
     </nav>

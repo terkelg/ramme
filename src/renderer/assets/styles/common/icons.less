@@ -1,72 +1,81 @@
-[class^="icon-"], [class*=" icon-"] {
+@import './icons';
+
+[class^="icon-"],
+[class*=" icon-"] {
   width: 1em;
   height: 1em;
   background-repeat: no-repeat;
   background-position: center center;
+  background-color: @nav-icon;
   display: inline-block;
 }
 
 .icon-home {
-  background-image: url('../../images/home.svg');
+  mask-image: url('../../images/home.svg');
 }
 .icon-home-filled,
 .router-link-exact-active .icon-home {
-  background-image: url('../../images/home-filled.svg');
+  mask-image: url('../../images/home-filled.svg');
 }
 
 .icon-search {
-  background-image: url('../../images/search.svg');
+  mask-image: url('../../images/search.svg');
 }
 .icon-search-filled,
 .router-link-exact-active .icon-search {
-  background-image: url('../../images/search-filled.svg');
+  mask-image: url('../../images/search-filled.svg');
 }
 
 .icon-upload {
-  background-image: url('../../images/upload.svg');
+  mask-image: url('../../images/upload.svg');
 }
 .icon-upload-filled,
 .router-link-exact-active .icon-upload {
-  background-image: url('../../images/upload-filled.svg');
+  mask-image: url('../../images/upload-filled.svg');
 }
 
 .icon-activity {
-  background-image: url('../../images/activity.svg');
+  mask-image: url('../../images/activity.svg');
 }
 .icon-activity-filled,
-.router-link-exact-active .icon-activity {
-  background-image: url('../../images/activity-filled.svg');
+.router-link-exact-active .icon-activity,
+.post-like-heart {
+  mask-image: url('../../images/activity-filled.svg');
 }
 
 .icon-profile {
-  background-image: url('../../images/profile-gender-anonymous.svg');
+  mask-image: url('../../images/profile-gender-anonymous.svg');
 }
 .icon-profile-filled,
 .router-link-exact-active .icon-profile {
-  background-image: url('../../images/profile-gender-anonymous-filled.svg');
+  mask-image: url('../../images/profile-gender-anonymous-filled.svg');
 }
 
 .icon-profile.gender-1 {
-  background-image: url('../../images/profile-gender-1.svg');
+  mask-image: url('../../images/profile-gender-1.svg');
 }
 .icon-profile-filled.gender-1,
 .router-link-exact-active .icon-profile.gender-1,
 .router-link-exact-active .icon-profile-filled.gender-1 {
-  background-image: url('../../images/profile-gender-1-filled.svg');
+  mask-image: url('../../images/profile-gender-1-filled.svg');
 }
 
 .icon-profile.gender-2 {
-  background-image: url('../../images/profile-gender-2.svg');
+  mask-image: url('../../images/profile-gender-2.svg');
 }
 .icon-profile-filled.gender-2,
 .router-link-exact-active .icon-profile.gender-2,
 .router-link-exact-active .icon-profile-filled.gender-2 {
-  background-image: url('../../images/profile-gender-2-filled.svg');
+  mask-image: url('../../images/profile-gender-2-filled.svg');
 }
 
 .icon-settings {
-  background-image: url('../../images/settings.svg');
+  mask-image: url('../../images/settings.svg');
 }
 .icon-settings-filled {
-  background-image: url('../../images/settings-filled.svg');
+  mask-image: url('../../images/settings-filled.svg');
+}
+
+.icon-left-arrow {
+  mask-image: url('../../images/left-arrow.svg');
 }

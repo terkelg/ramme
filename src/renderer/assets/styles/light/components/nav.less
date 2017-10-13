@@ -4,10 +4,10 @@ nav {
     text-align: center;
     position: relative;
     -webkit-app-region: no-drag;
-    .transition(all 250ms);
+    transition: all 250ms;
 
     &:hover {
-      .transition(all 250ms);
+      transition: all 250ms;
       background-color: @white;
     }
 
@@ -20,13 +20,13 @@ nav {
       width: .3125em;
       height: .3125em;
       background-color: @green;
-      .border-radius(.3125em);
-      .transition(all 250ms);
-      .transform(scale(0));
+      border-radius: .3125em;
+      transition: all 250ms;
+      transform: scale(0);
     }
 
     &.router-link-exact-active::after {
-      .transform(scale(1));
+      transform: scale(1);
     }
 
     i {

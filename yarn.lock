@@ -7303,6 +7303,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-click-helper@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/vue-click-helper/-/vue-click-helper-0.0.2.tgz#1dd34ebc23a95b4a47d8b9de260cc9464a866076"
+
 vue-electron@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/vue-electron/-/vue-electron-1.0.6.tgz#e798e03180b8933539defe31f92e53b9242b9406"
@@ -7364,6 +7368,10 @@ vue-template-compiler@^2.5.0:
 vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
+
+vue-timeago@^3.3.6:
+  version "3.3.6"
+  resolved "https://registry.yarnpkg.com/vue-timeago/-/vue-timeago-3.3.6.tgz#c849042ddaf159f24c80ac317211a0d4b427e5fc"
 
 vue@^2.5.0:
   version "2.5.0"

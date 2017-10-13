@@ -1,14 +1,20 @@
-@import 'common/colors';
 @import 'common/icons';
-@import 'light/system';
-@import 'light/sidebar';
-@import 'light/components/buttons';
-@import 'light/components/profile';
+@import 'common/colors';
+@import 'light/index';
+@import 'dark/index';
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+input:active,
+input:focus,
+button:active,
+button:focus {
+  outline: 2px solid @accent;
+  outline-offset: 2px;
 }
 
 html,
@@ -28,6 +34,11 @@ body {
 .app {
   display: grid;
   grid-template-columns: 5em 1fr;
+  background-color: @backgrounds;
+
+  &.os-linux {
+    border: 2px solid @accent;
+  }
 }
 
 aside {
