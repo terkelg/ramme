@@ -7,6 +7,7 @@ const win = BrowserWindow.getAllWindows()[0]
 const appName = app.getName()
 
 function sendAction (action) {
+  const win = BrowserWindow.getAllWindows()[0]
   if (isPlatform('macOS')) {
     win.restore()
   }
