@@ -3,13 +3,13 @@
     <section
       class="posts"
       v-if="typeof posts !== 'undefined'">
-      <div
+      <article
+        class="post"
         v-for="(post, i) of posts"
         :key="i">
-        <div v-if="typeof post !== 'undefined'">
-          <img :src="post.images[0].url" width="100%" @click="log(post)">
+        <div v-if="typeof post !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
         </div>
-      </div>
+      </article>
     </section>
   </div>
 </template>

@@ -9,13 +9,30 @@
   padding: 0;
 }
 
-input:active,
-input:focus,
-button:active,
-button:focus {
-  outline: 2px solid @accent;
-  outline-offset: 2px;
+a {
+  text-decoration: none;
+  color: @main;
 }
+
+ol,
+ul {
+  list-style: none;
+}
+
+a,
+input,
+button {
+  outline: none;
+}
+/* outline: 2px solid rgba(255, 255, 255, 0);
+  outline-offset: 2px;
+  cursor: pointer;
+
+  &:active,
+  &:focus {
+    outline: 2px solid @accent;
+  }
+} */
 
 html,
 body,
@@ -23,12 +40,22 @@ body,
   height: 100%;
   display: block;
   overflow: hidden;
+  cursor: default;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.clickable {
+  -webkit-app-region: no-drag;
 }
 
 .app {

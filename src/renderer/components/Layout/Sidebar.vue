@@ -1,26 +1,27 @@
 <template>
-  <aside id="sidebar">
-    <div class="system-ui">
-      <div class="system-ui--buttons">
+  <aside id="sidebar draggable">
+    <div class="system-ui draggable">
+      <div class="system-ui--buttons draggable">
         <span
-          class="system-ui--buttons--btn close"
+          class="system-ui--buttons--btn close clickable"
           @click="close"></span>
         <span
-          class="system-ui--buttons--btn minimize"
+          class="system-ui--buttons--btn minimize clickable"
           @click="minimize"></span>
       </div>
     </div>
-    <nav>
-      <ul>
+    <nav class="draggable">
+      <ul class="draggable">
         <router-link
           v-for="route in routes"
           :key="route.href"
           :to="route.href"
-          tag="li">
+          tag="li"
+          class="clickable">
           <i :class="route.icon"></i>
           <span slot="title">{{ route.name }}</span>
         </router-link>
-        <li onclick="javascript:history.back()">
+        <li onclick="javascript:history.back()" class="clickable">
           <span class="icon-left-arrow"></span>
         </li>
       </ul>

@@ -1,6 +1,6 @@
 <template>
-  <div class="avatar">
-    <img :src="url" height="64" />
+  <div class="avatar" v-bind:style="{ height: `${size}px`, width: `${size}px` }">
+    <img :src="url" :height="size" :width="size" />
   </div>
 </template>
 
@@ -11,6 +11,11 @@
       url: {
         type: String,
         required: true
+      },
+      size: {
+        type: Number,
+        required: false,
+        default: 64
       }
     }
   }

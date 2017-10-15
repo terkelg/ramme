@@ -1,0 +1,19 @@
+.avatar {
+  position: relative;
+
+  img {
+    border-radius: 50%;
+  }
+
+  &::after {
+    border: 1px solid rgba(0,0,0,.0975);
+    border-radius: 50%;
+    bottom: 0;
+    content: '';
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

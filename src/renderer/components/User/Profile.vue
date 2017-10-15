@@ -1,41 +1,43 @@
 <template>
   <div>
     <header
-      v-model="user">
-      <div class="profile" v-if="Object.keys(user).length !== 0">
+      v-model="user"
+      class="user-profile draggable">
+      <div class="profile draggable" v-if="Object.keys(user).length !== 0">
         <Avatar :url="user.picture"></Avatar>
         <div class="main-infos">
           <h1>
             {{ user.username }}
-            <button type="text" class="btn-icon">
+            <button type="text" class="btn btn-icon">
               <i class="icon-settings"></i>
             </button>
           </h1>
-          <button>
+          <button class="btn btn-default clickable">
             Edit profile
           </button>
         </div>
       </div>
-      <div class="biography-box">
+      <div class="biography-box draggable">
         <div class="biography">
-          <p>{{ user.biography }}</p>
-          <a :href="user.externalLynxUrl">{{ user.externalUrl }}</a>
+          <h2>{{ user.fullName }}</h2>
+          <span>{{ user.biography }}</span>
+          <a :href="user.externalLynxUrl" class="clickable">{{ user.externalUrl }}</a>
         </div>
       </div>
-      <div class="counter-box">
-        <div class="counter">
-          <span class="counters--number">{{ user.mediaCount }}</span>
-          <span class="counters--desc">post</span>
-        </div>
-        <div class="counter">
-          <span class="counters--number">{{ user.followingCount }}</span>
-          <span class="counters--desc">follower</span>
-        </div>
-        <div class="counter">
-          <span class="counters--number">{{ user.followingCount }}</span>
-          <span class="counters--desc">following</span>
-        </div>
-      </div>
+      <ul class="counter-box draggable">
+        <li class="counter-item">
+          <span class="counter-number">{{ user.mediaCount }}</span>
+          <span class="counter-desc">post</span>
+        </li>
+        <li class="counter-item">
+          <span class="counter-number">{{ user.followingCount }}</span>
+          <span class="counter-desc">follower</span>
+        </li>
+        <li class="counter-item">
+          <span class="counter-number">{{ user.followingCount }}</span>
+          <span class="counter-desc">following</span>
+        </li>
+      </ul>
     </header>
     <section
       class="posts"
@@ -44,8 +46,7 @@
         class="post"
         v-for="(post, i) of posts"
         :key="i">
-        <div v-if="typeof post !== 'undefined'">
-          <img :src="post.images[0].url" width="100%" @click="log(post)">
+        <div v-if="typeof post !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
         </div>
       </article>
     </section>

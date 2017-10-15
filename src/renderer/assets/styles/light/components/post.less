@@ -1,24 +1,73 @@
-.post-content {
-  position: relative;
+.post-grid {
 
-  img,
-  video {
-    max-width: 100%;
+}
+
+.post-single {
+  header {
+    padding: 1em;
+
+    .avatar {
+      max-width: 30px;
+      display: inline-block;
+    }
+
+    .user-data {
+      overflow: hidden;
+      margin-left: 12px;
+      display: inline-block;
+      line-height: 30px;
+
+      a {
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-left: 5px;
+        margin-left: -5px;
+      }
+    }
   }
 
-  .post-like-heart {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 64px;
-    height: 64px;
-    filter: invert(1);
-    margin: -32px;
-    transition: all 150ms;
-    transform: scale(0);
+  .post-media {
+    position: relative;
+
+    img,
+    video {
+      max-width: 100%;
+    }
+
+    .post-liked-heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 64px;
+      height: 64px;
+      margin: -32px;
+      transition: all .15s;
+      background-color: #fff;
+      transition: all 150ms;
+      transform: scale(0);
+    }
+
+    &.liked-animation .post-liked-heart {
+      transform: scale(1);
+    }
   }
 
-  &.liked-animation .post-like-heart {
-    transform: scale(1);
+  .post-content {
+    padding: 0 16px;
+
+    .post-actions .btn {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+
+      i {
+        background-color: tomato;
+        height: 24px;
+        width: 24px;
+        display: inline-block;
+      }
+    }
   }
 }

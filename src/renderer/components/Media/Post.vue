@@ -1,6 +1,12 @@
 <template v-model="post">
-  <article v-if="Object.keys(post).length !== 0" v-click-helper="clickterceptor">
-    <div :class="classObject">
+  <article v-if="Object.keys(post).length !== 0" class="post-single draggable">
+    <header>
+      <Avatar :url="post.user.profile_pic_url" :size="30"></Avatar>
+      <div class="user-data">
+        <a :href="'/' + post.user.username" class="user-name clickable">{{ post.user.username }}</a>
+      </div>
+    </header>
+    <div :class="classObject" v-click-helper="clickterceptor">
       <img :src="post.images[0].url" width="100%" v-if="!post.video" />
       <video
         :src="post.video.versions[0].url"
@@ -9,22 +15,29 @@
         v-if="post.video"
         >
       </video>
-      <div class="post-like-heart"></div>
+      <div class="post-liked-heart"></div>
     </div>
-    <p>{{ post.caption }}</p>
-    <div class="counters">
-      <div :span="8">
-        <span class="counters--number">{{ post.likeCount }}</span>
-        <span class="counters--desc">Likes</span>
+    <div class="post-content">
+      <div class="post-actions">
+        <button type="button" @click="like" class="btn btn-icon">
+          <i :class="likeBtn"></i>
+        </button>
       </div>
-      <div :span="8">
-        <span class="counters--number">{{ post.commentCount }}</span>
-        <span class="counters--desc">Comments</span>
+      <div class="counters">
+        <div :span="8">
+          <span class="counters--number">{{ post.likeCount }}</span>
+          <span class="counters--desc">Likes</span>
+        </div>
+        <div :span="8">
+          <span class="counters--number">{{ post.commentCount }}</span>
+          <span class="counters--desc">Comments</span>
+        </div>
+        <timeago :since="post.takenAt" :auto-update="60"></timeago>
       </div>
-      <timeago :since="post.takenAt" :auto-update="60"></timeago>
+      <p>{{ post.caption }}</p>
     </div>
     <!--pre>
-      {{ post.video }}
+      {{ post }}
     </pre-->
   </article>
 </template>
@@ -32,6 +45,7 @@
 <script>
   import { mapGetters } from 'vuex'
   import vueClickHelper from 'vue-click-helper'
+  import Avatar from '../User/Avatar'
 
   export default {
     name: 'Post',
@@ -44,6 +58,10 @@
       }
     },
 
+    components: {
+      Avatar
+    },
+
     directives: {
       'click-helper': vueClickHelper
     },
@@ -52,13 +70,16 @@
       clickterceptor (e, isDoubleClick) {
         if (isDoubleClick) {
           this.like()
-        } else {
+        }
+
+        if (this.post.video) {
           this.togglePlay()
         }
       },
 
       like () {
         this.likedAnimation = true
+        this.post.hasLiked = !this.post.hasLiked
 
         setTimeout(() => {
           this.likedAnimation = false
@@ -95,8 +116,16 @@
 
       classObject: function () {
         return {
-          'post-content': true,
+          'post-media': true,
+          'clickable': true,
           'liked-animation': this.likedAnimation
+        }
+      },
+
+      likeBtn: function () {
+        return {
+          'post-like-heart': !this.post.hasLiked,
+          'post-liked-heart': this.post.hasLiked
         }
       }
     },
