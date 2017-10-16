@@ -22,11 +22,11 @@ addons:
       - gcc-multilib
       - g++-multilib
 
+before_install:
+  - rvm get head
+
 script:
   - yarn build
-
-after_script:
-  - set +e # Disable errors to work around Travis not knowing how to fix their stuff.
 
 notifications:
   slack: ramme:44ubE4BVf3FGi8OldEKL743J
