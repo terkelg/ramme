@@ -26,19 +26,25 @@ class WindowUtils {
       height: mainWindowState.height,
       minWidth: 440,
       minHeight: 580,
+      maxWidth: 600,
+      maxHeight: 800,
 
       useContentSize: true,
       maximizable: false,
+      fullscreen: false,
       fullscreenable: false,
+      kiosk: false,
 
       backgroundColor: '#ffffff',
 
       frame: false,
-      // skipTaskbar: true,
       show: false
     }
 
     let mainWindow = new BrowserWindow(mainWindowOptions)
+
+    // Force no-fullscreen
+    mainWindow.setResizable(false)
 
     const positioner = new Positioner(mainWindow)
 

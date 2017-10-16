@@ -3,7 +3,11 @@
     <header>
       <Avatar :url="post.user.profile_pic_url" :size="30"></Avatar>
       <div class="user-data">
-        <a :href="'/' + post.user.username" class="user-name clickable">{{ post.user.username }}</a>
+        <a
+          class="user-name clickable"
+          @click="navigate(post.user.username)">
+          {{ post.user.username }}
+        </a>
       </div>
     </header>
     <div :class="classObject" v-click-helper="clickterceptor">
@@ -18,7 +22,7 @@
       <div class="post-liked-heart"></div>
     </div>
     <div class="post-content">
-      <div class="post-actions">
+      <div class="post-actions clickable">
         <button type="button" @click="like" class="btn btn-icon">
           <i :class="likeBtn"></i>
         </button>
@@ -28,13 +32,34 @@
           <span class="counters--number">{{ post.likeCount }}</span>
           <span class="counters--desc">Likes</span>
         </div>
+        <div v-if="post.viewCount">
+          <span class="counters--number">{{ post.viewCount }}</span>
+          <span class="counters--desc">Views</span>
+        </div>
         <div :span="8">
           <span class="counters--number">{{ post.commentCount }}</span>
           <span class="counters--desc">Comments</span>
         </div>
         <timeago :since="post.takenAt" :auto-update="60"></timeago>
       </div>
-      <p>{{ post.caption }}</p>
+      <ul class="comments">
+        <li class="comment-content" v-if="post.caption">
+          <span
+            class="comment-author clickable"
+            @click="navigate(post.user.username)">
+            {{ post.user.username }}
+          </span>
+          <span class="comment-text">{{ post.caption }}</span>
+        </li>
+        <li class="comment-content" v-for="comment in comments">
+          <span
+            class="comment-author clickable"
+            @click="navigate(comment._params.user.username)">
+            {{ comment._params.user.username }}
+          </span>
+          <span class="comment-text">{{ comment._params.text }}</span>
+        </li>
+      </ul>
     </div>
     <!--pre>
       {{ post }}
@@ -72,18 +97,13 @@
           this.like()
         }
 
-        if (this.post.video) {
+        if (!isDoubleClick && this.post.video) {
           this.togglePlay()
         }
       },
 
       like () {
-        this.likedAnimation = true
-        this.post.hasLiked = !this.post.hasLiked
-
-        setTimeout(() => {
-          this.likedAnimation = false
-        }, 750)
+        this.$electron.ipcRenderer.send('likeMedia', this.post)
       },
 
       togglePlay () {
@@ -94,24 +114,41 @@
         }
 
         this.isPlaying = !this.isPlaying
+      },
+
+      navigate (url) {
+        console.log(url)
       }
     },
 
     created () {
       this.$electron.ipcRenderer.send('getMedia', this.$route.params.id)
+
       this.$electron.ipcRenderer.on('getMedia:res', (event, media) => {
         this.$store.commit('SET_POST', media._params)
         this.fullscreenLoading = false
+        this.$electron.ipcRenderer.send('getMediaComments', this.post.id)
       })
-      this.$electron.ipcRenderer.on('setMediaLike:res', (event, media) => {
+
+      this.$electron.ipcRenderer.on('likeMedia:res', (event, media) => {
         this.$store.commit('SET_POST', media._params)
-        this.fullscreenLoading = false
+        if (this.post.hasLiked) {
+          this.likedAnimation = true
+          setTimeout(() => {
+            this.likedAnimation = false
+          }, 750)
+        }
+      })
+
+      this.$electron.ipcRenderer.on('getMediaComments:res', (event, comments) => {
+        this.$store.commit('SET_POST_COMMENTS', comments)
       })
     },
 
     computed: {
       ...mapGetters({
-        post: 'getPost'
+        post: 'getPost',
+        comments: 'getComments'
       }),
 
       classObject: function () {
@@ -132,8 +169,9 @@
 
     beforeDestroy () {
       this.$electron.ipcRenderer.removeAllListeners('getMedia:res')
-      this.$electron.ipcRenderer.removeAllListeners('setMediaLike:res')
+      this.$electron.ipcRenderer.removeAllListeners('likeMedia:res')
       this.$store.commit('UNSET_POST')
+      this.$store.commit('UNSET_POST_COMMENTS')
     }
   }
 </script>

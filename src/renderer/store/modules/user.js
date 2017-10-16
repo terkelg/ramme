@@ -25,6 +25,9 @@ const mutations = {
   },
   SET_USER_FEED (state, feed) {
     state.feed = feed
+  },
+  ADD_USER_FEED (state, feed) {
+    feed.forEach(e => state.feed.push(e))
   }
 }
 

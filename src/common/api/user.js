@@ -83,14 +83,14 @@ const getUser = async () => {
 }
 
 // Get user data
-const getUserMedia = async (page = 1, limit = 1) => {
+const getUserMedia = async (cursor = null) => {
   if (user) {
     try {
       let session = await loadSession(user)
       let account = await session.getAccount()
       let feed = new api.Feed.UserMedia(session, account._params.id)
 
-      feed.setCursor(page)
+      if (cursor) feed.setCursor(cursor)
 
       let q = await feed.get()
 

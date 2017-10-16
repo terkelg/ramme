@@ -17,13 +17,23 @@ export default function () {
     event.sender.send('getUserFeed:res', media)
   })
 
-  ipcMain.on('getUserMedia', async (event, arg) => {
-    let media = await api.user.getUserMedia()
+  ipcMain.on('getUserMedia', async (event, cursor) => {
+    let media = await api.user.getUserMedia(cursor)
     event.sender.send('getUserMedia:res', media)
   })
 
   ipcMain.on('getMedia', async (event, post) => {
-    let media = await api.media.getPost(post)
+    let media = await api.media.get(post)
     event.sender.send('getMedia:res', media)
+  })
+
+  ipcMain.on('likeMedia', async (event, post) => {
+    let media = await api.media.like(post)
+    event.sender.send('likeMedia:res', media)
+  })
+
+  ipcMain.on('getMediaComments', async (event, id) => {
+    let comments = await api.media.getComments(id)
+    event.sender.send('getMediaComments:res', comments)
   })
 }

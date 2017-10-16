@@ -21,7 +21,7 @@
         <div class="biography">
           <h2>{{ user.fullName }}</h2>
           <span>{{ user.biography }}</span>
-          <a :href="user.externalLynxUrl" class="clickable">{{ user.externalUrl }}</a>
+          <a :href="user.externalLynxUrl" class="clickable">{{ removeProto(user.externalUrl) }}</a>
         </div>
       </div>
       <ul class="counter-box draggable">
@@ -40,7 +40,7 @@
       </ul>
     </header>
     <section
-      class="posts"
+      class="post-grid posts"
       v-if="typeof posts !== 'undefined'">
       <article
         class="post"
@@ -49,6 +49,14 @@
         <div v-if="typeof post !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
         </div>
       </article>
+      <div class="load-more">
+        <button
+          type="button"
+          class="btn btn-default"
+          @click="loadMore">
+          Load More
+        </button>
+      </div>
     </section>
   </div>
 </template>
@@ -62,7 +70,7 @@
 
     data () {
       return {
-        loadingMedia: false
+        cursor: null
       }
     },
 
@@ -81,20 +89,25 @@
 
       this.$electron.ipcRenderer.on('getUserMedia:res', (event, media) => {
         if (media) {
-          this.$store.commit('SET_USER_FEED', media)
-          this.loadingMedia = false
+          if (this.posts) {
+            this.$store.commit('ADD_USER_FEED', media)
+          } else {
+            this.$store.commit('SET_USER_FEED', media)
+          }
+          this.cursor = this.posts[this.posts.length - 1].id
         }
       })
     },
 
     mounted () {
+      this.$on('ps-x-reach-end', console.log)
+
       if (!('id' in this.user)) {
         this.$electron.ipcRenderer.send('getUser')
       }
 
       if (!this.posts.length) {
-        this.loadingMedia = true
-        this.$electron.ipcRenderer.send('getUserMedia')
+        this.$electron.ipcRenderer.send('getUserMedia', this.cursor)
       }
     },
 
@@ -108,6 +121,15 @@
     methods: {
       log (post) {
         this.$router.push(`/post/${post.id}`)
+      },
+
+      loadMore () {
+        this.$electron.ipcRenderer.send('getUserMedia', this.cursor)
+      },
+
+      removeProto (url) {
+        if (typeof url === 'undefined') return
+        return url.replace(/https?:?\/?\/?/, '')
       }
     },
 

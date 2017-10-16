@@ -13,7 +13,7 @@ const loadSession = user => {
 }
 
 // Check if user logged in
-const getPost = async id => {
+const get = async id => {
   if (user) {
     let session = await loadSession(user)
     let media = await api.Media.getById(session, id)
@@ -21,6 +21,38 @@ const getPost = async id => {
   }
 }
 
+// Add like to post
+const like = async post => {
+  if (user) {
+    let session = await loadSession(user)
+    let media
+
+    if (post.hasLiked) {
+      media = await api.Like.destroy(session, post.id)
+    } else {
+      media = await api.Like.create(session, post.id)
+    }
+
+    if (media) {
+      return get(post.id)
+    }
+
+    return false
+  }
+}
+
+// Get post comments
+const getComments = async id => {
+  if (user) {
+    let session = await loadSession(user)
+    let comments = new api.Feed.MediaComments(session, id)
+    let q = await comments.get()
+    return q
+  }
+}
+
 export default {
-  getPost
+  get,
+  like,
+  getComments
 }
