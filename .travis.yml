@@ -22,9 +22,6 @@ addons:
       - gcc-multilib
       - g++-multilib
 
-before_install:
-  - rvm get head
-
 script:
   - yarn build
 
