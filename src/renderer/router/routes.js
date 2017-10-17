@@ -25,6 +25,11 @@ export default [
     component: require('@/components/Media/Post').default
   },
   {
+    path: '/activity',
+    name: 'activity',
+    component: require('@/components/User/Activity').default
+  },
+  {
     path: '*',
     redirect: '/'
   }

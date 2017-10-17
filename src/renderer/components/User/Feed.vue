@@ -1,17 +1,31 @@
 <template>
-  <div v-model="posts">
-    <section
-      class="posts"
-      v-if="typeof posts !== 'undefined'">
-      <article
-        class="post"
-        v-for="(post, i) of posts"
-        :key="i">
-        <div v-if="typeof post !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
+  <section
+    class="post-grid posts"
+    v-if="typeof posts !== 'undefined'">
+    <article
+      class="post"
+      v-for="(post, i) of posts"
+      :key="i">
+      <div v-if="typeof post.images[0].url !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
+      </div>
+      <!--pre v-if="typeof post.images[0].url === 'undefined'">
+        {{ post.images[0] }}
+      </pre-->
+      <agile v-if="typeof post.images[0].url === 'undefined'" :dots="false" :infinite="false">
+        <div class="slide" v-for="image of post.images">
+          <img :src="image[0].url" />
         </div>
-      </article>
-    </section>
-  </div>
+      </agile>
+    </article>
+    <div class="load-more">
+      <button
+        type="button"
+        class="btn btn-default"
+        @click="loadMore">
+        Load More
+      </button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -22,23 +36,27 @@
 
     data () {
       return {
-        loadingMedia: false
+        cursor: null
       }
     },
 
     created () {
       this.$electron.ipcRenderer.on('getUserFeed:res', (event, media) => {
         if (media) {
-          this.$store.commit('SET_FEED', media)
-          this.loadingMedia = false
+          if (this.posts) {
+            this.$store.commit('ADD_FEED', media)
+          } else {
+            this.$store.commit('SET_FEED', media)
+          }
+          console.log(media)
+          this.cursor = this.posts[this.posts.length - 1].id
         }
       })
     },
 
     mounted () {
       if (!this.posts.length) {
-        this.loadingMedia = true
-        this.$electron.ipcRenderer.send('getUserFeed')
+        this.$electron.ipcRenderer.send('getUserFeed', this.cursor)
       }
     },
 
@@ -51,6 +69,10 @@
     methods: {
       log (post) {
         this.$router.push(`/post/${post.id}`)
+      },
+
+      loadMore () {
+        this.$electron.ipcRenderer.send('getUserFeed', this.cursor)
       }
     },
 

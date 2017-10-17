@@ -20,7 +20,6 @@
     },
 
     created () {
-      console.log(process.platform)
       this.$electron.ipcRenderer.send('getUser')
       this.$electron.ipcRenderer.on('getUser:res', (event, user) => {
         if (!user) {

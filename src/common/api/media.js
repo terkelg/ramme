@@ -41,6 +41,29 @@ const like = async post => {
   }
 }
 
+const getFeed = async (cursor = null) => {
+  if (user) {
+    try {
+      let session = await loadSession(user)
+      let feed = new api.Feed.Timeline(session)
+
+      if (cursor) feed.setCursor(cursor)
+
+      let q = await feed.get()
+
+      return q.map(el => {
+        return {
+          images: el._params.images,
+          id: el.id,
+          url: el._params.webLink
+        }
+      })
+    } catch (e) {
+      return false
+    }
+  }
+}
+
 // Get post comments
 const getComments = async id => {
   if (user) {
@@ -54,5 +77,6 @@ const getComments = async id => {
 export default {
   get,
   like,
+  getFeed,
   getComments
 }

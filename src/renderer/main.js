@@ -3,6 +3,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import { install as devtron } from 'devtron'
 import VueTimeago from 'vue-timeago'
+import VueAgile from 'vue-agile'
 
 import './assets/styles/app.less'
 
@@ -11,6 +12,7 @@ import router from './router'
 import store from './store'
 import api from '../common/api'
 
+Vue.use(VueAgile)
 Vue.use(VueTimeago, {
   locale: 'en-US',
   locales: {

@@ -8,18 +8,23 @@ export default function () {
   })
 
   ipcMain.on('getUser', async (event, arg) => {
-    let user = await api.user.getUser()
+    let user = await api.user.get()
     event.sender.send('getUser:res', user)
   })
 
-  ipcMain.on('getUserFeed', async (event, arg) => {
-    let media = await api.user.getUserFeed()
+  ipcMain.on('getUserFeed', async (event, cursor) => {
+    let media = await api.media.getFeed(cursor)
     event.sender.send('getUserFeed:res', media)
   })
 
   ipcMain.on('getUserMedia', async (event, cursor) => {
-    let media = await api.user.getUserMedia(cursor)
+    let media = await api.user.getMedia(cursor)
     event.sender.send('getUserMedia:res', media)
+  })
+
+  ipcMain.on('getActivity', async (event, cursor) => {
+    let activity = await api.user.getActivity(cursor)
+    event.sender.send('getActivity:res', activity)
   })
 
   ipcMain.on('getMedia', async (event, post) => {

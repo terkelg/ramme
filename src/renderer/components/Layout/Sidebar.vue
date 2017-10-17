@@ -53,11 +53,11 @@
             icon: 'icon-upload',
             href: '/upload'
           },
-          {
+          /* {
             name: 'Activity',
             icon: 'icon-activity',
             href: '/activity'
-          },
+          }, */
           {
             name: 'Profile',
             icon: 'icon-profile',
@@ -98,8 +98,8 @@
 
     watch: {
       user (user) {
-        if (user.gender && this.routes[4].icon.indexOf('gender') === -1) {
-          this.routes[4].icon += ` gender-${user.gender}`
+        if (user.gender && this.routes[this.routes.length - 1].icon.indexOf('gender') === -1) {
+          this.routes[this.routes.length - 1].icon += ` gender-${user.gender}`
         }
       }
     },

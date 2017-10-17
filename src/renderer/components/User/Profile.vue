@@ -100,8 +100,6 @@
     },
 
     mounted () {
-      this.$on('ps-x-reach-end', console.log)
-
       if (!('id' in this.user)) {
         this.$electron.ipcRenderer.send('getUser')
       }

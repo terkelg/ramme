@@ -1,6 +1,7 @@
 import { V1 as api } from 'instagram-private-api'
 import settings from 'electron-settings'
 import hasha from 'hasha'
+import { inspect } from 'util'
 import utils from '../utils'
 
 let user = settings.get('currentUser')
@@ -69,7 +70,7 @@ const doLogin = async (username, password) => {
 }
 
 // Get user data
-const getUser = async () => {
+const get = async () => {
   if (user) {
     try {
       let session = await loadSession(user)
@@ -83,7 +84,7 @@ const getUser = async () => {
 }
 
 // Get user data
-const getUserMedia = async (cursor = null) => {
+const getMedia = async (cursor = null) => {
   if (user) {
     try {
       let session = await loadSession(user)
@@ -107,23 +108,45 @@ const getUserMedia = async (cursor = null) => {
   }
 }
 
-const getUserFeed = async (page = 1, limit = 1) => {
+// Get activity
+const getFollowers = async (cursor = null) => {
   if (user) {
     try {
       let session = await loadSession(user)
-      let feed = new api.Feed.Timeline(session)
+      let account = await session.getAccount()
+      let feed = new api.Feed.AccountFollowers(session, account._params.id)
 
-      feed.setCursor(page)
+      if (cursor) feed.setCursor(cursor)
 
       let q = await feed.get()
 
       return q.map(el => {
         return {
-          images: el._params.images,
-          id: el.id,
-          url: el._params.webLink
+          events: el._events,
+          eventsCount: el._eventsCount,
+          params: el._params
         }
       })
+    } catch (e) {
+      return false
+    }
+  }
+}
+
+// Get activity
+const getActivity = async (cursor = null) => {
+  if (user) {
+    try {
+      let session = await loadSession(user)
+      // let account = await session.getAccount()
+      return new api.Request(session)
+        .setMethod('GET')
+        .setResource('news')
+        .send()
+        .then(function (json) {
+          console.log(inspect(json))
+          return inspect(json)
+        })
     } catch (e) {
       return false
     }
@@ -133,7 +156,8 @@ const getUserFeed = async (page = 1, limit = 1) => {
 export default {
   isLoggedIn,
   doLogin,
-  getUser,
-  getUserFeed,
-  getUserMedia
+  get,
+  getMedia,
+  getFollowers,
+  getActivity
 }

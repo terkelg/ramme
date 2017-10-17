@@ -86,6 +86,7 @@
     "mkdirp": "^0.5.1",
     "touch": "^3.1.0",
     "vue": "^2.5.2",
+    "vue-agile": "^0.2.6",
     "vue-click-helper": "^0.0.2",
     "vue-electron": "^1.0.6",
     "vue-perfect-scrollbar": "^0.0.14",

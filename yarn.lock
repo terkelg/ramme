@@ -7162,6 +7162,12 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-agile@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/vue-agile/-/vue-agile-0.2.6.tgz#ddeaf5e8e444749c852eccca82203fd5b5651ff5"
+  dependencies:
+    vue "2.*.*"
+
 vue-click-helper@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/vue-click-helper/-/vue-click-helper-0.0.2.tgz#1dd34ebc23a95b4a47d8b9de260cc9464a866076"
@@ -7232,7 +7238,7 @@ vue-timeago@^3.3.6:
   version "3.3.6"
   resolved "https://registry.yarnpkg.com/vue-timeago/-/vue-timeago-3.3.6.tgz#c849042ddaf159f24c80ac317211a0d4b427e5fc"
 
-vue@^2.5.2:
+vue@2.*.*, vue@^2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.2.tgz#fd367a87bae7535e47f9dc5c9ec3b496e5feb5a4"
 
