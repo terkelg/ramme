@@ -143,13 +143,6 @@ const template = [{
     }
   },
   {
-    label: 'Upload',
-    accelerator: 'CmdOrCtrl+3',
-    click () {
-      sendAction('navigate-upload')
-    }
-  },
-  {
     label: 'Notifications',
     accelerator: 'CmdOrCtrl+4',
     click () {
