@@ -11,14 +11,19 @@
       </div>
     </header>
     <div :class="classObject" v-click-helper="clickterceptor">
-      <img :src="post.images[0].url" width="100%" v-if="!post.video" />
+      <img :src="post.images[0].url" width="100%" v-if="typeof post.images[0].url !== 'undefined' && !post.video" />
       <video
         :src="post.video.versions[0].url"
         :autoplay="isPlaying"
         loop="true"
-        v-if="post.video"
+        v-if="typeof post.images[0].url !== 'undefined' && post.video"
         >
       </video>
+      <agile v-if="typeof post.images[0].url === 'undefined'" :dots="false" :infinite="false">
+        <div class="slide" v-for="image of post.images">
+          <img :src="image[0].url" @click="log(post)"/>
+        </div>
+      </agile>
       <div class="post-liked-heart"></div>
     </div>
     <div class="post-content">
@@ -104,6 +109,12 @@
 
       like () {
         this.$electron.ipcRenderer.send('likeMedia', this.post)
+        if (!this.post.hasLiked) {
+          this.likedAnimation = true
+          setTimeout(() => {
+            this.likedAnimation = false
+          }, 750)
+        }
       },
 
       togglePlay () {
@@ -132,12 +143,6 @@
 
       this.$electron.ipcRenderer.on('likeMedia:res', (event, media) => {
         this.$store.commit('SET_POST', media._params)
-        if (this.post.hasLiked) {
-          this.likedAnimation = true
-          setTimeout(() => {
-            this.likedAnimation = false
-          }, 750)
-        }
       })
 
       this.$electron.ipcRenderer.on('getMediaComments:res', (event, comments) => {

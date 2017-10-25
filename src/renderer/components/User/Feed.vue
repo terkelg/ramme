@@ -13,7 +13,7 @@
       </pre-->
       <agile v-if="typeof post.images[0].url === 'undefined'" :dots="false" :infinite="false">
         <div class="slide" v-for="image of post.images">
-          <img :src="image[0].url" />
+          <img :src="image[0].url" @click="log(post)"/>
         </div>
       </agile>
     </article>
