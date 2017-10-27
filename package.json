@@ -84,6 +84,7 @@
     "instagram-private-api": "^0.6.7",
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
+    "normalize.css": "^7.0.0",
     "touch": "^3.1.0",
     "vue": "^2.5.2",
     "vue-agile": "^0.2.6",

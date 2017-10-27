@@ -38,7 +38,6 @@ html,
 body,
 .app {
   height: 100%;
-  display: block;
   overflow: hidden;
   cursor: default;
 }
@@ -59,8 +58,6 @@ body {
 }
 
 .app {
-  display: grid;
-  grid-template-columns: 5em 1fr;
   background-color: @backgrounds;
 
   &.os-linux {
@@ -68,12 +65,12 @@ body {
   }
 }
 
-aside {
-  grid-column: 1;
+.sidebar {
+  max-width: 16vw;
 }
 
-main {
-  grid-column: 2;
-  overflow: auto;
+.wrapper {
+  max-width: 84vw;
   max-height: 100%;
+  overflow: auto;
 }

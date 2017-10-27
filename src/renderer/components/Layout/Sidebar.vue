@@ -1,5 +1,5 @@
 <template>
-  <aside id="sidebar draggable">
+  <aside class="sidebar draggable Grid-cell">
     <div class="system-ui draggable">
       <div class="system-ui--buttons draggable">
         <span
