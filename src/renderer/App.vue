@@ -1,7 +1,7 @@
 <template>
   <div :class="appClass">
     <Sidebar class="sidebar"></Sidebar>
-    <VuePerfectScrollbar class="wrapper">
+    <VuePerfectScrollbar class="wrapper Grid-cell">
       <router-view></router-view>
     </VuePerfectScrollbar>
   </div>
@@ -32,6 +32,7 @@
       appClass: function () {
         return [
           'app',
+          'Grid',
           `os-${process.platform}`
         ]
       }

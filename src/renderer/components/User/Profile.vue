@@ -2,10 +2,10 @@
   <div>
     <header
       v-model="user"
-      class="user-profile draggable">
-      <div class="profile draggable" v-if="Object.keys(user).length !== 0">
-        <Avatar :url="user.picture"></Avatar>
-        <div class="main-infos">
+      class="user-profile draggable Grid--flexCells">
+      <div class="profile Grid-cell draggable" v-if="Object.keys(user).length !== 0">
+        <Avatar :url="user.picture" className="Grid-cell--1of3"></Avatar>
+        <div class="main-infos Grid-cell--fit">
           <h1>
             {{ user.username }}
             <button type="text" class="btn btn-icon">
@@ -17,7 +17,7 @@
           </button>
         </div>
       </div>
-      <div class="biography-box draggable">
+      <div class="biography-box Grid-cell draggable">
         <div class="biography">
           <h2>{{ user.fullName }}</h2>
           <span>{{ user.biography }}</span>
@@ -40,10 +40,10 @@
       </ul>
     </header>
     <section
-      class="post-grid posts"
+      class="post-grid posts Grid"
       v-if="typeof posts !== 'undefined'">
       <article
-        class="post"
+        class="post Grid-cell"
         v-for="(post, i) of posts"
         :key="i">
         <div v-if="typeof post !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
