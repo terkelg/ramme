@@ -44,7 +44,7 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
 "Ramme" is the danish word for [frame](http://en.bab.la/dictionary/english-danish/frame).
 
 ## Maintaince
-Ramme is currently being mainted by **[anatolinicolae](https://github.com/anatolinicolae)**, **[bil-elmoussaoui](https://github.com/bil-elmoussaoui)**, **[octacian](https://github.com/octacian)** and **[VoOoLoX](https://github.com/VoOoLoX)**.
+Ramme is currently being maintained by **[anatolinicolae](https://github.com/anatolinicolae)**, **[bil-elmoussaoui](https://github.com/bil-elmoussaoui)**, **[octacian](https://github.com/octacian)** and **[VoOoLoX](https://github.com/VoOoLoX)**.
 
 Thanks to all contributors who helped make Ramme better! You guys rock. 🎉
 
