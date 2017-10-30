@@ -1,18 +1,13 @@
 <template>
-  <form labposition="left" :model="account">
-    <div label="Username">
-      <input v-model="account.username"></input>
-    </div>
-    <div label="Password">
-      <input type="password" v-model="account.password"></input>
-    </div>
-    <div>
-      <button
-        type="primary"
-        @click="login">
-        Login
-      </button>
-    </div>
+  <form labposition="left" :model="account" class="login-form">
+    <input v-model="account.username" placeholder="Username"></input>
+    <input type="password" v-model="account.password" placeholder="Password"></input>
+    <button
+      type="primary"
+      @click="login"
+      class="clickable">
+      Login
+    </button>
   </form>
 </template>
 
