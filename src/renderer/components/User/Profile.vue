@@ -52,7 +52,7 @@
       <div class="load-more">
         <button
           type="button"
-          class="btn btn-default"
+          class="btn btn-default clickable"
           @click="loadMore">
           Load More
         </button>

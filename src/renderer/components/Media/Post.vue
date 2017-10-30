@@ -1,7 +1,7 @@
 <template v-model="post">
-  <article v-if="Object.keys(post).length !== 0" class="post-single draggable">
-    <header>
-      <Avatar :url="post.user.profile_pic_url" :size="30"></Avatar>
+  <article v-if="Object.keys(post).length !== 0" class="post-single">
+    <header class="draggable">
+      <Avatar :url="post.user.profile_pic_url" :size="30" class="clickable" @click="navigate(post.user.username)"></Avatar>
       <div class="user-data">
         <a
           class="user-name clickable"
@@ -27,8 +27,8 @@
       <div class="post-liked-heart"></div>
     </div>
     <div class="post-content">
-      <div class="post-actions clickable">
-        <button type="button" @click="like" class="btn btn-icon">
+      <div class="post-actions">
+        <button type="button" @click="like" class="btn btn-icon clickable">
           <i :class="likeBtn"></i>
         </button>
       </div>
