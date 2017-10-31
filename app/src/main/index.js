@@ -149,7 +149,7 @@ function setupWebContentsEvents (page) {
     page.send('set-button-state', menuBackBtn.enabled)
   })
 
-  // Inject styles when dom is ready
+  // Inject styles when DOM is ready
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark/main.css'), 'utf8'))
