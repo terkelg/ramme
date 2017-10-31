@@ -11,10 +11,10 @@ import autoprefixer from 'gulp-autoprefixer'
 import image from 'gulp-image'
 import sass from 'gulp-sass'
 
-// Directories
+//edit file
 const SRC_DIR = 'app/src'
 const DIST_DIR = 'app/dist'
-
+//edit
 // Source files
 const JS_GLOB = `${SRC_DIR}/**/*.js`
 const CSS_GLOB = `${SRC_DIR}/**/*.scss`
