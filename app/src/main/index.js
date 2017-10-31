@@ -1,3 +1,4 @@
+//terkelg/ramme
 const path = require('path')
 const fs = require('fs')
 const {app, Menu, shell, ipcMain} = require('electron')
