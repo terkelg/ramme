@@ -152,13 +152,13 @@ anymatch@^1.3.0:
     micromatch "^2.1.5"
     normalize-path "^2.0.0"
 
-app-package-builder@1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/app-package-builder/-/app-package-builder-1.3.1.tgz#191eddb4e3f8be754f77469994447bed3891449e"
+app-package-builder@1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/app-package-builder/-/app-package-builder-1.3.3.tgz#252489ebd9e99fded822d01c7d6042d37aa6d844"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util "^3.0.13"
-    builder-util-runtime "^2.3.0"
+    builder-util "^3.2.0"
+    builder-util-runtime "^2.5.0"
     fs-extra-p "^4.4.4"
     int64-buffer "^0.1.9"
     js-yaml "^3.10.0"
@@ -1462,43 +1462,13 @@ builder-util-runtime@2.5.0, builder-util-runtime@^2.5.0:
     fs-extra-p "^4.4.4"
     sax "^1.2.4"
 
-builder-util-runtime@^2.3.0, builder-util-runtime@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-2.4.0.tgz#403b3c17aed596752a56e4a7d696c5eee59142c1"
-  dependencies:
-    bluebird-lst "^1.0.5"
-    debug "^3.1.0"
-    fs-extra-p "^4.4.4"
-    sax "^1.2.4"
-
-builder-util@3.1.1, builder-util@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-3.1.1.tgz#3b8e198bdb239f6c70958b182753689af6e7dfef"
+builder-util@3.2.0, builder-util@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-3.2.0.tgz#08900f046c6b09c22a1f235f18644ae9eb963bc4"
   dependencies:
     "7zip-bin" "^2.2.7"
     bluebird-lst "^1.0.5"
     builder-util-runtime "^2.5.0"
-    chalk "^2.3.0"
-    debug "^3.1.0"
-    fs-extra-p "^4.4.4"
-    ini "^1.3.4"
-    is-ci "^1.0.10"
-    js-yaml "^3.10.0"
-    lazy-val "^1.0.2"
-    node-emoji "^1.8.1"
-    semver "^5.4.1"
-    source-map-support "^0.5.0"
-    stat-mode "^0.2.2"
-    temp-file "^2.0.3"
-    tunnel-agent "^0.6.0"
-
-builder-util@^3.0.13:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-3.1.0.tgz#f89f1f41f8d114ab317f7ed3a7af349360971230"
-  dependencies:
-    "7zip-bin" "^2.2.7"
-    bluebird-lst "^1.0.5"
-    builder-util-runtime "^2.4.0"
     chalk "^2.3.0"
     debug "^3.1.0"
     fs-extra-p "^4.4.4"
@@ -2064,9 +2034,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-env@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.1.0.tgz#1f12d6b3777d5847dcf9cf39fbee3c6a76dd5058"
+cross-env@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.1.1.tgz#b6d8ab97f304c0f71dae7277b75fe424c08dfa74"
   dependencies:
     cross-spawn "^5.1.0"
     is-windows "^1.0.0"
@@ -2217,10 +2187,6 @@ csso@~2.3.1:
     clap "^1.0.9"
     source-map "^0.5.3"
 
-cuint@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/cuint/-/cuint-0.2.2.tgz#408086d409550c2631155619e9fa7bcadc3b991b"
-
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
@@ -2364,12 +2330,12 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
-dmg-builder@2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/dmg-builder/-/dmg-builder-2.1.3.tgz#823b0560314312e59725ec779a4373d051ae1617"
+dmg-builder@2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/dmg-builder/-/dmg-builder-2.1.5.tgz#f1f7d68d75cfb834e793c0681c7f50ced0a3038d"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util "^3.0.13"
+    builder-util "^3.2.0"
     debug "^3.1.0"
     fs-extra-p "^4.4.4"
     iconv-lite "^0.4.19"
@@ -2502,26 +2468,25 @@ ejs@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
 
-electron-builder@^19.42.1:
-  version "19.42.1"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.42.1.tgz#77db9ba516a5aa0eae194b2fa88626b653535095"
+electron-builder@^19.43.0:
+  version "19.43.3"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-19.43.3.tgz#87b1d39a50456a989b273a7effc04498dd9c4b6a"
   dependencies:
     "7zip-bin" "^2.2.7"
-    app-package-builder "1.3.1"
+    app-package-builder "1.3.3"
     asar-integrity "0.2.3"
     async-exit-hook "^2.0.1"
     bluebird-lst "^1.0.5"
-    builder-util "3.1.1"
+    builder-util "3.2.0"
     builder-util-runtime "2.5.0"
     chalk "^2.3.0"
     chromium-pickle-js "^0.2.0"
-    cuint "^0.2.2"
     debug "^3.1.0"
-    dmg-builder "2.1.3"
+    dmg-builder "2.1.5"
     ejs "^2.5.7"
     electron-download-tf "4.3.4"
     electron-osx-sign "0.4.7"
-    electron-publish "19.42.0"
+    electron-publish "19.43.0"
     fs-extra-p "^4.4.4"
     hosted-git-info "^2.5.0"
     is-ci "^1.0.10"
@@ -2614,12 +2579,12 @@ electron-positioner@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/electron-positioner/-/electron-positioner-3.0.0.tgz#1a3b75c9cc1e29dd37c663b23fd876d4ffab9996"
 
-electron-publish@19.42.0:
-  version "19.42.0"
-  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-19.42.0.tgz#d8744d20626d6c7b237547508f332b2999cecda5"
+electron-publish@19.43.0:
+  version "19.43.0"
+  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-19.43.0.tgz#3a5b8f6317a2a83faa008c26594220ffb4006664"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util "^3.1.1"
+    builder-util "^3.2.0"
     builder-util-runtime "^2.5.0"
     chalk "^2.3.0"
     fs-extra-p "^4.4.4"
@@ -2888,9 +2853,9 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.9.0.tgz#76879d274068261b191fe0f2f56c74c2f4208e8b"
+eslint@^4.10.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.10.0.tgz#f25d0d7955c81968c2309aa5c9a229e045176bb7"
   dependencies:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
@@ -7216,9 +7181,9 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-agile@^0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/vue-agile/-/vue-agile-0.2.6.tgz#ddeaf5e8e444749c852eccca82203fd5b5651ff5"
+vue-agile@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/vue-agile/-/vue-agile-0.3.5.tgz#8bb87d7f9ffeebf2578948865db8bb60dab38610"
   dependencies:
     vue "2.*.*"
 
