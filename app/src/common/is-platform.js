@@ -2,11 +2,12 @@ const isPlatform = name => {
   let handle
 
   switch (name) {
-    case 'windows':
-      handle = 'win32'
-      break
+   
     case 'macOS':
       handle = 'darwin'
+      break
+    case 'windows':
+      handle = 'win32'
       break
     default:
       handle = name
