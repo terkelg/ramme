@@ -15,7 +15,7 @@
 ## Download
 The latest version of Ramme for macOS, Linux and Windows is available [here](https://github.com/terkelg/ramme/releases).
 
-**macOS 10.9+, Windows 7+ & Linux are supported.**
+**macOS 10.9+, Windows 7,8,8.1,10 & Linux are supported.**
 
 ## Features
 - Photo upload
