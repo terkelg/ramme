@@ -43,11 +43,9 @@ function registerWindow (name, def) {
   return true
 }
 
-
-
-function intervalFunc() {
+function intervalFunc () {
   if (win) {
-        jscode = "var comp = document.getElementById('back_button');         \
+    jscode = "var comp = document.getElementById('back_button');         \
                   if (comp == null){                                         \
                   var element = document.getElementsByClassName('_tdn3u');   \
                   var para = document.createElement('div');                  \
@@ -79,12 +77,11 @@ function intervalFunc() {
                   document.head.appendChild(para);}                          \
                                                                              \
         "
-        win.webContents.executeJavaScript(jscode)
-
-    }
+    win.webContents.executeJavaScript(jscode)
+  }
 }
 
-setInterval(intervalFunc, 50);
+setInterval(intervalFunc, 50)
 
 // [function] Open Window
 function openWindow (name) {
@@ -106,15 +103,14 @@ function openWindow (name) {
     wanted.def.show = false
 
     win = new BrowserWindow(wanted.def)
-       
 
     if (win) {
-      if (wanted.options.agent) {        
-        win.webContents.setUserAgent(wanted.options.agent)   
+      if (wanted.options.agent) {
+        win.webContents.setUserAgent(wanted.options.agent)
       }
 
       // Load URL
-      if (wanted.options.url) {        
+      if (wanted.options.url) {
         win.loadURL(wanted.options.url)
       }
 
@@ -202,7 +198,7 @@ ipcMain.on('window-close', function (event, name) {
 })
 
 ipcMain.on('window-load', function (event, name, url) {
-  console.log("Hope")
+  console.log('Hope')
   loadURL(name, url)
 })
 
