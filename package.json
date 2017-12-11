@@ -3,7 +3,7 @@
   "author": "Terkel Gjervig",
   "license": "MIT",
   "scripts": {
-    "postinstall": "electron-builder install-app-deps && cd app && yarn",
+    "postinstall": "electron-builder install-app-deps && cd app && yarn && opencollective postinstall",
     "test": "standard",
     "build": "gulp build",
     "dev": "gulp dev & electron app",
@@ -46,5 +46,13 @@
     "ignore": [
       "app/dist"
     ]
+  },
+  "dependencies": {
+    "opencollective": "^1.0.3"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/ramme",
+    "logo": "https://opencollective.com/opencollective/logo.txt"
   }
 }
