@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <main>
     <header
       v-model="user"
-      class="user-profile draggable Grid--flexCells">
-      <div class="profile Grid-cell draggable" v-if="Object.keys(user).length !== 0">
+      class="Grid--flexCells user-profile draggable">
+      <div class="Grid-cell profile draggable" v-if="Object.keys(user).length !== 0">
         <Avatar :url="user.picture" className="Grid-cell--1of3"></Avatar>
-        <div class="main-infos Grid-cell--fit">
+        <div class="Grid-cell--fit main-infos">
           <h1>
             {{ user.username }}
             <button type="text" class="btn btn-icon">
@@ -17,33 +17,33 @@
           </button>
         </div>
       </div>
-      <div class="biography-box Grid-cell draggable">
+      <div class="Grid-cell biography-box draggable">
         <div class="biography">
           <h2>{{ user.fullName }}</h2>
           <span>{{ user.biography }}</span>
           <a :href="user.externalLynxUrl" class="clickable">{{ removeProto(user.externalUrl) }}</a>
         </div>
       </div>
-      <ul class="counter-box draggable">
-        <li class="counter-item">
+      <ul class="Grid-cell counter-box draggable">
+        <li class="Grid-cell--1of3 counter-item">
           <span class="counter-number">{{ user.mediaCount }}</span>
           <span class="counter-desc">post</span>
         </li>
-        <li class="counter-item">
+        <li class="Grid-cell--1of3 counter-item">
           <span class="counter-number">{{ user.followingCount }}</span>
           <span class="counter-desc">follower</span>
         </li>
-        <li class="counter-item">
+        <li class="Grid-cell--1of3 counter-item">
           <span class="counter-number">{{ user.followingCount }}</span>
           <span class="counter-desc">following</span>
         </li>
       </ul>
     </header>
     <section
-      class="post-grid posts Grid"
+      class="Grid post-grid posts"
       v-if="typeof posts !== 'undefined'">
       <article
-        class="post Grid-cell"
+        class="Grid-cell--1of3 post"
         v-for="(post, i) of posts"
         :key="i">
         <div v-if="typeof post !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
@@ -52,13 +52,13 @@
       <div class="load-more">
         <button
           type="button"
-          class="btn btn-default clickable"
+          class="btn btn-default"
           @click="loadMore">
           Load More
         </button>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>

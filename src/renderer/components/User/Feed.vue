@@ -1,31 +1,33 @@
 <template>
-  <section
-    class="post-grid posts"
-    v-if="typeof posts !== 'undefined'">
-    <article
-      class="post"
-      v-for="(post, i) of posts"
-      :key="i">
-      <div v-if="typeof post.images[0].url !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
-      </div>
-      <!--pre v-if="typeof post.images[0].url === 'undefined'">
-        {{ post.images[0] }}
-      </pre-->
-      <agile v-if="typeof post.images[0].url === 'undefined'" :dots="false" :infinite="false">
-        <div class="slide" v-for="image of post.images">
-          <img :src="image[0].url" @click="log(post)"/>
+  <main>
+    <section
+      class="Grid posts"
+      v-if="typeof posts !== 'undefined'">
+      <article
+        class="Grid-cell--1of3 post"
+        v-for="(post, i) of posts"
+        :key="i">
+        <div v-if="typeof post.images[0].url !== 'undefined'" class="post-content" :style="{ 'background-image': `url('${post.images[0].url}')` }" @click="log(post)">
         </div>
-      </agile>
-    </article>
-    <div class="load-more">
-      <button
-        type="button"
-        class="btn btn-default clickable"
-        @click="loadMore">
-        Load More
-      </button>
-    </div>
-  </section>
+        <!--pre v-if="typeof post.images[0].url === 'undefined'">
+          {{ post.images[0] }}
+        </pre-->
+        <agile v-if="typeof post.images[0].url === 'undefined'" :dots="false" :infinite="false">
+          <div class="slide" v-for="image of post.images">
+            <img :src="image[0].url" @click="log(post)"/>
+          </div>
+        </agile>
+      </article>
+      <div class="load-more">
+        <button
+          type="button"
+          class="btn btn-default"
+          @click="loadMore">
+          Load More
+        </button>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
