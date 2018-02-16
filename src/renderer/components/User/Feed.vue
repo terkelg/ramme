@@ -12,11 +12,16 @@
         <!--pre v-if="typeof post.images[0].url === 'undefined'">
           {{ post.images[0] }}
         </pre-->
-        <agile v-if="typeof post.images[0].url === 'undefined'" :dots="false" :infinite="false">
+        <!--agile v-if="typeof post.images[0].url === 'undefined'" :dots="false" :infinite="false">
           <div class="slide" v-for="image of post.images">
             <img :src="image[0].url" @click="log(post)"/>
           </div>
-        </agile>
+        </agile-->
+        <el-carousel v-if="typeof post.images[0].url === 'undefined'" indicator-position="none" @autoplay="false">
+          <el-carousel-item v-for="image of post.images" :key="image">
+            <img :src="image[0].url" @click="log(post)" style="max-width: 100%; max-height: 100%;" />
+          </el-carousel-item>
+        </el-carousel>
       </article>
       <div class="load-more">
         <button
@@ -44,14 +49,13 @@
 
     created () {
       this.$electron.ipcRenderer.on('getUserFeed:res', (event, media) => {
-        if (media) {
+        if (media.posts) {
           if (this.posts) {
-            this.$store.commit('ADD_FEED', media)
+            this.$store.commit('ADD_FEED', media.posts)
           } else {
-            this.$store.commit('SET_FEED', media)
+            this.$store.commit('SET_FEED', media.posts)
           }
-          console.log(media)
-          this.cursor = this.posts[this.posts.length - 1].id
+          this.cursor = media.cursor
         }
       })
     },

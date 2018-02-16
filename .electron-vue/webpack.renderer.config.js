@@ -42,12 +42,32 @@ let rendererConfig = {
         }
       },
       {
-        test: /\.(less|css)$/,
+        test: /\.(scss|css)$/,
         use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader',
-          { loader: 'less-loader', options: { noIeCompat: true } }
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true
+            }
+          }, {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1
+            }
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          }, {
+            loader: 'resolve-url-loader'
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
           /*, ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: 'css-loader'

@@ -20,7 +20,7 @@
     transition: all 250ms;
 
     &.close {
-      background-color: @red;
+      background-color: $red;
 
       &::before,
       &::after {
@@ -47,7 +47,7 @@
     }
 
     &.minimize {
-      background-color: @yellow;
+      background-color: $yellow;
 
       &::after {
         content: '';

@@ -15,6 +15,7 @@
           <button class="btn btn-default clickable">
             Edit profile
           </button>
+          <el-button type="primary">Edit profile</el-button>
         </div>
       </div>
       <div class="Grid-cell biography-box draggable">

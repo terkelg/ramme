@@ -8,7 +8,7 @@ nav {
 
     &:hover {
       transition: all 250ms;
-      background-color: @white;
+      background-color: $white;
     }
 
     &::after {
@@ -19,7 +19,7 @@ nav {
       margin-left: -0.125em;
       width: .3125em;
       height: .3125em;
-      background-color: @green;
+      background-color: $green;
       border-radius: .3125em;
       transition: all 250ms;
       transform: scale(0);

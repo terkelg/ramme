@@ -11,7 +11,7 @@
 
 a {
   text-decoration: none;
-  color: @main;
+  color: $main;
 }
 
 ol,
@@ -59,11 +59,11 @@ body {
 }
 
 .app {
-  background-color: @backgrounds;
+  background-color: $backgrounds;
+}
 
-  &.os-linux {
-    border: 2px solid @accent;
-  }
+.app.os-linux {
+  border: 2px solid $accent;
 }
 
 .sidebar {

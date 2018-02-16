@@ -1,4 +1,4 @@
-@import './icons';
+@import 'colors';
 
 [class^="icon-"],
 [class*=" icon-"] {
@@ -6,7 +6,7 @@
   height: 1em;
   background-repeat: no-repeat;
   background-position: center center;
-  background-color: @nav-icon;
+  background-color: $nav-icon;
   display: inline-block;
 }
 

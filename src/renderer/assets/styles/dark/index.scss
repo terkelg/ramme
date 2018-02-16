@@ -1,17 +1,17 @@
 /* Dark theme */
 .theme-dark {
-  background-color: @slate;
-  color: @white;
+  background-color: $slate;
+  color: $white;
 
   & [class^="icon-"],
   & [class*=" icon-"],
   & nav li:hover,
   & nav li:after {
-    background-color: @mustard-yellow;
+    background-color: $mustard-yellow;
   }
 
   & nav li:hover [class^="icon-"],
   & nav li:hover:after {
-    background-color: @slate;
+    background-color: $slate;
   }
 }

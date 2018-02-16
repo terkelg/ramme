@@ -51,13 +51,18 @@ const getFeed = async (cursor = null) => {
 
       let q = await feed.get()
 
-      return q.map(el => {
+      let posts = q.map(el => {
         return {
           images: el._params.images,
           id: el.id,
           url: el._params.webLink
         }
       })
+
+      return {
+        cursor: feed.getCursor(),
+        posts: posts
+      }
     } catch (e) {
       return false
     }

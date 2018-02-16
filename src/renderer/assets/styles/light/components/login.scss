@@ -11,7 +11,7 @@
         margin: 8pt;
         padding: 2pt;
         border: none;
-        border-bottom: 1pt @slate solid; 
+        border-bottom: 1pt $slate solid;
         text-align: center;
         &:focus::-webkit-input-placeholder {
             color: transparent;
@@ -22,10 +22,10 @@
         padding: 5pt;
         background: transparent;
         border: none;
-        border-bottom: 1pt @slate solid; 
+        border-bottom: 1pt $slate solid;
         &:hover {
-            border-bottom: 1pt @green solid; 
-            color: @green;
+            border-bottom: 1pt $green solid;
+            color: $green;
         }
     }
 }
