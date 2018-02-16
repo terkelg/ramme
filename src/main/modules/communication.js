@@ -7,6 +7,11 @@ export default function () {
     event.sender.send('doLogin:res', user)
   })
 
+  ipcMain.on('do2FALogin', async (event, arg) => {
+    let user = await api.user.do2FALogin(arg.account.session, arg.account.code)
+    event.sender.send('doLogin:res', user)
+  })
+
   ipcMain.on('getUser', async (event, arg) => {
     let user = await api.user.get()
     event.sender.send('getUser:res', user)

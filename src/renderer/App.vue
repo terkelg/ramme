@@ -1,9 +1,7 @@
 <template>
   <div :class="appClass">
     <Sidebar class="sidebar"></Sidebar>
-    <VuePerfectScrollbar class="wrapper Grid-cell">
-      <router-view></router-view>
-    </VuePerfectScrollbar>
+    <router-view class="wrapper Grid-cell"></router-view>
   </div>
 </template>
 

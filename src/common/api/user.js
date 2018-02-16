@@ -25,11 +25,22 @@ const createSession = async (user, password) => {
   let device = new api.Device(user.username)
   let storage = new api.CookieFileStorage(path)
   if (storage) {
-    return api.Session.create(device, storage, user.username, password)
+    try {
+      let conn = await api.Session.create(device, storage, user.username, password)
+      return conn
+    } catch (e) {
+      return e
+    }
   } else {
-    let file = await createSessionFile(user)
-    if (file) console.log('Session File Created')
-    return false
+    try {
+      let file = await createSessionFile(user)
+      if (!file) {
+        console.log('error')
+      }
+      return false
+    } catch (e) {
+      console.log('here', e)
+    }
   }
 }
 
@@ -67,6 +78,11 @@ const doLogin = async (username, password) => {
 
   let session = await createSession(user, password)
   return session
+}
+
+// Do 2FA login
+const do2FALogin = async (session, code) => {
+  return api.Web.Challenge.code(code)
 }
 
 // Get user data
@@ -156,6 +172,7 @@ const getActivity = async (cursor = null) => {
 export default {
   isLoggedIn,
   doLogin,
+  do2FALogin,
   get,
   getMedia,
   getFollowers,
