@@ -3,7 +3,7 @@
   <h3 align="center">Ramme</h3>
   <p align="center">Unofficial Instagram Desktop App</p>
   <p align="center">
-    <a href="https://github.com/terkelg/ramme/releases"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg" alt="Platforms"></a>
+    <a href="https://github.com/terkelg/ramme/releases"><a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/ramme/backers/badge.svg" /></a> <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/ramme/sponsors/badge.svg" /></a> <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg" alt="Platforms"></a>
   </p>
   <p align="center">
     <a href="https://github.com/terkelg/ramme"><img src="https://img.shields.io/github/release/terkelg/ramme.svg" alt="GitHub version"></a>
@@ -47,6 +47,36 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
 Ramme is currently being maintained by **[anatolinicolae](https://github.com/anatolinicolae)**, **[bil-elmoussaoui](https://github.com/bil-elmoussaoui)**, **[octacian](https://github.com/octacian)** and **[VoOoLoX](https://github.com/VoOoLoX)**.
 
 Thanks to all contributors who helped make Ramme better! You guys rock. 🎉
+
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
+<a href="graphs/contributors"><img src="https://opencollective.com/ramme/contributors.svg?width=890" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/ramme#backer)]
+
+<a href="https://opencollective.com/ramme#backers" target="_blank"><img src="https://opencollective.com/ramme/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/ramme#sponsor)]
+
+<a href="https://opencollective.com/ramme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/2/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/3/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/4/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/5/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/6/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/7/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/ramme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/9/avatar.svg"></a>
+
+
 
 ## License
 MIT © [Terkel Gjervig](https://terkel.com)
