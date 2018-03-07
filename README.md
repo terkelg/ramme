@@ -12,6 +12,8 @@
   </p>
 </p>
 
+> ## OBS: Ramme is no longer being maintained.
+
 ## Download
 The latest version of Ramme for macOS, Linux and Windows is available [here](https://github.com/terkelg/ramme/releases).
 
