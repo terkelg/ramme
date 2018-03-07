@@ -77,14 +77,8 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/ramme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/9/avatar.svg"></a>
 
 
-
 ## License
 MIT © [Terkel Gjervig](https://terkel.com)
-
-## End User License Agreement (EULA)
-- You will not use this repository for sending mass spam or any other malicious activity.
-- We / You will not support anyone who is violating this EULA conditions.
-- Repository is just for learning / personal purposes thus should not be part of any service available on the Internet that is trying to do any malicious activity (mass bulk request, spam etc).
 
 ## Legal
 This code is in no way affiliated with, authorised, maintained, sponsored or endorsed by Instagram or any of its affiliates or subsidiaries. This is an independent and unofficial Instagram app. Use it at your own risk.
