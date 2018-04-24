@@ -12,8 +12,9 @@
   </p>
 </p>
 
-> ## OBS: Ramme is no longer being maintained.
-v4 is in development, but due to Instagram bot and spam coping measures we're not able to correctly use the API. If you know any tricks feel free to contribute to [vuetify branch](https://github.com/terkelg/ramme/tree/vuetify).
+> ## ~~OBS: Ramme is no longer being maintained.~~
+~~v4 is in development, but due to Instagram bot and spam coping measures we're not able to correctly use the API. If you know any tricks feel free to contribute to [vuetify branch](https://github.com/terkelg/ramme/tree/vuetify).~~
+### There's still hope, bear with us.
 
 ## Download
 The latest version of Ramme for macOS, Linux and Windows is available [here](https://github.com/terkelg/ramme/releases).
