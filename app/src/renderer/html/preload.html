@@ -7,18 +7,21 @@
     <img id='icon' src='../../assets/icon.png'>
     <div id='progress'></div>
     <p id='text'>Loading...</p>
+    
+    <script>
+      window.onload=function(){
+        const config = require('../../main/config')
+        // Dark mode
+        document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
+
+        // Loading '.' iterator
+        var i = 0;
+        setInterval(function () {
+          i = ++i % 4;
+          document.getElementById('text').innerHTML = 'Loading' + Array(i + 1).join('.')
+        }, 500)
+      }
+    </script>
+    
   </body>
 </html>
-
-<script>
-const config = require('../../main/config')
-// Dark mode
-document.documentElement.classList.toggle('dark-mode', config.get('darkMode'))
-
-// Loading '.' iterator
-var i = 0;
-setInterval(function () {
-  i = ++i % 4;
-  document.getElementById('text').innerHTML = 'Loading' + Array(i + 1).join('.')
-}, 500)
-</script>
