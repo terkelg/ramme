@@ -19,7 +19,7 @@ exports.init = window => {
 
   autoUpdater.setFeedURL(FEED_URL)
 
-   // at this point the app is fully started and ready for updating
+  // at this point the app is fully started and ready for updating
   setTimeout(() => {
     autoUpdater.checkForUpdates()
   }, ms('5s'))
