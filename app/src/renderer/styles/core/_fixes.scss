@@ -1,5 +1,4 @@
 /* Scrollbar */
-
 html::-webkit-scrollbar {
   width: 8px;
 }
@@ -21,7 +20,6 @@ html::-webkit-scrollbar-thumb:active {
 }
 
 /* Remove focus glow */
-
 * {
   outline: none;
 }
@@ -35,44 +33,17 @@ html {
   }
 }
 
-
-/* Hide 'Open in app' popup and button */
-
-._28zbs,
-._nqfwp,
-._nl1vc,
-._28zbs {
-  display: none;
-}
-
-
-/* Hide footer */
-
-section > footer,
-.root > footer {
-  display: none;
-}
-
-
 /* Hide facebook cookie notice */
-
 #header-notices {
   display: none;
 }
 
-/* Force the height of Followers and bgcolor*/
-#react-root ._q44m8 {
-  background-color: $light;
-  height: 45px; /*The same as the back btn*/
-  border-color: $light;
-}
-
-._h2d1o {
-  margin-bottom: 0;
-}
-
 /* Hide "Add Location" Button in "Add Photo" (unusable) */
-
-#react-root ._9r8i9 {
-  display: none;
+#react-root {
+  div > div > a,
+  section > nav > div > div > header > div > h1,
+  section > footer,
+  .root > footer {
+    display: none;
+  }
 }

@@ -20,18 +20,17 @@ Outdated
 /* Add sidebar */
 #react-root > section > nav {
   background-color: $light;
-  width: 80px;
   height: 100%;
   display: block;
 }
 
 /* Fix main container width */
 #react-root > section > main {
-  max-width: calc(100vw - 80px);
+  /*max-width: calc(100vw - 80px);
   position: relative;
   left: 40px;
   top: 22px;
-  margin-bottom: 88px;
+  margin-bottom: 88px;*/
 }
 
 
