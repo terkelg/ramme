@@ -13,15 +13,19 @@
 </p>
 
 > ## ~~OBS: Ramme is no longer being maintained.~~
-~~v4 is in development, but due to Instagram bot and spam coping measures we're not able to correctly use the API. If you know any tricks feel free to contribute to [vuetify branch](https://github.com/terkelg/ramme/tree/vuetify).~~
+>
+> ~~v4 is in development, but due to Instagram bot and spam coping measures we're not able to correctly use the API. If you know any tricks feel free to contribute to [vuetify branch](https://github.com/terkelg/ramme/tree/vuetify).~~
+
 ### There's still hope, bear with us.
 
 ## Download
+
 The latest version of Ramme for macOS, Linux and Windows is available [here](https://github.com/terkelg/ramme/releases).
 
 **macOS 10.9+, Windows 7+ & Linux are supported.**
 
 ## Features
+
 - Photo upload
 - Dark Theme
 - Auto Update
@@ -29,11 +33,13 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
 - Background behavior
 
 ## Screenshots
+
 <p align="center">
   <img src="https://github.com/terkelg/ramme/blob/master/media/strip.png?raw=true" />
 </p>
 
 ## Keyboard shortcuts
+
 - Go Back: <kbd>⌫</kbd>
 - Refresh: <kbd>⌘</kbd> <kbd>R</kbd> or <kbd>Ctrl</kbd> <kbd>R</kbd>
 - Home: <kbd>⌘</kbd> <kbd>1</kbd> or <kbd>Ctrl</kbd> <kbd>1</kbd>
@@ -45,9 +51,11 @@ The latest version of Ramme for macOS, Linux and Windows is available [here](htt
 - Toggle Dark mode: <kbd>⌘</kbd> <kbd>D</kbd> or <kbd>Ctrl</kbd> <kbd>D</kbd>
 
 ## Ramme?
+
 "Ramme" is the danish word for [frame](http://en.bab.la/dictionary/english-danish/frame).
 
-## Maintaince
+## Maintenance
+
 Ramme is currently being maintained by **[anatolinicolae](https://github.com/anatolinicolae)**, **[bil-elmoussaoui](https://github.com/bil-elmoussaoui)**, **[octacian](https://github.com/octacian)** and **[VoOoLoX](https://github.com/VoOoLoX)**.
 
 Thanks to all contributors who helped make Ramme better! You guys rock. 🎉
@@ -57,13 +65,11 @@ Thanks to all contributors who helped make Ramme better! You guys rock. 🎉
 This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
 <a href="graphs/contributors"><img src="https://opencollective.com/ramme/contributors.svg?width=890" /></a>
 
-
 ## Backers
 
 Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/ramme#backer)]
 
 <a href="https://opencollective.com/ramme#backers" target="_blank"><img src="https://opencollective.com/ramme/backers.svg?width=890"></a>
-
 
 ## Sponsors
 
@@ -80,9 +86,10 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/ramme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/ramme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ramme/sponsor/9/avatar.svg"></a>
 
-
 ## License
+
 MIT © [Terkel Gjervig](https://terkel.com)
 
 ## Legal
+
 This code is in no way affiliated with, authorised, maintained, sponsored or endorsed by Instagram or any of its affiliates or subsidiaries. This is an independent and unofficial Instagram app. Use it at your own risk.
