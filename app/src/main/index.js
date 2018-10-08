@@ -10,8 +10,8 @@ const isPlatform = require('./../common/is-platform')
 const window = require('./window.js')
 
 const renderer = {
-  styles: '../../dist/renderer/styles',
-  js: '../../dist/renderer/js'
+  styles: '../renderer/styles',
+  js: '../renderer/js'
 }
 
 /**
