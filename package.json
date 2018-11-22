@@ -36,7 +36,7 @@
     "electron": "^2.0.3",
     "electron-builder": "^20.18.0",
     "eslint-import-resolver-node": "^0.3.2",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "github:gulpjs/gulp#v4.0.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-image": "^4.3.0",
