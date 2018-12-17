@@ -153,7 +153,7 @@ function setupWebContentsEvents (page) {
 
   // Inject styles when DOM is ready
   page.on('dom-ready', () => {
-    page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
+    //page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
     page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark/main.css'), 'utf8'))
 
     window.close('preload') // Close preload window
