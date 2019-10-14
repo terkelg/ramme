@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 const {app, Menu, shell, ipcMain} = require('electron')
 const tray = require('./tray')
 const appMenu = require('./menus')
@@ -153,8 +152,9 @@ function setupWebContentsEvents (page) {
 
   // Inject styles when DOM is ready
   page.on('dom-ready', () => {
-    page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
-    page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark/main.css'), 'utf8'))
+    // @TODO Fix: "app.css" and "theme-dark/main.css" not found when launching or refreshing
+    // page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'app.css'), 'utf8'))
+    // page.insertCSS(fs.readFileSync(path.join(__dirname, renderer.styles, 'theme-dark/main.css'), 'utf8'))
 
     window.close('preload') // Close preload window
     window.get('main').show() // Show main window
