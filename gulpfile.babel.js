@@ -70,9 +70,15 @@ export function watch () {
   watchSrc(ASSETS_GLOB, assets)
 }
 
+export function build () {
+  return series(clean, mainTasks)
+}
+
+export function dev () {
+  return series(clean, mainTasks, watch)
+}
+
 const mainTasks = parallel(scripts, html, styles, assets)
-export const build = series(clean, mainTasks)
-export const dev = series(clean, mainTasks, watch)
 
 // Set default task
 export default build
