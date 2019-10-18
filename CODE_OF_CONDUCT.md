@@ -20,7 +20,8 @@ Trolling, insulting/derogatory comments, and personal or political attacks.
 Public or private harassment.
 Publishing others' private information, such as a physical or electronic address, without explicit permission.
 Other conduct which could reasonably be considered inappropriate in a professional setting.
-Our Responsibilities.
+
+## Our Responsibilities.
 
 Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 
